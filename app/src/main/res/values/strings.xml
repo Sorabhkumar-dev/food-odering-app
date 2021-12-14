@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Grab Food</string>
+
+    <!-- ______________________Welcome Activity_____________________ -->
+    <string name="welcome">Welcome To</string>
+
+    <!-- ______________________Login Activity_____________________ -->
+    <string name="btn_login">Login</string>
+    <string name="btn_login_forgot_password">Forgot Password?</string>
+    <string name="btn_login_signup">Don\'t have an account? Sign Up</string>
+
+    <!-- ______________________SignUp Activity_____________________ -->
+    <string name="btn_signup">Sign Up!</string>
+    <string name="btn_signup_backTo">Back To Login</string>
+
+    <!-- ______________________Forget password Activity_____________________ -->
+    <string name="btn_forgot_password_next">Next</string>
+    <string name="txt_forgot_password_heading">Enter Your Registered Mobile Number and Password Below </string>
+
+    <!-- _____________________OTP Activity_____________________ -->
+    <string name="txt_otp_activity_heading">Enter Received OTP Below</string>
+    <string name="btn_otp_activity_submit">Reset Password</string>
+
+    <!-- _____________________ Drawer Menu _____________________ -->
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">My Profile</string>
+    <string name="menu_favorite">Favorite Restaurants</string>
+    <string name="menu_history">Oder History</string>
+    <string name="menu_qna">FAQs</string>
+    <string name="menu_logout">Log Out</string>
+
+    <!-- _____________________ Drawer action _____________________ -->
+    <string name="action_close">close</string>
+    <string name="action_open">open</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- _____________________ restaurant menu adapter _____________________ -->
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="restaurant_menu_btn_text">Proceed to Cart</string>
+    <string name="menu_cart">My Cart</string>
+    <string name="cart_place_oder">Place Oder</string>
+
+</resources>

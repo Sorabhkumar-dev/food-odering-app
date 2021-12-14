@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataX"
+            type="com.sorabh.grabfood.api_response_classes.oder_history_response.DataX" />
+
+        <import type="androidx.databinding.DataBindingUtil" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="10dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="@dimen/cardview_default_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/order_history_restaurant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@{dataX.restaurant_name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/order_history_oder_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:text="@{dataX.order_placed_at}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/order_history_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/order_history_restaurant_name"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/order_history_oder_price"
+                price="@{dataX.total_cost}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/order_history_recyclerView"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:textStyle="normal"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

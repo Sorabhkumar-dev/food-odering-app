@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.LoginActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:src="@drawable/grabfood" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_login_phone_number"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_login_logo"
+            android:layout_marginHorizontal="20dp"
+            android:textColorHint="?colorPrimary"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:endIconMode="clear_text"
+            app:prefixText="+91"
+            app:prefixTextColor="?colorPrimary"
+            app:startIconDrawable="@drawable/ic_phone_number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_login_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_login_phone_number"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="25dp"
+            android:textColorHint="?colorPrimary"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColorHint="?colorPrimaryVariant" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_login_password"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="25dp"
+            android:background="?colorPrimaryVariant"
+            android:padding="20dp"
+            android:text="@string/btn_login"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login_forgot_password"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_login"
+            android:layout_centerHorizontal="true"
+            android:text="@string/btn_login_forgot_password"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login_signup"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/btn_login_signup"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+    </RelativeLayout>
+</layout>

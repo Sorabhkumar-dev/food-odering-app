@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX" />
+
+        <variable
+            name="onRestaurantClicked"
+            type="com.sorabh.grabfood.adapter.RestaurantViewHolder.OnRestaurantsClicked" />
+
+        <variable
+            name="view"
+            type="com.sorabh.grabfood.databinding.RestaurantsHomeCardviewBindingImpl" />
+        <variable
+            name="onFavoriteButtonClicked"
+            type="com.sorabh.grabfood.adapter.RestaurantViewHolder.OnFavoriteButtonClicked" />
+
+        <import type="androidx.databinding.DataBindingUtil" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_margin="4dp"
+        android:onClick="@{() -> onRestaurantClicked.onRestaurantsClicked(data)}"
+        app:cardCornerRadius="@dimen/cardview_default_radius"
+        app:cardElevation="@dimen/cardview_default_elevation">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="152dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/cardView_img_restaurant"
+                imgSrcUrl="@{data.image_url}"
+                android:layout_width="110dp"
+                android:layout_height="110dp" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cardView_txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/cardView_img_restaurant"
+                android:switchTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:text="@{data.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cardView_txt_price"
+                txt="@{data.cost_for_one}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardView_txt_name"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@id/cardView_img_restaurant"
+                android:switchTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/cardView_img_btn_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/design_default_color_surface"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:onClick="@{() -> onFavoriteButtonClicked.onFavoriteButtonClicked(data)}"
+                android:src="@drawable/ic_favorite_adapter2" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cardView_txt_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="40dp"
+                android:drawableStart="@drawable/ic_rating"
+                android:text="@{data.rating}" />
+
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.sorabh.grabfood.util.QNAData" />
+
+        <import type="androidx.databinding.DataBindingUtil" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="@dimen/cardview_default_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/qna_serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/qna_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/qna_serial_number"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/qna_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/qna_question"
+                android:layout_marginVertical="5dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
