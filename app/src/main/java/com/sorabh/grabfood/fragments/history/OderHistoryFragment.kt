@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,12 +17,13 @@ import com.sorabh.grabfood.R
 import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.OrderHistoryAdapter
 import com.sorabh.grabfood.api_response_classes.oder_history_response.Data
+import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentOderHistoryBinding
 import com.sorabh.grabfood.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 
-class OderHistoryFragment : Fragment() {
+class OderHistoryFragment(private val mainBinding: ActivityMainBinding) : Fragment() {
     private lateinit var oderHistoryBinding: FragmentOderHistoryBinding
 
     private val job = SupervisorJob()
@@ -39,6 +41,9 @@ class OderHistoryFragment : Fragment() {
 
         //Changing toolbar title
         (activity as MainActivity).supportActionBar?.title = "Oder History"
+
+        //hide the appBarLayout searchView
+        mainBinding.searchView.isVisible = false
 
         val linearLayoutManager = LinearLayoutManager(activity as Context)
         val historyAdapter = OrderHistoryAdapter(activity as Context)

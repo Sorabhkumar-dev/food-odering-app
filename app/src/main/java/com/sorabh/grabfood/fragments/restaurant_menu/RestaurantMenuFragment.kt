@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,13 +14,16 @@ import com.sorabh.grabfood.R
 import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
+import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
 import com.sorabh.grabfood.fragments.cart.CartFragment
-import com.sorabh.grabfood.repository.LocalDBRepository
 import com.sorabh.grabfood.repository.NetworkRepository
 import kotlinx.coroutines.*
 
-class RestaurantMenuFragment(private val dataX: com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX) :
+class RestaurantMenuFragment(
+    private val mainBinding: ActivityMainBinding,
+    private val dataX: com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
+) :
     Fragment() {
     private lateinit var fragmentRestaurantMenuBinding: FragmentRestaurantMenuBinding
 
@@ -39,6 +43,8 @@ class RestaurantMenuFragment(private val dataX: com.sorabh.grabfood.api_response
         //Changing toolbar title
         (activity as MainActivity).supportActionBar?.title = dataX.name
 
+        //hide the appBarLayout searchView
+        mainBinding.searchView.isVisible = false
 
         val layout = LinearLayoutManager(activity as Context)
         val restaurantMenuAdapter = RestaurantMenuAdapter(activity as Context)
@@ -62,7 +68,7 @@ class RestaurantMenuFragment(private val dataX: com.sorabh.grabfood.api_response
                     R.anim.exit_to_right
                 )
                 .addToBackStack("CartFragment")
-                .replace(R.id.frameLayout, CartFragment())
+                .replace(R.id.frameLayout, CartFragment(mainBinding))
                 .commit()
         }
         return fragmentRestaurantMenuBinding.root

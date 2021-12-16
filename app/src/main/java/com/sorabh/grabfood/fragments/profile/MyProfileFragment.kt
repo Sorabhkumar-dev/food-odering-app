@@ -5,15 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.activities.MainActivity
+import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentMyProfileBinding
 import kotlinx.coroutines.*
 
 
-class MyProfileFragment : Fragment() {
+class MyProfileFragment(private val mainBinding: ActivityMainBinding) : Fragment() {
     private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding
     private val job = SupervisorJob()
     override fun onCreateView(
@@ -25,6 +27,9 @@ class MyProfileFragment : Fragment() {
 
         //Changing toolbar title
         (activity as MainActivity).supportActionBar!!.title = "My Profile"
+
+        //hide the appBarLayout searchView
+        mainBinding.searchView.isVisible = false
 
         CoroutineScope(job+Dispatchers.IO).launch {
             val sharedPreferences = (activity as MainActivity).getSharedPreferences("login",AppCompatActivity.MODE_PRIVATE)

@@ -2,11 +2,14 @@ package com.sorabh.grabfood.fragments.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +18,7 @@ import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
+import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentHomeBinding
 import com.sorabh.grabfood.fragments.restaurant_menu.RestaurantMenuFragment
 import com.sorabh.grabfood.repository.LocalDBRepository
@@ -22,7 +26,8 @@ import com.sorabh.grabfood.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 
-class HomeFragment : Fragment(), RestaurantViewHolder.OnRestaurantsClicked,
+class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
+    RestaurantViewHolder.OnRestaurantsClicked,
     RestaurantViewHolder.OnFavoriteButtonClicked {
     private lateinit var homeBinding: FragmentHomeBinding
     private val job = SupervisorJob()
@@ -38,7 +43,7 @@ class HomeFragment : Fragment(), RestaurantViewHolder.OnRestaurantsClicked,
         homeBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
         (activity as MainActivity).supportActionBar?.title = "Restaurant List"
-
+        mainBinding.searchView.isVisible = true
         restaurantHomeAdapter = RestaurantHomeAdapter(this, this, activity as Context)
 
         networkRepository = NetworkRepository()
@@ -64,17 +69,53 @@ class HomeFragment : Fragment(), RestaurantViewHolder.OnRestaurantsClicked,
                 ).show()
             }
         }
+        onSearch(mainBinding.searchView)
         return homeBinding.root
+    }
+
+    private fun onSearch(searchView: SearchView) = CoroutineScope(Dispatchers.IO).launch {
+        searchView.queryHint = "Search Restaurants Here"
+        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                Log.d("excc",newText!!)
+                CoroutineScope(job + Dispatchers.IO).launch{
+                    var list :List<DataX>? =null
+                    try {
+                         list = getRestaurantsList()
+                    }catch (e:java.lang.Exception){
+
+                    }
+                    val restaurantList = ArrayList<DataX>()
+                    if (list != null) {
+                        for (i in list){
+                            if (i.name.lowercase().startsWith(newText)){
+                                restaurantList.add(i)
+                            }
+                        }
+                        withContext(Dispatchers.Main) {
+                            restaurantHomeAdapter.updateList(restaurantList)
+                            homeBinding.progressbar.visibility = ProgressBar.GONE
+
+                        }
+                    }
+                }
+                return true
+            }
+
+        })
     }
 
     private suspend fun getRestaurantsList(): List<DataX>? = coroutineScope {
         val list = CoroutineScope(job + Dispatchers.IO).async {
-            val repository = NetworkRepository()
             //header to send
             val header = HashMap<String, String>()
             header["Content-type"] = "application/json"
             header["token"] = "025c40375fadfd"
-            return@async repository.getRestaurantsList(header)
+            return@async networkRepository.getRestaurantsList(header)
         }
         return@coroutineScope list.await()
     }
@@ -88,7 +129,7 @@ class HomeFragment : Fragment(), RestaurantViewHolder.OnRestaurantsClicked,
                 R.anim.exit_to_right
             )
             .addToBackStack("RestaurantMenuFragment")
-            .replace(R.id.frameLayout, RestaurantMenuFragment(dataX))
+            .replace(R.id.frameLayout, RestaurantMenuFragment(mainBinding, dataX))
             .commit()
     }
 

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hp/Android Project/GrabFood/app/src/main/res/drawable/searchbar_background.xml" value="0.1648148148148148" />
+        <entry key="..\:/Users/hp/Android Project/GrabFood/app/src/main/res/layout/activity_main.xml" value="0.1921875" />
+        <entry key="..\:/Users/hp/Android Project/GrabFood/app/src/main/res/layout/fragment_home.xml" value="0.1921875" />
         <entry key="..\:/Users/hp/Intershala Training Program/GrabFood/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1675925925925926" />
         <entry key="..\:/Users/hp/Intershala Training Program/GrabFood/app/src/main/res/drawable/bottom_sheet_background.xml" value="0.15185185185185185" />
         <entry key="..\:/Users/hp/Intershala Training Program/GrabFood/app/src/main/res/drawable/header_background_shape.xml" value="0.15185185185185185" />

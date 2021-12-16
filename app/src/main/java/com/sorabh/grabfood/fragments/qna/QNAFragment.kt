@@ -6,19 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.QNAAdapter
+import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentQNABinding
 import com.sorabh.grabfood.repository.LocalDBRepository
 import com.sorabh.grabfood.util.QNAData
 import kotlinx.coroutines.*
 
 
-class QNAFragment : Fragment() {
+class QNAFragment(private val mainBinding: ActivityMainBinding) : Fragment() {
     private val job = SupervisorJob()
     private lateinit var localRepository: LocalDBRepository
     private lateinit var fragmentQNABinding: FragmentQNABinding
@@ -33,6 +35,9 @@ class QNAFragment : Fragment() {
 
         //Changing toolbar title
         (activity as MainActivity).supportActionBar?.title = "Frequently Asked Question"
+
+        //hide the appBarLayout searchView
+        mainBinding.searchView.isVisible = false
 
         localRepository = LocalDBRepository(activity as Context)
 

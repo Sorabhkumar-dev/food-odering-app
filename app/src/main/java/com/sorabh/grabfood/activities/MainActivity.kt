@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.google.android.material.textview.MaterialTextView
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         //initializing toolBar
         setUpActionbar(mainBinding.toolBar)
 
+        mainBinding.searchView.isVisible = false
         //for easy traction of drawer navigation
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this,
@@ -47,8 +49,7 @@ class MainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
 
         //default fragment that will be show to user
-        changeFragment(HomeFragment())
-        changeTitle("Home")
+        changeFragmentAndTitle(HomeFragment(mainBinding), "Restaurant List", mainBinding)
 
         //exacting data from sharedPreference
         sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
@@ -66,44 +67,41 @@ class MainActivity : AppCompatActivity() {
             //changing fragment with there respective menu id
             when (it.itemId) {
                 R.id.drawer_menu_home -> {
-                    changeFragment(HomeFragment())
-                    changeTitle("Restaurants List")
+                    changeFragmentAndTitle(
+                        HomeFragment(mainBinding),
+                        "Restaurant List",
+                        mainBinding
+                    )
                     it.isChecked = true
-                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
 
                 }
                 R.id.drawer_menu_profile -> {
-                    changeFragment(MyProfileFragment())
-                    changeTitle("My Profile")
+                    changeFragmentAndTitle(MyProfileFragment(mainBinding), "My Profile", mainBinding)
                     it.isChecked = true
-                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
 
                 }
                 R.id.drawer_menu_cart -> {
-                    changeFragment(CartFragment())
-                    changeTitle("My Cart")
+                    changeFragmentAndTitle(CartFragment(mainBinding), "My cart", mainBinding)
                     it.isChecked = true
-                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.drawer_menu_history -> {
-                    changeFragment(OderHistoryFragment())
-                    changeTitle("Oder History")
+                    changeFragmentAndTitle(OderHistoryFragment(mainBinding), "Oder History", mainBinding)
                     it.isChecked = true
-                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
 
                 }
                 R.id.drawer_menu_qna -> {
-                    changeFragment(QNAFragment())
-                    changeTitle("Frequently Asked Questions")
+                    changeFragmentAndTitle(QNAFragment(mainBinding), "Frequently Asked Question", mainBinding)
                     it.isChecked = true
-                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
 
                 }
                 R.id.drawer_menu_favorite -> {
-                    changeFragment(FavoriteRestaurantsFragment())
-                    changeTitle("Favorite Restaurants")
+                    changeFragmentAndTitle(
+                        FavoriteRestaurantsFragment(mainBinding),
+                        "My Favorite Restaurants",
+                        mainBinding
+                    )
                     it.isChecked = true
-                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
+
 
                 }
 
@@ -111,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.drawer_menu_logout -> {
                     confirmLogOutDialog()
                     it.isChecked = true
-
+                    mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
                 }
 
             }
@@ -120,13 +118,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //change title and checked menu itemId
-    private fun changeTitle(title: String) {
-        supportActionBar?.title = title
-    }
-
     //for fragment transaction between fragment
-    private fun changeFragment(fragment: Fragment) {
+    private fun changeFragmentAndTitle(
+        fragment: Fragment,
+        title: String,
+        mainBinding: ActivityMainBinding
+    ) {
+        supportActionBar?.title = title
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(
                 R.anim.enter_from_right,
@@ -137,6 +135,7 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(fragment.toString())
             .replace(R.id.frameLayout, fragment)
             .commit()
+        mainBinding.drawerLayout.closeDrawer(GravityCompat.START)
     }
 
     //for toolbar setup
