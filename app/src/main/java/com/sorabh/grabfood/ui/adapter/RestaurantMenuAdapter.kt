@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.RestaurantMenuCardviewBinding
-import com.sorabh.grabfood.repository.LocalDBRepository
-import com.sorabh.grabfood.repository.NetworkRepository
+import com.sorabh.grabfood.domain.repository.LocalDBRepository
+import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 class RestaurantMenuAdapter(val context: Context) :

@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.network_api
+package com.sorabh.grabfood.domain.network_api
 
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
@@ -9,14 +9,12 @@ import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.RestaurantsResponse
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.RestaurantMenu
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
-import kotlinx.coroutines.Deferred
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
 interface NetworkInterface {
 
-    /* ________________________________ Login Activity __________________________________________*/
+    //Login Activity
 
     @POST("login/fetch_result")
     suspend fun getLoginDetails(
@@ -24,7 +22,7 @@ interface NetworkInterface {
         @Body params: JsonObject
     ): Response<LoginRespones>
 
-    /* ________________________________ SignUp Activity __________________________________________*/
+    //SignUp Activity
 
     @POST("register/fetch_result")
     suspend fun getSignUpDetails(
@@ -32,7 +30,7 @@ interface NetworkInterface {
         @Body params: JsonObject
     ): Response<SignUpResponse>
 
-    /* ________________________________ Forgot Activity __________________________________________*/
+    // Forgot Activity
 
     @POST("forgot_password/fetch_result")
     suspend fun getForgotResponse(
@@ -40,7 +38,7 @@ interface NetworkInterface {
         @Body params: JsonObject
     ): Response<ForgotResponse>
 
-    /* ________________________________ OTP Activity __________________________________________*/
+    // OTP Activity
 
     @POST("reset_password/fetch_result")
     suspend fun getOTPResponse(
@@ -48,14 +46,14 @@ interface NetworkInterface {
         @Body params: JsonObject
     ): Response<OTPResponse>
 
-    /* ________________________________ Home Fragment __________________________________________*/
+    // Home Fragment
 
     @GET("restaurants/fetch_result/")
     suspend fun getRestaurantsList(
         @HeaderMap header: HashMap<String, String>,
     ): Response<RestaurantsResponse>
 
-    /* ________________________________ Restaurant Menu Fragment __________________________________________*/
+    // Restaurant Menu Fragment
 
     @GET("restaurants/fetch_result/{id}")
     suspend fun getRestaurantMenu(
@@ -63,14 +61,14 @@ interface NetworkInterface {
         @Path("id") restaurant_id: String
     ): Response<RestaurantMenu>
 
-    /* ________________________________ Cart Adapter __________________________________________*/
+    // Cart Adapter
 
     @POST("place_order/fetch_result/")
    suspend fun placeOder(
         @HeaderMap header: HashMap<String, String>,
         @Body params: JsonObject
     ): Response<OderFeedback>
-    /* ________________________________ Restaurant Menu Fragment __________________________________________*/
+    // Restaurant Menu Fragment
 
     @GET("orders/fetch_result/{user_id}")
     suspend fun getOderHistory(

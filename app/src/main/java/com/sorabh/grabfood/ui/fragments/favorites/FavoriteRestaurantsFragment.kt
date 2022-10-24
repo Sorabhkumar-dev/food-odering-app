@@ -20,7 +20,7 @@ import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
 import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentFavoriteRestaurantsBinding
 import com.sorabh.grabfood.fragments.restaurant_menu.RestaurantMenuFragment
-import com.sorabh.grabfood.repository.LocalDBRepository
+import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import kotlinx.coroutines.*
 
 

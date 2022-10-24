@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
 import com.sorabh.grabfood.databinding.RestaurantsHomeCardviewBinding
-import com.sorabh.grabfood.repository.LocalDBRepository
+import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.util.RestaurantDiffUtil
 import kotlinx.coroutines.*
 

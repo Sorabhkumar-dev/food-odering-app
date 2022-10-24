@@ -15,7 +15,7 @@ import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.QNAAdapter
 import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentQNABinding
-import com.sorabh.grabfood.repository.LocalDBRepository
+import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.util.QNAData
 import kotlinx.coroutines.*
 

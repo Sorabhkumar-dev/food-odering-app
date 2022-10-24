@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.CartAdapterLayoutBinding
-import com.sorabh.grabfood.repository.LocalDBRepository
+import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import kotlinx.coroutines.*
 
 class CartAdapter(

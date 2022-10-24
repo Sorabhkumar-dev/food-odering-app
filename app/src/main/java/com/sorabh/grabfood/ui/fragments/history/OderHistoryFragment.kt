@@ -19,7 +19,7 @@ import com.sorabh.grabfood.adapter.OrderHistoryAdapter
 import com.sorabh.grabfood.api_response_classes.oder_history_response.Data
 import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentOderHistoryBinding
-import com.sorabh.grabfood.repository.NetworkRepository
+import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 

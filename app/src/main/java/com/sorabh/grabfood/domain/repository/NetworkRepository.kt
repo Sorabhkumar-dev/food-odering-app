@@ -1,19 +1,18 @@
-package com.sorabh.grabfood.repository
+package com.sorabh.grabfood.domain.repository
 
-import android.util.Log
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.Data
 import com.sorabh.grabfood.api_response_classes.login_respones.LoginRespones
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.network_api.GetFoodInterface
-import com.sorabh.grabfood.network_api.NetworkInterface
+import com.sorabh.grabfood.domain.network_api.NetworkInterface
 
 class NetworkRepository {
 
     private val getApi = GetFoodInterface.getInstance().create(NetworkInterface::class.java)
 
-    /* ________________________________ Login Activity __________________________________________*/
+    // Login Activity
     suspend fun getLoginDetails(
         header: HashMap<String, String>,
         params: JsonObject
@@ -21,7 +20,7 @@ class NetworkRepository {
         return getApi.getLoginDetails(header, params).body()
     }
 
-    /* ________________________________ SignUp Activity __________________________________________*/
+    // SignUp Activity
 
     suspend fun getSignUpDetails(
         header: HashMap<String, String>,
@@ -30,13 +29,13 @@ class NetworkRepository {
         return getApi.getSignUpDetails(header, params).body()
     }
 
-    /* ________________________________ OTP Activity __________________________________________*/
+    // OTP Activity
 
     suspend fun getForgotResponse(header: HashMap<String, String>, params: JsonObject): Data? {
         return getApi.getForgotResponse(header, params).body()?.data
     }
 
-    /* ________________________________ OTP Activity __________________________________________*/
+    // OTP Activity
 
     suspend fun getOTPResponse(
         header: HashMap<String, String>,
@@ -45,12 +44,12 @@ class NetworkRepository {
         return getApi.getOTPResponse(header, params).body()?.data
     }
 
-    /* ________________________________ Home Fragment __________________________________________*/
+    // Home Fragment
 
     suspend fun getRestaurantsList(header: HashMap<String, String>): List<DataX>? {
         return getApi.getRestaurantsList(header).body()?.data?.data
     }
-    /* ________________________________ Restaurant Menu Fragment __________________________________________*/
+    // Restaurant Menu Fragment
 
     suspend fun getMenuList(
         header: HashMap<String, String>,
@@ -61,14 +60,13 @@ class NetworkRepository {
 
     }
 
-    /* ________________________________ Cart Adapter __________________________________________*/
+    // Cart Adapter
    suspend fun placeOder(header: HashMap<String, String>, params: JsonObject): Boolean? {
       val response =  getApi.placeOder(header, params).body()?.data
-        Log.d("excc",response.toString())
         return response?.success
     }
 
-    /* ________________________________ Oder Fragment __________________________________________*/
+    // Oder Fragment
     suspend fun getOderHistory(
         header: HashMap<String, String>,
         user_id: String?

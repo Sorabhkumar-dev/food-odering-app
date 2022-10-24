@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.ActivitySignUpBinding
-import com.sorabh.grabfood.repository.NetworkRepository
+import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 class SignUpActivity : AppCompatActivity() {

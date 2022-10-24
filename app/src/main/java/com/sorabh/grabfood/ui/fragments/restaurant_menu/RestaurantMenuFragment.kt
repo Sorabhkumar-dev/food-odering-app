@@ -17,7 +17,7 @@ import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
 import com.sorabh.grabfood.fragments.cart.CartFragment
-import com.sorabh.grabfood.repository.NetworkRepository
+import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 class RestaurantMenuFragment(
