@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.cart.CartFragment">
+        tools:context=".ui.fragments.cart.CartFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_recyclerView"
