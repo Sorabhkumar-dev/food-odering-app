@@ -1,52 +1,59 @@
-package com.sorabh.grabfood.activities
+package com.sorabh.grabfood.ui.activities
 
-import android.content.Intent
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.google.gson.JsonObject
-import com.sorabh.grabfood.R
-import com.sorabh.grabfood.databinding.ActivityLoginBinding
+import com.sorabh.grabfood.databinding.LoginFragmentBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginFragment : Fragment() {
     private val job = SupervisorJob()
     lateinit var repository: NetworkRepository
-
-    lateinit var loginBinding: ActivityLoginBinding
+    private lateinit var navController: NavController
+   private lateinit var binding :LoginFragmentBinding
 
     private lateinit var loginSharedPreferences: SharedPreferences
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        loginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = LoginFragmentBinding.inflate(inflater)
         //sharedPreference to store login credentials
-        loginSharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
+        navController = findNavController()
+        loginSharedPreferences = requireActivity().getSharedPreferences("login", MODE_PRIVATE)
         val isLogin = loginSharedPreferences.getBoolean("isLogin", false)
         if (isLogin) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            navController.navigate(
+                LoginFragmentDirections
+                    .actionLoginFragmentToMainFragment()
+            )
         }
         //repository
         repository = NetworkRepository()
 
 
         //adding hint to
-        loginBinding.edtLoginPhoneNumber.hint = "Mobile"
-        loginBinding.edtLoginPassword.hint = "Password"
+        binding.edtLoginPhoneNumber.hint = "Mobile"
+        binding.edtLoginPassword.hint = "Password"
 
 
         //adding clickListener to Login button
-        loginBinding.btnLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             CoroutineScope(job + Dispatchers.IO).launch {
 
-                val phone = loginBinding.edtLoginPhoneNumber.editText?.text.toString()
-                val password = loginBinding.edtLoginPassword.editText?.text.toString()
+                val phone = binding.edtLoginPhoneNumber.editText?.text.toString()
+                val password = binding.edtLoginPassword.editText?.text.toString()
 
                 //params to send with request
                 val params = JsonObject()
@@ -85,14 +92,15 @@ class LoginActivity : AppCompatActivity() {
                         loginSharedPreferences.edit().putBoolean("isLogin", true).apply()
                         loginSharedPreferences.edit().apply()
                         withContext(job + Dispatchers.Main) {
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                            navController.navigate(
+                                LoginFragmentDirections
+                                    .actionLoginFragmentToMainFragment()
+                            )
                         }
                     } else {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
-                                this@LoginActivity,
+                                context,
                                 "Please Enter Right Login Information!",
                                 Toast.LENGTH_SHORT
                             ).show()
@@ -102,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("exc", e.message.toString())
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
-                            this@LoginActivity,
+                            context,
                             "Unable to connect internet!",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -110,13 +118,15 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-        loginBinding.btnLoginSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        binding.btnLoginSignup.setOnClickListener {
+            navController.navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
         }
-        loginBinding.btnLoginForgotPassword.setOnClickListener {
-            val intent = Intent(this, ForgotPasswordActivity::class.java)
-            startActivity(intent)
+        binding.btnLoginForgotPassword.setOnClickListener {
+           navController.navigate(
+               LoginFragmentDirections
+                   .actionLoginFragmentToForgotPasswordFragment()
+           )
         }
+        return binding.root
     }
 }

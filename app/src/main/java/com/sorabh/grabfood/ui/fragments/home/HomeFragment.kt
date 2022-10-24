@@ -1,35 +1,29 @@
-package com.sorabh.grabfood.fragments.home
+package com.sorabh.grabfood.ui.fragments.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
-import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentHomeBinding
-import com.sorabh.grabfood.fragments.restaurant_menu.RestaurantMenuFragment
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
 import kotlinx.coroutines.*
 
 
-class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
+class HomeFragment : BaseFragment(),
     RestaurantViewHolder.OnRestaurantsClicked,
     RestaurantViewHolder.OnFavoriteButtonClicked {
-    private lateinit var homeBinding: FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private val job = SupervisorJob()
 
     private lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
@@ -40,15 +34,13 @@ class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        homeBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
-        (activity as MainActivity).supportActionBar?.title = "Restaurant List"
-        mainBinding.searchView.isVisible = true
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        (activity as AppCompatActivity).supportActionBar?.title = "Restaurant List"
         restaurantHomeAdapter = RestaurantHomeAdapter(this, this, activity as Context)
 
         networkRepository = NetworkRepository()
         val layout = LinearLayoutManager(activity as Context)
-        with(homeBinding.recyclerView) {
+        with(binding.recyclerView) {
             layoutManager = layout
             adapter = restaurantHomeAdapter
         }
@@ -59,7 +51,7 @@ class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
                 val list = getRestaurantsList()
                 if (list != null) {
                     restaurantHomeAdapter.updateRestaurantsList(list)
-                    homeBinding.progressbar.visibility = ProgressBar.GONE
+                    binding.progressbar.visibility = ProgressBar.GONE
                 }
             } catch (e: Exception) {
                 Toast.makeText(
@@ -69,45 +61,45 @@ class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
                 ).show()
             }
         }
-        onSearch(mainBinding.searchView)
-        return homeBinding.root
+//        onSearch(mainBinding.searchView)
+        return binding.root
     }
 
-    private fun onSearch(searchView: SearchView) = CoroutineScope(Dispatchers.IO).launch {
-        searchView.queryHint = "Search Restaurants Here"
-        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Log.d("excc",newText!!)
-                CoroutineScope(job + Dispatchers.IO).launch{
-                    var list :List<DataX>? =null
-                    try {
-                         list = getRestaurantsList()
-                    }catch (e:java.lang.Exception){
-
-                    }
-                    val restaurantList = ArrayList<DataX>()
-                    if (list != null) {
-                        for (i in list){
-                            if (i.name.lowercase().startsWith(newText)){
-                                restaurantList.add(i)
-                            }
-                        }
-                        withContext(Dispatchers.Main) {
-                            restaurantHomeAdapter.updateList(restaurantList)
-                            homeBinding.progressbar.visibility = ProgressBar.GONE
-
-                        }
-                    }
-                }
-                return true
-            }
-
-        })
-    }
+//    private fun onSearch(searchView: SearchView) = CoroutineScope(Dispatchers.IO).launch {
+//        searchView.queryHint = "Search Restaurants Here"
+//        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                Log.d("excc",newText!!)
+//                CoroutineScope(job + Dispatchers.IO).launch{
+//                    var list :List<DataX>? =null
+//                    try {
+//                         list = getRestaurantsList()
+//                    }catch (e:java.lang.Exception){
+//
+//                    }
+//                    val restaurantList = ArrayList<DataX>()
+//                    if (list != null) {
+//                        for (i in list){
+//                            if (i.name.lowercase().startsWith(newText)){
+//                                restaurantList.add(i)
+//                            }
+//                        }
+//                        withContext(Dispatchers.Main) {
+//                            restaurantHomeAdapter.updateList(restaurantList)
+//                            homeBinding.progressbar.visibility = ProgressBar.GONE
+//
+//                        }
+//                    }
+//                }
+//                return true
+//            }
+//
+//        })
+//    }
 
     private suspend fun getRestaurantsList(): List<DataX>? = coroutineScope {
         val list = CoroutineScope(job + Dispatchers.IO).async {
@@ -129,13 +121,8 @@ class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
                 R.anim.exit_to_right
             )
             .addToBackStack("RestaurantMenuFragment")
-            .replace(R.id.frameLayout, RestaurantMenuFragment(mainBinding, dataX))
+            .replace(R.id.frameLayout, RestaurantMenuFragment(dataX))
             .commit()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        homeBinding.unbind()
     }
 
     override fun onFavoriteButtonClicked(dataX: DataX) {
@@ -163,7 +150,7 @@ class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
                         restaurantList = networkRepository.getRestaurantsList(header)
                         restaurantHomeAdapter.updateList(restaurantList)
                     } catch (e: java.lang.Exception) {
-
+                        
                     }
                 }
             } else {
@@ -177,7 +164,7 @@ class HomeFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
                     try {
                         restaurantList = networkRepository.getRestaurantsList(header)
                         restaurantHomeAdapter.updateList(restaurantList)
-                    } catch (e: java.lang.Exception) {
+                    } catch (_: java.lang.Exception) {
 
                     }
                 }

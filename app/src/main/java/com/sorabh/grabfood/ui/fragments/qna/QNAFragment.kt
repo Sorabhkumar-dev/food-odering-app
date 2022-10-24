@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.fragments.qna
+package com.sorabh.grabfood.ui.fragments.qna
 
 import android.content.Context
 import android.os.Bundle
@@ -6,38 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sorabh.grabfood.R
-import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.QNAAdapter
-import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentQNABinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.util.QNAData
 import kotlinx.coroutines.*
 
 
-class QNAFragment(private val mainBinding: ActivityMainBinding) : Fragment() {
+class QNAFragment : Fragment() {
     private val job = SupervisorJob()
     private lateinit var localRepository: LocalDBRepository
-    private lateinit var fragmentQNABinding: FragmentQNABinding
+    private lateinit var binding: FragmentQNABinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        fragmentQNABinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.fragment_q_n_a, container, false)
+        binding = FragmentQNABinding.inflate(layoutInflater)
 
         //Changing toolbar title
-        (activity as MainActivity).supportActionBar?.title = "Frequently Asked Question"
-
-        //hide the appBarLayout searchView
-        mainBinding.searchView.isVisible = false
+        (activity as AppCompatActivity).supportActionBar?.title = "Frequently Asked Question"
 
         localRepository = LocalDBRepository(activity as Context)
 
@@ -49,24 +41,20 @@ class QNAFragment(private val mainBinding: ActivityMainBinding) : Fragment() {
             }
             val qnaList = localRepository.getQNAList()
             withContext(Dispatchers.Main){
-                with(fragmentQNABinding.qnaRecyclerView){
+                with(binding.qnaRecyclerView){
                     layoutManager = layout
                     adapter = qnaAdapter
                 }
-                fragmentQNABinding.qnaProgressBar.visibility = ProgressBar.GONE
+                binding.qnaProgressBar.visibility = ProgressBar.GONE
                 qnaAdapter.updateList(qnaList)
 
 
             }
         }
 
-        return fragmentQNABinding.root
+        return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        fragmentQNABinding.unbind()
-    }
 
     private fun createQna() = CoroutineScope(job + Dispatchers.IO).launch {
         val q1 = QNAData(

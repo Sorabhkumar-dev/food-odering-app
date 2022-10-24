@@ -10,7 +10,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".activities.SignUpActivity">
+            tools:context=".ui.activities.SignUpFragment">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_signup_user_name"

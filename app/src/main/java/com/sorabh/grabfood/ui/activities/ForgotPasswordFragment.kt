@@ -1,36 +1,40 @@
-package com.sorabh.grabfood.activities
+package com.sorabh.grabfood.ui.activities
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.google.gson.JsonObject
-import com.sorabh.grabfood.R
-import com.sorabh.grabfood.databinding.ActivityForgotPasswordBinding
+import com.sorabh.grabfood.databinding.ForgotPasswordFragmentBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import com.sorabh.grabfood.ui.fragments.home.BaseFragment
 import kotlinx.coroutines.*
 
-class ForgotPasswordActivity : AppCompatActivity() {
-    lateinit var forgotPasswordBinding: ActivityForgotPasswordBinding
+class ForgotPasswordFragment : BaseFragment() {
+    private lateinit var binding:ForgotPasswordFragmentBinding
+    private lateinit var navController: NavController
     private val job = SupervisorJob()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        forgotPasswordBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_forgot_password)
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding =ForgotPasswordFragmentBinding.inflate(layoutInflater)
+        navController = findNavController()
         //adding hint to editText
-        forgotPasswordBinding.edtForgotActivityEmail.hint = "Email"
-        forgotPasswordBinding.edtForgotActivityPhoneNumber.hint = "Mobile"
+        binding.edtForgotActivityEmail.hint = "Email"
+        binding.edtForgotActivityPhoneNumber.hint = "Mobile"
 
 
 
-        forgotPasswordBinding.btnForgotActivityNext.setOnClickListener {
+        binding.btnForgotActivityNext.setOnClickListener {
 
-            val phone = forgotPasswordBinding.edtForgotActivityPhoneNumber.editText?.text.toString()
-            val email = forgotPasswordBinding.edtForgotActivityEmail.editText?.text.toString()
+            val phone = binding.edtForgotActivityPhoneNumber.editText?.text.toString()
+            val email = binding.edtForgotActivityEmail.editText?.text.toString()
 
             if (phone.isNotEmpty() && email.isNotEmpty()) {
                 CoroutineScope(job + Dispatchers.IO).launch {
@@ -55,10 +59,17 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
                         if (forgotResponse?.success == true && forgotResponse.first_try) {
                             showToast("OTP successfully send your mobile!")
-                            goDestination(this@ForgotPasswordActivity,phone)
+                            navController.navigate(
+                                ForgotPasswordFragmentDirections
+                                    .actionForgotPasswordFragmentToOTPFragment(phone)
+                            )
+
                         } else if (forgotResponse?.success == true && !forgotResponse.first_try) {
                             showToast("Please enter previously send OTP!")
-                            goDestination(this@ForgotPasswordActivity,phone)
+                            navController.navigate(
+                                ForgotPasswordFragmentDirections
+                                    .actionForgotPasswordFragmentToOTPFragment(phone)
+                            )
 
                         } else {
                             showToast("Something went wrong!")
@@ -71,20 +82,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 }
 
             } else {
-                Toast.makeText(this, "Please Enter all the fields!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please Enter all the fields!", Toast.LENGTH_SHORT).show()
             }
         }
+        return binding.root
     }
 
     private suspend fun showToast(text: String) {
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@ForgotPasswordActivity, text, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun goDestination(context: Context,phone:String=""){
-        val intent = Intent(context,OTPActivity::class.java)
-        intent.putExtra("phone",phone)
-        startActivity(intent)
     }
 }

@@ -1,38 +1,31 @@
-package com.sorabh.grabfood.fragments.profile
+package com.sorabh.grabfood.ui.fragments.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.sorabh.grabfood.R
-import com.sorabh.grabfood.activities.MainActivity
-import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentMyProfileBinding
 import kotlinx.coroutines.*
 
 
-class MyProfileFragment(private val mainBinding: ActivityMainBinding) : Fragment() {
-    private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding
+class MyProfileFragment : Fragment() {
+    private lateinit var binding:FragmentMyProfileBinding
     private val job = SupervisorJob()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-      fragmentMyProfileBinding =DataBindingUtil.inflate(layoutInflater,R.layout.fragment_my_profile, container, false)
+      binding = FragmentMyProfileBinding.inflate(layoutInflater)
 
         //Changing toolbar title
-        (activity as MainActivity).supportActionBar!!.title = "My Profile"
+        (activity as AppCompatActivity).supportActionBar!!.title = "My Profile"
 
-        //hide the appBarLayout searchView
-        mainBinding.searchView.isVisible = false
 
         CoroutineScope(job+Dispatchers.IO).launch {
-            val sharedPreferences = (activity as MainActivity).getSharedPreferences("login",AppCompatActivity.MODE_PRIVATE)
+            val sharedPreferences = requireContext().getSharedPreferences("login",AppCompatActivity.MODE_PRIVATE)
             val name = sharedPreferences.getString("name","unknown")
             val email = sharedPreferences.getString("email","unknown")
             val address = sharedPreferences.getString("address","unknown")
@@ -40,17 +33,12 @@ class MyProfileFragment(private val mainBinding: ActivityMainBinding) : Fragment
 
 
             withContext(job+Dispatchers.Main){
-                fragmentMyProfileBinding.txtProfileAdd.text = address
-                fragmentMyProfileBinding.txtProfileEmail.text = email
-                fragmentMyProfileBinding.txtProfilePhone.text = phone
-                fragmentMyProfileBinding.txtProfileName.text = name
+                binding.txtProfileAdd.text = address
+                binding.txtProfileEmail.text = email
+                binding.txtProfilePhone.text = phone
+                binding.txtProfileName.text = name
             }
         }
-        return fragmentMyProfileBinding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        fragmentMyProfileBinding.unbind()
+        return binding.root
     }
 }

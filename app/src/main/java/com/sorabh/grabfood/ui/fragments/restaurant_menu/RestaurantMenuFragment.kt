@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.fragments.restaurant_menu
+package com.sorabh.grabfood.ui.fragments.restaurant_menu
 
 import android.content.Context
 import android.os.Bundle
@@ -6,50 +6,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
-import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
-import com.sorabh.grabfood.fragments.cart.CartFragment
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import com.sorabh.grabfood.ui.fragments.cart.CartFragment
 import kotlinx.coroutines.*
 
 class RestaurantMenuFragment(
-    private val mainBinding: ActivityMainBinding,
     private val dataX: com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
 ) :
     Fragment() {
-    private lateinit var fragmentRestaurantMenuBinding: FragmentRestaurantMenuBinding
+    private lateinit var binding: FragmentRestaurantMenuBinding
 
     private val job = SupervisorJob()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        fragmentRestaurantMenuBinding = DataBindingUtil.inflate(
-            layoutInflater,
-            R.layout.fragment_restaurant_menu,
-            container,
-            false
-        )
+        binding = FragmentRestaurantMenuBinding.inflate(layoutInflater)
 
         //Changing toolbar title
-        (activity as MainActivity).supportActionBar?.title = dataX.name
+        (activity as AppCompatActivity).supportActionBar?.title = dataX.name
 
-        //hide the appBarLayout searchView
-        mainBinding.searchView.isVisible = false
 
         val layout = LinearLayoutManager(activity as Context)
         val restaurantMenuAdapter = RestaurantMenuAdapter(activity as Context)
 
-        with(fragmentRestaurantMenuBinding.restaurantMenuRecyclerView) {
+        with(binding.restaurantMenuRecyclerView) {
             layoutManager = layout
             adapter = restaurantMenuAdapter
         }
@@ -57,9 +45,9 @@ class RestaurantMenuFragment(
         CoroutineScope(job + Dispatchers.Main).launch {
             val list = getMenuList()
             restaurantMenuAdapter.updateRestaurantMenu(list as ArrayList<DataX>)
-            fragmentRestaurantMenuBinding.restaurantMenuProgressBar.visibility = ProgressBar.GONE
+            binding.restaurantMenuProgressBar.visibility = ProgressBar.GONE
         }
-        fragmentRestaurantMenuBinding.restaurantMenuProceedCart.setOnClickListener {
+        binding.restaurantMenuProceedCart.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .setCustomAnimations(
                     R.anim.enter_from_right,
@@ -68,10 +56,10 @@ class RestaurantMenuFragment(
                     R.anim.exit_to_right
                 )
                 .addToBackStack("CartFragment")
-                .replace(R.id.frameLayout, CartFragment(mainBinding))
+                .replace(R.id.frameLayout, CartFragment())
                 .commit()
         }
-        return fragmentRestaurantMenuBinding.root
+        return binding.root
     }
 
 
@@ -89,10 +77,4 @@ class RestaurantMenuFragment(
         }
         return@coroutineScope list.await()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        fragmentRestaurantMenuBinding.unbind()
-    }
-
 }

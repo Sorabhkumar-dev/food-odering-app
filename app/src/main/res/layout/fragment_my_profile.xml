@@ -9,7 +9,7 @@
         android:backgroundTint="#DDF4DE"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
-        tools:context=".fragments.profile.MyProfileFragment">
+        tools:context=".ui.fragments.profile.MyProfileFragment">
 
             <LinearLayout
                 android:layout_width="match_parent"

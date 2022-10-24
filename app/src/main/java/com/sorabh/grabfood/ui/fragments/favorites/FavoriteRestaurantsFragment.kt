@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.fragments.favorites
+package com.sorabh.grabfood.ui.fragments.favorites
 
 import android.content.Context
 import android.os.Bundle
@@ -8,27 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.activities.MainActivity
 import com.sorabh.grabfood.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
-import com.sorabh.grabfood.databinding.ActivityMainBinding
-import com.sorabh.grabfood.databinding.FragmentFavoriteRestaurantsBinding
-import com.sorabh.grabfood.fragments.restaurant_menu.RestaurantMenuFragment
+import com.sorabh.grabfood.databinding.FavoriteRestaurantsFragmentBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
+import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
 import kotlinx.coroutines.*
 
 
-class FavoriteRestaurantsFragment(private val mainBinding: ActivityMainBinding) : Fragment(),
+class FavoriteRestaurantsFragment : Fragment(),
     RestaurantViewHolder.OnRestaurantsClicked,
     RestaurantViewHolder.OnFavoriteButtonClicked {
 
-    private lateinit var favoriteRestaurantsBinding: FragmentFavoriteRestaurantsBinding
+    private lateinit var binding:FavoriteRestaurantsFragmentBinding
     private val job = SupervisorJob()
 
     private lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
@@ -40,18 +37,11 @@ class FavoriteRestaurantsFragment(private val mainBinding: ActivityMainBinding) 
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        favoriteRestaurantsBinding = DataBindingUtil.inflate(
-            layoutInflater,
-            R.layout.fragment_favorite_restaurants,
-            container,
-            false
-        )
+        binding = FavoriteRestaurantsFragmentBinding.inflate(layoutInflater)
 
         //Changing toolbar title
-        (activity as MainActivity).supportActionBar?.title = "My Favorite Restaurants"
+        (activity as AppCompatActivity).supportActionBar?.title = "My Favorite Restaurants"
 
-        //hide the appBarLayout searchView
-        mainBinding.searchView.isVisible = false
 
         CoroutineScope(job + Dispatchers.IO).launch {
             restaurantHomeAdapter =
@@ -79,17 +69,17 @@ class FavoriteRestaurantsFragment(private val mainBinding: ActivityMainBinding) 
                 }
             }
             withContext(Dispatchers.Main) {
-                with(favoriteRestaurantsBinding.favoriteRestaurantRecyclerview) {
+                with(binding.favoriteRestaurantRecyclerview) {
                     adapter = restaurantHomeAdapter
                     layoutManager = lytManager
                     restaurantHomeAdapter.updateRestaurantsList(favoriteRestaurantList)
-                    favoriteRestaurantsBinding.favoriteRestaurantProgressBar.visibility =
+                    binding.favoriteRestaurantProgressBar.visibility =
                         ProgressBar.GONE
                 }
             }
         }
 
-        return favoriteRestaurantsBinding.root
+        return binding.root
     }
 
     private suspend fun getFavoriteRestaurantList(): List<DataX>? = coroutineScope {
@@ -98,11 +88,6 @@ class FavoriteRestaurantsFragment(private val mainBinding: ActivityMainBinding) 
         }
         return@coroutineScope list.await()
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        favoriteRestaurantsBinding.unbind()
     }
 
     override fun onRestaurantsClicked(dataX: DataX) {
@@ -114,7 +99,7 @@ class FavoriteRestaurantsFragment(private val mainBinding: ActivityMainBinding) 
                 R.anim.exit_to_right
             )
             .addToBackStack("RestaurantMenuFragment")
-            .replace(R.id.frameLayout, RestaurantMenuFragment(mainBinding,dataX))
+            .replace(R.id.frameLayout, RestaurantMenuFragment(dataX))
             .commit()
     }
 

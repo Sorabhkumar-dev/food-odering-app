@@ -1,44 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.ForgotPasswordActivity">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_forgot_activity_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:src="@drawable/grabfood" />
+        tools:context=".ui.activities.OTPFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txt_forgot_activity_heading"
+            android:id="@+id/txt_otp_activity_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/img_forgot_activity_logo"
-            android:layout_marginHorizontal="20dp"
-            android:text="@string/txt_forgot_password_heading"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/txt_otp_activity_heading"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             android:textColor="?colorPrimary" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_forgot_activity_phone_number"
+            android:id="@+id/edt_otp_activity_otp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_forgot_activity_heading"
+            android:layout_below="@id/txt_otp_activity_heading"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
             android:textColorHint="?colorPrimary"
             app:counterEnabled="true"
-            app:counterMaxLength="10"
+            app:counterMaxLength="4"
             app:endIconMode="clear_text"
-            app:prefixText="+91"
-            app:prefixTextColor="?colorPrimary"
-            app:startIconDrawable="@drawable/ic_phone_number">
+            app:startIconDrawable="@drawable/ic_refresh">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -47,38 +37,55 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_forgot_activity_email"
+            android:id="@+id/edt_otp_activity_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_forgot_activity_phone_number"
+            android:layout_below="@id/edt_otp_activity_otp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="5dp"
             android:textColorHint="?colorPrimary"
             app:counterEnabled="true"
             app:counterMaxLength="50"
-            app:endIconMode="clear_text"
-            app:startIconDrawable="@drawable/ic_email">
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:textColorHint="?colorPrimaryVariant" />
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_otp_activity_confirm_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_otp_activity_password"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:textColorHint="?colorPrimary"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_forgot_activity_next"
-            style="@style/Widget.MaterialComponents.Button"
+            android:id="@+id/btn_otp_reset_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_forgot_activity_email"
+            android:layout_below="@id/edt_otp_activity_confirm_password"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:background="?colorPrimaryVariant"
-            android:padding="20dp"
-            android:text="@string/btn_forgot_password_next"
+            android:padding="15dp"
+            android:text="@string/btn_otp_activity_submit"
             android:textColor="@color/white" />
 
     </RelativeLayout>
-</layout>

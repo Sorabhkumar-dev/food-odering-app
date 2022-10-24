@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.fragments.cart
+package com.sorabh.grabfood.ui.fragments.cart
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +18,6 @@ import com.sorabh.grabfood.R
 import com.sorabh.grabfood.adapter.CartAdapter
 import com.sorabh.grabfood.adapter.CartViewHolder
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
-import com.sorabh.grabfood.databinding.ActivityMainBinding
 import com.sorabh.grabfood.databinding.FragmentCartBinding
 import com.sorabh.grabfood.databinding.OderBottomSheetBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
@@ -27,9 +25,9 @@ import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
 
 
-class CartFragment(private val mainBinding: ActivityMainBinding) : Fragment(), CartViewHolder.OnOderButtonClickedListener {
+class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
     private lateinit var fragmentCartBinding: FragmentCartBinding
-    lateinit var localDBRepository: LocalDBRepository
+    private lateinit var localDBRepository: LocalDBRepository
     val job = SupervisorJob()
     private lateinit var cartAdapter: CartAdapter
     override fun onCreateView(
@@ -39,9 +37,6 @@ class CartFragment(private val mainBinding: ActivityMainBinding) : Fragment(), C
         // Inflate the layout for this fragment
         fragmentCartBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false)
-
-        //hide the appBarLayout searchView
-        mainBinding.searchView.isVisible = false
 
         cartAdapter = CartAdapter(activity as Context, this)
         localDBRepository = LocalDBRepository(activity as Context)
