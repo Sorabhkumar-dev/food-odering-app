@@ -8,43 +8,54 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.adapter.RestaurantHomeAdapter
-import com.sorabh.grabfood.adapter.RestaurantViewHolder
-import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
+import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.databinding.FragmentHomeBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter
+import com.sorabh.grabfood.ui.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class HomeFragment : BaseFragment(),
     RestaurantViewHolder.OnRestaurantsClicked,
     RestaurantViewHolder.OnFavoriteButtonClicked {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var navController: NavController
     private val job = SupervisorJob()
 
-    private lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
+    @Inject
+    lateinit var repository: NetworkRepository
 
-    private lateinit var networkRepository: NetworkRepository
+    @Inject
+    lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
+
+    @Inject
+    lateinit var localDBRepository: LocalDBRepository
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        navController = findNavController()
         (activity as AppCompatActivity).supportActionBar?.title = "Restaurant List"
-        restaurantHomeAdapter = RestaurantHomeAdapter(this, this, activity as Context)
 
-        networkRepository = NetworkRepository()
         val layout = LinearLayoutManager(activity as Context)
         with(binding.recyclerView) {
             layoutManager = layout
             adapter = restaurantHomeAdapter
         }
-
+        restaurantHomeAdapter.restaurantsClicked = this
+        restaurantHomeAdapter.onFavoriteButtonClicked = this
         CoroutineScope(job + Dispatchers.Main).launch {
             try {
 
@@ -107,7 +118,7 @@ class HomeFragment : BaseFragment(),
             val header = HashMap<String, String>()
             header["Content-type"] = "application/json"
             header["token"] = "025c40375fadfd"
-            return@async networkRepository.getRestaurantsList(header)
+            return@async repository.getRestaurantsList(header)
         }
         return@coroutineScope list.await()
     }
@@ -127,7 +138,6 @@ class HomeFragment : BaseFragment(),
 
     override fun onFavoriteButtonClicked(dataX: DataX) {
         CoroutineScope(job + Dispatchers.IO).launch {
-            val localDBRepository = LocalDBRepository(activity as Context)
 
             val localData = localDBRepository.getRestaurant(dataX.id)
 
@@ -147,7 +157,7 @@ class HomeFragment : BaseFragment(),
                         Toast.LENGTH_SHORT
                     ).show()
                     try {
-                        restaurantList = networkRepository.getRestaurantsList(header)
+                        restaurantList = repository.getRestaurantsList(header)
                         restaurantHomeAdapter.updateList(restaurantList)
                     } catch (e: java.lang.Exception) {
                         
@@ -162,7 +172,7 @@ class HomeFragment : BaseFragment(),
                         Toast.LENGTH_SHORT
                     ).show()
                     try {
-                        restaurantList = networkRepository.getRestaurantsList(header)
+                        restaurantList = repository.getRestaurantsList(header)
                         restaurantHomeAdapter.updateList(restaurantList)
                     } catch (_: java.lang.Exception) {
 

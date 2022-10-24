@@ -13,13 +13,16 @@ import com.sorabh.grabfood.adapter.QNAAdapter
 import com.sorabh.grabfood.databinding.FragmentQNABinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.util.QNAData
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class QNAFragment : Fragment() {
     private val job = SupervisorJob()
-    private lateinit var localRepository: LocalDBRepository
     private lateinit var binding: FragmentQNABinding
+    @Inject
+    lateinit var localRepository: LocalDBRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +33,6 @@ class QNAFragment : Fragment() {
 
         //Changing toolbar title
         (activity as AppCompatActivity).supportActionBar?.title = "Frequently Asked Question"
-
-        localRepository = LocalDBRepository(activity as Context)
 
         CoroutineScope(job+Dispatchers.IO).launch {
             val qnaAdapter = QNAAdapter()

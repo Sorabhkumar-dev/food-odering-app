@@ -28,7 +28,9 @@ import com.sorabh.grabfood.ui.fragments.home.HomeFragment
 import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment
 import com.sorabh.grabfood.ui.fragments.qna.QNAFragment
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : BaseFragment() {
     private lateinit var headerView: View
     private lateinit var binding: MainFragmentBinding

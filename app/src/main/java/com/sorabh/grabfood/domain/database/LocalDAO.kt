@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.Database
+package com.sorabh.grabfood.domain.database
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -12,16 +12,16 @@ interface LocalDAO {
 
     /*--------------------- Favorite Restaurant ---------------------*/
     @Insert
-    fun insertRestaurant(restaurant:com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX)
+    fun insertRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.DataX)
 
     @Delete
-    fun deleteRestaurant(restaurant:com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX)
+    fun deleteRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.DataX)
 
     @Query("Select * from Restaurant")
-    fun getRestaurantList(): List<com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX>?
+    fun getRestaurantList(): List<com.sorabh.grabfood.domain.model.reataurants_home_response.DataX>?
 
     @Query("select * from Restaurant where id = :id")
-    fun getRestaurant(id:String):com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX?
+    fun getRestaurant(id:String): com.sorabh.grabfood.domain.model.reataurants_home_response.DataX?
 
     /*--------------------- Restaurant Menu ---------------------*/
     @Insert

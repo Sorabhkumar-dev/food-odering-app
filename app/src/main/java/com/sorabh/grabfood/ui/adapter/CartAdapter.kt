@@ -1,7 +1,6 @@
-package com.sorabh.grabfood.adapter
+package com.sorabh.grabfood.ui.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -11,12 +10,12 @@ import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.CartAdapterLayoutBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class CartAdapter(
-    val context: Context,
-   private val onOderButtonClickedListener: CartViewHolder.OnOderButtonClickedListener
-) : RecyclerView.Adapter<CartViewHolder>() {
+class CartAdapter @Inject constructor(private val localDBRepository: LocalDBRepository) : RecyclerView.Adapter<CartViewHolder>() {
     private var menuList = ArrayList<DataX>()
+
+    var onOderButtonClickedListener: CartViewHolder.OnOderButtonClickedListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cartAdapterLayoutBinding = DataBindingUtil.inflate<CartAdapterLayoutBinding>(
@@ -45,7 +44,6 @@ class CartAdapter(
     fun update() {
         val job = SupervisorJob()
         CoroutineScope(job + Dispatchers.IO).launch {
-            val localDBRepository = LocalDBRepository(context)
             val menuList: List<DataX>? = localDBRepository.getMenuList()
             withContext(Dispatchers.Main) {
                 updateMenuList(menuList)

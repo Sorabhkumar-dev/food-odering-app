@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.api_response_classes.reataurants_home_response
+package com.sorabh.grabfood.domain.model.reataurants_home_response
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

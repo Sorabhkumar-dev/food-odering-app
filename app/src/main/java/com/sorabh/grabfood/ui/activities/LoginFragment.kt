@@ -14,10 +14,14 @@ import androidx.navigation.fragment.findNavController
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.databinding.LoginFragmentBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private val job = SupervisorJob()
+    @Inject
     lateinit var repository: NetworkRepository
     private lateinit var navController: NavController
    private lateinit var binding :LoginFragmentBinding
@@ -40,7 +44,6 @@ class LoginFragment : Fragment() {
             )
         }
         //repository
-        repository = NetworkRepository()
 
 
         //adding hint to

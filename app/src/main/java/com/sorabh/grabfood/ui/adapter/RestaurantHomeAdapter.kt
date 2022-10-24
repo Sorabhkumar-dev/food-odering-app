@@ -1,29 +1,25 @@
-package com.sorabh.grabfood.adapter
+package com.sorabh.grabfood.ui.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
+import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.databinding.RestaurantsHomeCardviewBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.util.RestaurantDiffUtil
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class RestaurantHomeAdapter(
-    private val restaurantsClicked: RestaurantViewHolder.OnRestaurantsClicked,
-    private val onFavoriteButtonClicked: RestaurantViewHolder.OnFavoriteButtonClicked,
-    val context: Context
-) :
+class RestaurantHomeAdapter @Inject constructor(private val localDBRepository: LocalDBRepository) :
     RecyclerView.Adapter<RestaurantViewHolder>() {
-
+    var restaurantsClicked: RestaurantViewHolder.OnRestaurantsClicked? = null
+    var onFavoriteButtonClicked: RestaurantViewHolder.OnFavoriteButtonClicked? = null
     private var restaurantsList = ArrayList<DataX>()
     val job = SupervisorJob()
-    private val localRepoStory = LocalDBRepository(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -37,7 +33,7 @@ class RestaurantHomeAdapter(
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
         CoroutineScope(job + Dispatchers.IO).launch {
-            val restaurant = localRepoStory.getRestaurant(restaurantsList[position].id)
+            val restaurant = localDBRepository.getRestaurant(restaurantsList[position].id)
             if (restaurant != null) {
                 withContext(Dispatchers.Main) {
                     holder.binding.cardViewImgBtnFavorite.setImageResource(R.drawable.ic_favorite_adapter)

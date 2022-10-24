@@ -10,27 +10,32 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.adapter.RestaurantHomeAdapter
-import com.sorabh.grabfood.adapter.RestaurantViewHolder
-import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
+import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.databinding.FavoriteRestaurantsFragmentBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
+import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter
+import com.sorabh.grabfood.ui.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class FavoriteRestaurantsFragment : Fragment(),
     RestaurantViewHolder.OnRestaurantsClicked,
     RestaurantViewHolder.OnFavoriteButtonClicked {
-
+    private lateinit var navController: NavController
     private lateinit var binding:FavoriteRestaurantsFragmentBinding
     private val job = SupervisorJob()
 
-    private lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
-
-    private lateinit var localDBRepository: LocalDBRepository
+    @Inject
+    lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
+    @Inject
+    lateinit var localDBRepository: LocalDBRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +43,15 @@ class FavoriteRestaurantsFragment : Fragment(),
     ): View {
         // Inflate the layout for this fragment
         binding = FavoriteRestaurantsFragmentBinding.inflate(layoutInflater)
-
+        navController = findNavController()
         //Changing toolbar title
         (activity as AppCompatActivity).supportActionBar?.title = "My Favorite Restaurants"
 
 
         CoroutineScope(job + Dispatchers.IO).launch {
-            restaurantHomeAdapter =
-                RestaurantHomeAdapter(
-                    this@FavoriteRestaurantsFragment,
-                    this@FavoriteRestaurantsFragment,
-                    activity as Context
-                )
+            restaurantHomeAdapter.restaurantsClicked = this@FavoriteRestaurantsFragment
+            restaurantHomeAdapter.onFavoriteButtonClicked = this@FavoriteRestaurantsFragment
 
-
-            localDBRepository = LocalDBRepository(
-                activity as Context
-            )
             val lytManager = LinearLayoutManager(activity as Context)
             lateinit var favoriteRestaurantList: List<DataX>
             try {
@@ -101,6 +98,10 @@ class FavoriteRestaurantsFragment : Fragment(),
             .addToBackStack("RestaurantMenuFragment")
             .replace(R.id.frameLayout, RestaurantMenuFragment(dataX))
             .commit()
+//        navController.navigate(
+//            HomeFragmentDirections
+//                .actionHomeFragmentToRestaurantMenuFragment(dataX.name, dataX.id)
+//        )
     }
 
     override fun onFavoriteButtonClicked(dataX: DataX) {

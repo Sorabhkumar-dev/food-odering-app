@@ -17,12 +17,15 @@ import com.sorabh.grabfood.adapter.OrderHistoryAdapter
 import com.sorabh.grabfood.api_response_classes.oder_history_response.Data
 import com.sorabh.grabfood.databinding.FragmentOderHistoryBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-
-class OderHistoryFragment() : Fragment() {
+@AndroidEntryPoint
+class OderHistoryFragment : Fragment() {
     private lateinit var oderHistoryBinding: FragmentOderHistoryBinding
-
+    @Inject
+    lateinit var repository: NetworkRepository
     private val job = SupervisorJob()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,7 +78,6 @@ class OderHistoryFragment() : Fragment() {
             val sharedPreferences =
                 activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
             val userId: String? = sharedPreferences?.getString("user_id", "107")
-            val repository = NetworkRepository()
 
             //header to send
             val header = HashMap<String, String>()

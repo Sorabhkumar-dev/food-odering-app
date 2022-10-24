@@ -2,7 +2,7 @@ package com.sorabh.grabfood.domain.network_api
 
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
-import com.sorabh.grabfood.api_response_classes.login_respones.LoginRespones
+import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.api_response_classes.oder_history_response.OderHistoryResponse
 import com.sorabh.grabfood.api_response_classes.oder_respones.OderFeedback
 import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
@@ -20,7 +20,7 @@ interface NetworkInterface {
     suspend fun getLoginDetails(
         @HeaderMap header: HashMap<String, String>,
         @Body params: JsonObject
-    ): Response<LoginRespones>
+    ): Response<LoginResponse>
 
     //SignUp Activity
 

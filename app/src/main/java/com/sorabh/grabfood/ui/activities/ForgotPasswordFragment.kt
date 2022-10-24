@@ -11,12 +11,18 @@ import androidx.navigation.fragment.findNavController
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.databinding.ForgotPasswordFragmentBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import com.sorabh.grabfood.domain.repository.NetworkRepositoryImpl
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ForgotPasswordFragment : BaseFragment() {
     private lateinit var binding:ForgotPasswordFragmentBinding
     private lateinit var navController: NavController
+    @Inject
+    lateinit var networkRepository: NetworkRepository
     private val job = SupervisorJob()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,11 +56,10 @@ class ForgotPasswordFragment : BaseFragment() {
                     params.addProperty("email", email)
 
                     // creating repository object
-                    val repository = NetworkRepository()
 
                     try {
                         //making api call
-                        val forgotResponse = repository.getForgotResponse(header, params)
+                        val forgotResponse = networkRepository.getForgotResponse(header, params)
                         Log.d("exc1",forgotResponse.toString())
 
                         if (forgotResponse?.success == true && forgotResponse.first_try) {

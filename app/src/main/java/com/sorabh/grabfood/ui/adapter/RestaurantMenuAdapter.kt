@@ -1,7 +1,6 @@
-package com.sorabh.grabfood.adapter
+package com.sorabh.grabfood.ui.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,8 +12,9 @@ import com.sorabh.grabfood.databinding.RestaurantMenuCardviewBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class RestaurantMenuAdapter(val context: Context) :
+class RestaurantMenuAdapter @Inject constructor(private val localDBRepository: LocalDBRepository,private val networkRepository: NetworkRepository) :
     RecyclerView.Adapter<RestaurantMenuViewHolder>(),
     RestaurantMenuViewHolder.OnMenuButtonClickedListener {
 
@@ -35,7 +35,6 @@ class RestaurantMenuAdapter(val context: Context) :
         var menuData: DataX?
         val job = SupervisorJob()
         CoroutineScope(job + Dispatchers.IO).launch {
-            val localDBRepository = LocalDBRepository(context)
             menuData = localDBRepository.getMenuItem(restaurantMenuList[position].id)
             if (menuData != null) {
                 withContext(Dispatchers.Main) {
@@ -69,9 +68,6 @@ class RestaurantMenuAdapter(val context: Context) :
             val header = HashMap<String, String>()
             header["Content-type"] = "application/json"
             header["token"] = "025c40375fadfd"
-
-            val localDBRepository = LocalDBRepository(context)
-            val networkRepository = NetworkRepository()
 
             val data = localDBRepository.getMenuItem(dataX.id)
 

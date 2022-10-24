@@ -13,11 +13,16 @@ import com.google.gson.JsonObject
 import com.sorabh.grabfood.databinding.OtpFragmentBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class OTPFragment : BaseFragment() {
     private lateinit var binding:OtpFragmentBinding
     private lateinit var navController: NavController
+    @Inject
+    lateinit var repository: NetworkRepository
     private val args :OTPFragmentArgs by navArgs()
     private val job = SupervisorJob()
     override fun onCreateView(
@@ -53,8 +58,6 @@ class OTPFragment : BaseFragment() {
                     params.addProperty("password", password)
                     params.addProperty("otp", otp)
 
-                    //creating repository object
-                    val repository = NetworkRepository()
                     try {
                         val otpResponse = repository.getOTPResponse(header, params)
                         Log.d("otpinfo",otpResponse.toString())

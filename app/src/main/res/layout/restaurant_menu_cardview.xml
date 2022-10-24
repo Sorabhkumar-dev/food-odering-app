@@ -4,7 +4,7 @@
     <data>
 <variable
     name="onMenuButtonClicked"
-    type="com.sorabh.grabfood.adapter.RestaurantMenuViewHolder.OnMenuButtonClickedListener" />
+    type="com.sorabh.grabfood.ui.adapter.RestaurantMenuViewHolder.OnMenuButtonClickedListener" />
         <variable
             name="view"
             type="com.sorabh.grabfood.databinding.RestaurantMenuCardviewBindingImpl" />

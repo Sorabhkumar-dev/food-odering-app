@@ -9,11 +9,16 @@ import androidx.navigation.fragment.findNavController
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.databinding.SignUpFragmentBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SignUpFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var binding:SignUpFragmentBinding
+    @Inject
+    lateinit var repository: NetworkRepository
     private val job = SupervisorJob()
 
 
@@ -66,8 +71,6 @@ class SignUpFragment : Fragment() {
                     params.addProperty("address", address)
                     params.addProperty("email", email)
 
-                    // creating repository instance
-                    val repository = NetworkRepository()
                     try {
 
                         val signUpResponse = repository.getSignUpDetails(header, params)

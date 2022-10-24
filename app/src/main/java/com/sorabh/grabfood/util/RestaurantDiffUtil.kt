@@ -1,7 +1,7 @@
 package com.sorabh.grabfood.util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
+import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 
 class RestaurantDiffUtil(private val newList: List<DataX>?, private val oldList: List<DataX>?) :
     DiffUtil.Callback() {

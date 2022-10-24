@@ -5,18 +5,18 @@
 
         <variable
             name="data"
-            type="com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX" />
+            type="com.sorabh.grabfood.domain.model.reataurants_home_response.DataX" />
 
         <variable
             name="onRestaurantClicked"
-            type="com.sorabh.grabfood.adapter.RestaurantViewHolder.OnRestaurantsClicked" />
+            type="com.sorabh.grabfood.ui.adapter.RestaurantViewHolder.OnRestaurantsClicked" />
 
         <variable
             name="view"
             type="com.sorabh.grabfood.databinding.RestaurantsHomeCardviewBindingImpl" />
         <variable
             name="onFavoriteButtonClicked"
-            type="com.sorabh.grabfood.adapter.RestaurantViewHolder.OnFavoriteButtonClicked" />
+            type="com.sorabh.grabfood.ui.adapter.RestaurantViewHolder.OnFavoriteButtonClicked" />
 
         <import type="androidx.databinding.DataBindingUtil" />
 

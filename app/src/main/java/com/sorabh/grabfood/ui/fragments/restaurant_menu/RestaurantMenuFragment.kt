@@ -10,18 +10,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RestaurantMenuFragment(
-    private val dataX: com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
-) :
-    Fragment() {
+    private val dataX: com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
+) : Fragment() {
     private lateinit var binding: FragmentRestaurantMenuBinding
+    @Inject
+    lateinit var repository: NetworkRepository
+
+    @Inject
+    lateinit var restaurantMenuAdapter: RestaurantMenuAdapter
 
     private val job = SupervisorJob()
     override fun onCreateView(
@@ -35,7 +42,6 @@ class RestaurantMenuFragment(
 
 
         val layout = LinearLayoutManager(activity as Context)
-        val restaurantMenuAdapter = RestaurantMenuAdapter(activity as Context)
 
         with(binding.restaurantMenuRecyclerView) {
             layoutManager = layout
@@ -65,7 +71,6 @@ class RestaurantMenuFragment(
 
     private suspend fun getMenuList(): List<DataX>? = coroutineScope {
         val list = CoroutineScope(job + Dispatchers.IO).async {
-            val repository = NetworkRepository()
 
             //header to send
             val header = HashMap<String, String>()

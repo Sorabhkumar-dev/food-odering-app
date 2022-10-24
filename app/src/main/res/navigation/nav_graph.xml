@@ -68,5 +68,19 @@
             android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sorabh.grabfood.ui.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantMenuFragment"
+            app:destination="@id/restaurantMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantMenuFragment"
+        android:name="com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment"
+        android:label="fragment_restaurant_menu"
+        tools:layout="@layout/fragment_restaurant_menu" />
 
 </navigation>

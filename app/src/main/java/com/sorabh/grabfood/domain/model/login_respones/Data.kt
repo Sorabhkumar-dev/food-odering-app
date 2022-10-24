@@ -1,6 +1,6 @@
-package com.sorabh.grabfood.api_response_classes.login_respones
+package com.sorabh.grabfood.domain.model.login_respones
 
 data class Data(
-    val `data`: DataX,
+    val data: User,
     val success: Boolean
 )

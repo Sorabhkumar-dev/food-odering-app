@@ -1,6 +1,6 @@
-package com.sorabh.grabfood.api_response_classes.login_respones
+package com.sorabh.grabfood.domain.model.login_respones
 
-data class DataX(
+data class User(
     val address: String,
     val email: String,
     val mobile_number: String,

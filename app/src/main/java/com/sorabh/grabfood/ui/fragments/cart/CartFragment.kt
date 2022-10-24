@@ -15,21 +15,29 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.adapter.CartAdapter
-import com.sorabh.grabfood.adapter.CartViewHolder
+import com.sorabh.grabfood.ui.adapter.CartAdapter
+import com.sorabh.grabfood.ui.adapter.CartViewHolder
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.FragmentCartBinding
 import com.sorabh.grabfood.databinding.OderBottomSheetBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepository
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
     private lateinit var fragmentCartBinding: FragmentCartBinding
-    private lateinit var localDBRepository: LocalDBRepository
+    @Inject
+    lateinit var repository: NetworkRepository
+    @Inject
+    lateinit var cartAdapter: CartAdapter
+    @Inject
+    lateinit var localDBRepository: LocalDBRepository
+
     val job = SupervisorJob()
-    private lateinit var cartAdapter: CartAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,9 +45,6 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
         // Inflate the layout for this fragment
         fragmentCartBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false)
-
-        cartAdapter = CartAdapter(activity as Context, this)
-        localDBRepository = LocalDBRepository(activity as Context)
 
         val lytManager = LinearLayoutManager(activity as Context)
         with(fragmentCartBinding.cartRecyclerView) {
@@ -94,10 +99,6 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
        val result=  CoroutineScope(job + Dispatchers.IO).async {
             var isOderConfirm = false
 
-            val networkRepository = NetworkRepository()
-
-            val localDBRepository = LocalDBRepository(activity as Context)
-
             val sharedPreferences =
                 activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
             val userId: String? = sharedPreferences?.getString("user_id", "107")
@@ -120,7 +121,7 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
             header["Content-type"] = "application/json"
             header["token"] = "025c40375fadfd"
             try {
-                isOderConfirm = networkRepository.placeOder(header, jsonObject) == true
+                isOderConfirm = repository.placeOder(header, jsonObject) == true
                 if (isOderConfirm) {
                     localDBRepository.deleteMenu(dataX)
 
