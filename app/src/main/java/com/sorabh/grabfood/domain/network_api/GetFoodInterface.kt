@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.network_api
+package com.sorabh.grabfood.domain.network_api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

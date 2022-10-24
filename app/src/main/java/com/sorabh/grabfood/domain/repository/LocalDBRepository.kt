@@ -1,7 +1,7 @@
 package com.sorabh.grabfood.domain.repository
 
 import android.content.Context
-import com.sorabh.grabfood.Database.RestaurantDatabase
+import com.sorabh.grabfood.domain.Database.RestaurantDatabase
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.util.QNAData
 

@@ -5,7 +5,7 @@ import com.sorabh.grabfood.api_response_classes.forgot_response.Data
 import com.sorabh.grabfood.api_response_classes.login_respones.LoginRespones
 import com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
-import com.sorabh.grabfood.network_api.GetFoodInterface
+import com.sorabh.grabfood.domain.network_api.GetFoodInterface
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
 
 class NetworkRepository {
