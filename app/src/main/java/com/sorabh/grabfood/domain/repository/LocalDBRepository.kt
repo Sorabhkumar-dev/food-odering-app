@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.repository
+package com.sorabh.grabfood.domain.repository
 
 import android.content.Context
 import com.sorabh.grabfood.Database.RestaurantDatabase
@@ -8,7 +8,7 @@ import com.sorabh.grabfood.util.QNAData
 class LocalDBRepository(context: Context) {
     private val dbAPI = RestaurantDatabase.getRestaurantDatabaseInstance(context).getLocalDAO()
 
-    /*--------------------- Restaurant Home  ---------------------*/
+    // Restaurant Home
     fun insertRestaurant(restaurant: com.sorabh.grabfood.api_response_classes.reataurants_home_response.DataX) {
         dbAPI.insertRestaurant(restaurant)
     }
@@ -26,14 +26,11 @@ class LocalDBRepository(context: Context) {
         return dbAPI.getRestaurant(id)
     }
 
-    /*--------------------- Restaurant menu ---------------------*/
+    // Restaurant menu
     fun insertMenu(menu: DataX) {
         dbAPI.insertMenu(menu)
     }
 
-    fun deleteAllMenu(restaurant_Id: String) {
-    dbAPI.deleteAllMenu(restaurant_Id)
-    }
 
     fun deleteMenu(menu: DataX) {
         dbAPI.deleteMenu(menu)
@@ -47,14 +44,10 @@ class LocalDBRepository(context: Context) {
         return dbAPI.getMenuItem(id)
     }
 
-    /*--------------------- Restaurant QNA ---------------------*/
+    // Restaurant QNA
 
     fun insertQNAData(qnaData: QNAData) {
         dbAPI.insertQNAData(qnaData)
-    }
-
-    fun deleteQNAData(qnaData: QNAData) {
-        dbAPI.deleteQNAData(qnaData)
     }
 
     fun getQNAList(): List<QNAData>? {
