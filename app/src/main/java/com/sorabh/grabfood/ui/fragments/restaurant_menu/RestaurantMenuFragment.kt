@@ -7,22 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment
+import com.sorabh.grabfood.ui.fragments.home.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class RestaurantMenuFragment(
-    private val dataX: com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
-) : Fragment() {
+class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
     private lateinit var binding: FragmentRestaurantMenuBinding
     @Inject
     lateinit var repository: NetworkRepository
@@ -38,7 +37,7 @@ class RestaurantMenuFragment(
         binding = FragmentRestaurantMenuBinding.inflate(layoutInflater)
 
         //Changing toolbar title
-        (activity as AppCompatActivity).supportActionBar?.title = dataX.name
+        (activity as AppCompatActivity).supportActionBar?.title = dish.name
 
 
         val layout = LinearLayoutManager(activity as Context)
@@ -77,7 +76,7 @@ class RestaurantMenuFragment(
             header["Content-type"] = "application/json"
             header["token"] = "025c40375fadfd"
 
-            return@async repository.getMenuList(header, dataX.id)
+            return@async repository.getMenuList(header, dish.id)
 
         }
         return@coroutineScope list.await()

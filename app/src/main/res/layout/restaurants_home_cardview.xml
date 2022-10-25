@@ -5,7 +5,7 @@
 
         <variable
             name="data"
-            type="com.sorabh.grabfood.domain.model.reataurants_home_response.DataX" />
+            type="com.sorabh.grabfood.domain.model.reataurants_home_response.Dish" />
 
         <variable
             name="onRestaurantClicked"
@@ -25,19 +25,22 @@
     <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:onClick="@{() -> onRestaurantClicked.onRestaurantsClicked(data)}"
-        app:cardCornerRadius="@dimen/cardview_default_radius"
-        app:cardElevation="@dimen/cardview_default_elevation">
+        app:cardCornerRadius="6dp"
+        android:layout_marginBottom="10dp"
+        app:cardElevation="6dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="152dp">
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/cardView_img_restaurant"
                 imgSrcUrl="@{data.image_url}"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
                 android:layout_width="110dp"
                 android:layout_height="110dp" />
 
@@ -75,7 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:onClick="@{() -> onFavoriteButtonClicked.onFavoriteButtonClicked(data)}"
-                android:src="@drawable/ic_favorite_adapter2" />
+                android:src="@drawable/ic_favorite_empty" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/cardView_txt_rating"

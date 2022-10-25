@@ -6,7 +6,7 @@ import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.api_response_classes.oder_history_response.OderHistoryResponse
 import com.sorabh.grabfood.api_response_classes.oder_respones.OderFeedback
 import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
-import com.sorabh.grabfood.api_response_classes.reataurants_home_response.RestaurantsResponse
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.RestaurantMenu
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import retrofit2.Response
@@ -51,7 +51,7 @@ interface NetworkInterface {
     @GET("restaurants/fetch_result/")
     suspend fun getRestaurantsList(
         @HeaderMap header: HashMap<String, String>,
-    ): Response<RestaurantsResponse>
+    ): Response<Restaurant>
 
     // Restaurant Menu Fragment
 

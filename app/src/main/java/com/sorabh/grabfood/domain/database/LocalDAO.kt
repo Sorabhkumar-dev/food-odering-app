@@ -12,16 +12,16 @@ interface LocalDAO {
 
     /*--------------------- Favorite Restaurant ---------------------*/
     @Insert
-    fun insertRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.DataX)
+    fun insertRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.Dish)
 
     @Delete
-    fun deleteRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.DataX)
+    fun deleteRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.Dish)
 
     @Query("Select * from Restaurant")
-    fun getRestaurantList(): List<com.sorabh.grabfood.domain.model.reataurants_home_response.DataX>?
+    fun getRestaurantList(): List<com.sorabh.grabfood.domain.model.reataurants_home_response.Dish>?
 
     @Query("select * from Restaurant where id = :id")
-    fun getRestaurant(id:String): com.sorabh.grabfood.domain.model.reataurants_home_response.DataX?
+    fun getRestaurant(id:String): com.sorabh.grabfood.domain.model.reataurants_home_response.Dish?
 
     /*--------------------- Restaurant Menu ---------------------*/
     @Insert

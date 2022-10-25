@@ -2,8 +2,8 @@ package com.sorabh.grabfood.domain.repository
 
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.Data
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
-import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
 import com.sorabh.grabfood.domain.network_api.Result
@@ -54,8 +54,16 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
 
     // Home Fragment
 
-    override suspend fun getRestaurantsList(header: HashMap<String, String>): List<DataX>? {
-        return networkInterface.getRestaurantsList(header).body()?.data?.data
+    override suspend fun getRestaurantsList(header: HashMap<String, String>): Result<Restaurant> {
+        val response = networkInterface.getRestaurantsList(header)
+        return try {
+            if (response.isSuccessful)
+                Result.Success(response.body(),response.code(),response.message())
+            else
+                Result.Error(response.code(),response.message())
+        }catch (e:Exception){
+            Result.Error(response.code(),e.message ?: Constants.NETWORK_ERROR)
+        }
     }
     // Restaurant Menu Fragment
 

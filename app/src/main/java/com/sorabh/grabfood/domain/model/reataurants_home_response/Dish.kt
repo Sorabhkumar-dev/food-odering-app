@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Restaurant")
-data class DataX(
+data class Dish(
     val cost_for_one: String,
     @PrimaryKey
     val id: String,

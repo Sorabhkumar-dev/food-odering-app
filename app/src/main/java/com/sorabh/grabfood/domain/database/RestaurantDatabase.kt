@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
 import com.sorabh.grabfood.util.QNAData
 
-@Database(entities = [DataX::class, QNAData::class, com.sorabh.grabfood.domain.model.reataurants_home_response.DataX::class], version = 1)
+@Database(entities = [DataX::class, QNAData::class, com.sorabh.grabfood.domain.model.reataurants_home_response.Dish::class], version = 1)
 abstract class RestaurantDatabase : RoomDatabase() {
    abstract fun getLocalDAO(): LocalDAO
    

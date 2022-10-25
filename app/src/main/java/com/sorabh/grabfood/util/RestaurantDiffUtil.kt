@@ -1,9 +1,9 @@
 package com.sorabh.grabfood.util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 
-class RestaurantDiffUtil(private val newList: List<DataX>?, private val oldList: List<DataX>?) :
+class RestaurantDiffUtil(private val newList: List<Dish>?, private val oldList: List<Dish>?) :
     DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList?.size!!
 

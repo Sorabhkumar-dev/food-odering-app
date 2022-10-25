@@ -10,12 +10,10 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.databinding.FavoriteRestaurantsFragmentBinding
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.ui.adapter.RestaurantViewHolder
@@ -28,7 +26,6 @@ import javax.inject.Inject
 class FavoriteRestaurantsFragment : Fragment(),
     RestaurantViewHolder.OnRestaurantsClicked,
     RestaurantViewHolder.OnFavoriteButtonClicked {
-    private lateinit var navController: NavController
     private lateinit var binding:FavoriteRestaurantsFragmentBinding
     private val job = SupervisorJob()
 
@@ -41,9 +38,7 @@ class FavoriteRestaurantsFragment : Fragment(),
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FavoriteRestaurantsFragmentBinding.inflate(layoutInflater)
-        navController = findNavController()
         //Changing toolbar title
         (activity as AppCompatActivity).supportActionBar?.title = "My Favorite Restaurants"
 
@@ -53,7 +48,7 @@ class FavoriteRestaurantsFragment : Fragment(),
             restaurantHomeAdapter.onFavoriteButtonClicked = this@FavoriteRestaurantsFragment
 
             val lytManager = LinearLayoutManager(activity as Context)
-            lateinit var favoriteRestaurantList: List<DataX>
+            lateinit var favoriteRestaurantList: List<Dish>
             try {
                 favoriteRestaurantList = getFavoriteRestaurantList()!!
             } catch (e: Exception) {
@@ -79,7 +74,7 @@ class FavoriteRestaurantsFragment : Fragment(),
         return binding.root
     }
 
-    private suspend fun getFavoriteRestaurantList(): List<DataX>? = coroutineScope {
+    private suspend fun getFavoriteRestaurantList(): List<Dish>? = coroutineScope {
         val list = CoroutineScope(job + Dispatchers.IO).async {
             return@async localDBRepository.getRestaurantList()
         }
@@ -87,7 +82,7 @@ class FavoriteRestaurantsFragment : Fragment(),
 
     }
 
-    override fun onRestaurantsClicked(dataX: DataX) {
+    override fun onRestaurantsClicked(dish: Dish) {
         parentFragmentManager.beginTransaction()
             .setCustomAnimations(
                 R.anim.enter_from_right,
@@ -96,22 +91,18 @@ class FavoriteRestaurantsFragment : Fragment(),
                 R.anim.exit_to_right
             )
             .addToBackStack("RestaurantMenuFragment")
-            .replace(R.id.frameLayout, RestaurantMenuFragment(dataX))
+            .replace(R.id.frameLayout, RestaurantMenuFragment(dish))
             .commit()
-//        navController.navigate(
-//            HomeFragmentDirections
-//                .actionHomeFragmentToRestaurantMenuFragment(dataX.name, dataX.id)
-//        )
     }
 
-    override fun onFavoriteButtonClicked(dataX: DataX) {
+    override fun onFavoriteButtonClicked(dish: Dish) {
         Log.d("exc", "executed")
         CoroutineScope(job + Dispatchers.IO).launch {
 
-            val restaurantData = localDBRepository.getRestaurant(dataX.id)
+            val restaurantData = localDBRepository.getRestaurant(dish.id)
 
             if (restaurantData != null) {
-                localDBRepository.deleteRestaurant(dataX)
+                localDBRepository.deleteRestaurant(dish)
                 val list = localDBRepository.getRestaurantList()
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
@@ -123,7 +114,7 @@ class FavoriteRestaurantsFragment : Fragment(),
                     restaurantHomeAdapter.updateRestaurantsList(list)
                 }
             } else {
-                localDBRepository.insertRestaurant(dataX)
+                localDBRepository.insertRestaurant(dish)
                 val list = localDBRepository.getRestaurantList()
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
