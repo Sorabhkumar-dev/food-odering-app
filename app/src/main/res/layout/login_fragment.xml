@@ -54,37 +54,36 @@
                 android:textColorHint="?colorPrimaryVariant" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login"
-            style="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_login_password"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="25dp"
             android:background="?colorPrimaryVariant"
-            android:padding="20dp"
             android:text="@string/btn_login"
             android:textColor="@color/white" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login_forgot_password"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_login"
-            android:layout_centerHorizontal="true"
-            android:text="@string/btn_login_forgot_password"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_forgot_password"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_login_forgot_password"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login_signup"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/btn_login_signup"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_signup"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_login_signup"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
-    </RelativeLayout>
+</RelativeLayout>
