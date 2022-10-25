@@ -6,6 +6,8 @@ import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
+import com.sorabh.grabfood.domain.network_api.Result
+import com.sorabh.grabfood.util.Constants
 import javax.inject.Inject
 
 class NetworkRepositoryImpl @Inject constructor(private val networkInterface: NetworkInterface) :NetworkRepository{
@@ -14,8 +16,16 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
    override suspend fun getLoginDetails(
         header: HashMap<String, String>,
         params: JsonObject
-    ): LoginResponse? {
-        return networkInterface.getLoginDetails(header, params).body()
+    ): Result<LoginResponse> {
+        val response = networkInterface.getLoginDetails(header, params)
+        return try {
+            if (response.isSuccessful)
+                Result.Success(response.body(),response.code(),response.message())
+            else
+                Result.Error(response.code(),response.message())
+        }catch (e:Exception){
+            Result.Error(response.code(),e.message ?: Constants.NETWORK_ERROR)
+        }
     }
 
     // SignUp Activity

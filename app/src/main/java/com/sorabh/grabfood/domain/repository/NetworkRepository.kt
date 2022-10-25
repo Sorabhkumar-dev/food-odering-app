@@ -5,12 +5,13 @@ import com.sorabh.grabfood.api_response_classes.forgot_response.Data
 import com.sorabh.grabfood.domain.model.reataurants_home_response.DataX
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
+import com.sorabh.grabfood.domain.network_api.Result
 
 interface NetworkRepository {
     suspend fun getLoginDetails(
         header: HashMap<String, String>,
         params: JsonObject
-    ): LoginResponse?
+    ): Result<LoginResponse>
 
     suspend fun getSignUpDetails(
         header: HashMap<String, String>,

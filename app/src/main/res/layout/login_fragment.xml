@@ -19,12 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/img_login_logo"
             android:layout_marginHorizontal="20dp"
-            android:textColorHint="?colorPrimary"
             app:counterEnabled="true"
             app:counterMaxLength="10"
             app:endIconMode="clear_text"
             app:prefixText="+91"
             app:prefixTextColor="?colorPrimary"
+            android:hint="@string/mobile"
             app:startIconDrawable="@drawable/ic_phone_number">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -41,9 +41,9 @@
             android:layout_below="@id/edt_login_phone_number"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="25dp"
-            android:textColorHint="?colorPrimary"
             app:counterEnabled="true"
             app:counterMaxLength="50"
+            android:hint="@string/password"
             app:endIconMode="password_toggle"
             app:startIconDrawable="@drawable/ic_password">
 
