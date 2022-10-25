@@ -39,4 +39,5 @@
     <string name="discard">Discard</string>
     <string name="yes">Yes</string>
     <string name="after_clicking_yes_you_will_be">After clicking Yes you will be log out from the App.</string>
+    <string name="remove">Remove</string>
 </resources>

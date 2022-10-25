@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.databinding.CartAdapterLayoutBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
 class CartAdapter @Inject constructor(private val localDBRepository: LocalDBRepository) : RecyclerView.Adapter<CartViewHolder>() {
-    private var menuList = ArrayList<DataX>()
+    private var menuList = ArrayList<Menu>()
 
     var onOderButtonClickedListener: CartViewHolder.OnOderButtonClickedListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -35,16 +35,16 @@ class CartAdapter @Inject constructor(private val localDBRepository: LocalDBRepo
     override fun getItemCount(): Int = menuList.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateMenuList(newMenuList: List<DataX>?) {
+    fun updateMenuList(newMenuList: List<Menu>?) {
         menuList.clear()
-        menuList = newMenuList as ArrayList<DataX>
+        menuList = newMenuList as ArrayList<Menu>
         notifyDataSetChanged()
     }
 
     fun update() {
         val job = SupervisorJob()
         CoroutineScope(job + Dispatchers.IO).launch {
-            val menuList: List<DataX>? = localDBRepository.getMenuList()
+            val menuList: List<Menu>? = localDBRepository.getMenuList()
             withContext(Dispatchers.Main) {
                 updateMenuList(menuList)
             }
@@ -58,6 +58,6 @@ class CartAdapter @Inject constructor(private val localDBRepository: LocalDBRepo
 class CartViewHolder(val cartAdapterLayoutBinding: CartAdapterLayoutBinding) :
     RecyclerView.ViewHolder(cartAdapterLayoutBinding.root) {
     interface OnOderButtonClickedListener {
-        fun onOderButtonClicked(menu: DataX)
+        fun onOderButtonClicked(menu: Menu)
     }
 }

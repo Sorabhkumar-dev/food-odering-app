@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -32,7 +32,7 @@
         android:layout_marginBottom="10dp"
         app:cardElevation="6dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -42,7 +42,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginVertical="8dp"
                 android:layout_width="110dp"
-                android:layout_height="110dp" />
+                android:layout_height="110dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <com.google.android.material.textview.MaterialTextView
@@ -50,10 +53,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
                 android:layout_toEndOf="@id/cardView_img_restaurant"
-                android:switchTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 android:text="@{data.name}"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@id/cardView_img_restaurant"
+                app:layout_constraintTop_toTopOf="@id/cardView_img_restaurant"
+                tools:text="Burger king"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -63,10 +68,31 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cardView_txt_name"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
                 android:layout_toEndOf="@id/cardView_img_restaurant"
-                android:switchTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintStart_toEndOf="@id/cardView_img_restaurant"
+                app:layout_constraintTop_toBottomOf="@id/cardView_txt_name"
+                tools:text="$200"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/cardView_txt_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:drawablePadding="3dp"
+                android:drawableStart="@drawable/ic_rating"
+                android:text="@{data.rating}"
+                app:layout_constraintStart_toEndOf="@id/cardView_img_restaurant"
+                app:layout_constraintTop_toBottomOf="@id/cardView_txt_price"
+                tools:text="4.1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/cardView_img_btn_favorite"
@@ -76,21 +102,13 @@
                 android:layout_alignParentEnd="true"
                 android:background="@color/design_default_color_surface"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/cardView_txt_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView_txt_name"
                 android:onClick="@{() -> onFavoriteButtonClicked.onFavoriteButtonClicked(data)}"
                 android:src="@drawable/ic_favorite_empty" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/cardView_txt_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="40dp"
-                android:drawableStart="@drawable/ic_rating"
-                android:text="@{data.rating}" />
-
-
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

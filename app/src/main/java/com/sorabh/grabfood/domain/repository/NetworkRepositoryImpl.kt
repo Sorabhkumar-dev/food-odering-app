@@ -2,9 +2,10 @@ package com.sorabh.grabfood.domain.repository
 
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.Data
-import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
-import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
+import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.RestaurantMenu
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
 import com.sorabh.grabfood.domain.network_api.Result
 import com.sorabh.grabfood.util.Constants
@@ -65,14 +66,20 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
             Result.Error(response.code(),e.message ?: Constants.NETWORK_ERROR)
         }
     }
-    // Restaurant Menu Fragment
 
     override suspend fun getMenuList(
         header: HashMap<String, String>,
         restaurant_id: String
-    ): List<com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX>? {
-
-        return networkInterface.getRestaurantMenu(header, restaurant_id).body()?.data?.data
+    ): Result<RestaurantMenu> {
+        val response = networkInterface.getRestaurantMenu(header, restaurant_id)
+        return try {
+            if (response.isSuccessful)
+                Result.Success(response.body(),response.code(),response.message())
+            else
+                Result.Error(response.code(),response.message())
+        }catch (e:Exception){
+            Result.Error(response.code(),response.message())
+        }
 
     }
 

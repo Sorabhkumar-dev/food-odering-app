@@ -1,6 +1,6 @@
 package com.sorabh.grabfood.domain.repository
 
-import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.domain.database.LocalDAO
 import com.sorabh.grabfood.util.QNAData
 import javax.inject.Inject
@@ -26,20 +26,20 @@ class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
     }
 
     // Restaurant menu
-    fun insertMenu(menu: DataX) {
+    fun insertMenu(menu: Menu) {
         localDAO.insertMenu(menu)
     }
 
 
-    fun deleteMenu(menu: DataX) {
+    fun deleteMenu(menu: Menu) {
         localDAO.deleteMenu(menu)
     }
 
-    fun getMenuList(): List<DataX>? {
+    fun getMenuList(): List<Menu>? {
         return localDAO.getMenuList()
     }
 
-    fun getMenuItem(id: String): DataX? {
+    fun getMenuItem(id: String): Menu? {
         return localDAO.getMenuItem(id)
     }
 

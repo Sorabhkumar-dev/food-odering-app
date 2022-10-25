@@ -1,10 +1,10 @@
-package com.sorabh.grabfood.api_response_classes.restaurant_menu_response
+package com.sorabh.grabfood.domain.model.restaurant_menu_response
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Menu")
-data class  DataX(
+data class  Menu(
 
     val cost_for_one: String,
     val id: String,

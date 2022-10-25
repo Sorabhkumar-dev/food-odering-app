@@ -17,7 +17,7 @@ import com.google.gson.JsonObject
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.ui.adapter.CartAdapter
 import com.sorabh.grabfood.ui.adapter.CartViewHolder
-import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.databinding.FragmentCartBinding
 import com.sorabh.grabfood.databinding.OderBottomSheetBinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
@@ -62,7 +62,7 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
         fragmentCartBinding.unbind()
     }
 
-    override fun onOderButtonClicked(menu: DataX) {
+    override fun onOderButtonClicked(menu: Menu) {
         CoroutineScope(Dispatchers.Main).launch {
 
             val isOderConfirm: Boolean = getOderConfirmation(menu)
@@ -95,7 +95,7 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
     }
 
 
-    private suspend fun getOderConfirmation(dataX: DataX): Boolean {
+    private suspend fun getOderConfirmation(menu: Menu): Boolean {
        val result=  CoroutineScope(job + Dispatchers.IO).async {
             var isOderConfirm = false
 
@@ -105,11 +105,11 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
 
             val jsonObject = JsonObject()
             jsonObject.addProperty("user_id", userId)
-            jsonObject.addProperty("restaurant_id", dataX.restaurant_id)
-            jsonObject.addProperty("total_cost", dataX.cost_for_one)
+            jsonObject.addProperty("restaurant_id", menu.restaurant_id)
+            jsonObject.addProperty("total_cost", menu.cost_for_one)
 
             val food = JsonObject()
-            food.addProperty("food_item_id", dataX.id)
+            food.addProperty("food_item_id", menu.id)
 
             val foodItem = JsonArray()
             foodItem.add(food)
@@ -123,7 +123,7 @@ class CartFragment : Fragment(), CartViewHolder.OnOderButtonClickedListener {
             try {
                 isOderConfirm = repository.placeOder(header, jsonObject) == true
                 if (isOderConfirm) {
-                    localDBRepository.deleteMenu(dataX)
+                    localDBRepository.deleteMenu(menu)
 
                 }
             } catch (e: Exception) {

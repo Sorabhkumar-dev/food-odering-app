@@ -9,7 +9,7 @@
 
         <variable
             name="menu"
-            type="com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX" />
+            type="com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu" />
         <variable
             name="onOderButtonClicked"
             type="com.sorabh.grabfood.ui.adapter.CartViewHolder.OnOderButtonClickedListener" />

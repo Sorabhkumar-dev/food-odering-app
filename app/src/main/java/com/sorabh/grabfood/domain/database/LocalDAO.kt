@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.DataX
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.util.QNAData
 
 @Dao
@@ -25,19 +25,19 @@ interface LocalDAO {
 
     /*--------------------- Restaurant Menu ---------------------*/
     @Insert
-    fun insertMenu(menu: DataX)
+    fun insertMenu(menu: Menu)
 
     @Delete
-    fun deleteMenu(menu: DataX)
+    fun deleteMenu(menu: Menu)
 
     @Query("delete from menu where restaurant_id =:restaurant_id")
     fun deleteAllMenu(restaurant_id:String)
 
     @Query("Select * from menu")
-    fun getMenuList(): List<DataX>?
+    fun getMenuList(): List<Menu>?
 
     @Query("select * from menu where id = :id")
-    fun getMenuItem(id:String):DataX?
+    fun getMenuItem(id:String): Menu?
 
     /*--------------------- Restaurant QNA ---------------------*/
     @Insert

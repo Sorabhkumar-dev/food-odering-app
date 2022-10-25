@@ -7,7 +7,7 @@ import com.sorabh.grabfood.api_response_classes.oder_history_response.OderHistor
 import com.sorabh.grabfood.api_response_classes.oder_respones.OderFeedback
 import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
-import com.sorabh.grabfood.api_response_classes.restaurant_menu_response.RestaurantMenu
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.RestaurantMenu
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import retrofit2.Response
 import retrofit2.http.*
