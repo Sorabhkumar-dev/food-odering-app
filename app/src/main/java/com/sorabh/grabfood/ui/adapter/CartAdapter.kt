@@ -3,27 +3,23 @@ package com.sorabh.grabfood.ui.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sorabh.grabfood.R
-import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.databinding.CartAdapterLayoutBinding
-import com.sorabh.grabfood.domain.repository.LocalDBRepository
-import kotlinx.coroutines.*
+import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import javax.inject.Inject
 
-class CartAdapter @Inject constructor(private val localDBRepository: LocalDBRepository) : RecyclerView.Adapter<CartViewHolder>() {
-    private var menuList = ArrayList<Menu>()
+class CartAdapter @Inject constructor() : RecyclerView.Adapter<CartViewHolder>() {
+    private var menuList: MutableList<Menu> = mutableListOf()
 
     var onOderButtonClickedListener: CartViewHolder.OnOderButtonClickedListener? = null
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val cartAdapterLayoutBinding = DataBindingUtil.inflate<CartAdapterLayoutBinding>(
-            layoutInflater,
-            R.layout.cart_adapter_layout, parent, false
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        CartViewHolder(
+            CartAdapterLayoutBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
-        return CartViewHolder(cartAdapterLayoutBinding)
-    }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         holder.cartAdapterLayoutBinding.menu = menuList[position]
@@ -36,23 +32,12 @@ class CartAdapter @Inject constructor(private val localDBRepository: LocalDBRepo
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateMenuList(newMenuList: List<Menu>?) {
-        menuList.clear()
-        menuList = newMenuList as ArrayList<Menu>
-        notifyDataSetChanged()
-    }
-
-    fun update() {
-        val job = SupervisorJob()
-        CoroutineScope(job + Dispatchers.IO).launch {
-            val menuList: List<Menu>? = localDBRepository.getMenuList()
-            withContext(Dispatchers.Main) {
-                updateMenuList(menuList)
-            }
-
+        newMenuList?.let {
+            menuList.clear()
+            menuList.addAll(it)
+            notifyDataSetChanged()
         }
     }
-
-
 }
 
 class CartViewHolder(val cartAdapterLayoutBinding: CartAdapterLayoutBinding) :

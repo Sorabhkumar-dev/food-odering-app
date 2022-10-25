@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.api_response_classes.oder_history_response.OderHistoryResponse
-import com.sorabh.grabfood.api_response_classes.oder_respones.OderFeedback
+import com.sorabh.grabfood.domain.model.oder_respones.OderConfirmation
 import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.RestaurantMenu
@@ -67,7 +67,7 @@ interface NetworkInterface {
    suspend fun placeOder(
         @HeaderMap header: HashMap<String, String>,
         @Body params: JsonObject
-    ): Response<OderFeedback>
+    ): Response<OderConfirmation>
     // Restaurant Menu Fragment
 
     @GET("orders/fetch_result/{user_id}")

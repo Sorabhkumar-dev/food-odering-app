@@ -11,4 +11,8 @@ object Keys {
     const val USER_ID = "user_id"
     const val IS_LOGIN = "isLogin"
     const val LOGIN = "login"
+    const val RESTAURANT_ID = "restaurant_id"
+    const val TOTAL_COST = "total_cost"
+    const val FOOD_ITEM_ID = "food_item_id"
+    const val FOOD = "food"
 }

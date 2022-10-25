@@ -20,7 +20,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:src="@drawable/check_mark" />
+                android:src="@drawable/ic_check_mark" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/bottom_sheet_action"

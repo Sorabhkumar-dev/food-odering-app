@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,6 +11,7 @@
         <variable
             name="menu"
             type="com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu" />
+
         <variable
             name="onOderButtonClicked"
             type="com.sorabh.grabfood.ui.adapter.CartViewHolder.OnOderButtonClickedListener" />
@@ -17,25 +19,25 @@
 
     <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="20dp">
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/cart_adapter_sno"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tool:text="1."
                 android:text="@{position}" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -43,8 +45,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/cart_adapter_sno"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@id/cart_adapter_sno"
+                app:layout_constraintStart_toEndOf="@id/cart_adapter_sno"
+                app:layout_constraintTop_toTopOf="@id/cart_adapter_sno"
+                tool:text="Sorabh Kumar"
                 android:text="@{menu.name}" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -54,17 +60,26 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/cart_adapter_sno"
                 android:layout_below="@id/cart_adapter_name"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="10dp"
-                android:textStyle="bold" />
+                android:layout_marginVertical="10dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/cart_adapter_name"
+                app:layout_constraintTop_toBottomOf="@id/cart_adapter_name"
+                tool:text="$300" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_place_oder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
                 android:text="@string/cart_place_oder"
-                android:onClick="@{() -> onOderButtonClicked.onOderButtonClicked(menu)}"/>
-        </RelativeLayout>
+                android:onClick="@{() -> onOderButtonClicked.onOderButtonClicked(menu)}"
+                android:textAllCaps="false"
+                app:cornerRadius="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

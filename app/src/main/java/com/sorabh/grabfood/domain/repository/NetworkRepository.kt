@@ -5,7 +5,7 @@ import com.sorabh.grabfood.api_response_classes.forgot_response.Data
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
-import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
+import com.sorabh.grabfood.domain.model.oder_respones.OderConfirmation
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.RestaurantMenu
 import com.sorabh.grabfood.domain.network_api.Result
 
@@ -35,7 +35,7 @@ interface NetworkRepository {
     ): Result<RestaurantMenu>
 
 
-    suspend fun placeOder(header: HashMap<String, String>, params: JsonObject): Boolean?
+    suspend fun placeOder(header: HashMap<String, String>, params: JsonObject): Result<OderConfirmation>
 
     suspend fun getOderHistory(
         header: HashMap<String, String>,
