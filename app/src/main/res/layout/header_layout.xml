@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textColor="?colorOnSurface"
-            android:text="Sorabh Kumar"
+            tools:text="Sorabh Kumar"
+            android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -29,7 +30,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:textColor="?colorOnSurface"
-            android:text="sorabhkumardeveloper@gmail.com"
+            android:textStyle="italic"
+            tools:text="sorabhkumardeveloper@gmail.com"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
     </LinearLayout>
 </layout>

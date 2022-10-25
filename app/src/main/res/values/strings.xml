@@ -27,5 +27,16 @@
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="mobile">Mobile</string>
     <string name="password">Password</string>
-
+    <string name="restaurants_list">Restaurants List</string>
+    <string name="unknown">Unknown</string>
+    <string name="my_profile">My profile</string>
+    <string name="my_cart">My Cart</string>
+    <string name="oder_history">Oder History</string>
+    <string name="frequently_asked">Frequently Asked QnA</string>
+    <string name="my_favorite_restaurants">"My Favorite Restaurants"</string>
+    <string name="you_successfully_log_out_from_the_app">You successfully log-out from the app!</string>
+    <string name="are_you_sure_to_log_out">Are you sure to log-out!</string>
+    <string name="discard">Discard</string>
+    <string name="yes">Yes</string>
+    <string name="after_clicking_yes_you_will_be">After clicking Yes you will be log out from the App.</string>
 </resources>
