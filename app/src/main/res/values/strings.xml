@@ -40,4 +40,6 @@
     <string name="yes">Yes</string>
     <string name="after_clicking_yes_you_will_be">After clicking Yes you will be log out from the App.</string>
     <string name="remove">Remove</string>
+    <string name="your_oder_successfully_placed">Your Oder Successfully Placed!</string>
+    <string name="sorry_oder_not_placed">Sorry oder not placed!</string>
 </resources>

@@ -58,6 +58,14 @@ class CartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        startupInitialization(inflater)
+        updateMenuList()
+        binding.cartProgressBar.visibility = ProgressBar.GONE
+        setupObserver()
+        return binding.root
+    }
+
+    private fun startupInitialization(inflater: LayoutInflater) {
         binding = FragmentCartBinding.inflate(inflater)
         binding.cartRecyclerView.adapter = cartAdapter
         cartAdapter.onOderButtonClickedListener =
@@ -66,10 +74,6 @@ class CartFragment : Fragment() {
                     placeOrder(menu)
                 }
             }
-        updateMenuList()
-        binding.cartProgressBar.visibility = ProgressBar.GONE
-        setupObserver()
-        return binding.root
     }
 
     private fun updateMenuList() {
@@ -144,12 +148,10 @@ class CartFragment : Fragment() {
             false
         )
         if (isConfirm) {
-            val confirmation = "Your Oder Successfully Placed"
-            bindingSheet.bottomSheetAction.text = confirmation
+            bindingSheet.bottomSheetAction.text = getString(R.string.your_oder_successfully_placed)
             bindingSheet.bottomSheetSign.setImageResource(R.drawable.ic_check_mark)
         } else {
-            val confirmation = "Sorry Oder Not Placed"
-            bindingSheet.bottomSheetAction.text = confirmation
+            bindingSheet.bottomSheetAction.text =getString(R.string.sorry_oder_not_placed)
             bindingSheet.bottomSheetSign.setImageResource(R.drawable.ic_unsuccess)
         }
         oderConfirmation.setContentView(bindingSheet.root)
