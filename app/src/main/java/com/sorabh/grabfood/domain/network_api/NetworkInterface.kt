@@ -3,7 +3,7 @@ package com.sorabh.grabfood.domain.network_api
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
-import com.sorabh.grabfood.api_response_classes.oder_history_response.OderHistoryResponse
+import com.sorabh.grabfood.domain.model.oder_history_response.OderHistory
 import com.sorabh.grabfood.domain.model.oder_respones.OderConfirmation
 import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
@@ -68,12 +68,11 @@ interface NetworkInterface {
         @HeaderMap header: HashMap<String, String>,
         @Body params: JsonObject
     ): Response<OderConfirmation>
-    // Restaurant Menu Fragment
 
     @GET("orders/fetch_result/{user_id}")
     suspend fun getOderHistory(
         @HeaderMap header: HashMap<String, String>,
         @Path("user_id") user_id: String?
-    ): Response<OderHistoryResponse>
+    ): Response<OderHistory>
 
 }

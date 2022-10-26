@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.Data
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
+import com.sorabh.grabfood.domain.model.oder_history_response.OderHistory
 import com.sorabh.grabfood.domain.model.oder_respones.OderConfirmation
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.RestaurantMenu
@@ -104,8 +105,15 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
     override suspend fun getOderHistory(
         header: HashMap<String, String>,
         user_id: String?
-    ): com.sorabh.grabfood.api_response_classes.oder_history_response.Data? {
-
-        return networkInterface.getOderHistory(header, user_id).body()?.data
+    ): Result<OderHistory> {
+        val response = networkInterface.getOderHistory(header, user_id)
+        return try {
+            if (response.isSuccessful)
+                Result.Success(response.body(), response.code(), response.message())
+            else
+                Result.Error(response.code(), response.message())
+        } catch (e: Exception) {
+            Result.Error(response.code(), e.message ?: Constants.NETWORK_ERROR)
+        }
     }
 }

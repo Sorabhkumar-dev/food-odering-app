@@ -17,39 +17,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?colorPrimary">
-
-
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolBar"
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
-                    app:titleTextColor="@color/white">
-
-                    <com.google.android.material.button.MaterialButton
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="?actionBarSize"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:drawableTop="@drawable/ic_sort" />
-
-                </com.google.android.material.appbar.MaterialToolbar>
-
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/searchView"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/searchbar_background"
-                    app:defaultQueryHint="Search here" />
+                    app:titleTextColor="@color/white" />
             </com.google.android.material.appbar.AppBarLayout>
 
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="106dp" />
+                android:layout_marginTop="?actionBarSize" />
+
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.google.android.material.navigation.NavigationView

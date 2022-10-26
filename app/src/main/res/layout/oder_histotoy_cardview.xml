@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="dataX"
-            type="com.sorabh.grabfood.api_response_classes.oder_history_response.DataX" />
+            type="com.sorabh.grabfood.domain.model.oder_history_response.Bill" />
 
         <import type="androidx.databinding.DataBindingUtil" />
 
@@ -17,10 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="10dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="@dimen/cardview_default_radius">
+        android:elevation="6dp"
+        app:cardCornerRadius="6dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -28,33 +29,41 @@
                 android:id="@+id/order_history_restaurant_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:textStyle="italic"
                 android:text="@{dataX.restaurant_name}"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:text="Pind Tadka"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/order_history_oder_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:text="@{dataX.order_placed_at}"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/order_history_restaurant_name"
+                app:layout_constraintBottom_toBottomOf="@id/order_history_restaurant_name"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                tools:text ="13-12-21 02:56:44"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/order_history_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/order_history_restaurant_name"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_marginStart="10dp"
+                tools:itemCount="3"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/order_history_restaurant_name"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/food_item_card_view"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/order_history_oder_price"
@@ -62,11 +71,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/order_history_recyclerView"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:textStyle="normal"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-        </RelativeLayout>
+                android:layout_marginVertical="5dp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/order_history_restaurant_name"
+                app:layout_constraintTop_toBottomOf="@id/order_history_recyclerView"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                tools:text="Total Price $80"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -1,49 +1,32 @@
-package com.sorabh.grabfood.adapter
+package com.sorabh.grabfood.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sorabh.grabfood.R
 import com.sorabh.grabfood.api_response_classes.oder_history_response.FoodItem
 import com.sorabh.grabfood.databinding.FoodItemCardViewBinding
+import javax.inject.Inject
 
-class FoodItemAdapter : RecyclerView.Adapter<FoodItemViewHolder>() {
-    private var foodItemList = ArrayList<FoodItem>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodItemViewHolder =
-        FoodItemViewHolder.form(parent)
+class FoodItemAdapter @Inject constructor() : RecyclerView.Adapter<FoodItemViewHolder>() {
+    private var foodItemList:MutableList<FoodItem> = mutableListOf()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        FoodItemViewHolder(FoodItemCardViewBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
-    override fun onBindViewHolder(holder: FoodItemViewHolder, position: Int) =
-        holder.bind(foodItemList[position])
+    override fun onBindViewHolder(holder: FoodItemViewHolder, position: Int) {
+        holder.foodItemCardViewBinding.foodItem = foodItemList[position]
+        holder.foodItemCardViewBinding.executePendingBindings()
+    }
 
     override fun getItemCount(): Int = foodItemList.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateFoodItem(list: List<FoodItem>){
+    fun updateFoodItem(newFoodItem: List<FoodItem>){
         foodItemList.clear()
-        foodItemList = list as ArrayList<FoodItem>
+        foodItemList.addAll(newFoodItem)
         notifyDataSetChanged()
     }
 }
 
-class FoodItemViewHolder(private val foodItemCardViewBinding: FoodItemCardViewBinding) :
-    RecyclerView.ViewHolder(foodItemCardViewBinding.root) {
-    fun bind(currentFoodItem: FoodItem) {
-        foodItemCardViewBinding.foodItem = currentFoodItem
-        foodItemCardViewBinding.executePendingBindings()
-    }
-
-    companion object {
-        fun form(parent: ViewGroup): FoodItemViewHolder {
-            val layoutInflater = LayoutInflater.from(parent.context)
-            val foodItemCardViewBinding = DataBindingUtil.inflate<FoodItemCardViewBinding>(
-                layoutInflater,
-                R.layout.food_item_card_view,
-                parent,
-                false
-            )
-            return FoodItemViewHolder(foodItemCardViewBinding)
-        }
-    }
-}
+class FoodItemViewHolder(val foodItemCardViewBinding: FoodItemCardViewBinding) :
+    RecyclerView.ViewHolder(foodItemCardViewBinding.root)

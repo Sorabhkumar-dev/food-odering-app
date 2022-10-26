@@ -11,7 +11,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -83,32 +82,24 @@ class MainFragment : BaseFragment() {
             when (it.itemId) {
                 R.id.drawer_menu_home -> {
                     changeFragmentAndTitle(HomeFragment(), getString(R.string.restaurants_list))
-                    binding.searchView.isVisible = true
-
                 }
                 R.id.drawer_menu_profile -> {
                     changeFragmentAndTitle(MyProfileFragment(), getString(R.string.my_profile))
-                    binding.searchView.isVisible = false
                 }
                 R.id.drawer_menu_cart -> {
                     changeFragmentAndTitle(CartFragment(), getString(R.string.my_cart))
-                    binding.searchView.isVisible = false
                 }
                 R.id.drawer_menu_history -> {
                     changeFragmentAndTitle(OderHistoryFragment(), getString(R.string.oder_history))
-                    binding.searchView.isVisible = false
                 }
                 R.id.drawer_menu_qna -> {
                     changeFragmentAndTitle(QNAFragment(), getString(R.string.frequently_asked))
-                    binding.searchView.isVisible = false
 
                 }
                 R.id.drawer_menu_favorite -> {
                     changeFragmentAndTitle(
                         FavoriteRestaurantsFragment(), getString(R.string.my_favorite_restaurants)
                     )
-                    binding.searchView.isVisible = false
-
                 }
                 R.id.drawer_menu_logout -> {
                     confirmLogOutDialog()
@@ -160,11 +151,5 @@ class MainFragment : BaseFragment() {
             dialog.dismiss()
         }
         alertDialog.show()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        binding.searchView.isVisible = true
-
     }
 }
