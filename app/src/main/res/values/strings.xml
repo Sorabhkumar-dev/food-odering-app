@@ -27,6 +27,7 @@
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="mobile">Mobile</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="restaurants_list">Restaurants List</string>
     <string name="unknown">Unknown</string>
     <string name="my_profile">My profile</string>
@@ -42,4 +43,7 @@
     <string name="remove">Remove</string>
     <string name="your_oder_successfully_placed">Your Oder Successfully Placed!</string>
     <string name="sorry_oder_not_placed">Sorry oder not placed!</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="delivery_address">Delivery Address</string>
 </resources>

@@ -33,11 +33,19 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
 
     // SignUp Activity
 
-    override  suspend fun getSignUpDetails(
+    override suspend fun getSignUpDetails(
         header: HashMap<String, String>,
         params: JsonObject
-    ): SignUpResponse? {
-        return networkInterface.getSignUpDetails(header, params).body()
+    ): Result<SignUpResponse> {
+        val response = networkInterface.getSignUpDetails(header, params)
+        return try {
+            if (response.isSuccessful)
+                Result.Success(response.body(), response.code(), response.message())
+            else
+                Result.Error(response.code(), response.message())
+        } catch (e: Exception) {
+            Result.Error(response.code(), response.message())
+        }
     }
 
     // OTP Activity

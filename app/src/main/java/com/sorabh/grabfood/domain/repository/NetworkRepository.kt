@@ -19,7 +19,7 @@ interface NetworkRepository {
     suspend fun getSignUpDetails(
         header: HashMap<String, String>,
         params: JsonObject
-    ): SignUpResponse?
+    ): Result<SignUpResponse>
 
     suspend fun getForgotResponse(header: HashMap<String, String>, params: JsonObject): Data?
 
