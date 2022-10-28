@@ -54,4 +54,6 @@
     <string name="powered_by_truly">Powered by Truly</string>
     <string name="deleted_to_your_favorite_restaurants">Deleted to Your Favorite Restaurant!</string>
     <string name="added_to_your_favorite_restaurants">Added  to Your Favorite Restaurant</string>
+    <string name="frequently_asked_question">Frequently Asked Question</string>
+    <string name="no">%d.</string>
 </resources>

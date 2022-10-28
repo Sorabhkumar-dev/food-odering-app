@@ -1,4 +1,4 @@
-package com.sorabh.grabfood.adapter
+package com.sorabh.grabfood.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.QNACardViewBinding
 import com.sorabh.grabfood.util.QNAData
+import javax.inject.Inject
 
-class QNAAdapter : RecyclerView.Adapter<QNAViewHolder>() {
-    private var qnaList = ArrayList<QNAData>()
+class QNAAdapter @Inject constructor(): RecyclerView.Adapter<QNAAdapter.QNAViewHolder>() {
+    private var qnaList:MutableList<QNAData> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QNAViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val qnaCardViewBinding = DataBindingUtil.inflate<QNACardViewBinding>(
@@ -23,7 +24,9 @@ class QNAAdapter : RecyclerView.Adapter<QNAViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: QNAViewHolder, position: Int) {
-        holder.qnaCardViewBinding.qnaSerialNumber.text = qnaList[position].sno.toString()
+        holder.qnaCardViewBinding.qnaSerialNumber.apply {
+            text = context.getString(R.string.no,qnaList[position].sno)
+        }
         holder.qnaCardViewBinding.qnaAnswer.text = qnaList[position].answer
         holder.qnaCardViewBinding.qnaQuestion.text = qnaList[position].question
         holder.qnaCardViewBinding.executePendingBindings()
@@ -33,13 +36,12 @@ class QNAAdapter : RecyclerView.Adapter<QNAViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<QNAData>?){
-        qnaList.clear()
-        qnaList = list as ArrayList<QNAData>
-        notifyDataSetChanged()
+        list?.let {
+            qnaList.clear()
+            qnaList.addAll(it)
+            notifyDataSetChanged()
+        }
     }
-}
-
-class QNAViewHolder(val qnaCardViewBinding: QNACardViewBinding) :
-    RecyclerView.ViewHolder(qnaCardViewBinding.root) {
-
+    inner class QNAViewHolder(val qnaCardViewBinding: QNACardViewBinding) :
+        RecyclerView.ViewHolder(qnaCardViewBinding.root)
 }

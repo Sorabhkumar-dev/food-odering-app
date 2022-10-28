@@ -1,6 +1,5 @@
 package com.sorabh.grabfood.ui.fragments.qna
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.sorabh.grabfood.adapter.QNAAdapter
+import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.FragmentQNABinding
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
+import com.sorabh.grabfood.ui.adapter.QNAAdapter
 import com.sorabh.grabfood.util.QNAData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
@@ -23,37 +22,36 @@ class QNAFragment : Fragment() {
     private lateinit var binding: FragmentQNABinding
     @Inject
     lateinit var localRepository: LocalDBRepository
+    @Inject
+    lateinit var qnaAdapter: QNAAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
+        startupInitializer()
+        setupData()
+        return binding.root
+    }
+
+    private fun startupInitializer() {
         binding = FragmentQNABinding.inflate(layoutInflater)
+        (activity as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.frequently_asked_question)
+        binding.qnaRecyclerView.adapter = qnaAdapter
+    }
 
-        //Changing toolbar title
-        (activity as AppCompatActivity).supportActionBar?.title = "Frequently Asked Question"
-
-        CoroutineScope(job+Dispatchers.IO).launch {
-            val qnaAdapter = QNAAdapter()
-            val layout = LinearLayoutManager(activity as Context)
+    private fun setupData() {
+        CoroutineScope(job + Dispatchers.IO).launch {
             if (localRepository.getQNAList().isNullOrEmpty()) {
                 createQna()
             }
             val qnaList = localRepository.getQNAList()
-            withContext(Dispatchers.Main){
-                with(binding.qnaRecyclerView){
-                    layoutManager = layout
-                    adapter = qnaAdapter
-                }
+            withContext(Dispatchers.Main) {
                 binding.qnaProgressBar.visibility = ProgressBar.GONE
                 qnaAdapter.updateList(qnaList)
-
-
             }
         }
-
-        return binding.root
     }
 
 
