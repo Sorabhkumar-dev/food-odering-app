@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 class NetworkRepositoryImpl @Inject constructor(private val networkInterface: NetworkInterface) :NetworkRepository{
 
-    // Login Activity
    override suspend fun getLoginDetails(
         header: HashMap<String, String>,
         params: JsonObject
@@ -30,8 +29,6 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
             Result.Error(response.code(),e.message ?: Constants.NETWORK_ERROR)
         }
     }
-
-    // SignUp Activity
 
     override suspend fun getSignUpDetails(
         header: HashMap<String, String>,
@@ -48,8 +45,6 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
         }
     }
 
-    // OTP Activity
-
     override suspend fun getForgotResponse(header: HashMap<String, String>, params: JsonObject): Result<ForgotResponse> {
         val response =  networkInterface.getForgotResponse(header, params)
         return try {
@@ -62,7 +57,6 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
         }
     }
 
-    // OTP Activity
 
     override suspend fun getOTPResponse(
         header: HashMap<String, String>,
@@ -70,8 +64,6 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
     ): com.sorabh.grabfood.api_response_classes.otp_response.Data? {
         return networkInterface.getOTPResponse(header, params).body()?.data
     }
-
-    // Home Fragment
 
     override suspend fun getRestaurantsList(header: HashMap<String, String>): Result<Restaurant> {
         val response = networkInterface.getRestaurantsList(header)
@@ -101,7 +93,6 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
 
     }
 
-    // Cart Adapter
     override suspend fun placeOder(
         header: HashMap<String, String>,
         params: JsonObject
@@ -117,7 +108,6 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
         }
     }
 
-    // Oder Fragment
     override suspend fun getOderHistory(
         header: HashMap<String, String>,
         user_id: String?

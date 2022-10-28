@@ -14,15 +14,11 @@ import retrofit2.http.*
 
 interface NetworkInterface {
 
-    //Login Activity
-
     @POST("login/fetch_result")
     suspend fun getLoginDetails(
         @HeaderMap header: HashMap<String, String>,
         @Body params: JsonObject
     ): Response<LoginResponse>
-
-    //SignUp Activity
 
     @POST("register/fetch_result")
     suspend fun getSignUpDetails(
@@ -30,15 +26,12 @@ interface NetworkInterface {
         @Body params: JsonObject
     ): Response<SignUpResponse>
 
-    // Forgot Activity
-
     @POST("forgot_password/fetch_result")
     suspend fun getForgotResponse(
         @HeaderMap header: HashMap<String, String>,
         @Body params: JsonObject
     ): Response<ForgotResponse>
 
-    // OTP Activity
 
     @POST("reset_password/fetch_result")
     suspend fun getOTPResponse(
@@ -46,22 +39,16 @@ interface NetworkInterface {
         @Body params: JsonObject
     ): Response<OTPResponse>
 
-    // Home Fragment
-
     @GET("restaurants/fetch_result/")
     suspend fun getRestaurantsList(
         @HeaderMap header: HashMap<String, String>,
     ): Response<Restaurant>
-
-    // Restaurant Menu Fragment
 
     @GET("restaurants/fetch_result/{id}")
     suspend fun getRestaurantMenu(
         @HeaderMap header: HashMap<String, String>,
         @Path("id") restaurant_id: String
     ): Response<RestaurantMenu>
-
-    // Cart Adapter
 
     @POST("place_order/fetch_result/")
    suspend fun placeOder(
