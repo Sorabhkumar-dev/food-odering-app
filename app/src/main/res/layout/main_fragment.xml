@@ -15,11 +15,12 @@
 
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?actionBarSize"
                 android:background="?colorPrimary">
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolBar"
                     android:layout_width="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_height="?actionBarSize"
                     app:titleTextColor="@color/white" />
             </com.google.android.material.appbar.AppBarLayout>
