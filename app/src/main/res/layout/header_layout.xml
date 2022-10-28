@@ -20,7 +20,9 @@
             android:layout_gravity="center_horizontal"
             android:textColor="?colorOnSurface"
             tools:text="Sorabh Kumar"
-            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:textStyle="italic"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <com.google.android.material.textview.MaterialTextView
