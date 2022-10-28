@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/q_n_a_card_view.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/q_n_a_card_view.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_my_profile.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_my_profile.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/login_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/login_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/restaurants_home_cardview.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/restaurants_home_cardview.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/otp_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/otp_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_q_n_a.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_q_n_a.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_oder_history.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_oder_history.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/root_activity.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/root_activity.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/splash_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/splash_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/forgot_password_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/forgot_password_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/header_layout.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/header_layout.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_cart.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_cart.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/restaurant_menu_cardview.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/restaurant_menu_cardview.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/main_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/main_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_restaurant_menu.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_restaurant_menu.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/oder_histotoy_cardview.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/oder_histotoy_cardview.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/food_item_card_view.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/food_item_card_view.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_home.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/cart_adapter_layout.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/cart_adapter_layout.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/favorite_restaurants_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/favorite_restaurants_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/sign_up_fragment.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/sign_up_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/oder_bottom_sheet.xml",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/oder_bottom_sheet.xml"
+    }
+]

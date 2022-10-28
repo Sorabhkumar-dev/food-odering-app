@@ -1,0 +1,282 @@
+[
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_cart_adapter_layout.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/cart_adapter_layout.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_fragment_cart.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_cart.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_profile_image_background.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/profile_image_background.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_restaurants_home_cardview.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/restaurants_home_cardview.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_favorite_empty.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_favorite_empty.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_food_item_card_view.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/food_item_card_view.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_user.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_user.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_location.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_location.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_icon_grab_food.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/icon_grab_food.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_fragment_my_profile.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_my_profile.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_oder_bottom_sheet.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/oder_bottom_sheet.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_splash_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/splash_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_main_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/main_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_home.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_home.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_fragment_oder_history.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_oder_history.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_otp_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/otp_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_login_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/login_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_fragment_q_n_a.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_q_n_a.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_favorite.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_favorite.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_rating.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_rating.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_root_activity.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/root_activity.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_q_n_a_card_view.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/q_n_a_card_view.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_forgot_password_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/forgot_password_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_email.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_email.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_searchbar_background.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/searchbar_background.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_sort.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_sort.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_fragment_restaurant_menu.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_restaurant_menu.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_text_background.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/text_background.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/menu_drawer_menu.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/menu/drawer_menu.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_logout.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_restaurant_menu_cardview.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/restaurant_menu_cardview.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_unsuccess.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_unsuccess.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_oder_histotoy_cardview.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/oder_histotoy_cardview.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_shopping_cart.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_shopping_cart.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_profile.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_profile.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_grab_food.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_grab_food.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/anim_exit_to_left.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/anim/exit_to_left.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_password.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_password.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/anim_exit_to_right.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/anim/exit_to_right.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_history.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_history.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_back.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_back.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_fragment_home.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_header_layout.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/header_layout.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_favorite_adapter.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_favorite_adapter.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_question_answer.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_question_answer.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/navigation_nav_graph.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_check_mark.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_check_mark.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_favorite_restaurants_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/favorite_restaurants_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/anim_enter_from_left.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/anim/enter_from_left.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_refresh.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/layout_sign_up_fragment.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/layout/sign_up_fragment.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/anim_enter_from_right.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/anim/enter_from_right.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/drawable_ic_phone_number.xml.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/drawable/ic_phone_number.xml"
+    },
+    {
+        "merged": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/sorabh/android projects/food/food-odering-app/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    }
+]

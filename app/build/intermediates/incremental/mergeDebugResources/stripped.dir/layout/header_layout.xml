@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+                                                       
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="?colorSurface"
+        android:orientation="vertical" android:tag="layout/header_layout_0" xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_grab_food" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_main_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?colorOnSurface"
+            tools:text="Sorabh Kumar"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_main_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="?colorOnSurface"
+            android:textStyle="italic"
+            tools:text="sorabhkumardeveloper@gmail.com"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+    </LinearLayout>
+         
