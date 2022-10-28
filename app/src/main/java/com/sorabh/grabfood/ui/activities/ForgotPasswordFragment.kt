@@ -1,101 +1,103 @@
 package com.sorabh.grabfood.ui.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.gson.JsonObject
+import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.ForgotPasswordFragmentBinding
-import com.sorabh.grabfood.domain.repository.NetworkRepository
-import com.sorabh.grabfood.domain.repository.NetworkRepositoryImpl
+import com.sorabh.grabfood.domain.model.post.OderPostModel
+import com.sorabh.grabfood.domain.network_api.Result
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
+import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel
+import com.sorabh.grabfood.util.Constants
+import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
-import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ForgotPasswordFragment : BaseFragment() {
-    private lateinit var binding:ForgotPasswordFragmentBinding
+    private val viewModel: ForgotPasswordViewModel by viewModels()
+    private lateinit var binding: ForgotPasswordFragmentBinding
     private lateinit var navController: NavController
-    @Inject
-    lateinit var networkRepository: NetworkRepository
-    private val job = SupervisorJob()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =ForgotPasswordFragmentBinding.inflate(layoutInflater)
+        startupInitializer()
+        setOnClickListener()
+        setupObserver()
+        return binding.root
+    }
+
+    private fun startupInitializer() {
+        binding = ForgotPasswordFragmentBinding.inflate(layoutInflater)
         navController = findNavController()
-        //adding hint to editText
-        binding.edtForgotActivityEmail.hint = "Email"
-        binding.edtForgotActivityPhoneNumber.hint = "Mobile"
+    }
 
-
-
+    private fun setOnClickListener() {
         binding.btnForgotActivityNext.setOnClickListener {
 
             val phone = binding.edtForgotActivityPhoneNumber.editText?.text.toString()
             val email = binding.edtForgotActivityEmail.editText?.text.toString()
 
             if (phone.isNotEmpty() && email.isNotEmpty()) {
-                CoroutineScope(job + Dispatchers.IO).launch {
-
-                    //header to send with request
-                    val header = HashMap<String, String>()
-                    header["Content-type"] = "application/json"
-                    header["token"] = "025c40375fadfd"
-
-                    //params to send with request
-                    val params = JsonObject()
-                    params.addProperty("mobile_number", phone)
-                    params.addProperty("email", email)
-
-                    // creating repository object
-
-                    try {
-                        //making api call
-                        val forgotResponse = networkRepository.getForgotResponse(header, params)
-                        Log.d("exc1",forgotResponse.toString())
-
-                        if (forgotResponse?.success == true && forgotResponse.first_try) {
-                            showToast("OTP successfully send your mobile!")
-                            navController.navigate(
-                                ForgotPasswordFragmentDirections
-                                    .actionForgotPasswordFragmentToOTPFragment(phone)
-                            )
-
-                        } else if (forgotResponse?.success == true && !forgotResponse.first_try) {
-                            showToast("Please enter previously send OTP!")
-                            navController.navigate(
-                                ForgotPasswordFragmentDirections
-                                    .actionForgotPasswordFragmentToOTPFragment(phone)
-                            )
-
-                        } else {
-                            showToast("Something went wrong!")
-                        }
-
-                    } catch (e: Exception) {
-                        showToast("Failed to connect Internet!")
-                    }
-
-                }
-
+                setupApiCall(phone, email)
             } else {
-                Toast.makeText(requireContext(), "Please Enter all the fields!", Toast.LENGTH_SHORT).show()
+                showToast(getString(R.string.please_fill_all_the_fields))
             }
         }
-        return binding.root
     }
+    private fun setupApiCall(phone:String,email:String){
 
-    private suspend fun showToast(text: String) {
-        withContext(Dispatchers.Main) {
-            Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+        val header = HashMap<String, String>()
+        header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
+        header[Keys.TOKEN] = Constants.MAIN_TOKEN
+
+        val params = JsonObject()
+        params.addProperty(Keys.MOBILE_NUMBER, phone)
+
+        params.addProperty(Keys.EMAIL, email)
+        viewModel.getForgotPassword(OderPostModel(header, params))
+    }
+    private fun setupObserver() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.forgetPasswordFlow.collect {
+                    when (it) {
+                        is Result.Error -> {
+                            showToast(it.message)
+                        }
+                        is Result.Loading -> {}
+                        is Result.Success -> {
+                            if (it.body?.data?.success == true && it.body.data.first_try) {
+                                showToast(getString(R.string.otp_successfully_send_your_mobile))
+                                navController.navigate(
+                                    ForgotPasswordFragmentDirections
+                                        .actionForgotPasswordFragmentToOTPFragment(binding.edtForgotActivityPhoneNumber.editText?.text.toString())
+                                )
+                            } else if (it.body?.data?.success == true && !it.body.data.first_try) {
+                                showToast(getString(R.string.please_enter_previously_send_otp))
+                                navController.navigate(
+                                    ForgotPasswordFragmentDirections
+                                        .actionForgotPasswordFragmentToOTPFragment(binding.edtForgotActivityPhoneNumber.editText?.text.toString())
+                                )
+
+                            } else {
+                                showToast(Constants.NETWORK_ERROR)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.sorabh.grabfood.domain.repository
 
 import com.google.gson.JsonObject
-import com.sorabh.grabfood.api_response_classes.forgot_response.Data
+import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.domain.model.oder_history_response.OderHistory
@@ -21,7 +21,7 @@ interface NetworkRepository {
         params: JsonObject
     ): Result<SignUpResponse>
 
-    suspend fun getForgotResponse(header: HashMap<String, String>, params: JsonObject): Data?
+    suspend fun getForgotResponse(header: HashMap<String, String>, params: JsonObject): Result<ForgotResponse>
 
     suspend fun getOTPResponse(
         header: HashMap<String, String>,

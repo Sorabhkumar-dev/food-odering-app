@@ -8,7 +8,7 @@
     <string name="btn_signup">Sign Up!</string>
     <string name="btn_signup_backTo">Back To Login</string>
     <string name="btn_forgot_password_next">Next</string>
-    <string name="txt_forgot_password_heading">Enter Your Registered Mobile Number and Password Below </string>
+    <string name="txt_forgot_password_heading">Enter Your Registered Mobile Number and Password Below :-</string>
     <string name="txt_otp_activity_heading">Enter Received OTP Below</string>
     <string name="btn_otp_activity_submit">Reset Password</string>
     <string name="menu_home">Home</string>
@@ -46,4 +46,7 @@
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="delivery_address">Delivery Address</string>
+    <string name="please_enter_previously_send_otp">Please enter previously send OTP!</string>
+    <string name="otp_successfully_send_your_mobile">OTP successfully send your mobile!</string>
+    <string name="please_fill_all_the_fields">Please fill all the Fields!</string>
 </resources>
