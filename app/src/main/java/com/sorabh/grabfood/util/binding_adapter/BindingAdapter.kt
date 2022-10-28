@@ -9,7 +9,12 @@ import com.squareup.picasso.Picasso
 @BindingAdapter("imgSrcUrl")
 fun ImageView.imgSrcUrl(url: String?) {
     if (url != null) {
-        Picasso.with(this.context).load(url).error(R.drawable.grabfood).into(this)
+        Picasso.with(this.context)
+            .load(url)
+            .resize(110,110)
+            .centerCrop()
+            .error(R.drawable.ic_grab_food)
+            .into(this)
     }
 }
 
@@ -22,12 +27,8 @@ fun TextView.txt(txt:String?){
 
 @BindingAdapter("price")
 fun TextView.price(price:String?){
-    val price = "Total Price $$price"
-    this.text = price
+    val totalPrice = "Total Price $$price"
+    this.text = totalPrice
 
 }
 
-@BindingAdapter("prefixText")
-fun TextView.prefixText(text:String){
-    this.text.startsWith(text+"\n")
-}

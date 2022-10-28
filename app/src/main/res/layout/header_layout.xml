@@ -11,7 +11,7 @@
             android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/grabfood" />
+            android:src="@drawable/ic_grab_food" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_main_username"

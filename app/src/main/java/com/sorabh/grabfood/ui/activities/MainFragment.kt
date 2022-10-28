@@ -134,7 +134,7 @@ class MainFragment : BaseFragment() {
         val alertDialog = MaterialAlertDialogBuilder(requireContext()).create()
         alertDialog.setTitle(getString(R.string.are_you_sure_to_log_out))
         alertDialog.setMessage(getString(R.string.after_clicking_yes_you_will_be))
-        alertDialog.setIcon(R.drawable.icon_grabfood)
+        alertDialog.setIcon(R.drawable.icon_grab_food)
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.yes)) { _: DialogInterface, _: Int ->
             val sharedPreferences = requireContext().getSharedPreferences(Keys.LOGIN, MODE_PRIVATE)
             sharedPreferences.edit().clear().apply()

@@ -10,7 +10,7 @@
             android:id="@+id/img_login_logo"
             android:layout_width="wrap_content"
             android:layout_height="250dp"
-            android:src="@drawable/grabfood" />
+            android:src="@drawable/ic_grab_food" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edt_login_phone_number"

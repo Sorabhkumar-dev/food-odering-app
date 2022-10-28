@@ -13,7 +13,7 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:src="@drawable/grabfood" />
+                android:src="@drawable/ic_grab_food" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/bottom_sheet_sign"

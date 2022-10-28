@@ -46,8 +46,10 @@
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="otp">Otp</string>
+    <string name="na">N/A</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="please_enter_previously_send_otp">Please enter previously send OTP!</string>
     <string name="otp_successfully_send_your_mobile">OTP successfully send your mobile!</string>
     <string name="please_fill_all_the_fields">Please fill all the Fields!</string>
+    <string name="powered_by_truly">Powered by Truly</string>
 </resources>
