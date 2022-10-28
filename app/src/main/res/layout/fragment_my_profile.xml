@@ -8,10 +8,12 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_log"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:background="@drawable/profile_image_background"
         android:src="@drawable/icon_grab_food"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +21,6 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
@@ -29,7 +30,7 @@
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/img_log"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_profile_name"

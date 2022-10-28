@@ -23,7 +23,6 @@
             app:counterMaxLength="10"
             app:endIconMode="clear_text"
             app:prefixText="+91"
-            app:prefixTextColor="?colorPrimary"
             android:hint="@string/mobile"
             app:startIconDrawable="@drawable/ic_phone_number">
 
