@@ -2,6 +2,7 @@ package com.sorabh.grabfood.domain.repository
 
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
+import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.domain.model.oder_history_response.OderHistory
@@ -61,8 +62,12 @@ class NetworkRepositoryImpl @Inject constructor(private val networkInterface: Ne
     override suspend fun getOTPResponse(
         header: HashMap<String, String>,
         params: JsonObject
-    ): com.sorabh.grabfood.api_response_classes.otp_response.Data? {
-        return networkInterface.getOTPResponse(header, params).body()?.data
+    ): Result<OTPResponse> {
+        val response = networkInterface.getOTPResponse(header, params)
+        return if (response.isSuccessful)
+            Result.Success(response.body(), response.code(), response.message())
+        else
+            Result.Error(response.code(), response.message())
     }
 
     override suspend fun getRestaurantsList(header: HashMap<String, String>): Result<Restaurant> {

@@ -15,4 +15,5 @@ object Keys {
     const val TOTAL_COST = "total_cost"
     const val FOOD_ITEM_ID = "food_item_id"
     const val FOOD = "food"
+    const val OTP ="otp"
 }

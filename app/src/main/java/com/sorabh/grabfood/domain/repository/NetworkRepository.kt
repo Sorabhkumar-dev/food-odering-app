@@ -2,6 +2,7 @@ package com.sorabh.grabfood.domain.repository
 
 import com.google.gson.JsonObject
 import com.sorabh.grabfood.api_response_classes.forgot_response.ForgotResponse
+import com.sorabh.grabfood.api_response_classes.otp_response.OTPResponse
 import com.sorabh.grabfood.api_response_classes.signup_reponse.SignUpResponse
 import com.sorabh.grabfood.domain.model.login_respones.LoginResponse
 import com.sorabh.grabfood.domain.model.oder_history_response.OderHistory
@@ -26,7 +27,7 @@ interface NetworkRepository {
     suspend fun getOTPResponse(
         header: HashMap<String, String>,
         params: JsonObject
-    ): com.sorabh.grabfood.api_response_classes.otp_response.Data?
+    ): Result<OTPResponse>
 
     suspend fun getRestaurantsList(header: HashMap<String, String>): Result<Restaurant>
 

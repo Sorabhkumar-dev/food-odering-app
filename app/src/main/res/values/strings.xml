@@ -24,7 +24,7 @@
     <string name="restaurant_menu_btn_text">Proceed to Cart</string>
     <string name="menu_cart">My Cart</string>
     <string name="cart_place_oder">Place Oder</string>
-    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="something_went_wrong">Sorry,Something went wrong!</string>
     <string name="mobile">Mobile</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
@@ -45,6 +45,7 @@
     <string name="sorry_oder_not_placed">Sorry oder not placed!</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
+    <string name="otp">Otp</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="please_enter_previously_send_otp">Please enter previously send OTP!</string>
     <string name="otp_successfully_send_your_mobile">OTP successfully send your mobile!</string>

@@ -12,8 +12,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
+            android:textStyle="italic"
             android:text="@string/txt_otp_activity_heading"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textColor="?colorPrimary" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -23,11 +24,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_otp_activity_heading"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="5dp"
-            android:textColorHint="?colorPrimary"
+            android:layout_marginTop="24dp"
             app:counterEnabled="true"
             app:counterMaxLength="4"
             app:endIconMode="clear_text"
+            android:hint="@string/otp"
             app:startIconDrawable="@drawable/ic_refresh">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -44,9 +45,9 @@
             android:layout_below="@id/edt_otp_activity_otp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:textColorHint="?colorPrimary"
             app:counterEnabled="true"
             app:counterMaxLength="50"
+            android:hint="@string/password"
             app:endIconMode="password_toggle"
             app:startIconDrawable="@drawable/ic_password">
 
@@ -64,7 +65,7 @@
             android:layout_below="@id/edt_otp_activity_password"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:textColorHint="?colorPrimary"
+           android:hint="@string/confirm_password"
             app:counterEnabled="true"
             app:counterMaxLength="50"
             app:endIconMode="password_toggle"
@@ -76,7 +77,7 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_otp_reset_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,7 +85,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:background="?colorPrimaryVariant"
-            android:padding="15dp"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            app:cornerRadius="8dp"
             android:text="@string/btn_otp_activity_submit"
             android:textColor="@color/white" />
 
