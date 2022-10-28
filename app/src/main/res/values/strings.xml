@@ -52,4 +52,6 @@
     <string name="otp_successfully_send_your_mobile">OTP successfully send your mobile!</string>
     <string name="please_fill_all_the_fields">Please fill all the Fields!</string>
     <string name="powered_by_truly">Powered by Truly</string>
+    <string name="deleted_to_your_favorite_restaurants">Deleted to Your Favorite Restaurant!</string>
+    <string name="added_to_your_favorite_restaurants">Added  to Your Favorite Restaurant</string>
 </resources>
