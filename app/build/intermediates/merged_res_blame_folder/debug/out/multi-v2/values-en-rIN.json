@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-52:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/res/values-en-rIN/values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "32",
-                        "startColumns": "4",
-                        "startOffsets": "3068",
-                        "endColumns": "100",
-                        "endOffsets": "3164"
-                    }
-                },
-                {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/bd83ca11291cc04d5273a1ab9f77fd14/transformed/navigation-ui-2.5.2/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/fbefae71b7ba47d3bf9840563076491d/transformed/navigation-ui-2.5.2/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/ab26ca2a845bfa42b6b58b075d737569/transformed/appcompat-1.5.1/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "32",
+                        "startColumns": "4",
+                        "startOffsets": "3068",
+                        "endColumns": "100",
+                        "endOffsets": "3164"
+                    }
+                },
+                {
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/bc3427dc2ccf4046221a17e0465449a1/transformed/appcompat-1.5.1/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

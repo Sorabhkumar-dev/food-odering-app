@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/sorabh/android projects/food/food-odering-app/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-52:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/bddfc3ad57cbfe9ee28e88cf6e41c733/transformed/material-1.6.1/res/values-large-v4/values-large-v4.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/8c9ad206861404ddb1bc7b7f6cee0b95/transformed/material-1.6.1/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,10",
                         "startColumns": "4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/ab26ca2a845bfa42b6b58b075d737569/transformed/appcompat-1.5.1/res/values-large-v4/values-large-v4.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/bc3427dc2ccf4046221a17e0465449a1/transformed/appcompat-1.5.1/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

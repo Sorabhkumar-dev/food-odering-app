@@ -15,15 +15,15 @@
 11-->/home/sorabh/android projects/food/food-odering-app/app/src/main/AndroidManifest.xml:6:22-64
 12
 13    <permission
-13-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+13-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
 14        android:name="com.sorabh.grabfood.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-14-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+14-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
 15        android:protectionLevel="signature" />
-15-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+15-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
 16
 17    <uses-permission android:name="com.sorabh.grabfood.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-17-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-17-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+17-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 18
 19    <application
 19-->/home/sorabh/android projects/food/food-odering-app/app/src/main/AndroidManifest.xml:8:5-28:19
@@ -32,7 +32,7 @@
 21        android:allowBackup="true"
 21-->/home/sorabh/android projects/food/food-odering-app/app/src/main/AndroidManifest.xml:9:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/51cd8059ebfe9049a4c765d2ad007262/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+22-->[androidx.core:core:1.9.0] /home/sorabh/.gradle/caches/transforms-3/5678e76876cd6b8d2221494f3ed1ce03/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 23        android:debuggable="true"
 24        android:icon="@mipmap/ic_launcher"
 24-->/home/sorabh/android projects/food/food-odering-app/app/src/main/AndroidManifest.xml:10:9-43
@@ -68,48 +68,48 @@
 40        </activity>
 41
 42        <uses-library
-42-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/cc236ea6eeccb0c3054751c8c48b9ce5/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+42-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/00c25fe24c50ae70b7871c0b55b0a2da/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
 43            android:name="androidx.window.extensions"
-43-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/cc236ea6eeccb0c3054751c8c48b9ce5/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+43-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/00c25fe24c50ae70b7871c0b55b0a2da/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
 44            android:required="false" />
-44-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/cc236ea6eeccb0c3054751c8c48b9ce5/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+44-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/00c25fe24c50ae70b7871c0b55b0a2da/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
 45        <uses-library
-45-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/cc236ea6eeccb0c3054751c8c48b9ce5/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+45-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/00c25fe24c50ae70b7871c0b55b0a2da/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
 46            android:name="androidx.window.sidecar"
-46-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/cc236ea6eeccb0c3054751c8c48b9ce5/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+46-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/00c25fe24c50ae70b7871c0b55b0a2da/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
 47            android:required="false" />
-47-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/cc236ea6eeccb0c3054751c8c48b9ce5/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+47-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/00c25fe24c50ae70b7871c0b55b0a2da/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
 48
 49        <provider
-49-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+49-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 50            android:name="androidx.startup.InitializationProvider"
-50-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+50-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
 51            android:authorities="com.sorabh.grabfood.androidx-startup"
-51-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+51-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
 52            android:exported="false" >
-52-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+52-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
 53            <meta-data
-53-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+53-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
 54                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-54-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+54-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
 55                android:value="androidx.startup" />
-55-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/3869d7f0ac039a3cc177e06fcbfae29c/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+55-->[androidx.emoji2:emoji2:1.2.0] /home/sorabh/.gradle/caches/transforms-3/291867653df676f0da2568e9cfe03b9e/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
 56            <meta-data
-56-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/sorabh/.gradle/caches/transforms-3/916f7f45e2167fabf69796196082b7b5/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+56-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/sorabh/.gradle/caches/transforms-3/b3475aea3aa2c34b770cb567084a1991/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
 57                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-57-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/sorabh/.gradle/caches/transforms-3/916f7f45e2167fabf69796196082b7b5/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+57-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/sorabh/.gradle/caches/transforms-3/b3475aea3aa2c34b770cb567084a1991/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
 58                android:value="androidx.startup" />
-58-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/sorabh/.gradle/caches/transforms-3/916f7f45e2167fabf69796196082b7b5/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+58-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/sorabh/.gradle/caches/transforms-3/b3475aea3aa2c34b770cb567084a1991/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
 59        </provider>
 60
 61        <service
-61-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/cc5c7538b7563810161fe0e30c19acd6/transformed/room-runtime-2.4.3/AndroidManifest.xml:25:9-28:40
+61-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/bde6cfb159f67453ef92097124b5d85e/transformed/room-runtime-2.4.3/AndroidManifest.xml:25:9-28:40
 62            android:name="androidx.room.MultiInstanceInvalidationService"
-62-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/cc5c7538b7563810161fe0e30c19acd6/transformed/room-runtime-2.4.3/AndroidManifest.xml:26:13-74
+62-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/bde6cfb159f67453ef92097124b5d85e/transformed/room-runtime-2.4.3/AndroidManifest.xml:26:13-74
 63            android:directBootAware="true"
-63-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/cc5c7538b7563810161fe0e30c19acd6/transformed/room-runtime-2.4.3/AndroidManifest.xml:27:13-43
+63-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/bde6cfb159f67453ef92097124b5d85e/transformed/room-runtime-2.4.3/AndroidManifest.xml:27:13-43
 64            android:exported="false" />
-64-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/cc5c7538b7563810161fe0e30c19acd6/transformed/room-runtime-2.4.3/AndroidManifest.xml:28:13-37
+64-->[androidx.room:room-runtime:2.4.3] /home/sorabh/.gradle/caches/transforms-3/bde6cfb159f67453ef92097124b5d85e/transformed/room-runtime-2.4.3/AndroidManifest.xml:28:13-37
 65    </application>
 66
 67</manifest>
