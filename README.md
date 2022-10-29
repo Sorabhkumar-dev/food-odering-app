@@ -10,5 +10,4 @@
 >> - *🗡️ Dagger-hilt (Dependency Injection library)*
 >> - *🚤 Flow (Reactive programming)*
 >> - *🔀 Coroutines (Asynchronous programming)*
-
-
+>> - *📝 Room Persitence library (Wrapper on SqlLite)*
