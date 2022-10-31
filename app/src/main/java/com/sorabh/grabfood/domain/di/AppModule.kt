@@ -3,27 +3,52 @@ package com.sorabh.grabfood.domain.di
 import android.content.Context
 import com.sorabh.grabfood.domain.database.LocalDAO
 import com.sorabh.grabfood.domain.database.RestaurantDatabase
-import com.sorabh.grabfood.domain.network_api.GetFoodClient
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepositoryImpl
+import com.sorabh.grabfood.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
 
     @Provides
-    fun provideRetrofitClient(): Retrofit = GetFoodClient.getInstance()
+    @Singleton
+    fun providesUserOkHttpClient(): OkHttpClient =
+        OkHttpClient.Builder().apply {
+            interceptors().add(Interceptor { chain ->
+                val builder = chain.request().newBuilder()
+                    .addHeader("Content-type", "application/json; charset=UTF-8")
+                    .addHeader("Accept", "application/json")
+                chain.proceed(builder.build())
+            })
+            addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }).connectTimeout(20, TimeUnit.SECONDS).readTimeout(20, TimeUnit.SECONDS)
+                .writeTimeout(20, TimeUnit.SECONDS)
+        }.build()
+
 
     @Provides
-    fun provideNetworkInterface(retrofit: Retrofit): NetworkInterface =
-        retrofit.create(NetworkInterface::class.java)
+    fun provideNetworkInterface(okHttpClient: OkHttpClient): NetworkInterface =
+        Retrofit
+            .Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient).build().create(NetworkInterface::class.java)
+
 
     @Provides
     fun provideNetworkRepository(networkRepositoryImpl: NetworkRepositoryImpl): NetworkRepository =
