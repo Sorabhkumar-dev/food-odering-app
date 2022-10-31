@@ -56,5 +56,6 @@
     <string name="added_to_your_favorite_restaurants">Added  to Your Favorite Restaurant</string>
     <string name="frequently_asked_question">Frequently Asked Question</string>
     <string name="no">%d.</string>
+    <string name="okay">Okay</string>
     <string name="retry">Retry</string>
 </resources>

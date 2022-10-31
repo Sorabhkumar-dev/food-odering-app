@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -137,12 +136,8 @@ class CartFragment : Fragment() {
         val oderConfirmation = BottomSheetDialog(requireContext())
         val layoutInflater = LayoutInflater.from(requireContext())
 
-        val bindingSheet = DataBindingUtil.inflate<OderBottomSheetBinding>(
-            layoutInflater,
-            R.layout.oder_bottom_sheet,
-            null,
-            false
-        )
+        val bindingSheet = OderBottomSheetBinding.inflate(layoutInflater)
+
         if (isConfirm) {
             bindingSheet.bottomSheetAction.text = getString(R.string.your_oder_successfully_placed)
             bindingSheet.bottomSheetSign.setImageResource(R.drawable.ic_check_mark)
@@ -152,5 +147,6 @@ class CartFragment : Fragment() {
         }
         oderConfirmation.setContentView(bindingSheet.root)
         oderConfirmation.show()
+        bindingSheet.btnOkay.setOnClickListener { oderConfirmation.hide() }
     }
 }
