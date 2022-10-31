@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Grab Food</string>
 
-    <string name="welcome">Welcome To</string>
+    <string name="oder_your_food_now">Oder your food Now!</string>
     <string name="btn_login">Login</string>
     <string name="btn_login_forgot_password">Forgot Password?</string>
     <string name="btn_login_signup">Don\'t have an account? Sign Up</string>

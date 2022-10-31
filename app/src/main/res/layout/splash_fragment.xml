@@ -12,8 +12,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif"
-        android:text="@string/welcome"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:gravity="center"
+        android:text="@string/oder_your_food_now"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
         android:textColor="?colorPrimary"
         android:textStyle="italic" />
 
