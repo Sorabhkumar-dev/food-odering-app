@@ -4,26 +4,25 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.util.QNAData
 
 @Dao
 interface LocalDAO {
 
-    /*--------------------- Favorite Restaurant ---------------------*/
     @Insert
-    fun insertRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.Dish)
+    fun insertRestaurant(restaurant: Dish)
 
     @Delete
-    fun deleteRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.Dish)
+    fun deleteRestaurant(restaurant: Dish)
 
     @Query("Select * from Restaurant")
-    fun getRestaurantList(): List<com.sorabh.grabfood.domain.model.reataurants_home_response.Dish>?
+    fun getRestaurantList(): List<Dish>?
 
     @Query("select * from Restaurant where id = :id")
-    fun getRestaurant(id:String): com.sorabh.grabfood.domain.model.reataurants_home_response.Dish?
+    fun getRestaurant(id:String): Dish?
 
-    /*--------------------- Restaurant Menu ---------------------*/
     @Insert
     fun insertMenu(menu: Menu)
 
@@ -39,7 +38,6 @@ interface LocalDAO {
     @Query("select * from menu where id = :id")
     fun getMenuItem(id:String): Menu?
 
-    /*--------------------- Restaurant QNA ---------------------*/
     @Insert
     fun insertQNAData(qnaData: QNAData)
 

@@ -103,7 +103,6 @@ class MainFragment : BaseFragment() {
                 }
                 R.id.drawer_menu_logout -> {
                     confirmLogOutDialog()
-                    it.isChecked = true
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                 }
 
