@@ -22,7 +22,6 @@ import com.sorabh.grabfood.domain.model.post.OderPostModel
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.domain.network_api.Result
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
-import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.ui.adapter.CartAdapter
 import com.sorabh.grabfood.ui.adapter.CartViewHolder
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel
@@ -42,9 +41,6 @@ class CartFragment : Fragment() {
     private val viewModel: CartViewModel by viewModels()
 
     private lateinit var binding: FragmentCartBinding
-
-    @Inject
-    lateinit var repository: NetworkRepository
 
     @Inject
     lateinit var cartAdapter: CartAdapter
