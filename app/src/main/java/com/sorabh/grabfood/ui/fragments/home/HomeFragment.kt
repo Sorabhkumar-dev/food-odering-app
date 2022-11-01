@@ -12,7 +12,6 @@ import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.FragmentHomeBinding
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.ui.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
@@ -30,8 +29,6 @@ class HomeFragment : BaseFragment(),
     @Inject
     lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
 
-    @Inject
-    lateinit var localDBRepository: LocalDBRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
