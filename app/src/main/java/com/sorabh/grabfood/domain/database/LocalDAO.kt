@@ -7,21 +7,22 @@ import androidx.room.Query
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.util.QNAData
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LocalDAO {
 
     @Insert
-    fun insertRestaurant(restaurant: Dish)
+    suspend fun insertRestaurant(restaurant: Dish)
 
     @Delete
-    fun deleteRestaurant(restaurant: Dish)
+    suspend fun deleteRestaurant(restaurant: Dish)
 
     @Query("Select * from Restaurant")
-    fun getRestaurantList(): List<Dish>?
+    fun getRestaurantList(): Flow<List<Dish>>
 
-    @Query("select * from Restaurant where id = :id")
-    fun getRestaurant(id:String): Dish?
+    @Query("select Count(id) from Restaurant where id = :id")
+    suspend fun getRestaurant(id: String): Int
 
     @Insert
     fun insertMenu(menu: Menu)
@@ -30,7 +31,7 @@ interface LocalDAO {
     fun deleteMenu(menu: Menu)
 
     @Query("delete from menu where restaurant_id =:restaurant_id")
-    fun deleteAllMenu(restaurant_id:String)
+    fun deleteAllMenu(restaurant_id: String)
 
     @Query("Select * from menu")
     fun getMenuList(): List<Menu>?

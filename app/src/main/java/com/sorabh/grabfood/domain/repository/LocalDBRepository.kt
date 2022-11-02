@@ -9,20 +9,18 @@ import javax.inject.Inject
 class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
 
     // Restaurant Home
-    fun insertRestaurant(restaurant: Dish) {
+  suspend  fun insertRestaurant(restaurant: Dish) {
         localDAO.insertRestaurant(restaurant)
     }
 
 
-    fun deleteRestaurant(restaurant: Dish) {
+    suspend fun deleteRestaurant(restaurant: Dish) {
         localDAO.deleteRestaurant(restaurant)
     }
 
-    fun getRestaurantList(): List<Dish>? {
-        return localDAO.getRestaurantList()
-    }
+   fun getRestaurantList() = localDAO.getRestaurantList()
 
-    fun getRestaurant(id: String): Dish? {
+   suspend fun getRestaurant(id: String): Int {
         return localDAO.getRestaurant(id)
     }
 

@@ -105,8 +105,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/cardView_txt_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/cardView_txt_name"
-                android:onClick="@{() -> onFavoriteButtonClicked.onFavoriteButtonClicked(data)}"
-                android:src="@drawable/ic_favorite_empty" />
+                android:onClick="@{() -> onFavoriteButtonClicked.onFavoriteButtonClicked(data)}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
