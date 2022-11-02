@@ -46,6 +46,11 @@ class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
     private fun startupInitializer() {
         binding = FragmentRestaurantMenuBinding.inflate(layoutInflater)
         (activity as AppCompatActivity).supportActionBar?.title = dish.name
+
+        restaurantMenuAdapter.deleteMenu = viewModel::deleteMenu
+        restaurantMenuAdapter.insertMenu = viewModel::insertMenu
+        restaurantMenuAdapter.isMenuSaved = viewModel::isMenuSaved
+
         binding.restaurantMenuRecyclerView.adapter = restaurantMenuAdapter
     }
 

@@ -25,19 +25,19 @@ interface LocalDAO {
     suspend fun getRestaurant(id: String): Int
 
     @Insert
-    fun insertMenu(menu: Menu)
+    suspend fun insertMenu(menu: Menu)
+
+    @Query("select Count(id) from menu where id = :id")
+    suspend fun getMenuItem(id:String): Int
 
     @Delete
-    fun deleteMenu(menu: Menu)
+    suspend fun deleteMenu(menu: Menu)
 
     @Query("delete from menu where restaurant_id =:restaurant_id")
-    fun deleteAllMenu(restaurant_id: String)
+    suspend fun deleteAllMenu(restaurant_id: String)
 
     @Query("Select * from menu")
-    fun getMenuList(): List<Menu>?
-
-    @Query("select * from menu where id = :id")
-    fun getMenuItem(id:String): Menu?
+    fun getMenuList(): Flow<List<Menu>>
 
     @Insert
     fun insertQNAData(qnaData: QNAData)

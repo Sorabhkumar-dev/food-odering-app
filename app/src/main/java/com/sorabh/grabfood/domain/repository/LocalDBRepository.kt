@@ -24,21 +24,18 @@ class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
         return localDAO.getRestaurant(id)
     }
 
-    // Restaurant menu
-    fun insertMenu(menu: Menu) {
+    suspend fun insertMenu(menu: Menu) {
         localDAO.insertMenu(menu)
     }
 
 
-    fun deleteMenu(menu: Menu) {
+   suspend fun deleteMenu(menu: Menu) {
         localDAO.deleteMenu(menu)
     }
 
-    fun getMenuList(): List<Menu>? {
-        return localDAO.getMenuList()
-    }
+   fun getMenuList() = localDAO.getMenuList()
 
-    fun getMenuItem(id: String): Menu? {
+   suspend fun getMenuItem(id: String): Int {
         return localDAO.getMenuItem(id)
     }
 

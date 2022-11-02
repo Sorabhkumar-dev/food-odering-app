@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,17 +19,13 @@ import com.sorabh.grabfood.databinding.OderBottomSheetBinding
 import com.sorabh.grabfood.domain.model.post.OderPostModel
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.ui.adapter.CartAdapter
 import com.sorabh.grabfood.ui.adapter.CartViewHolder
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel
 import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -44,9 +39,6 @@ class CartFragment : Fragment() {
     @Inject
     lateinit var cartAdapter: CartAdapter
 
-    @Inject
-    lateinit var localDBRepository: LocalDBRepository
-
     private var localMenu: Menu? = null
 
     override fun onCreateView(
@@ -55,7 +47,6 @@ class CartFragment : Fragment() {
     ): View {
         startupInitialization(inflater)
         updateMenuList()
-        binding.cartProgressBar.visibility = ProgressBar.GONE
         setupObserver()
         return binding.root
     }
@@ -72,10 +63,9 @@ class CartFragment : Fragment() {
     }
 
     private fun updateMenuList() {
-        CoroutineScope(Dispatchers.IO).launch {
-            val menuList: List<Menu>? = localDBRepository.getMenuList()
-            withContext(Dispatchers.Main) {
-                cartAdapter.updateMenuList(menuList)
+        lifecycleScope.launch{
+            viewModel.menuFlow.collect{
+                cartAdapter.updateMenuList(it)
             }
         }
     }
@@ -118,9 +108,8 @@ class CartFragment : Fragment() {
                         is Result.Success -> {
                             it.body?.data?.let { isConfirm ->
                                 if (isConfirm.success) {
-                                    updateMenuList()
-                                    CoroutineScope(Dispatchers.IO).launch {
-                                        localMenu?.let { menu -> localDBRepository.deleteMenu(menu) }
+                                    localMenu?.let { menu ->
+                                        viewModel.deleteMenu(menu)
                                     }
                                 }
                                 showBottomSheet(isConfirm.success)
