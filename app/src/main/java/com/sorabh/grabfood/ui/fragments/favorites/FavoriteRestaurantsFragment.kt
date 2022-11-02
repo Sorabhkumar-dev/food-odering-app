@@ -41,6 +41,7 @@ class FavoriteRestaurantsFragment : BaseFragment(),
         binding = FavoriteRestaurantsFragmentBinding.inflate(layoutInflater)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.my_favorite_restaurants)
+        binding.errorLayout.btnRetry.visibility = View.GONE
         restaurantHomeAdapter.isRestaurantStored = viewModel::isRestaurantStored
         restaurantHomeAdapter.insertRestaurant = viewModel::insertRestaurant
         restaurantHomeAdapter.deleteRestaurant = viewModel::deleteRestaurant
@@ -51,9 +52,20 @@ class FavoriteRestaurantsFragment : BaseFragment(),
     private fun setupData() {
         lifecycleScope.launch {
             viewModel.getDishesFlow.collect {
-                restaurantHomeAdapter.updateRestaurantsList(it)
+                if (it.isEmpty()) {
+                    setupEmptyView(true)
+                    binding.errorLayout.txvReason.text =
+                        getString(R.string.sorry_you_have_not_any_favorite_restaurants)
+                } else {
+                    restaurantHomeAdapter.updateRestaurantsList(it)
+                    setupEmptyView(false)
+                }
             }
         }
+    }
+
+    private fun setupEmptyView(isShow: Boolean) {
+        binding.errorLayout.root.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 
     override fun onRestaurantsClicked(dish: Dish) {
