@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Grab Food</string>
 
-    <string name="welcome">Welcome To</string>
+    <string name="oder_your_food_now">Oder your food Now!</string>
     <string name="btn_login">Login</string>
     <string name="btn_login_forgot_password">Forgot Password?</string>
     <string name="btn_login_signup">Don\'t have an account? Sign Up</string>
@@ -35,6 +35,7 @@
     <string name="oder_history">Oder History</string>
     <string name="frequently_asked">Frequently Asked QnA</string>
     <string name="my_favorite_restaurants">"My Favorite Restaurants"</string>
+    <string name="sorry_you_have_not_any_favorite_restaurants">Sorry you have not any favorite restaurants!</string>
     <string name="you_successfully_log_out_from_the_app">You successfully log-out from the app!</string>
     <string name="are_you_sure_to_log_out">Are you sure to log-out!</string>
     <string name="discard">Discard</string>
@@ -56,4 +57,6 @@
     <string name="added_to_your_favorite_restaurants">Added  to Your Favorite Restaurant</string>
     <string name="frequently_asked_question">Frequently Asked Question</string>
     <string name="no">%d.</string>
+    <string name="okay">Okay</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -8,4 +8,11 @@
 >>>>>>> master
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="Grab_Food.app" />
+      </set>
+    </option>
+  </component>
 </project>

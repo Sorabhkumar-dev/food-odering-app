@@ -1,35 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+ <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:src="@drawable/ic_grab_food" />
+                android:src="@drawable/ic_grab_food"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/bottom_sheet_sign"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_check_mark" />
+                android:src="@drawable/ic_check_mark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_logo" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/bottom_sheet_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:fontFamily="sans-serif-medium"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_sign"
+                tools:text="@string/sorry_oder_not_placed" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_okay"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:cornerRadius="30dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/okay"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_action" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-</layout>

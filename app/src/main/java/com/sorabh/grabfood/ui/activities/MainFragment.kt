@@ -103,7 +103,6 @@ class MainFragment : BaseFragment() {
                 }
                 R.id.drawer_menu_logout -> {
                     confirmLogOutDialog()
-                    it.isChecked = true
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                 }
 
@@ -124,7 +123,7 @@ class MainFragment : BaseFragment() {
                 R.anim.enter_from_left,
                 R.anim.exit_to_right
             )
-            .addToBackStack(fragment.toString())
+            .addToBackStack(fragment::class.java.name)
             .replace(R.id.frameLayout, fragment)
             .commit()
         binding.drawerLayout.closeDrawer(GravityCompat.START)

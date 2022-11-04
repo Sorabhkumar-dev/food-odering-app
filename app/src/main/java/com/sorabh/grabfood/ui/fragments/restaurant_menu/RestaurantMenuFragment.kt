@@ -14,7 +14,6 @@ import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
 import com.sorabh.grabfood.domain.model.post.RestaurantMenuPostModel
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
@@ -27,42 +26,62 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
-    private lateinit var binding: FragmentRestaurantMenuBinding
-
-    @Inject
-    lateinit var repository: NetworkRepository
-
-    @Inject
-    lateinit var restaurantMenuAdapter: RestaurantMenuAdapter
 
     private val viewModel: RestaurantMenuViewModel by viewModels()
+    private lateinit var binding: FragmentRestaurantMenuBinding
+    @Inject
+    lateinit var restaurantMenuAdapter: RestaurantMenuAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        startupInitializer()
+        setOnClickListener()
+        setupObserver()
+        setupApiCall()
+        return binding.root
+    }
+
+    private fun startupInitializer() {
         binding = FragmentRestaurantMenuBinding.inflate(layoutInflater)
         (activity as AppCompatActivity).supportActionBar?.title = dish.name
+
+        restaurantMenuAdapter.deleteMenu = viewModel::deleteMenu
+        restaurantMenuAdapter.insertMenu = viewModel::insertMenu
+        restaurantMenuAdapter.isMenuSaved = viewModel::isMenuSaved
+
         binding.restaurantMenuRecyclerView.adapter = restaurantMenuAdapter
+    }
+
+    private fun setOnClickListener() {
+        binding.btnProceed.setOnClickListener {
+            moveToCart()
+        }
+        binding.errorLayout.btnRetry.setOnClickListener {
+            binding.errorLayout.root.visibility = View.GONE
+            setupApiCall()
+        }
+    }
+
+    private fun moveToCart() {
+        parentFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            )
+            .addToBackStack("CartFragment")
+            .replace(R.id.frameLayout, CartFragment())
+            .commit()
+    }
+
+    private fun setupApiCall() {
         val header = HashMap<String, String>()
         header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
         header[Keys.TOKEN] = Constants.MAIN_TOKEN
-        viewModel.getRestaurantMenu(RestaurantMenuPostModel(header,dish.id))
-
-        binding.btnProceed.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .setCustomAnimations(
-                    R.anim.enter_from_right,
-                    R.anim.exit_to_left,
-                    R.anim.enter_from_left,
-                    R.anim.exit_to_right
-                )
-                .addToBackStack("CartFragment")
-                .replace(R.id.frameLayout, CartFragment())
-                .commit()
-        }
-        setupObserver()
-        return binding.root
+        viewModel.getRestaurantMenu(RestaurantMenuPostModel(header, dish.id))
     }
 
     private fun setupObserver() {
@@ -70,12 +89,21 @@ class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.restaurantMenuFlow.collect {
                     when (it) {
-                        is Result.Error -> {}
-                        is Result.Loading -> {}
+                        is Result.Loading -> {
+                            binding.shimmerLayout.startShimmer()
+                            binding.shimmerLayout.visibility = View.VISIBLE
+                        }
+                        is Result.Error -> {
+                            binding.shimmerLayout.stopShimmer()
+                            binding.shimmerLayout.visibility = View.GONE
+                            binding.errorLayout.root.visibility = View.VISIBLE
+                            binding.errorLayout.txvReason.text = it.message
+                        }
                         is Result.Success -> {
-                            binding.restaurantMenuProgressBar.visibility = View.GONE
-                            it.body?.data?.data?.let { menu ->
-                                restaurantMenuAdapter.updateRestaurantMenu(menu)
+                            binding.shimmerLayout.stopShimmer()
+                            binding.shimmerLayout.visibility = View.GONE
+                            it.body?.data?.data.let { menus ->
+                                restaurantMenuAdapter.updateRestaurantMenu(menus)
                             }
                         }
                     }

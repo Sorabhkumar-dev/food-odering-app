@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 data class  Menu(
 
     val cost_for_one: String,
-    val id: String,
     @PrimaryKey
+    val id: String,
     val name: String,
     val restaurant_id: String
 )

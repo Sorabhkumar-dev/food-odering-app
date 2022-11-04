@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -40,9 +39,17 @@ class OderHistoryFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         startupInitializer(inflater)
+        setOnClickListener()
         setupApiCall()
         setupObserver()
         return binding.root
+    }
+
+    private fun setOnClickListener() {
+        binding.errorLayout.btnRetry.setOnClickListener {
+            binding.errorLayout.root.visibility = View.GONE
+            setupApiCall()
+        }
     }
 
     private fun startupInitializer(inflater: LayoutInflater) {
@@ -69,12 +76,20 @@ class OderHistoryFragment : BaseFragment() {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.oderHistoryFlow.collect {
                     when (it) {
-                        is Result.Error -> {}
-                        is Result.Loading -> {}
+                        is Result.Loading -> {
+                            binding.shimmerLayout.startShimmer()
+                            binding.shimmerLayout.visibility = View.VISIBLE
+                        }
+                        is Result.Error -> {
+                            binding.shimmerLayout.stopShimmer()
+                            binding.shimmerLayout.visibility = View.GONE
+                            binding.errorLayout.root.visibility = View.VISIBLE
+                            binding.errorLayout.txvReason.text = it.message
+                        }
                         is Result.Success -> {
+                            binding.shimmerLayout.stopShimmer()
+                            binding.shimmerLayout.visibility = View.GONE
                             it.body?.data?.data?.let { lists ->
-                                binding.orderHistoryFragmentProgressBar.visibility =
-                                    ProgressBar.GONE
                                 historyAdapter.updateOderHistoryList(lists)
                             }
                         }

@@ -4,33 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.FavoriteRestaurantsFragmentBinding
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
-import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.ui.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
+import com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class FavoriteRestaurantsFragment : BaseFragment(),
-    RestaurantViewHolder.OnRestaurantsClicked,
-    RestaurantViewHolder.OnFavoriteButtonClicked {
-    private lateinit var binding:FavoriteRestaurantsFragmentBinding
+    RestaurantViewHolder.OnRestaurantsClicked {
+    private lateinit var binding: FavoriteRestaurantsFragmentBinding
+    private val viewModel: FavoriteRestaurantsViewModel by viewModels()
 
     @Inject
     lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
-    @Inject
-    lateinit var localDBRepository: LocalDBRepository
-
-    private lateinit var favoriteRestaurantList: List<Dish>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,23 +41,31 @@ class FavoriteRestaurantsFragment : BaseFragment(),
         binding = FavoriteRestaurantsFragmentBinding.inflate(layoutInflater)
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.my_favorite_restaurants)
+        binding.errorLayout.btnRetry.visibility = View.GONE
+        restaurantHomeAdapter.isRestaurantStored = viewModel::isRestaurantStored
+        restaurantHomeAdapter.insertRestaurant = viewModel::insertRestaurant
+        restaurantHomeAdapter.deleteRestaurant = viewModel::deleteRestaurant
         binding.favoriteRestaurantRecyclerview.adapter = restaurantHomeAdapter
         restaurantHomeAdapter.restaurantsClicked = this
-        restaurantHomeAdapter.onFavoriteButtonClicked = this
     }
 
     private fun setupData() {
         lifecycleScope.launch {
-            try {
-                favoriteRestaurantList = getFavoriteRestaurantList()!!
-                restaurantHomeAdapter.updateRestaurantsList(favoriteRestaurantList)
-                binding.favoriteRestaurantProgressBar.visibility = ProgressBar.GONE
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    showToast(getString(R.string.something_went_wrong))
+            viewModel.getDishesFlow.collect {
+                if (it.isEmpty()) {
+                    setupEmptyView(true)
+                    binding.errorLayout.txvReason.text =
+                        getString(R.string.sorry_you_have_not_any_favorite_restaurants)
+                } else {
+                    restaurantHomeAdapter.updateRestaurantsList(it)
+                    setupEmptyView(false)
                 }
             }
         }
+    }
+
+    private fun setupEmptyView(isShow: Boolean) {
+        binding.errorLayout.root.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 
     override fun onRestaurantsClicked(dish: Dish) {
@@ -75,34 +79,5 @@ class FavoriteRestaurantsFragment : BaseFragment(),
             .addToBackStack("RestaurantMenuFragment")
             .replace(R.id.frameLayout, RestaurantMenuFragment(dish))
             .commit()
-    }
-
-    override fun onFavoriteButtonClicked(dish: Dish) {
-        lifecycleScope.launch {
-            val restaurantData = localDBRepository.getRestaurant(dish.id)
-            if (restaurantData != null) {
-                localDBRepository.deleteRestaurant(dish)
-                val list = getFavoriteRestaurantList()
-                withContext(Dispatchers.Main) {
-                    showToast(getString(R.string.deleted_to_your_favorite_restaurants))
-                    restaurantHomeAdapter.updateRestaurantsList(list)
-                }
-            } else {
-                localDBRepository.insertRestaurant(dish)
-                val list = getFavoriteRestaurantList()
-                withContext(Dispatchers.Main) {
-                   showToast(getString(R.string.added_to_your_favorite_restaurants))
-                    restaurantHomeAdapter.updateRestaurantsList(list)
-
-                }
-            }
-        }
-    }
-
-    private suspend fun getFavoriteRestaurantList(): List<Dish>? = coroutineScope {
-        val list = CoroutineScope(Dispatchers.IO).async {
-            return@async localDBRepository.getRestaurantList()
-        }
-        return@coroutineScope list.await()
     }
 }

@@ -4,42 +4,41 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.util.QNAData
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LocalDAO {
 
-    /*--------------------- Favorite Restaurant ---------------------*/
     @Insert
-    fun insertRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.Dish)
+    suspend fun insertRestaurant(restaurant: Dish)
 
     @Delete
-    fun deleteRestaurant(restaurant: com.sorabh.grabfood.domain.model.reataurants_home_response.Dish)
+    suspend fun deleteRestaurant(restaurant: Dish)
 
     @Query("Select * from Restaurant")
-    fun getRestaurantList(): List<com.sorabh.grabfood.domain.model.reataurants_home_response.Dish>?
+    fun getRestaurantList(): Flow<List<Dish>>
 
-    @Query("select * from Restaurant where id = :id")
-    fun getRestaurant(id:String): com.sorabh.grabfood.domain.model.reataurants_home_response.Dish?
+    @Query("select Count(id) from Restaurant where id = :id")
+    suspend fun getRestaurant(id: String): Int
 
-    /*--------------------- Restaurant Menu ---------------------*/
     @Insert
-    fun insertMenu(menu: Menu)
+    suspend fun insertMenu(menu: Menu)
+
+    @Query("select Count(id) from menu where id = :id")
+    suspend fun getMenuItem(id:String): Int
 
     @Delete
-    fun deleteMenu(menu: Menu)
+    suspend fun deleteMenu(menu: Menu)
 
     @Query("delete from menu where restaurant_id =:restaurant_id")
-    fun deleteAllMenu(restaurant_id:String)
+    suspend fun deleteAllMenu(restaurant_id: String)
 
     @Query("Select * from menu")
-    fun getMenuList(): List<Menu>?
+    fun getMenuList(): Flow<List<Menu>>
 
-    @Query("select * from menu where id = :id")
-    fun getMenuItem(id:String): Menu?
-
-    /*--------------------- Restaurant QNA ---------------------*/
     @Insert
     fun insertQNAData(qnaData: QNAData)
 

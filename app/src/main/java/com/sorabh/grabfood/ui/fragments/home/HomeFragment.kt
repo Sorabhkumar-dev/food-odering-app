@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,8 +12,6 @@ import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.FragmentHomeBinding
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.domain.repository.LocalDBRepository
-import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter
 import com.sorabh.grabfood.ui.adapter.RestaurantViewHolder
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
@@ -24,19 +21,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(),
-    RestaurantViewHolder.OnRestaurantsClicked{
+class HomeFragment : BaseFragment() {
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
 
     @Inject
-    lateinit var repository: NetworkRepository
-
-    @Inject
     lateinit var restaurantHomeAdapter: RestaurantHomeAdapter
-
-    @Inject
-    lateinit var localDBRepository: LocalDBRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +34,15 @@ class HomeFragment : BaseFragment(),
     ): View {
         startupInitializer(inflater)
         setupObserver()
+        setOnClickListener()
         return binding.root
+    }
+
+    private fun setOnClickListener() {
+        binding.errorLayout.btnRetry.setOnClickListener {
+            binding.errorLayout.root.visibility = View.GONE
+            viewModel.getRestaurants()
+        }
     }
 
     private fun startupInitializer(inflater: LayoutInflater) {
@@ -52,31 +50,44 @@ class HomeFragment : BaseFragment(),
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.restaurants_list)
 
+            restaurantHomeAdapter.isRestaurantStored = viewModel::isRestaurantStored
+            restaurantHomeAdapter.insertRestaurant = viewModel::insertRestaurant
+            restaurantHomeAdapter.deleteRestaurant = viewModel::deleteRestaurant
+
         binding.recyclerView.adapter = restaurantHomeAdapter
-        restaurantHomeAdapter.restaurantsClicked = this
+        restaurantHomeAdapter.restaurantsClicked =
+            object : RestaurantViewHolder.OnRestaurantsClicked {
+                override fun onRestaurantsClicked(dish: Dish) {
+                    parentFragmentManager.beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.enter_from_right,
+                            R.anim.exit_to_left,
+                            R.anim.enter_from_left,
+                            R.anim.exit_to_right
+                        )
+                        .addToBackStack("RestaurantMenuFragment")
+                        .replace(R.id.frameLayout, RestaurantMenuFragment(dish))
+                        .commit()
+                }
+            }
     }
-
-    override fun onRestaurantsClicked(dish: Dish) {
-        parentFragmentManager.beginTransaction()
-            .setCustomAnimations(
-                R.anim.enter_from_right,
-                R.anim.exit_to_left,
-                R.anim.enter_from_left,
-                R.anim.exit_to_right
-            )
-            .addToBackStack("RestaurantMenuFragment")
-            .replace(R.id.frameLayout, RestaurantMenuFragment(dish))
-            .commit()
-    }
-
     private fun setupObserver() {
         lifecycleScope.launch {
             viewModel.restaurantFlow.collect {
                 when (it) {
-                    is Result.Error -> {}
-                    is Result.Loading -> {}
+                    is Result.Loading -> {
+                        binding.shimmerLayout.startShimmer()
+                        binding.shimmerLayout.visibility = View.VISIBLE
+                    }
+                    is Result.Error -> {
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
+                        binding.errorLayout.root.visibility = View.VISIBLE
+                        binding.errorLayout.txvReason.text = it.message
+                    }
                     is Result.Success -> {
-                        binding.progressbar.visibility = ProgressBar.GONE
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
                         it.body?.data?.data?.let { dishes ->
                             restaurantHomeAdapter.updateRestaurantsList(dishes)
                         }
@@ -85,5 +96,4 @@ class HomeFragment : BaseFragment(),
             }
         }
     }
-
 }
