@@ -1,6 +1,5 @@
 package com.sorabh.grabfood.ui.activities
 
-import android.content.Context.MODE_PRIVATE
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,7 +28,6 @@ import com.sorabh.grabfood.ui.fragments.home.HomeFragment
 import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment
 import com.sorabh.grabfood.ui.fragments.qna.QNAFragment
 import com.sorabh.grabfood.ui.viewmodel.MainViewModel
-import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -150,8 +148,8 @@ class MainFragment : BaseFragment() {
             AlertDialog.BUTTON_NEGATIVE,
             getString(R.string.yes)
         ) { _: DialogInterface, _: Int ->
-            val sharedPreferences = requireContext().getSharedPreferences(Keys.LOGIN, MODE_PRIVATE)
-            sharedPreferences.edit().clear().apply()
+            viewModel.clearDataStorePreference()
+
             showToast(getString(R.string.you_successfully_log_out_from_the_app))
             navController.navigate(
                 MainFragmentDirections.actionMainFragmentToLoginFragment()
@@ -167,8 +165,4 @@ class MainFragment : BaseFragment() {
         alertDialog.show()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-    }
 }

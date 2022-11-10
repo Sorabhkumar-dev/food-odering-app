@@ -15,6 +15,8 @@ interface PreferenceData {
 
     suspend fun writeIsLogin(isLogin:Boolean)
 
+    suspend fun clearDatStore()
+
     val readAddressFlow:Flow<String>
 
     val readEmailFlow:Flow<String>

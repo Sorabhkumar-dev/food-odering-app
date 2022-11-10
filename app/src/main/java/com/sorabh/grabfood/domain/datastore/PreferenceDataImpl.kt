@@ -56,6 +56,11 @@ class PreferenceDataImpl @Inject constructor(private val context: Context) : Pre
         }
     }
 
+    override suspend fun clearDatStore() {
+        context.dataStore.edit {
+            it.clear()
+        }
+    }
     override val readAddressFlow: Flow<String> = context.dataStore.data.catch {
         if (this is Exception) emit(
             emptyPreferences()
