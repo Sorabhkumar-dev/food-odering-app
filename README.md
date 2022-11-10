@@ -10,4 +10,5 @@
 >> - *🗡️ Dagger-hilt (Dependency Injection library)*
 >> - *🚤 Flow (Reactive programming)*
 >> - *🔀 Coroutines (Asynchronous programming)*
->> - *📝 Room Persitence library (Wrapper on SqlLite)*
+>> - *🗄️ Room Persitence library (Wrapper on SqlLite)*
+>> - *📝 Jetpack DataStore alternative of SharedPreference*
