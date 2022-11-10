@@ -20,6 +20,7 @@ import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel
 import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -59,15 +60,14 @@ class OderHistoryFragment : BaseFragment() {
     }
 
     private fun setupApiCall() {
-        val sharedPreferences =
-            activity?.getSharedPreferences(Keys.LOGIN, AppCompatActivity.MODE_PRIVATE)
-        //header to send
-        val header = HashMap<String, String>()
-        header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
-        header[Keys.TOKEN] = Constants.MAIN_TOKEN
+        lifecycleScope.launch {
+            val header = HashMap<String, String>()
+            header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
+            header[Keys.TOKEN] = Constants.MAIN_TOKEN
 
-        sharedPreferences?.getString(Keys.USER_ID, "107")?.let {
-            viewModel.getOderHistory(OderHistoryPost(header, it))
+            viewModel.userIdFlow.first().let {
+                viewModel.getOderHistory(OderHistoryPost(header, it))
+            }
         }
     }
 

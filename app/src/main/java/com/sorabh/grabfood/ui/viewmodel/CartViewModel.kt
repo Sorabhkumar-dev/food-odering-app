@@ -2,6 +2,7 @@ package com.sorabh.grabfood.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sorabh.grabfood.domain.datastore.PreferenceData
 import com.sorabh.grabfood.domain.model.oder_respones.OderConfirmation
 import com.sorabh.grabfood.domain.model.post.OderPostModel
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
@@ -20,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CartViewModel @Inject constructor(
     private val getOderConfirmationUseCase: GetOderConfirmationUseCase,
-    private val localDBRepository: LocalDBRepository
+    private val localDBRepository: LocalDBRepository,
+    preferenceData: PreferenceData
 ) : ViewModel() {
     private val _oderConfirmationFlow: MutableStateFlow<Result<OderConfirmation>> =
         MutableStateFlow(
@@ -31,6 +33,7 @@ class CartViewModel @Inject constructor(
     private val _menuFlow:MutableStateFlow<List<Menu>> = MutableStateFlow(emptyList())
     val menuFlow:StateFlow<List<Menu>> = _menuFlow
 
+    val userIdFlow = preferenceData.readUserIdFlow
     init {
         viewModelScope.launch { getMenu() }
     }

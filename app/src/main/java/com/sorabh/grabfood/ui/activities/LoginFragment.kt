@@ -1,7 +1,5 @@
 package com.sorabh.grabfood.ui.activities
 
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +30,6 @@ class LoginFragment : BaseFragment() {
     lateinit var repository: NetworkRepository
     private lateinit var navController: NavController
     private lateinit var binding: LoginFragmentBinding
-    private lateinit var loginSharedPreferences: SharedPreferences
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
@@ -41,23 +38,14 @@ class LoginFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         startupInitializer(inflater)
-        setOnClickListener()
         setupObserver()
+        setOnClickListener()
         return binding.root
     }
 
     private fun startupInitializer(inflater: LayoutInflater) {
         binding = LoginFragmentBinding.inflate(inflater)
         navController = findNavController()
-        //sharedPreference to store login credentials
-        loginSharedPreferences = requireActivity().getSharedPreferences(Keys.LOGIN, MODE_PRIVATE)
-        val isLogin = loginSharedPreferences.getBoolean(Keys.IS_LOGIN, false)
-        if (isLogin) {
-            navController.navigate(
-                LoginFragmentDirections
-                    .actionLoginFragmentToMainFragment()
-            )
-        }
     }
 
     private fun setOnClickListener() {
@@ -100,42 +88,41 @@ class LoginFragment : BaseFragment() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.loginFlow.collect {
-                    when (it) {
-                        is Result.Error -> {}
-                        is Result.Loading -> {}
-                        is Result.Success -> {
-                            it.body?.let { data ->
-                                setupLoginData(data)
+                launch {
+                    viewModel.loginFlow.collect {
+                        when (it) {
+                            is Result.Error -> {}
+                            is Result.Loading -> {}
+                            is Result.Success -> {
+                                it.body?.let { data ->
+                                    saveLoginData(data)
+                                }
                             }
                         }
+                    }
+                }
+                launch {
+                    viewModel.isLoginFlow.collect {
+                        if (it) redirectToMain()
                     }
                 }
             }
         }
     }
 
-    private fun setupLoginData(loginData: LoginResponse) {
-        loginSharedPreferences.edit()
-            .putString(Keys.Address, loginData.data.data.address)
-            .apply()
-        loginSharedPreferences.edit()
-            .putString(Keys.EMAIL, loginData.data.data.email)
-            .apply()
-        loginSharedPreferences.edit()
-            .putString(Keys.MOBILE_NUMBER, loginData.data.data.mobile_number)
-            .apply()
-        loginSharedPreferences.edit()
-            .putString(Keys.NAME, loginData.data.data.name)
-            .apply()
-        loginSharedPreferences.edit()
-            .putString(Keys.USER_ID, loginData.data.data.user_id)
-            .apply()
-        loginSharedPreferences.edit().putBoolean(Keys.IS_LOGIN, true).apply()
-        loginSharedPreferences.edit().apply()
+    private fun redirectToMain() {
         navController.navigate(
             LoginFragmentDirections
                 .actionLoginFragmentToMainFragment()
         )
+    }
+
+    private suspend fun saveLoginData(loginData: LoginResponse) {
+        viewModel.writeName(loginData.data.data.name)
+        viewModel.writeAddress(loginData.data.data.address)
+        viewModel.writeEmail(loginData.data.data.email)
+        viewModel.writeUserId(loginData.data.data.user_id)
+        viewModel.writeMobileNumber(loginData.data.data.mobile_number)
+        viewModel.writeIsLogin(true)
     }
 }

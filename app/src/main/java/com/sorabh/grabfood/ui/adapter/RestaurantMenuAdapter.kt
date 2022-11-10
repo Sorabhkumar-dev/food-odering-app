@@ -40,7 +40,7 @@ class RestaurantMenuAdapter @Inject constructor() : RecyclerView.Adapter<Restaur
                                 if (deleteMenu(menu))
                                     holder.restaurantMenuCardViewBinding.btnRestaurantMenuAdd.apply {
                                         text = context.getString(R.string.add_to_cart)
-                                        setBackgroundColor(Color.parseColor("#028F09"))
+                                        setBackgroundColor(Color.parseColor("#03BC0C"))
                                     }
                             } else {
                                 if (insertMenu(menu))
