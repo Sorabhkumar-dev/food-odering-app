@@ -38,8 +38,8 @@ class LoginFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         startupInitializer(inflater)
-        setOnClickListener()
         setupObserver()
+        setOnClickListener()
         return binding.root
     }
 

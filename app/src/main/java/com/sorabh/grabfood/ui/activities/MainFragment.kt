@@ -136,7 +136,6 @@ class MainFragment : BaseFragment() {
                 R.anim.enter_from_left,
                 R.anim.exit_to_right
             )
-            .addToBackStack(fragment::class.java.name)
             .replace(R.id.frameLayout, fragment)
             .commit()
         binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -166,5 +165,10 @@ class MainFragment : BaseFragment() {
             dialog.dismiss()
         }
         alertDialog.show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
     }
 }
