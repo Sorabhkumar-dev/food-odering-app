@@ -1,39 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?colorSurface"
+    android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="?colorSurface"
-        android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_grab_food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_grab_food" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_main_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="?colorOnSurface"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_logo"
+        tools:text="Sorabh Kumar" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_main_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="?colorOnSurface"
-            tools:text="Sorabh Kumar"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textSize="18sp"
-            android:textStyle="italic"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_main_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="?colorOnSurface"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_main_username"
+        tools:text="sorabhkumardeveloper@gmail.com" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_main_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:textColor="?colorOnSurface"
-            android:textStyle="italic"
-            tools:text="sorabhkumardeveloper@gmail.com"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-    </LinearLayout>
-</layout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:dividerColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_main_email"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
