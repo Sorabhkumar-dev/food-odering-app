@@ -3,6 +3,8 @@ package com.sorabh.grabfood.domain.di
 import android.content.Context
 import com.sorabh.grabfood.domain.database.LocalDAO
 import com.sorabh.grabfood.domain.database.RestaurantDatabase
+import com.sorabh.grabfood.domain.datastore.PreferenceData
+import com.sorabh.grabfood.domain.datastore.PreferenceDataImpl
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepositoryImpl
@@ -64,4 +66,7 @@ class AppModule {
     @Provides
     fun provideDao(db:RestaurantDatabase):LocalDAO = db.getLocalDAO()
 
+    @Provides
+    @Singleton
+    fun provideDataStore(preferenceData:PreferenceDataImpl):PreferenceData = preferenceData
 }

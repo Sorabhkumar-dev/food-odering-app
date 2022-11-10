@@ -2,7 +2,6 @@ package com.sorabh.grabfood.ui.activities
 
 import android.content.Context.MODE_PRIVATE
 import android.content.DialogInterface
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -25,15 +28,17 @@ import com.sorabh.grabfood.ui.fragments.home.BaseFragment
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment
 import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment
 import com.sorabh.grabfood.ui.fragments.qna.QNAFragment
+import com.sorabh.grabfood.ui.viewmodel.MainViewModel
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment() {
     private lateinit var headerView: View
     private lateinit var binding: MainFragmentBinding
     private lateinit var navController: NavController
-    private lateinit var sharedPreferences: SharedPreferences
+    private val viewModel: MainViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,14 +71,21 @@ class MainFragment : BaseFragment() {
     }
 
     private fun setupHeaderLayout() {
-        sharedPreferences = requireContext().getSharedPreferences(Keys.LOGIN, MODE_PRIVATE)
-
         headerView = binding.navigationView.getHeaderView(0)
-        headerView.findViewById<MaterialTextView>(R.id.txt_main_username).text =
-            sharedPreferences.getString(Keys.NAME, getString(R.string.unknown))
-
-        headerView.findViewById<MaterialTextView>(R.id.txt_main_email).text =
-            sharedPreferences.getString(Keys.EMAIL, getString(R.string.unknown))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                launch {
+                    viewModel.nameFlow.collect {
+                        headerView.findViewById<MaterialTextView>(R.id.txt_main_username).text = it
+                    }
+                }
+                launch {
+                    viewModel.emailFlow.collect {
+                        headerView.findViewById<MaterialTextView>(R.id.txt_main_email).text = it
+                    }
+                }
+            }
+        }
     }
 
     private fun setupNavigationItemSelector() {
@@ -114,7 +126,8 @@ class MainFragment : BaseFragment() {
     //for fragment transaction between fragment
     private fun changeFragmentAndTitle(
         fragment: Fragment,
-        title: String) {
+        title: String
+    ) {
         (activity as AppCompatActivity).supportActionBar?.title = title
         childFragmentManager.beginTransaction()
             .setCustomAnimations(
@@ -134,7 +147,10 @@ class MainFragment : BaseFragment() {
         alertDialog.setTitle(getString(R.string.are_you_sure_to_log_out))
         alertDialog.setMessage(getString(R.string.after_clicking_yes_you_will_be))
         alertDialog.setIcon(R.drawable.icon_grab_food)
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.yes)) { _: DialogInterface, _: Int ->
+        alertDialog.setButton(
+            AlertDialog.BUTTON_NEGATIVE,
+            getString(R.string.yes)
+        ) { _: DialogInterface, _: Int ->
             val sharedPreferences = requireContext().getSharedPreferences(Keys.LOGIN, MODE_PRIVATE)
             sharedPreferences.edit().clear().apply()
             showToast(getString(R.string.you_successfully_log_out_from_the_app))

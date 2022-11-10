@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -25,6 +24,7 @@ import com.sorabh.grabfood.ui.viewmodel.CartViewModel
 import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -57,25 +57,24 @@ class CartFragment : Fragment() {
         cartAdapter.onOderButtonClickedListener =
             object : CartViewHolder.OnOderButtonClickedListener {
                 override fun onOderButtonClicked(menu: Menu) {
-                    placeOrder(menu)
+                    lifecycleScope.launch {
+                        placeOrder(menu)
+                    }
                 }
             }
     }
 
     private fun updateMenuList() {
-        lifecycleScope.launch{
-            viewModel.menuFlow.collect{
+        lifecycleScope.launch {
+            viewModel.menuFlow.collect {
                 cartAdapter.updateMenuList(it)
             }
         }
     }
 
-    private fun placeOrder(menu: Menu) {
+    private suspend fun placeOrder(menu: Menu) {
         localMenu = menu
-        val sharedPreferences =
-            activity?.getSharedPreferences(Keys.LOGIN, AppCompatActivity.MODE_PRIVATE)
-        val userId: String? = sharedPreferences?.getString(Keys.USER_ID, "107")
-
+        val userId: String = viewModel.userIdFlow.first()
         val jsonObject = JsonObject()
         jsonObject.addProperty(Keys.USER_ID, userId)
         jsonObject.addProperty(Keys.RESTAURANT_ID, menu.restaurant_id)
@@ -99,20 +98,22 @@ class CartFragment : Fragment() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.oderConfirmationFlow.collect {
-                    when (it) {
-                        is Result.Error -> {
-                            showBottomSheet(false)
-                        }
-                        is Result.Loading -> {}
-                        is Result.Success -> {
-                            it.body?.data?.let { isConfirm ->
-                                if (isConfirm.success) {
-                                    localMenu?.let { menu ->
-                                        viewModel.deleteMenu(menu)
+                launch {
+                    viewModel.oderConfirmationFlow.collect {
+                        when (it) {
+                            is Result.Error -> {
+                                showBottomSheet(false)
+                            }
+                            is Result.Loading -> {}
+                            is Result.Success -> {
+                                it.body?.data?.let { isConfirm ->
+                                    if (isConfirm.success) {
+                                        localMenu?.let { menu ->
+                                            viewModel.deleteMenu(menu)
+                                        }
                                     }
+                                    showBottomSheet(isConfirm.success)
                                 }
-                                showBottomSheet(isConfirm.success)
                             }
                         }
                     }
@@ -131,7 +132,7 @@ class CartFragment : Fragment() {
             bindingSheet.bottomSheetAction.text = getString(R.string.your_oder_successfully_placed)
             bindingSheet.bottomSheetSign.setImageResource(R.drawable.ic_check_mark)
         } else {
-            bindingSheet.bottomSheetAction.text =getString(R.string.sorry_oder_not_placed)
+            bindingSheet.bottomSheetAction.text = getString(R.string.sorry_oder_not_placed)
             bindingSheet.bottomSheetSign.setImageResource(R.drawable.ic_unsuccess)
         }
         oderConfirmation.setContentView(bindingSheet.root)
