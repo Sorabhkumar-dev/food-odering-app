@@ -7,20 +7,26 @@ import com.sorabh.grabfood.ui.activities.MainFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.activities.OTPFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.activities.RootActivity_GeneratedInjector;
 import com.sorabh.grabfood.ui.activities.SignUpFragment_GeneratedInjector;
+import com.sorabh.grabfood.ui.activities.SplashFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment_GeneratedInjector;
+import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.fragments.qna.QNAFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel_HiltModules;
+import com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.HomeViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.LoginViewModel_HiltModules;
+import com.sorabh.grabfood.ui.viewmodel.MainViewModel_HiltModules;
+import com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.OtpViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel_HiltModules;
+import com.sorabh.grabfood.ui.viewmodel.SplashViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -64,8 +70,10 @@ import dagger.hilt.android.scopes.ViewScoped;
 import dagger.hilt.components.SingletonComponent;
 import dagger.hilt.internal.GeneratedComponent;
 import dagger.hilt.migration.DisableInstallInCheck;
+import javax.annotation.processing.Generated;
 import javax.inject.Singleton;
 
+@Generated("dagger.hilt.processor.internal.root.RootProcessor")
 public final class GrabFoodApplication_HiltComponents {
   private GrabFoodApplication_HiltComponents() {
   }
@@ -74,6 +82,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = ServiceC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface ServiceCBuilderModule {
     @Binds
     ServiceComponentBuilder bind(ServiceC.Builder builder);
@@ -83,6 +92,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = ActivityRetainedC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface ActivityRetainedCBuilderModule {
     @Binds
     ActivityRetainedComponentBuilder bind(ActivityRetainedC.Builder builder);
@@ -92,6 +102,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = ActivityC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface ActivityCBuilderModule {
     @Binds
     ActivityComponentBuilder bind(ActivityC.Builder builder);
@@ -101,6 +112,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = ViewModelC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface ViewModelCBuilderModule {
     @Binds
     ViewModelComponentBuilder bind(ViewModelC.Builder builder);
@@ -110,6 +122,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = ViewC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface ViewCBuilderModule {
     @Binds
     ViewComponentBuilder bind(ViewC.Builder builder);
@@ -119,6 +132,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = FragmentC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface FragmentCBuilderModule {
     @Binds
     FragmentComponentBuilder bind(FragmentC.Builder builder);
@@ -128,6 +142,7 @@ public final class GrabFoodApplication_HiltComponents {
       subcomponents = ViewWithFragmentC.class
   )
   @DisableInstallInCheck
+  @Generated("dagger.hilt.processor.internal.root.RootProcessor")
   abstract interface ViewWithFragmentCBuilderModule {
     @Binds
     ViewWithFragmentComponentBuilder bind(ViewWithFragmentC.Builder builder);
@@ -163,16 +178,20 @@ public final class GrabFoodApplication_HiltComponents {
   @Subcomponent(
       modules = {
           CartViewModel_HiltModules.KeyModule.class,
+          FavoriteRestaurantsViewModel_HiltModules.KeyModule.class,
           ForgotPasswordViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           HomeViewModel_HiltModules.KeyModule.class,
           LoginViewModel_HiltModules.KeyModule.class,
+          MainViewModel_HiltModules.KeyModule.class,
+          MyProfileViewModel_HiltModules.KeyModule.class,
           OderHistoryVieModel_HiltModules.KeyModule.class,
           OtpViewModel_HiltModules.KeyModule.class,
           RestaurantMenuViewModel_HiltModules.KeyModule.class,
-          SignUpViewModel_HiltModules.KeyModule.class
+          SignUpViewModel_HiltModules.KeyModule.class,
+          SplashViewModel_HiltModules.KeyModule.class
       }
   )
   @ActivityRetainedScoped
@@ -209,14 +228,18 @@ public final class GrabFoodApplication_HiltComponents {
   @Subcomponent(
       modules = {
           CartViewModel_HiltModules.BindsModule.class,
+          FavoriteRestaurantsViewModel_HiltModules.BindsModule.class,
           ForgotPasswordViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
           HomeViewModel_HiltModules.BindsModule.class,
           LoginViewModel_HiltModules.BindsModule.class,
+          MainViewModel_HiltModules.BindsModule.class,
+          MyProfileViewModel_HiltModules.BindsModule.class,
           OderHistoryVieModel_HiltModules.BindsModule.class,
           OtpViewModel_HiltModules.BindsModule.class,
           RestaurantMenuViewModel_HiltModules.BindsModule.class,
-          SignUpViewModel_HiltModules.BindsModule.class
+          SignUpViewModel_HiltModules.BindsModule.class,
+          SplashViewModel_HiltModules.BindsModule.class
       }
   )
   @ViewModelScoped
@@ -246,10 +269,12 @@ public final class GrabFoodApplication_HiltComponents {
       MainFragment_GeneratedInjector,
       OTPFragment_GeneratedInjector,
       SignUpFragment_GeneratedInjector,
+      SplashFragment_GeneratedInjector,
       CartFragment_GeneratedInjector,
       FavoriteRestaurantsFragment_GeneratedInjector,
       OderHistoryFragment_GeneratedInjector,
       HomeFragment_GeneratedInjector,
+      MyProfileFragment_GeneratedInjector,
       QNAFragment_GeneratedInjector,
       RestaurantMenuFragment_GeneratedInjector,
       FragmentComponent,

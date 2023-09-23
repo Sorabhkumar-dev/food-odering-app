@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-52:/values-h480dp-land-v13/values-h480dp-land-v13.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-80:/values-h480dp-land-v13/values-h480dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/8c9ad206861404ddb1bc7b7f6cee0b95/transformed/material-1.6.1/res/values-h480dp-land-v13/values-h480dp-land-v13.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/111f5c672ed093ad8aa39bee93c6ecc5/transformed/material-1.7.0/res/values-h480dp-land-v13/values-h480dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

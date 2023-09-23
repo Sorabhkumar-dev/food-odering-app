@@ -4,13 +4,13 @@ package com.sorabh.grabfood.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.sorabh.grabfood.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,16 +21,21 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
-  public final ProgressBar progressbar;
+  public final ErrorLayoutBinding errorLayout;
 
   @NonNull
   public final RecyclerView recyclerView;
 
-  private FragmentHomeBinding(@NonNull CoordinatorLayout rootView, @NonNull ProgressBar progressbar,
-      @NonNull RecyclerView recyclerView) {
+  @NonNull
+  public final ShimmerFrameLayout shimmerLayout;
+
+  private FragmentHomeBinding(@NonNull CoordinatorLayout rootView,
+      @NonNull ErrorLayoutBinding errorLayout, @NonNull RecyclerView recyclerView,
+      @NonNull ShimmerFrameLayout shimmerLayout) {
     this.rootView = rootView;
-    this.progressbar = progressbar;
+    this.errorLayout = errorLayout;
     this.recyclerView = recyclerView;
+    this.shimmerLayout = shimmerLayout;
   }
 
   @Override
@@ -60,11 +65,12 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.progressbar;
-      ProgressBar progressbar = ViewBindings.findChildViewById(rootView, id);
-      if (progressbar == null) {
+      id = R.id.error_layout;
+      View errorLayout = ViewBindings.findChildViewById(rootView, id);
+      if (errorLayout == null) {
         break missingId;
       }
+      ErrorLayoutBinding binding_errorLayout = ErrorLayoutBinding.bind(errorLayout);
 
       id = R.id.recyclerView;
       RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
@@ -72,7 +78,14 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((CoordinatorLayout) rootView, progressbar, recyclerView);
+      id = R.id.shimmerLayout;
+      ShimmerFrameLayout shimmerLayout = ViewBindings.findChildViewById(rootView, id);
+      if (shimmerLayout == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((CoordinatorLayout) rootView, binding_errorLayout,
+          recyclerView, shimmerLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

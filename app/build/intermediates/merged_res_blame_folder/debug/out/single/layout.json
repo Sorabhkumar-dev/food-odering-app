@@ -1,90 +1,98 @@
 [
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/sign_up_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/sign_up_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/fragment_oder_history.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_oder_history.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/login_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/login_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/splash_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/splash_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/food_item_card_view.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/food_item_card_view.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/oder_histotoy_cardview.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/oder_histotoy_cardview.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/main_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/main_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/food_item_card_view.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/food_item_card_view.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/fragment_cart.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_cart.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/fragment_my_profile.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_my_profile.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/favorite_restaurants_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/favorite_restaurants_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/sign_up_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/sign_up_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/forgot_password_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/forgot_password_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/header_layout.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/header_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/fragment_oder_history.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_oder_history.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/q_n_a_card_view.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/q_n_a_card_view.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/restaurant_menu_cardview.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/restaurant_menu_cardview.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/oder_bottom_sheet.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/oder_bottom_sheet.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/fragment_restaurant_menu.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_restaurant_menu.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/error_layout.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/error_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/root_activity.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/root_activity.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/fragment_cart.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_cart.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/restaurants_home_cardview.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/restaurants_home_cardview.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/restaurants_home_cardview.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/restaurants_home_cardview.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/otp_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/otp_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/loader_layout.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/loader_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/fragment_q_n_a.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_q_n_a.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/fragment_restaurant_menu.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_restaurant_menu.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/oder_bottom_sheet.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/oder_bottom_sheet.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/restaurant_menu_cardview.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/restaurant_menu_cardview.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/fragment_my_profile.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_my_profile.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/root_activity.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/root_activity.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/q_n_a_card_view.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/q_n_a_card_view.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/fragment_home.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/fragment_home.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_home.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/favorite_restaurants_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/favorite_restaurants_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/oder_histotoy_cardview.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/oder_histotoy_cardview.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/cart_adapter_layout.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/cart_adapter_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/header_layout.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/header_layout.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/otp_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/otp_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/splash_fragment.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/splash_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/main_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/main_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-mergeDebugResources-53:/layout/cart_adapter_layout.xml",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/cart_adapter_layout.xml"
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/login_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/login_fragment.xml"
+    },
+    {
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/fragment_q_n_a.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_q_n_a.xml"
+    },
+    {
+        "merged": "com.sorabh.grabfood.app-mergeDebugResources-81:/layout/forgot_password_fragment.xml",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/forgot_password_fragment.xml"
     }
 ]

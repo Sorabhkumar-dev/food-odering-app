@@ -9,8 +9,6 @@ import androidx.databinding.ViewDataBinding;
 import com.sorabh.grabfood.databinding.CartAdapterLayoutBindingImpl;
 import com.sorabh.grabfood.databinding.FoodItemCardViewBindingImpl;
 import com.sorabh.grabfood.databinding.FragmentQNABindingImpl;
-import com.sorabh.grabfood.databinding.HeaderLayoutBindingImpl;
-import com.sorabh.grabfood.databinding.OderBottomSheetBindingImpl;
 import com.sorabh.grabfood.databinding.OderHistotoyCardviewBindingImpl;
 import com.sorabh.grabfood.databinding.QNACardViewBindingImpl;
 import com.sorabh.grabfood.databinding.RestaurantMenuCardviewBindingImpl;
@@ -33,28 +31,22 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_FRAGMENTQNA = 3;
 
-  private static final int LAYOUT_HEADERLAYOUT = 4;
+  private static final int LAYOUT_ODERHISTOTOYCARDVIEW = 4;
 
-  private static final int LAYOUT_ODERBOTTOMSHEET = 5;
+  private static final int LAYOUT_QNACARDVIEW = 5;
 
-  private static final int LAYOUT_ODERHISTOTOYCARDVIEW = 6;
+  private static final int LAYOUT_RESTAURANTMENUCARDVIEW = 6;
 
-  private static final int LAYOUT_QNACARDVIEW = 7;
+  private static final int LAYOUT_RESTAURANTSHOMECARDVIEW = 7;
 
-  private static final int LAYOUT_RESTAURANTMENUCARDVIEW = 8;
+  private static final int LAYOUT_SIGNUPFRAGMENT = 8;
 
-  private static final int LAYOUT_RESTAURANTSHOMECARDVIEW = 9;
-
-  private static final int LAYOUT_SIGNUPFRAGMENT = 10;
-
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(10);
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(8);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.cart_adapter_layout, LAYOUT_CARTADAPTERLAYOUT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.food_item_card_view, LAYOUT_FOODITEMCARDVIEW);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.fragment_q_n_a, LAYOUT_FRAGMENTQNA);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.header_layout, LAYOUT_HEADERLAYOUT);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.oder_bottom_sheet, LAYOUT_ODERBOTTOMSHEET);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.oder_histotoy_cardview, LAYOUT_ODERHISTOTOYCARDVIEW);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.q_n_a_card_view, LAYOUT_QNACARDVIEW);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sorabh.grabfood.R.layout.restaurant_menu_cardview, LAYOUT_RESTAURANTMENUCARDVIEW);
@@ -88,18 +80,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new FragmentQNABindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for fragment_q_n_a is invalid. Received: " + tag);
-        }
-        case  LAYOUT_HEADERLAYOUT: {
-          if ("layout/header_layout_0".equals(tag)) {
-            return new HeaderLayoutBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for header_layout is invalid. Received: " + tag);
-        }
-        case  LAYOUT_ODERBOTTOMSHEET: {
-          if ("layout/oder_bottom_sheet_0".equals(tag)) {
-            return new OderBottomSheetBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for oder_bottom_sheet is invalid. Received: " + tag);
         }
         case  LAYOUT_ODERHISTOTOYCARDVIEW: {
           if ("layout/oder_histotoy_cardview_0".equals(tag)) {
@@ -196,14 +176,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(10);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(8);
 
     static {
       sKeys.put("layout/cart_adapter_layout_0", com.sorabh.grabfood.R.layout.cart_adapter_layout);
       sKeys.put("layout/food_item_card_view_0", com.sorabh.grabfood.R.layout.food_item_card_view);
       sKeys.put("layout/fragment_q_n_a_0", com.sorabh.grabfood.R.layout.fragment_q_n_a);
-      sKeys.put("layout/header_layout_0", com.sorabh.grabfood.R.layout.header_layout);
-      sKeys.put("layout/oder_bottom_sheet_0", com.sorabh.grabfood.R.layout.oder_bottom_sheet);
       sKeys.put("layout/oder_histotoy_cardview_0", com.sorabh.grabfood.R.layout.oder_histotoy_cardview);
       sKeys.put("layout/q_n_a_card_view_0", com.sorabh.grabfood.R.layout.q_n_a_card_view);
       sKeys.put("layout/restaurant_menu_cardview_0", com.sorabh.grabfood.R.layout.restaurant_menu_cardview);

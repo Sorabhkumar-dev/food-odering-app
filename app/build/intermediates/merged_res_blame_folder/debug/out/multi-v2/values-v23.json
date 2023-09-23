@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-52:/values-v23/values-v23.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-80:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/bc3427dc2ccf4046221a17e0465449a1/transformed/appcompat-1.5.1/res/values-v23/values-v23.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/131616b964f31253b9dcde4071abdfee/transformed/appcompat-1.5.1/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/8547585b0e4c9add1fc88a68e695c0c1/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/4110a43b0c95a6b01e5e5b5fb53031ad/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/8c9ad206861404ddb1bc7b7f6cee0b95/transformed/material-1.6.1/res/values-v23/values-v23.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/111f5c672ed093ad8aa39bee93c6ecc5/transformed/material-1.7.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,5,8,13,17,20,23,26,31,34,38",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

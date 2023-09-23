@@ -4,10 +4,9 @@ package com.sorabh.grabfood.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -18,25 +17,25 @@ import java.lang.String;
 
 public final class FavoriteRestaurantsFragmentBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final ProgressBar favoriteRestaurantProgressBar;
+  public final ErrorLayoutBinding errorLayout;
 
   @NonNull
   public final RecyclerView favoriteRestaurantRecyclerview;
 
-  private FavoriteRestaurantsFragmentBinding(@NonNull FrameLayout rootView,
-      @NonNull ProgressBar favoriteRestaurantProgressBar,
+  private FavoriteRestaurantsFragmentBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ErrorLayoutBinding errorLayout,
       @NonNull RecyclerView favoriteRestaurantRecyclerview) {
     this.rootView = rootView;
-    this.favoriteRestaurantProgressBar = favoriteRestaurantProgressBar;
+    this.errorLayout = errorLayout;
     this.favoriteRestaurantRecyclerview = favoriteRestaurantRecyclerview;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -61,11 +60,12 @@ public final class FavoriteRestaurantsFragmentBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.favorite_restaurant_progressBar;
-      ProgressBar favoriteRestaurantProgressBar = ViewBindings.findChildViewById(rootView, id);
-      if (favoriteRestaurantProgressBar == null) {
+      id = R.id.error_layout;
+      View errorLayout = ViewBindings.findChildViewById(rootView, id);
+      if (errorLayout == null) {
         break missingId;
       }
+      ErrorLayoutBinding binding_errorLayout = ErrorLayoutBinding.bind(errorLayout);
 
       id = R.id.favorite_restaurant_recyclerview;
       RecyclerView favoriteRestaurantRecyclerview = ViewBindings.findChildViewById(rootView, id);
@@ -73,8 +73,8 @@ public final class FavoriteRestaurantsFragmentBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FavoriteRestaurantsFragmentBinding((FrameLayout) rootView,
-          favoriteRestaurantProgressBar, favoriteRestaurantRecyclerview);
+      return new FavoriteRestaurantsFragmentBinding((ConstraintLayout) rootView,
+          binding_errorLayout, favoriteRestaurantRecyclerview);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
