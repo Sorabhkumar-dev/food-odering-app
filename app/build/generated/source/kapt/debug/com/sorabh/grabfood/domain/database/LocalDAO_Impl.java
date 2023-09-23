@@ -1,6 +1,8 @@
 package com.sorabh.grabfood.domain.database;
 
 import android.database.Cursor;
+import android.os.CancellationSignal;
+import androidx.room.CoroutinesRoom;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
@@ -13,13 +15,22 @@ import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish;
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu;
 import com.sorabh.grabfood.util.QNAData;
 import java.lang.Class;
+import java.lang.Exception;
+import java.lang.Integer;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Callable;
+import javax.annotation.processing.Generated;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
+import kotlinx.coroutines.flow.Flow;
 
+@Generated("androidx.room.RoomProcessor")
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class LocalDAO_Impl implements LocalDAO {
   private final RoomDatabase __db;
@@ -144,15 +155,15 @@ public final class LocalDAO_Impl implements LocalDAO {
     this.__deletionAdapterOfMenu = new EntityDeletionOrUpdateAdapter<Menu>(__db) {
       @Override
       public String createQuery() {
-        return "DELETE FROM `Menu` WHERE `name` = ?";
+        return "DELETE FROM `Menu` WHERE `id` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Menu value) {
-        if (value.getName() == null) {
+        if (value.getId() == null) {
           stmt.bindNull(1);
         } else {
-          stmt.bindString(1, value.getName());
+          stmt.bindString(1, value.getId());
         }
       }
     };
@@ -177,27 +188,38 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public void insertRestaurant(final Dish restaurant) {
-    __db.assertNotSuspendingTransaction();
-    __db.beginTransaction();
-    try {
-      __insertionAdapterOfDish.insert(restaurant);
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-    }
+  public Object insertRestaurant(final Dish restaurant,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __insertionAdapterOfDish.insert(restaurant);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
   }
 
   @Override
-  public void insertMenu(final Menu menu) {
-    __db.assertNotSuspendingTransaction();
-    __db.beginTransaction();
-    try {
-      __insertionAdapterOfMenu.insert(menu);
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-    }
+  public Object insertMenu(final Menu menu, final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __insertionAdapterOfMenu.insert(menu);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
   }
 
   @Override
@@ -213,27 +235,38 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public void deleteRestaurant(final Dish restaurant) {
-    __db.assertNotSuspendingTransaction();
-    __db.beginTransaction();
-    try {
-      __deletionAdapterOfDish.handle(restaurant);
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-    }
+  public Object deleteRestaurant(final Dish restaurant,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __deletionAdapterOfDish.handle(restaurant);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
   }
 
   @Override
-  public void deleteMenu(final Menu menu) {
-    __db.assertNotSuspendingTransaction();
-    __db.beginTransaction();
-    try {
-      __deletionAdapterOfMenu.handle(menu);
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-    }
+  public Object deleteMenu(final Menu menu, final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __deletionAdapterOfMenu.handle(menu);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
   }
 
   @Override
@@ -249,83 +282,97 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public void deleteAllMenu(final String restaurant_id) {
-    __db.assertNotSuspendingTransaction();
-    final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllMenu.acquire();
-    int _argIndex = 1;
-    if (restaurant_id == null) {
-      _stmt.bindNull(_argIndex);
-    } else {
-      _stmt.bindString(_argIndex, restaurant_id);
-    }
-    __db.beginTransaction();
-    try {
-      _stmt.executeUpdateDelete();
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-      __preparedStmtOfDeleteAllMenu.release(_stmt);
-    }
+  public Object deleteAllMenu(final String restaurant_id,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllMenu.acquire();
+        int _argIndex = 1;
+        if (restaurant_id == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, restaurant_id);
+        }
+        __db.beginTransaction();
+        try {
+          _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfDeleteAllMenu.release(_stmt);
+        }
+      }
+    }, $completion);
   }
 
   @Override
-  public List<Dish> getRestaurantList() {
+  public Flow<List<Dish>> getRestaurantList() {
     final String _sql = "Select * from Restaurant";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final int _cursorIndexOfCostForOne = CursorUtil.getColumnIndexOrThrow(_cursor, "cost_for_one");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-      final int _cursorIndexOfImageUrl = CursorUtil.getColumnIndexOrThrow(_cursor, "image_url");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-      final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
-      final List<Dish> _result = new ArrayList<Dish>(_cursor.getCount());
-      while(_cursor.moveToNext()) {
-        final Dish _item;
-        final String _tmpCost_for_one;
-        if (_cursor.isNull(_cursorIndexOfCostForOne)) {
-          _tmpCost_for_one = null;
-        } else {
-          _tmpCost_for_one = _cursor.getString(_cursorIndexOfCostForOne);
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"Restaurant"}, new Callable<List<Dish>>() {
+      @Override
+      public List<Dish> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfCostForOne = CursorUtil.getColumnIndexOrThrow(_cursor, "cost_for_one");
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfImageUrl = CursorUtil.getColumnIndexOrThrow(_cursor, "image_url");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
+          final List<Dish> _result = new ArrayList<Dish>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Dish _item;
+            final String _tmpCost_for_one;
+            if (_cursor.isNull(_cursorIndexOfCostForOne)) {
+              _tmpCost_for_one = null;
+            } else {
+              _tmpCost_for_one = _cursor.getString(_cursorIndexOfCostForOne);
+            }
+            final String _tmpId;
+            if (_cursor.isNull(_cursorIndexOfId)) {
+              _tmpId = null;
+            } else {
+              _tmpId = _cursor.getString(_cursorIndexOfId);
+            }
+            final String _tmpImage_url;
+            if (_cursor.isNull(_cursorIndexOfImageUrl)) {
+              _tmpImage_url = null;
+            } else {
+              _tmpImage_url = _cursor.getString(_cursorIndexOfImageUrl);
+            }
+            final String _tmpName;
+            if (_cursor.isNull(_cursorIndexOfName)) {
+              _tmpName = null;
+            } else {
+              _tmpName = _cursor.getString(_cursorIndexOfName);
+            }
+            final String _tmpRating;
+            if (_cursor.isNull(_cursorIndexOfRating)) {
+              _tmpRating = null;
+            } else {
+              _tmpRating = _cursor.getString(_cursorIndexOfRating);
+            }
+            _item = new Dish(_tmpCost_for_one,_tmpId,_tmpImage_url,_tmpName,_tmpRating);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
         }
-        final String _tmpId;
-        if (_cursor.isNull(_cursorIndexOfId)) {
-          _tmpId = null;
-        } else {
-          _tmpId = _cursor.getString(_cursorIndexOfId);
-        }
-        final String _tmpImage_url;
-        if (_cursor.isNull(_cursorIndexOfImageUrl)) {
-          _tmpImage_url = null;
-        } else {
-          _tmpImage_url = _cursor.getString(_cursorIndexOfImageUrl);
-        }
-        final String _tmpName;
-        if (_cursor.isNull(_cursorIndexOfName)) {
-          _tmpName = null;
-        } else {
-          _tmpName = _cursor.getString(_cursorIndexOfName);
-        }
-        final String _tmpRating;
-        if (_cursor.isNull(_cursorIndexOfRating)) {
-          _tmpRating = null;
-        } else {
-          _tmpRating = _cursor.getString(_cursorIndexOfRating);
-        }
-        _item = new Dish(_tmpCost_for_one,_tmpId,_tmpImage_url,_tmpName,_tmpRating);
-        _result.add(_item);
       }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
   }
 
   @Override
-  public Dish getRestaurant(final String id) {
-    final String _sql = "select * from Restaurant where id = ?";
+  public Object getRestaurant(final String id, final Continuation<? super Integer> $completion) {
+    final String _sql = "select Count(id) from Restaurant where id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     if (id == null) {
@@ -333,157 +380,124 @@ public final class LocalDAO_Impl implements LocalDAO {
     } else {
       _statement.bindString(_argIndex, id);
     }
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final int _cursorIndexOfCostForOne = CursorUtil.getColumnIndexOrThrow(_cursor, "cost_for_one");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-      final int _cursorIndexOfImageUrl = CursorUtil.getColumnIndexOrThrow(_cursor, "image_url");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-      final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
-      final Dish _result;
-      if(_cursor.moveToFirst()) {
-        final String _tmpCost_for_one;
-        if (_cursor.isNull(_cursorIndexOfCostForOne)) {
-          _tmpCost_for_one = null;
-        } else {
-          _tmpCost_for_one = _cursor.getString(_cursorIndexOfCostForOne);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Integer>() {
+      @Override
+      public Integer call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Integer _result;
+          if(_cursor.moveToFirst()) {
+            final Integer _tmp;
+            if (_cursor.isNull(0)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(0);
+            }
+            _result = _tmp;
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
         }
-        final String _tmpId;
-        if (_cursor.isNull(_cursorIndexOfId)) {
-          _tmpId = null;
-        } else {
-          _tmpId = _cursor.getString(_cursorIndexOfId);
-        }
-        final String _tmpImage_url;
-        if (_cursor.isNull(_cursorIndexOfImageUrl)) {
-          _tmpImage_url = null;
-        } else {
-          _tmpImage_url = _cursor.getString(_cursorIndexOfImageUrl);
-        }
-        final String _tmpName;
-        if (_cursor.isNull(_cursorIndexOfName)) {
-          _tmpName = null;
-        } else {
-          _tmpName = _cursor.getString(_cursorIndexOfName);
-        }
-        final String _tmpRating;
-        if (_cursor.isNull(_cursorIndexOfRating)) {
-          _tmpRating = null;
-        } else {
-          _tmpRating = _cursor.getString(_cursorIndexOfRating);
-        }
-        _result = new Dish(_tmpCost_for_one,_tmpId,_tmpImage_url,_tmpName,_tmpRating);
-      } else {
-        _result = null;
       }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
+    }, $completion);
   }
 
   @Override
-  public List<Menu> getMenuList() {
+  public Object getMenuItem(final String id, final Continuation<? super Integer> $completion) {
+    final String _sql = "select Count(id) from menu where id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (id == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, id);
+    }
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Integer>() {
+      @Override
+      public Integer call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Integer _result;
+          if(_cursor.moveToFirst()) {
+            final Integer _tmp;
+            if (_cursor.isNull(0)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(0);
+            }
+            _result = _tmp;
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Flow<List<Menu>> getMenuList() {
     final String _sql = "Select * from menu";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final int _cursorIndexOfCostForOne = CursorUtil.getColumnIndexOrThrow(_cursor, "cost_for_one");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-      final int _cursorIndexOfRestaurantId = CursorUtil.getColumnIndexOrThrow(_cursor, "restaurant_id");
-      final List<Menu> _result = new ArrayList<Menu>(_cursor.getCount());
-      while(_cursor.moveToNext()) {
-        final Menu _item;
-        final String _tmpCost_for_one;
-        if (_cursor.isNull(_cursorIndexOfCostForOne)) {
-          _tmpCost_for_one = null;
-        } else {
-          _tmpCost_for_one = _cursor.getString(_cursorIndexOfCostForOne);
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"menu"}, new Callable<List<Menu>>() {
+      @Override
+      public List<Menu> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfCostForOne = CursorUtil.getColumnIndexOrThrow(_cursor, "cost_for_one");
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfRestaurantId = CursorUtil.getColumnIndexOrThrow(_cursor, "restaurant_id");
+          final List<Menu> _result = new ArrayList<Menu>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Menu _item;
+            final String _tmpCost_for_one;
+            if (_cursor.isNull(_cursorIndexOfCostForOne)) {
+              _tmpCost_for_one = null;
+            } else {
+              _tmpCost_for_one = _cursor.getString(_cursorIndexOfCostForOne);
+            }
+            final String _tmpId;
+            if (_cursor.isNull(_cursorIndexOfId)) {
+              _tmpId = null;
+            } else {
+              _tmpId = _cursor.getString(_cursorIndexOfId);
+            }
+            final String _tmpName;
+            if (_cursor.isNull(_cursorIndexOfName)) {
+              _tmpName = null;
+            } else {
+              _tmpName = _cursor.getString(_cursorIndexOfName);
+            }
+            final String _tmpRestaurant_id;
+            if (_cursor.isNull(_cursorIndexOfRestaurantId)) {
+              _tmpRestaurant_id = null;
+            } else {
+              _tmpRestaurant_id = _cursor.getString(_cursorIndexOfRestaurantId);
+            }
+            _item = new Menu(_tmpCost_for_one,_tmpId,_tmpName,_tmpRestaurant_id);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
         }
-        final String _tmpId;
-        if (_cursor.isNull(_cursorIndexOfId)) {
-          _tmpId = null;
-        } else {
-          _tmpId = _cursor.getString(_cursorIndexOfId);
-        }
-        final String _tmpName;
-        if (_cursor.isNull(_cursorIndexOfName)) {
-          _tmpName = null;
-        } else {
-          _tmpName = _cursor.getString(_cursorIndexOfName);
-        }
-        final String _tmpRestaurant_id;
-        if (_cursor.isNull(_cursorIndexOfRestaurantId)) {
-          _tmpRestaurant_id = null;
-        } else {
-          _tmpRestaurant_id = _cursor.getString(_cursorIndexOfRestaurantId);
-        }
-        _item = new Menu(_tmpCost_for_one,_tmpId,_tmpName,_tmpRestaurant_id);
-        _result.add(_item);
       }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
-  }
 
-  @Override
-  public Menu getMenuItem(final String id) {
-    final String _sql = "select * from menu where id = ?";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
-    int _argIndex = 1;
-    if (id == null) {
-      _statement.bindNull(_argIndex);
-    } else {
-      _statement.bindString(_argIndex, id);
-    }
-    __db.assertNotSuspendingTransaction();
-    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
-    try {
-      final int _cursorIndexOfCostForOne = CursorUtil.getColumnIndexOrThrow(_cursor, "cost_for_one");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-      final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
-      final int _cursorIndexOfRestaurantId = CursorUtil.getColumnIndexOrThrow(_cursor, "restaurant_id");
-      final Menu _result;
-      if(_cursor.moveToFirst()) {
-        final String _tmpCost_for_one;
-        if (_cursor.isNull(_cursorIndexOfCostForOne)) {
-          _tmpCost_for_one = null;
-        } else {
-          _tmpCost_for_one = _cursor.getString(_cursorIndexOfCostForOne);
-        }
-        final String _tmpId;
-        if (_cursor.isNull(_cursorIndexOfId)) {
-          _tmpId = null;
-        } else {
-          _tmpId = _cursor.getString(_cursorIndexOfId);
-        }
-        final String _tmpName;
-        if (_cursor.isNull(_cursorIndexOfName)) {
-          _tmpName = null;
-        } else {
-          _tmpName = _cursor.getString(_cursorIndexOfName);
-        }
-        final String _tmpRestaurant_id;
-        if (_cursor.isNull(_cursorIndexOfRestaurantId)) {
-          _tmpRestaurant_id = null;
-        } else {
-          _tmpRestaurant_id = _cursor.getString(_cursorIndexOfRestaurantId);
-        }
-        _result = new Menu(_tmpCost_for_one,_tmpId,_tmpName,_tmpRestaurant_id);
-      } else {
-        _result = null;
+      @Override
+      protected void finalize() {
+        _statement.release();
       }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
+    });
   }
 
   @Override

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-52:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-80:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/bc3427dc2ccf4046221a17e0465449a1/transformed/appcompat-1.5.1/res/values-watch-v20/values-watch-v20.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/131616b964f31253b9dcde4071abdfee/transformed/appcompat-1.5.1/res/values-watch-v20/values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

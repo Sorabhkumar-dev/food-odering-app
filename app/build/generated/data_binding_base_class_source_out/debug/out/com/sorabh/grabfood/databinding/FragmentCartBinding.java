@@ -4,7 +4,6 @@ package com.sorabh.grabfood.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,15 +20,11 @@ public final class FragmentCartBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ProgressBar cartProgressBar;
-
-  @NonNull
   public final RecyclerView cartRecyclerView;
 
   private FragmentCartBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ProgressBar cartProgressBar, @NonNull RecyclerView cartRecyclerView) {
+      @NonNull RecyclerView cartRecyclerView) {
     this.rootView = rootView;
-    this.cartProgressBar = cartProgressBar;
     this.cartRecyclerView = cartRecyclerView;
   }
 
@@ -60,20 +55,13 @@ public final class FragmentCartBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.cart_progressBar;
-      ProgressBar cartProgressBar = ViewBindings.findChildViewById(rootView, id);
-      if (cartProgressBar == null) {
-        break missingId;
-      }
-
       id = R.id.cart_recyclerView;
       RecyclerView cartRecyclerView = ViewBindings.findChildViewById(rootView, id);
       if (cartRecyclerView == null) {
         break missingId;
       }
 
-      return new FragmentCartBinding((ConstraintLayout) rootView, cartProgressBar,
-          cartRecyclerView);
+      return new FragmentCartBinding((ConstraintLayout) rootView, cartRecyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

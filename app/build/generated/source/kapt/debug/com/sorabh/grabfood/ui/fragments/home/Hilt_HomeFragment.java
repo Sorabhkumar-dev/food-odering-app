@@ -17,10 +17,12 @@ import dagger.hilt.internal.UnsafeCasts;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.SuppressWarnings;
+import javax.annotation.processing.Generated;
 
 /**
  * A generated base class to be extended by the @dagger.hilt.android.AndroidEntryPoint annotated class. If using the Gradle plugin, this is swapped as the base class via bytecode transformation.
  */
+@Generated("dagger.hilt.android.processor.internal.androidentrypoint.FragmentGenerator")
 public abstract class Hilt_HomeFragment extends BaseFragment implements GeneratedComponentManagerHolder {
   private ContextWrapper componentContext;
 

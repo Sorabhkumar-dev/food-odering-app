@@ -1,282 +1,298 @@
 [
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_back.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_back.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_favorite_adapter.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_favorite_adapter.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_email.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_email.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xxhdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_icon_grab_food.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/icon_grab_food.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_unsuccess.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_unsuccess.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_fragment_cart.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_cart.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_home.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_home.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_favorite_empty.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_favorite_empty.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_q_n_a_card_view.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/q_n_a_card_view.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_password.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_password.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_home.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_home.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/anim_enter_from_right.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/anim/enter_from_right.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_fragment_q_n_a.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_q_n_a.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/anim_exit_to_left.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/anim/exit_to_left.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_profile.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_profile.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_restaurants_home_cardview.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/restaurants_home_cardview.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_grab_food.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_grab_food.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/anim_enter_from_left.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/anim/enter_from_left.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-hdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_root_activity.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/root_activity.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_check_mark.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_check_mark.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_check_mark.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_check_mark.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_error.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_error.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_forgot_password_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/forgot_password_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_main_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/main_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_oder_bottom_sheet.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/oder_bottom_sheet.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_loader_layout.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/loader_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_restaurant_menu_cardview.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/restaurant_menu_cardview.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_question_answer.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_question_answer.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_food_item_card_view.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/food_item_card_view.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_rating.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_rating.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_profile.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_profile.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_fragment_oder_history.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_oder_history.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_history.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_history.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_sort.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_sort.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_favorite_adapter.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_favorite_adapter.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_logout.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_logout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_text_background.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/text_background.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_fragment_restaurant_menu.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_restaurant_menu.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_cart_adapter_layout.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/cart_adapter_layout.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_fragment_home.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_forgot_password_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/forgot_password_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_refresh.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_refresh.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_history.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_history.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_sign_up_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/sign_up_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/anim_exit_to_right.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/anim/exit_to_right.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_main_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/main_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_cart_adapter_layout.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/cart_adapter_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_restaurants_home_cardview.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/restaurants_home_cardview.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_splash_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/splash_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_question_answer.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_question_answer.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_user.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_user.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_login_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/login_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_favorite.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_favorite.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_password.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_password.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_splash_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/splash_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_text_background.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/text_background.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_fragment_home.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_home.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/anim_enter_from_right.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/anim/enter_from_right.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_logout.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_logout.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_shopping_cart.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_shopping_cart.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_rating.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_rating.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_root_activity.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/root_activity.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_favorite_empty.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_favorite_empty.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xhdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_unsuccess.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_unsuccess.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_favorite_restaurants_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/favorite_restaurants_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_loader_view_background.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/loader_view_background.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_icon_grab_food.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/icon_grab_food.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_otp_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/otp_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_otp_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/otp_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_favorite_restaurants_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/favorite_restaurants_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_searchbar_background.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/searchbar_background.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_searchbar_background.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/searchbar_background.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_fragment_q_n_a.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_q_n_a.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_error_layout.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/error_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_sort.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_sort.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/menu_drawer_menu.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/menu/drawer_menu.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_login_fragment.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/login_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_fragment_my_profile.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_my_profile.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_fragment_my_profile.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_my_profile.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/navigation_nav_graph.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/navigation/nav_graph.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/menu_drawer_menu.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/menu/drawer_menu.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_fragment_cart.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_cart.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_oder_bottom_sheet.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/oder_bottom_sheet.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_oder_histotoy_cardview.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/oder_histotoy_cardview.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_refresh.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_refresh.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/anim_enter_from_left.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/anim/enter_from_left.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_food_item_card_view.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/food_item_card_view.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/anim_exit_to_left.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/anim/exit_to_left.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/anim_exit_to_right.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/anim/exit_to_right.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/navigation_nav_graph.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/navigation/nav_graph.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_phone_number.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_phone_number.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_email.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_email.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-mdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_profile_image_background.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/profile_image_background.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_restaurant_menu_cardview.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/restaurant_menu_cardview.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_header_layout.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/header_layout.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-mdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_shopping_cart.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_shopping_cart.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_location.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_location.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_user.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_user.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_q_n_a_card_view.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/q_n_a_card_view.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_oder_histotoy_cardview.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/oder_histotoy_cardview.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_favorite.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_favorite.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/drawable_ic_phone_number.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/drawable/ic_phone_number.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_sign_up_fragment.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/sign_up_fragment.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_fragment_restaurant_menu.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/fragment_restaurant_menu.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_back.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_back.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/layout_fragment_oder_history.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/layout/fragment_oder_history.xml"
     },
     {
-        "merged": "com.sorabh.grabfood.app-merged_res-54:/layout_header_layout.xml.flat",
-        "source": "com.sorabh.grabfood.app-main-56:/layout/header_layout.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_location.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_location.xml"
+    },
+    {
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_profile_image_background.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/profile_image_background.xml"
+    },
+    {
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/drawable_ic_grab_food.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/drawable/ic_grab_food.png"
+    },
+    {
+        "merged": "com.sorabh.grabfood.app-merged_res-82:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-84:/mipmap-xxxhdpi/ic_launcher_round.png"
     }
 ]

@@ -8,5 +8,8 @@ public class SplashFragmentDirections private constructor() {
   public companion object {
     public fun actionSplashFragmentToLoginFragment(): NavDirections =
         ActionOnlyNavDirections(R.id.action_splashFragment_to_loginFragment)
+
+    public fun actionSplashFragmentToMainFragment(): NavDirections =
+        ActionOnlyNavDirections(R.id.action_splashFragment_to_mainFragment)
   }
 }

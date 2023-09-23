@@ -4,13 +4,13 @@ package com.sorabh.grabfood.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.button.MaterialButton;
 import com.sorabh.grabfood.R;
 import java.lang.NullPointerException;
@@ -19,29 +19,33 @@ import java.lang.String;
 
 public final class FragmentRestaurantMenuBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final LinearLayoutCompat rootView;
 
   @NonNull
   public final MaterialButton btnProceed;
 
   @NonNull
-  public final ProgressBar restaurantMenuProgressBar;
+  public final ErrorLayoutBinding errorLayout;
 
   @NonNull
   public final RecyclerView restaurantMenuRecyclerView;
 
-  private FragmentRestaurantMenuBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton btnProceed, @NonNull ProgressBar restaurantMenuProgressBar,
-      @NonNull RecyclerView restaurantMenuRecyclerView) {
+  @NonNull
+  public final ShimmerFrameLayout shimmerLayout;
+
+  private FragmentRestaurantMenuBinding(@NonNull LinearLayoutCompat rootView,
+      @NonNull MaterialButton btnProceed, @NonNull ErrorLayoutBinding errorLayout,
+      @NonNull RecyclerView restaurantMenuRecyclerView, @NonNull ShimmerFrameLayout shimmerLayout) {
     this.rootView = rootView;
     this.btnProceed = btnProceed;
-    this.restaurantMenuProgressBar = restaurantMenuProgressBar;
+    this.errorLayout = errorLayout;
     this.restaurantMenuRecyclerView = restaurantMenuRecyclerView;
+    this.shimmerLayout = shimmerLayout;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public LinearLayoutCompat getRoot() {
     return rootView;
   }
 
@@ -72,11 +76,12 @@ public final class FragmentRestaurantMenuBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.restaurant_menu_progressBar;
-      ProgressBar restaurantMenuProgressBar = ViewBindings.findChildViewById(rootView, id);
-      if (restaurantMenuProgressBar == null) {
+      id = R.id.error_layout;
+      View errorLayout = ViewBindings.findChildViewById(rootView, id);
+      if (errorLayout == null) {
         break missingId;
       }
+      ErrorLayoutBinding binding_errorLayout = ErrorLayoutBinding.bind(errorLayout);
 
       id = R.id.restaurant_menu_recyclerView;
       RecyclerView restaurantMenuRecyclerView = ViewBindings.findChildViewById(rootView, id);
@@ -84,8 +89,14 @@ public final class FragmentRestaurantMenuBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentRestaurantMenuBinding((ConstraintLayout) rootView, btnProceed,
-          restaurantMenuProgressBar, restaurantMenuRecyclerView);
+      id = R.id.shimmerLayout;
+      ShimmerFrameLayout shimmerLayout = ViewBindings.findChildViewById(rootView, id);
+      if (shimmerLayout == null) {
+        break missingId;
+      }
+
+      return new FragmentRestaurantMenuBinding((LinearLayoutCompat) rootView, btnProceed,
+          binding_errorLayout, restaurantMenuRecyclerView, shimmerLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

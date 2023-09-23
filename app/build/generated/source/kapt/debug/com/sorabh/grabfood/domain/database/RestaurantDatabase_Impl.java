@@ -27,21 +27,23 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.annotation.processing.Generated;
 
+@Generated("androidx.room.RoomProcessor")
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class RestaurantDatabase_Impl extends RestaurantDatabase {
   private volatile LocalDAO _localDAO;
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Menu` (`cost_for_one` TEXT NOT NULL, `id` TEXT NOT NULL, `name` TEXT NOT NULL, `restaurant_id` TEXT NOT NULL, PRIMARY KEY(`name`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Menu` (`cost_for_one` TEXT NOT NULL, `id` TEXT NOT NULL, `name` TEXT NOT NULL, `restaurant_id` TEXT NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `QNA_TABLE` (`sno` INTEGER NOT NULL, `question` TEXT NOT NULL, `answer` TEXT NOT NULL, PRIMARY KEY(`sno`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Restaurant` (`cost_for_one` TEXT NOT NULL, `id` TEXT NOT NULL, `image_url` TEXT NOT NULL, `name` TEXT NOT NULL, `rating` TEXT NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '66fcd3c91c6ab9b945fe58a60d6380f5')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f5009fe12c72ad66594a073947bad646')");
       }
 
       @Override
@@ -57,7 +59,7 @@ public final class RestaurantDatabase_Impl extends RestaurantDatabase {
       }
 
       @Override
-      protected void onCreate(SupportSQLiteDatabase _db) {
+      public void onCreate(SupportSQLiteDatabase _db) {
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onCreate(_db);
@@ -86,11 +88,11 @@ public final class RestaurantDatabase_Impl extends RestaurantDatabase {
       }
 
       @Override
-      protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
+      public RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
         final HashMap<String, TableInfo.Column> _columnsMenu = new HashMap<String, TableInfo.Column>(4);
         _columnsMenu.put("cost_for_one", new TableInfo.Column("cost_for_one", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsMenu.put("id", new TableInfo.Column("id", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsMenu.put("name", new TableInfo.Column("name", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMenu.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMenu.put("name", new TableInfo.Column("name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMenu.put("restaurant_id", new TableInfo.Column("restaurant_id", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysMenu = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesMenu = new HashSet<TableInfo.Index>(0);
@@ -131,7 +133,7 @@ public final class RestaurantDatabase_Impl extends RestaurantDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "66fcd3c91c6ab9b945fe58a60d6380f5", "ce39e79a36e48ec5dbcfca63d2df095a");
+    }, "f5009fe12c72ad66594a073947bad646", "83db2a828b4146e79d86e1f21cede446");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

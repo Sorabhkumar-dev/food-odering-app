@@ -59,4 +59,5 @@
     <string name="no">%d.</string>
     <string name="okay">Okay</string>
     <string name="retry">Retry</string>
+    <string name="there_is_no_item_in_your_cart">There is no item in your Cart!</string>
 </resources>
