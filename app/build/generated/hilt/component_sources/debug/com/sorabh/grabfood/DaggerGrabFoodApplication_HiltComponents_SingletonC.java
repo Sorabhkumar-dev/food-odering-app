@@ -41,23 +41,16 @@ import com.sorabh.grabfood.ui.activities.RootActivity;
 import com.sorabh.grabfood.ui.activities.SignUpFragment;
 import com.sorabh.grabfood.ui.activities.SignUpFragment_MembersInjector;
 import com.sorabh.grabfood.ui.activities.SplashFragment;
-import com.sorabh.grabfood.ui.adapter.CartAdapter;
-import com.sorabh.grabfood.ui.adapter.FoodItemAdapter;
-import com.sorabh.grabfood.ui.adapter.OrderHistoryAdapter;
-import com.sorabh.grabfood.ui.adapter.QNAAdapter;
 import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter;
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter;
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment;
-import com.sorabh.grabfood.ui.fragments.cart.CartFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment;
 import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment;
-import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment;
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment;
 import com.sorabh.grabfood.ui.fragments.qna.QNAFragment;
-import com.sorabh.grabfood.ui.fragments.qna.QNAFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment;
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment_MembersInjector;
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel;
@@ -78,6 +71,8 @@ import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel;
 import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.OtpViewModel;
 import com.sorabh.grabfood.ui.viewmodel.OtpViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.sorabh.grabfood.ui.viewmodel.QNAViewModel;
+import com.sorabh.grabfood.ui.viewmodel.QNAViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel;
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel;
@@ -394,14 +389,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     }
 
-    private OrderHistoryAdapter orderHistoryAdapter() {
-      return new OrderHistoryAdapter(new FoodItemAdapter());
-    }
-
-    private LocalDBRepository localDBRepository() {
-      return new LocalDBRepository(singletonCImpl.localDAO());
-    }
-
     @Override
     public void injectForgotPasswordFragment(ForgotPasswordFragment forgotPasswordFragment) {
     }
@@ -431,7 +418,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectCartFragment(CartFragment cartFragment) {
-      injectCartFragment2(cartFragment);
     }
 
     @Override
@@ -442,7 +428,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectOderHistoryFragment(OderHistoryFragment oderHistoryFragment) {
-      injectOderHistoryFragment2(oderHistoryFragment);
     }
 
     @Override
@@ -456,7 +441,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectQNAFragment(QNAFragment qNAFragment) {
-      injectQNAFragment2(qNAFragment);
     }
 
     @Override
@@ -489,31 +473,14 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
       return instance;
     }
 
-    private CartFragment injectCartFragment2(CartFragment instance) {
-      CartFragment_MembersInjector.injectCartAdapter(instance, new CartAdapter());
-      return instance;
-    }
-
     private FavoriteRestaurantsFragment injectFavoriteRestaurantsFragment2(
         FavoriteRestaurantsFragment instance) {
       FavoriteRestaurantsFragment_MembersInjector.injectRestaurantHomeAdapter(instance, new RestaurantHomeAdapter());
       return instance;
     }
 
-    private OderHistoryFragment injectOderHistoryFragment2(OderHistoryFragment instance) {
-      OderHistoryFragment_MembersInjector.injectRepository(instance, singletonCImpl.networkRepository());
-      OderHistoryFragment_MembersInjector.injectHistoryAdapter(instance, orderHistoryAdapter());
-      return instance;
-    }
-
     private HomeFragment injectHomeFragment2(HomeFragment instance) {
       HomeFragment_MembersInjector.injectRestaurantHomeAdapter(instance, new RestaurantHomeAdapter());
-      return instance;
-    }
-
-    private QNAFragment injectQNAFragment2(QNAFragment instance) {
-      QNAFragment_MembersInjector.injectLocalRepository(instance, localDBRepository());
-      QNAFragment_MembersInjector.injectQnaAdapter(instance, new QNAAdapter());
       return instance;
     }
 
@@ -568,7 +535,7 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return SetBuilder.<String>newSetBuilder(12).add(CartViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(FavoriteRestaurantsViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(ForgotPasswordViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HomeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MainViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MyProfileViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OderHistoryVieModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OtpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RestaurantMenuViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SignUpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SplashViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
+      return SetBuilder.<String>newSetBuilder(13).add(CartViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(FavoriteRestaurantsViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(ForgotPasswordViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HomeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MainViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MyProfileViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OderHistoryVieModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OtpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(QNAViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RestaurantMenuViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SignUpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SplashViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
     }
 
     @Override
@@ -611,6 +578,8 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     private Provider<OderHistoryVieModel> oderHistoryVieModelProvider;
 
     private Provider<OtpViewModel> otpViewModelProvider;
+
+    private Provider<QNAViewModel> qNAViewModelProvider;
 
     private Provider<RestaurantMenuViewModel> restaurantMenuViewModelProvider;
 
@@ -676,14 +645,15 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
       this.myProfileViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6);
       this.oderHistoryVieModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 7);
       this.otpViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 8);
-      this.restaurantMenuViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 9);
-      this.signUpViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 10);
-      this.splashViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 11);
+      this.qNAViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 9);
+      this.restaurantMenuViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 10);
+      this.signUpViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 11);
+      this.splashViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 12);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(12).put("com.sorabh.grabfood.ui.viewmodel.CartViewModel", ((Provider) cartViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel", ((Provider) favoriteRestaurantsViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel", ((Provider) forgotPasswordViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.HomeViewModel", ((Provider) homeViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.LoginViewModel", ((Provider) loginViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MainViewModel", ((Provider) mainViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel", ((Provider) myProfileViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel", ((Provider) oderHistoryVieModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OtpViewModel", ((Provider) otpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel", ((Provider) restaurantMenuViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SignUpViewModel", ((Provider) signUpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SplashViewModel", ((Provider) splashViewModelProvider)).build();
+      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(13).put("com.sorabh.grabfood.ui.viewmodel.CartViewModel", ((Provider) cartViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel", ((Provider) favoriteRestaurantsViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel", ((Provider) forgotPasswordViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.HomeViewModel", ((Provider) homeViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.LoginViewModel", ((Provider) loginViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MainViewModel", ((Provider) mainViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel", ((Provider) myProfileViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel", ((Provider) oderHistoryVieModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OtpViewModel", ((Provider) otpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.QNAViewModel", ((Provider) qNAViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel", ((Provider) restaurantMenuViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SignUpViewModel", ((Provider) signUpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SplashViewModel", ((Provider) splashViewModelProvider)).build();
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -734,13 +704,16 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
           case 8: // com.sorabh.grabfood.ui.viewmodel.OtpViewModel 
           return (T) new OtpViewModel(viewModelCImpl.getOTPUseCase());
 
-          case 9: // com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel 
+          case 9: // com.sorabh.grabfood.ui.viewmodel.QNAViewModel 
+          return (T) new QNAViewModel(viewModelCImpl.localDBRepository());
+
+          case 10: // com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel 
           return (T) new RestaurantMenuViewModel(viewModelCImpl.getRestaurantMenuUseCase(), viewModelCImpl.localDBRepository());
 
-          case 10: // com.sorabh.grabfood.ui.viewmodel.SignUpViewModel 
+          case 11: // com.sorabh.grabfood.ui.viewmodel.SignUpViewModel 
           return (T) new SignUpViewModel(viewModelCImpl.getSignupUseCase());
 
-          case 11: // com.sorabh.grabfood.ui.viewmodel.SplashViewModel 
+          case 12: // com.sorabh.grabfood.ui.viewmodel.SplashViewModel 
           return (T) new SplashViewModel(singletonCImpl.provideDataStoreProvider.get());
 
           default: throw new AssertionError(id);
