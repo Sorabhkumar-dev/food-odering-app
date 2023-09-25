@@ -2765,15 +2765,12 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bottom
-id bottom_sheet_action
-id bottom_sheet_sign
 id bottom_to_top
 id bounce
 id btn_forgot_activity_next
 id btn_login
 id btn_login_forgot_password
 id btn_login_signup
-id btn_okay
 id btn_otp_reset_password
 id btn_place_oder
 id btn_proceed
@@ -2792,7 +2789,6 @@ id cardView_txt_rating
 id cart_adapter_name
 id cart_adapter_price
 id cart_adapter_sno
-id cart_recyclerView
 id center
 id centerCrop
 id centerInside
@@ -3376,7 +3372,6 @@ layout error_layout
 layout favorite_restaurants_fragment
 layout food_item_card_view
 layout forgot_password_fragment
-layout fragment_cart
 layout fragment_home
 layout fragment_my_profile
 layout fragment_oder_history
@@ -3451,7 +3446,6 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout oder_bottom_sheet
 layout oder_histotoy_cardview
 layout otp_fragment
 layout q_n_a_card_view

@@ -41,11 +41,11 @@ class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
 
     // Restaurant QNA
 
-    fun insertQNAData(qnaData: QNAData) {
-        localDAO.insertQNAData(qnaData)
+    fun upsertQNAs(questions:List<QNAData>){
+        localDAO.upsertQNAs(questions)
     }
 
-    fun getQNAList(): List<QNAData>? {
+    fun getQNAList(): List<QNAData> {
         return localDAO.getQNAList()
     }
 }

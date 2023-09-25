@@ -5,6 +5,7 @@ import android.os.CancellationSignal;
 import androidx.room.CoroutinesRoom;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
+import androidx.room.EntityUpsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
 import androidx.room.SharedSQLiteStatement;
@@ -39,8 +40,6 @@ public final class LocalDAO_Impl implements LocalDAO {
 
   private final EntityInsertionAdapter<Menu> __insertionAdapterOfMenu;
 
-  private final EntityInsertionAdapter<QNAData> __insertionAdapterOfQNAData;
-
   private final EntityDeletionOrUpdateAdapter<Dish> __deletionAdapterOfDish;
 
   private final EntityDeletionOrUpdateAdapter<Menu> __deletionAdapterOfMenu;
@@ -48,6 +47,8 @@ public final class LocalDAO_Impl implements LocalDAO {
   private final EntityDeletionOrUpdateAdapter<QNAData> __deletionAdapterOfQNAData;
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAllMenu;
+
+  private final EntityUpsertionAdapter<QNAData> __upsertionAdapterOfQNAData;
 
   public LocalDAO_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -116,27 +117,6 @@ public final class LocalDAO_Impl implements LocalDAO {
         }
       }
     };
-    this.__insertionAdapterOfQNAData = new EntityInsertionAdapter<QNAData>(__db) {
-      @Override
-      public String createQuery() {
-        return "INSERT OR ABORT INTO `QNA_TABLE` (`sno`,`question`,`answer`) VALUES (?,?,?)";
-      }
-
-      @Override
-      public void bind(SupportSQLiteStatement stmt, QNAData value) {
-        stmt.bindLong(1, value.getSno());
-        if (value.getQuestion() == null) {
-          stmt.bindNull(2);
-        } else {
-          stmt.bindString(2, value.getQuestion());
-        }
-        if (value.getAnswer() == null) {
-          stmt.bindNull(3);
-        } else {
-          stmt.bindString(3, value.getAnswer());
-        }
-      }
-    };
     this.__deletionAdapterOfDish = new EntityDeletionOrUpdateAdapter<Dish>(__db) {
       @Override
       public String createQuery() {
@@ -185,6 +165,48 @@ public final class LocalDAO_Impl implements LocalDAO {
         return _query;
       }
     };
+    this.__upsertionAdapterOfQNAData = new EntityUpsertionAdapter<QNAData>(new EntityInsertionAdapter<QNAData>(__db) {
+      @Override
+      public String createQuery() {
+        return "INSERT INTO `QNA_TABLE` (`sno`,`question`,`answer`) VALUES (?,?,?)";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, QNAData value) {
+        stmt.bindLong(1, value.getSno());
+        if (value.getQuestion() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getQuestion());
+        }
+        if (value.getAnswer() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getAnswer());
+        }
+      }
+    }, new EntityDeletionOrUpdateAdapter<QNAData>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE `QNA_TABLE` SET `sno` = ?,`question` = ?,`answer` = ? WHERE `sno` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, QNAData value) {
+        stmt.bindLong(1, value.getSno());
+        if (value.getQuestion() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getQuestion());
+        }
+        if (value.getAnswer() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getAnswer());
+        }
+        stmt.bindLong(4, value.getSno());
+      }
+    });
   }
 
   @Override
@@ -220,18 +242,6 @@ public final class LocalDAO_Impl implements LocalDAO {
         }
       }
     }, $completion);
-  }
-
-  @Override
-  public void insertQNAData(final QNAData qnaData) {
-    __db.assertNotSuspendingTransaction();
-    __db.beginTransaction();
-    try {
-      __insertionAdapterOfQNAData.insert(qnaData);
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-    }
   }
 
   @Override
@@ -305,6 +315,18 @@ public final class LocalDAO_Impl implements LocalDAO {
         }
       }
     }, $completion);
+  }
+
+  @Override
+  public void upsertQNAs(final List<QNAData> questions) {
+    __db.assertNotSuspendingTransaction();
+    __db.beginTransaction();
+    try {
+      __upsertionAdapterOfQNAData.upsert(questions);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
   }
 
   @Override
