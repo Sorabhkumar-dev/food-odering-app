@@ -1,5 +1,6 @@
 package com.sorabh.grabfood.ui.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sorabh.grabfood.domain.network_api.Result
@@ -65,7 +67,9 @@ fun CartContent(viewModel: CartViewModel) {
         }
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(MaterialTheme.spacing.space16)
+        contentPadding = PaddingValues(MaterialTheme.spacing.space16),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.space16)
     ) {
         if (menus.isEmpty())
             item {

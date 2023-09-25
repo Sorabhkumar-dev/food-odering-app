@@ -292,17 +292,17 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public Object deleteAllMenu(final String restaurant_id,
+  public Object deleteAllMenu(final String restaurantId,
       final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllMenu.acquire();
         int _argIndex = 1;
-        if (restaurant_id == null) {
+        if (restaurantId == null) {
           _stmt.bindNull(_argIndex);
         } else {
-          _stmt.bindString(_argIndex, restaurant_id);
+          _stmt.bindString(_argIndex, restaurantId);
         }
         __db.beginTransaction();
         try {
