@@ -11,9 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.ui.theme.spacing
+import com.sorabh.grabfood.util.QNAData
 
 @Composable
 fun CartCard(modifier: Modifier, menu: Menu, onBtnPlaceOrderClicked: (Menu) -> Unit) {
@@ -54,6 +56,39 @@ fun CartCard(modifier: Modifier, menu: Menu, onBtnPlaceOrderClicked: (Menu) -> U
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun QNACard(modifier: Modifier, qnaData: QNAData) {
+    Card(modifier = modifier) {
+        ConstraintLayout(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(MaterialTheme.spacing.space16)
+        ) {
+            val (textQuestion, textAnswer) = createRefs()
+            Text(
+                text = "${qnaData.sno}. ${qnaData.question}",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.constrainAs(textQuestion) {
+                    start.linkTo(parent.start)
+                    top.linkTo(parent.top)
+                    end.linkTo(parent.end)
+                    width = Dimension.fillToConstraints
+                }
+            )
+
+            Text(
+                text = qnaData.answer,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.constrainAs(textAnswer) {
+                    start.linkTo(parent.start)
+                    top.linkTo(textQuestion.bottom)
+                    end.linkTo(parent.end)
+                    width = Dimension.fillToConstraints
+                })
         }
     }
 }

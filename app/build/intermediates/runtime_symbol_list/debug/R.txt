@@ -2764,15 +2764,12 @@ int id beginOnFirstDraw 0x7f080060
 int id beginning 0x7f080061
 int id blocking 0x7f080062
 int id bottom 0x7f080063
-int id bottom_sheet_action 0x7f080064
-int id bottom_sheet_sign 0x7f080065
 int id bottom_to_top 0x7f080066
 int id bounce 0x7f080067
 int id btn_forgot_activity_next 0x7f080068
 int id btn_login 0x7f080069
 int id btn_login_forgot_password 0x7f08006a
 int id btn_login_signup 0x7f08006b
-int id btn_okay 0x7f08006c
 int id btn_otp_reset_password 0x7f08006d
 int id btn_place_oder 0x7f08006e
 int id btn_proceed 0x7f08006f
@@ -2791,7 +2788,6 @@ int id cardView_txt_rating 0x7f08007b
 int id cart_adapter_name 0x7f08007c
 int id cart_adapter_price 0x7f08007d
 int id cart_adapter_sno 0x7f08007e
-int id cart_recyclerView 0x7f08007f
 int id center 0x7f080080
 int id centerCrop 0x7f080081
 int id centerInside 0x7f080082
@@ -3375,7 +3371,6 @@ int layout error_layout 0x7f0b002d
 int layout favorite_restaurants_fragment 0x7f0b002e
 int layout food_item_card_view 0x7f0b002f
 int layout forgot_password_fragment 0x7f0b0030
-int layout fragment_cart 0x7f0b0031
 int layout fragment_home 0x7f0b0032
 int layout fragment_my_profile 0x7f0b0033
 int layout fragment_oder_history 0x7f0b0034
@@ -3450,7 +3445,6 @@ int layout notification_template_media 0x7f0b0078
 int layout notification_template_media_custom 0x7f0b0079
 int layout notification_template_part_chronometer 0x7f0b007a
 int layout notification_template_part_time 0x7f0b007b
-int layout oder_bottom_sheet 0x7f0b007c
 int layout oder_histotoy_cardview 0x7f0b007d
 int layout otp_fragment 0x7f0b007e
 int layout q_n_a_card_view 0x7f0b007f
