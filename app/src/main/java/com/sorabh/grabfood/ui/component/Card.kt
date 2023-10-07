@@ -4,18 +4,28 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowColumn
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.domain.model.oder_history_response.Bill
+import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.util.Constants
@@ -149,6 +159,78 @@ fun OrderHistoryCard(modifier: Modifier, bill: Bill) {
                     width = Dimension.fillToConstraints
                 }
             )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DishCard(
+    modifier: Modifier,
+    dish: Dish,
+    isFavorite: Boolean,
+    onFavoriteBtnClicked: (Dish) -> Unit,
+    onClick: (Dish) -> Unit
+) {
+    Card(onClick = { onClick(dish) }, modifier = modifier) {
+        ConstraintLayout(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(MaterialTheme.spacing.space16)
+        ) {
+            val (imgDish, textDishName, textDishPrice, textRating, btnFavorite) = createRefs()
+            ShowImageFromUrl(
+                modifier = Modifier
+                    .constrainAs(imgDish) {
+                        start.linkTo(parent.start)
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                        width = Dimension.value(150.dp)
+                        height = Dimension.value(100.dp)
+                    }
+                    .clip(MaterialTheme.shapes.small),
+                url = dish.image_url
+            )
+            Text(
+                text = dish.name,
+                modifier = Modifier.constrainAs(textDishName) {
+                    start.linkTo(imgDish.end, 16.dp)
+                    top.linkTo(imgDish.top)
+                },
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.ExtraBold
+            )
+
+            Text(
+                text = "$${dish.cost_for_one}",
+                modifier = Modifier.constrainAs(textDishPrice) {
+                    start.linkTo(textDishName.start)
+                    top.linkTo(textDishName.bottom,8.dp)
+                },
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Bold
+            )
+
+            RatingCard(
+                modifier = Modifier.constrainAs(textRating) {
+                    start.linkTo(textDishPrice.start)
+                    top.linkTo(textDishPrice.bottom,8.dp)
+                },
+                rating = dish.rating
+            )
+            IconButton(
+                onClick = { onFavoriteBtnClicked(dish) },
+                modifier = Modifier.constrainAs(btnFavorite) {
+                    top.linkTo(parent.top)
+                    end.linkTo(parent.end)
+                }) {
+                Icon(
+                    imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                    contentDescription = "Favorite Button Icon",
+                    modifier = Modifier.size(60.dp),
+                    tint = MaterialTheme.colorScheme.error
+                )
+            }
         }
     }
 }
