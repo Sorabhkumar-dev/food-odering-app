@@ -45,7 +45,6 @@ import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter;
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter;
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment;
 import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment;
-import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment;
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment;
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment_MembersInjector;
@@ -423,7 +422,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     @Override
     public void injectFavoriteRestaurantsFragment(
         FavoriteRestaurantsFragment favoriteRestaurantsFragment) {
-      injectFavoriteRestaurantsFragment2(favoriteRestaurantsFragment);
     }
 
     @Override
@@ -470,12 +468,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     private SignUpFragment injectSignUpFragment2(SignUpFragment instance) {
       SignUpFragment_MembersInjector.injectRepository(instance, singletonCImpl.networkRepository());
-      return instance;
-    }
-
-    private FavoriteRestaurantsFragment injectFavoriteRestaurantsFragment2(
-        FavoriteRestaurantsFragment instance) {
-      FavoriteRestaurantsFragment_MembersInjector.injectRestaurantHomeAdapter(instance, new RestaurantHomeAdapter());
       return instance;
     }
 

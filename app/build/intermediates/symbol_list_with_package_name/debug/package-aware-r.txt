@@ -2804,6 +2804,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id clockwise
+id coil_request_manager
 id collapseActionView
 id compose_view_saveable_id_tag
 id compress
