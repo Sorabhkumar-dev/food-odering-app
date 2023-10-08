@@ -41,13 +41,11 @@ import com.sorabh.grabfood.ui.activities.RootActivity;
 import com.sorabh.grabfood.ui.activities.SignUpFragment;
 import com.sorabh.grabfood.ui.activities.SignUpFragment_MembersInjector;
 import com.sorabh.grabfood.ui.activities.SplashFragment;
-import com.sorabh.grabfood.ui.adapter.RestaurantHomeAdapter;
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter;
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment;
 import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment;
 import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment;
 import com.sorabh.grabfood.ui.fragments.home.HomeFragment;
-import com.sorabh.grabfood.ui.fragments.home.HomeFragment_MembersInjector;
 import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment;
 import com.sorabh.grabfood.ui.fragments.qna.QNAFragment;
 import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment;
@@ -430,7 +428,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectHomeFragment(HomeFragment homeFragment) {
-      injectHomeFragment2(homeFragment);
     }
 
     @Override
@@ -468,11 +465,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     private SignUpFragment injectSignUpFragment2(SignUpFragment instance) {
       SignUpFragment_MembersInjector.injectRepository(instance, singletonCImpl.networkRepository());
-      return instance;
-    }
-
-    private HomeFragment injectHomeFragment2(HomeFragment instance) {
-      HomeFragment_MembersInjector.injectRestaurantHomeAdapter(instance, new RestaurantHomeAdapter());
       return instance;
     }
 
