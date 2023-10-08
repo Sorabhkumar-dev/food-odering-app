@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore:migrated ProfileScreen screen into Jetpack compose" />
+    <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore:migrated HomeScreen screen into Jetpack compose" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -425,7 +425,42 @@
       <option name="project" value="LOCAL" />
       <updated>1696751784750</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="chore:migrated ProfileScreen screen into Jetpack compose">
+      <created>1696751876243</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1696751876243</updated>
+    </task>
+    <task id="LOCAL-00033" summary="chore:migrated ProfileScreen screen into Jetpack compose">
+      <created>1696752253211</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1696752253211</updated>
+    </task>
+    <task id="LOCAL-00034" summary="chore:migrated HomeScreen screen into Jetpack compose">
+      <created>1696754414894</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754414894</updated>
+    </task>
+    <task id="LOCAL-00035" summary="chore:migrated HomeScreen screen into Jetpack compose">
+      <created>1696754444564</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754444564</updated>
+    </task>
+    <task id="LOCAL-00036" summary="chore:migrated HomeScreen screen into Jetpack compose">
+      <created>1696754472644</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754472644</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -452,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: implemented dependency injection" />
     <MESSAGE value="chore: used viewModel and flow api with LoginFragment.kt" />
     <MESSAGE value="fix: Fixed small ui issue in login_fragment.xml" />
     <MESSAGE value="fix: Fixed MainFragment.kt code issues" />
@@ -477,6 +511,7 @@
     <MESSAGE value="chore:migrated OrderHistory screen into Jetpack compose" />
     <MESSAGE value="chore:migrated Favorite Restaurants screen into Jetpack compose" />
     <MESSAGE value="chore:migrated ProfileScreen screen into Jetpack compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore:migrated ProfileScreen screen into Jetpack compose" />
+    <MESSAGE value="chore:migrated HomeScreen screen into Jetpack compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore:migrated HomeScreen screen into Jetpack compose" />
   </component>
 </project>
