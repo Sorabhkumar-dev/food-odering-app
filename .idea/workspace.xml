@@ -10,31 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore:migrated Favorite Restaurants screen into Jetpack compose">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/component/Image.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/screens/FavoriteRestaurantsScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/screens/ProfileScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/sorabh/grabfood/ui/fragments/history/OderHistoryFragment_MembersInjector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/sorabh/grabfood/ui/fragments/history/OderHistoryFragment_MembersInjector.dex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/sorabh/grabfood/util/Constants.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/sorabh/grabfood/util/Constants.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/kotlin/kaptGenerateStubsDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/kaptGenerateStubsDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/kotlin/kaptGenerateStubsDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/kaptGenerateStubsDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/kotlin/kaptGenerateStubsDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/kaptGenerateStubsDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kapt3/incrementalData/debug/com/sorabh/grabfood/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kapt3/incrementalData/debug/com/sorabh/grabfood/util/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/sorabh/grabfood/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/sorabh/grabfood/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/sorabh/grabfood/util/Constants.kapt_metadata" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/sorabh/grabfood/util/Constants.kapt_metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/sorabh/grabfood/domain/repository/LocalDBRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/sorabh/grabfood/domain/repository/LocalDBRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/sorabh/grabfood/ui/fragments/favorites/FavoriteRestaurantsFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/sorabh/grabfood/ui/fragments/favorites/FavoriteRestaurantsFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/sorabh/grabfood/ui/viewmodel/HomeViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/sorabh/grabfood/ui/viewmodel/HomeViewModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/component/Card.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/component/Card.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/component/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/component/Util.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/fragments/favorites/FavoriteRestaurantsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/fragments/favorites/FavoriteRestaurantsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/viewmodel/FavoriteRestaurantsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/viewmodel/FavoriteRestaurantsViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695670584082</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="chore:migrated Favorite Restaurants screen into Jetpack compose">
+      <created>1696719593126</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1696719593126</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
