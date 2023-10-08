@@ -55,6 +55,37 @@ fun EmptySection(modifier: Modifier = Modifier, onRetryBtnClicked: () -> Unit = 
     }
 }
 
+@Preview
+@Composable
+fun ErrorSection(modifier: Modifier = Modifier, onRetryBtnClicked: () -> Unit = {}) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.space24))
+
+        Image(
+            painter = painterResource(id = R.drawable.icon_grab_food),
+            contentDescription = "Grab food icon",
+            modifier = Modifier.height(MaterialTheme.spacing.space150)
+        )
+
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.space48))
+
+        Text(
+            text = stringResource(id = R.string.there_is_no_item),
+            style = MaterialTheme.typography.titleLarge
+        )
+
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.space24))
+
+
+        Button(onClick = onRetryBtnClicked, modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = stringResource(id = R.string.retry),
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
+    }
+}
+
 @Composable
 fun RatingCard(modifier: Modifier, rating: String) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
