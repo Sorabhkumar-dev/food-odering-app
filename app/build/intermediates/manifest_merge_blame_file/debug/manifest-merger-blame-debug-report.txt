@@ -41,125 +41,124 @@
 27-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:12:9-54
 28        android:supportsRtl="true"
 28-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:13:9-35
-29        android:testOnly="true"
-30        android:theme="@style/Theme.GrabFood"
-30-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:14:9-46
-31        android:usesCleartextTraffic="true" >
-31-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:15:9-44
-32        <activity
-32-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:17:9-26:20
-33            android:name="com.sorabh.grabfood.ui.activities.RootActivity"
-33-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:18:13-55
-34            android:exported="true"
-34-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:19:13-36
-35            android:theme="@style/Theme.GrabFood.FullScreen" >
-35-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:20:13-61
-36            <intent-filter>
-36-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:21:13-25:29
-37                <action android:name="android.intent.action.MAIN" />
-37-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:22:17-69
-37-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:22:25-66
-38
-39                <category android:name="android.intent.category.LAUNCHER" />
-39-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:24:17-77
-39-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:24:27-74
-40            </intent-filter>
-41        </activity>
-42
-43        <service
-43-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:24:9-28:63
-44            android:name="androidx.room.MultiInstanceInvalidationService"
-44-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:25:13-74
-45            android:directBootAware="true"
-45-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:26:13-43
-46            android:exported="false" />
-46-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:27:13-37
-47
-48        <activity
-48-->[androidx.compose.ui:ui-tooling-android:1.5.0] /home/sorabh/.gradle/caches/transforms-3/65731fd1491fc719f44631b7ecf0510d/transformed/jetified-ui-tooling-release/AndroidManifest.xml:23:9-25:39
-49            android:name="androidx.compose.ui.tooling.PreviewActivity"
-49-->[androidx.compose.ui:ui-tooling-android:1.5.0] /home/sorabh/.gradle/caches/transforms-3/65731fd1491fc719f44631b7ecf0510d/transformed/jetified-ui-tooling-release/AndroidManifest.xml:24:13-71
-50            android:exported="true" />
-50-->[androidx.compose.ui:ui-tooling-android:1.5.0] /home/sorabh/.gradle/caches/transforms-3/65731fd1491fc719f44631b7ecf0510d/transformed/jetified-ui-tooling-release/AndroidManifest.xml:25:13-36
-51
-52        <uses-library
-52-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
-53            android:name="androidx.window.extensions"
-53-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
-54            android:required="false" />
-54-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
-55        <uses-library
-55-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
-56            android:name="androidx.window.sidecar"
-56-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
-57            android:required="false" />
-57-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
-58
-59        <provider
-59-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
-60            android:name="androidx.startup.InitializationProvider"
-60-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:25:13-67
-61            android:authorities="com.sorabh.grabfood.androidx-startup"
-61-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:26:13-68
-62            android:exported="false" >
-62-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:27:13-37
-63            <meta-data
-63-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
-64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-64-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:30:17-75
-65                android:value="androidx.startup" />
-65-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:31:17-49
-66            <meta-data
-66-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/sorabh/.gradle/caches/transforms-3/265db04d95fcadc7bbe0a50f69c4c84b/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
-67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-67-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/sorabh/.gradle/caches/transforms-3/265db04d95fcadc7bbe0a50f69c4c84b/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
-68                android:value="androidx.startup" />
-68-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/sorabh/.gradle/caches/transforms-3/265db04d95fcadc7bbe0a50f69c4c84b/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
-69            <meta-data
-69-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
-70                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-70-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
-71                android:value="androidx.startup" />
-71-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
-72        </provider>
-73
-74        <receiver
-74-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
-75            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-75-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
-76            android:directBootAware="false"
-76-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
-77            android:enabled="true"
-77-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
-78            android:exported="true"
-78-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
-79            android:permission="android.permission.DUMP" >
-79-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
-80            <intent-filter>
-80-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
-81                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-81-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-81-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
-82            </intent-filter>
-83            <intent-filter>
-83-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
-84                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-84-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-84-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
-85            </intent-filter>
-86            <intent-filter>
-86-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
-87                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-87-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-87-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
-88            </intent-filter>
-89            <intent-filter>
-89-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
-90                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-90-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-90-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
-91            </intent-filter>
-92        </receiver>
-93    </application>
-94
-95</manifest>
+29        android:theme="@style/Theme.GrabFood"
+29-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:14:9-46
+30        android:usesCleartextTraffic="true" >
+30-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:15:9-44
+31        <activity
+31-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:17:9-26:20
+32            android:name="com.sorabh.grabfood.ui.activities.RootActivity"
+32-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:18:13-55
+33            android:exported="true"
+33-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:19:13-36
+34            android:theme="@style/Theme.GrabFood.FullScreen" >
+34-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:20:13-61
+35            <intent-filter>
+35-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:21:13-25:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:22:17-69
+36-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:22:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:24:17-77
+38-->/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/AndroidManifest.xml:24:27-74
+39            </intent-filter>
+40        </activity>
+41
+42        <service
+42-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:24:9-28:63
+43            android:name="androidx.room.MultiInstanceInvalidationService"
+43-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:25:13-74
+44            android:directBootAware="true"
+44-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:26:13-43
+45            android:exported="false" />
+45-->[androidx.room:room-runtime:2.5.2] /home/sorabh/.gradle/caches/transforms-3/4ca7252438653b3e9497b602f50fb97e/transformed/room-runtime-2.5.2/AndroidManifest.xml:27:13-37
+46
+47        <activity
+47-->[androidx.compose.ui:ui-tooling-android:1.5.0] /home/sorabh/.gradle/caches/transforms-3/65731fd1491fc719f44631b7ecf0510d/transformed/jetified-ui-tooling-release/AndroidManifest.xml:23:9-25:39
+48            android:name="androidx.compose.ui.tooling.PreviewActivity"
+48-->[androidx.compose.ui:ui-tooling-android:1.5.0] /home/sorabh/.gradle/caches/transforms-3/65731fd1491fc719f44631b7ecf0510d/transformed/jetified-ui-tooling-release/AndroidManifest.xml:24:13-71
+49            android:exported="true" />
+49-->[androidx.compose.ui:ui-tooling-android:1.5.0] /home/sorabh/.gradle/caches/transforms-3/65731fd1491fc719f44631b7ecf0510d/transformed/jetified-ui-tooling-release/AndroidManifest.xml:25:13-36
+50
+51        <uses-library
+51-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+52            android:name="androidx.window.extensions"
+52-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+53            android:required="false" />
+53-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+54        <uses-library
+54-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+55            android:name="androidx.window.sidecar"
+55-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+56            android:required="false" />
+56-->[androidx.window:window:1.0.0] /home/sorabh/.gradle/caches/transforms-3/f0173c9c4ee8e5a1afb3da78ce420222/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+57
+58        <provider
+58-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+59            android:name="androidx.startup.InitializationProvider"
+59-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:25:13-67
+60            android:authorities="com.sorabh.grabfood.androidx-startup"
+60-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:26:13-68
+61            android:exported="false" >
+61-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:27:13-37
+62            <meta-data
+62-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+63-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:30:17-75
+64                android:value="androidx.startup" />
+64-->[androidx.emoji2:emoji2:1.4.0] /home/sorabh/.gradle/caches/transforms-3/634936948521a14faaacfd2fa5c141bb/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:31:17-49
+65            <meta-data
+65-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/sorabh/.gradle/caches/transforms-3/265db04d95fcadc7bbe0a50f69c4c84b/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+66-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/sorabh/.gradle/caches/transforms-3/265db04d95fcadc7bbe0a50f69c4c84b/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+67                android:value="androidx.startup" />
+67-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/sorabh/.gradle/caches/transforms-3/265db04d95fcadc7bbe0a50f69c4c84b/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+68            <meta-data
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+70                android:value="androidx.startup" />
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+71        </provider>
+72
+73        <receiver
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+74            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+75            android:directBootAware="false"
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+76            android:enabled="true"
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+77            android:exported="true"
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+78            android:permission="android.permission.DUMP" >
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+79            <intent-filter>
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+80                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+81            </intent-filter>
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+83                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+84            </intent-filter>
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+86                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+87            </intent-filter>
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+89                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/sorabh/.gradle/caches/transforms-3/28c7a82d561143783345e274215b0be2/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+90            </intent-filter>
+91        </receiver>
+92    </application>
+93
+94</manifest>
