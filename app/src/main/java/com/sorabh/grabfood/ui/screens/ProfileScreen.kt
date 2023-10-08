@@ -73,7 +73,7 @@ private fun ProfileContent(viewModel: MyProfileViewModel) {
             text = userName ?: stringResource(id = R.string.na),
             modifier = Modifier.constrainAs(textUserName) {
                 start.linkTo(iconLogo.start)
-                top.linkTo(iconLogo.bottom, 16.dp)
+                top.linkTo(iconLogo.bottom, 8.dp)
             },
             style = MaterialTheme.typography.titleLarge
         )
@@ -82,7 +82,7 @@ private fun ProfileContent(viewModel: MyProfileViewModel) {
             text = userEmail ?: stringResource(id = R.string.na),
             modifier = Modifier.constrainAs(textUserEmail) {
                 start.linkTo(textUserName.start)
-                top.linkTo(textUserName.bottom, 16.dp)
+                top.linkTo(textUserName.bottom, 8.dp)
             },
             style = MaterialTheme.typography.bodyLarge
         )
@@ -91,7 +91,7 @@ private fun ProfileContent(viewModel: MyProfileViewModel) {
             text = userMobile ?: stringResource(id = R.string.na),
             modifier = Modifier.constrainAs(textUserNumber) {
                 start.linkTo(textUserEmail.start)
-                top.linkTo(textUserEmail.bottom, 16.dp)
+                top.linkTo(textUserEmail.bottom, 8.dp)
             },
             style = MaterialTheme.typography.bodyLarge
         )
@@ -100,7 +100,7 @@ private fun ProfileContent(viewModel: MyProfileViewModel) {
             text = userAddress ?: stringResource(id = R.string.na),
             modifier = Modifier.constrainAs(textUserAddress) {
                 start.linkTo(textUserNumber.start)
-                top.linkTo(textUserNumber.bottom)
+                top.linkTo(textUserNumber.bottom,8.dp)
             },
             style = MaterialTheme.typography.bodyLarge
         )
