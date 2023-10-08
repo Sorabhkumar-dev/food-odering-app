@@ -1,5 +1,7 @@
 package com.sorabh.grabfood.ui.component
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -103,4 +105,8 @@ fun RatingCard(modifier: Modifier, rating: String) {
         )
 
     }
+}
+
+fun Context.showToast(msg:String){
+    Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()
 }

@@ -35,7 +35,6 @@ import com.sorabh.grabfood.ui.activities.ForgotPasswordFragment;
 import com.sorabh.grabfood.ui.activities.LoginFragment;
 import com.sorabh.grabfood.ui.activities.MainFragment;
 import com.sorabh.grabfood.ui.activities.OTPFragment;
-import com.sorabh.grabfood.ui.activities.OTPFragment_MembersInjector;
 import com.sorabh.grabfood.ui.activities.RootActivity;
 import com.sorabh.grabfood.ui.activities.SignUpFragment;
 import com.sorabh.grabfood.ui.activities.SignUpFragment_MembersInjector;
@@ -399,7 +398,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectOTPFragment(OTPFragment oTPFragment) {
-      injectOTPFragment2(oTPFragment);
     }
 
     @Override
@@ -449,11 +447,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     @Override
     public ViewWithFragmentComponentBuilder viewWithFragmentComponentBuilder() {
       return new ViewWithFragmentCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl);
-    }
-
-    private OTPFragment injectOTPFragment2(OTPFragment instance) {
-      OTPFragment_MembersInjector.injectRepository(instance, singletonCImpl.networkRepository());
-      return instance;
     }
 
     private SignUpFragment injectSignUpFragment2(SignUpFragment instance) {
