@@ -9,16 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore:migrated Favorite Restaurants screen into Jetpack compose">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sorabh/grabfood/ui/screens/ProfileScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore:migrated ProfileScreen screen into Jetpack compose" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/home/sorabh/.android/avd/Pixel_6_Pro_API_34.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[1395000729000AL]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -421,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696719593126</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="chore:migrated ProfileScreen screen into Jetpack compose">
+      <created>1696751784750</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1696751784750</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -448,7 +452,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: added fragment_cart.xml" />
     <MESSAGE value="chore: implemented dependency injection" />
     <MESSAGE value="chore: used viewModel and flow api with LoginFragment.kt" />
     <MESSAGE value="fix: Fixed small ui issue in login_fragment.xml" />
@@ -473,6 +476,7 @@
     <MESSAGE value="chore:migrated qna screen into Jetpack compose" />
     <MESSAGE value="chore:migrated OrderHistory screen into Jetpack compose" />
     <MESSAGE value="chore:migrated Favorite Restaurants screen into Jetpack compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore:migrated Favorite Restaurants screen into Jetpack compose" />
+    <MESSAGE value="chore:migrated ProfileScreen screen into Jetpack compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore:migrated ProfileScreen screen into Jetpack compose" />
   </component>
 </project>
