@@ -14,6 +14,8 @@ data class Spacing(
     val space48: Dp = 48.dp,
     val space50: Dp = 50.dp,
     val space70: Dp = 70.dp,
+    val space100: Dp = 100.dp,
+    val space130: Dp = 130.dp,
     val space150: Dp = 150.dp
 )
 
