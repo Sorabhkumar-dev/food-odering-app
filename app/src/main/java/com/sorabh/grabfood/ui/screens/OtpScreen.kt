@@ -14,7 +14,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,37 +30,28 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.ui.activities.OTPFragmentDirections
+import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.viewmodel.OtpViewModel
 
 @Composable
 fun OTPScreen(
+    modifier: Modifier,
     viewModel: OtpViewModel,
     navController: NavController,
-    onResetBtnClicked: () -> Unit
+    phone: String
 ) {
-    val otpResultFlow = viewModel.otpFlow.collectAsStateWithLifecycle().value
-    LaunchedEffect(otpResultFlow) {
-        when (otpResultFlow) {
-            is Result.Error -> {}
-            is Result.Loading -> {}
-            is Result.Success -> {
-                if (otpResultFlow.body?.data?.success == true) {
-                    navController.navigate(
-                        OTPFragmentDirections
-                            .actionOTPFragmentToLoginFragment()
-                    )
-                }
-            }
+    OTPContent(modifier = modifier,viewModel = viewModel) {
+        viewModel.setupApiCall(phone) {
+            if (it is Result.Success)
+                navController.navigate(ScreenNavigator.LoginScreen.name)
         }
     }
-    OTPContent(viewModel = viewModel, onResetBtnClicked = onResetBtnClicked)
 }
 
 @Composable
-private fun OTPContent(viewModel: OtpViewModel, onResetBtnClicked: () -> Unit) {
-    ConstraintLayout {
-        val (topSpacer, textHeading, inputOTP, spacerOTP, inputPassword,inputConfirmPassword, spacerPassword, btnResetPassword) = createRefs()
+private fun OTPContent(modifier: Modifier,viewModel: OtpViewModel, onResetBtnClicked: () -> Unit) {
+    ConstraintLayout(modifier) {
+        val (topSpacer, textHeading, inputOTP, spacerOTP, inputPassword, inputConfirmPassword, spacerPassword, btnResetPassword) = createRefs()
 
         val passwordVisible = remember { mutableStateOf(false) }
 

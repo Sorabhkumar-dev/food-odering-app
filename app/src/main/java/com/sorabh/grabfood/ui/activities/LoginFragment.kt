@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
-import com.sorabh.grabfood.ui.screens.LoginScreen
 import com.sorabh.grabfood.ui.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +24,7 @@ class LoginFragment : BaseFragment() {
     ): View = ComposeView(requireContext()).apply {
         navController = findNavController()
         setContent {
-            LoginScreen(viewModel = viewModel, navController = navController)
+//            LoginScreen(viewModel = viewModel, navController = navController)
         }
     }
 }

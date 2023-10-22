@@ -3569,6 +3569,7 @@ string default_error_message
 string default_popup_window_title
 string deleted_to_your_favorite_restaurants
 string delivery_address
+string dest_title
 string dialog
 string discard
 string dropdown_menu

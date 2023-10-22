@@ -11,14 +11,11 @@ import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class OtpViewModel @Inject constructor(private val getOTPUseCase: GetOTPUseCase) : ViewModel() {
-    private val _otpFlow: MutableStateFlow<Result<OTPResponse>> = MutableStateFlow(Result.Loading())
-    val otpFlow = _otpFlow.asStateFlow()
 
     val userOTPFlow = MutableStateFlow("")
 
@@ -38,7 +35,7 @@ class OtpViewModel @Inject constructor(private val getOTPUseCase: GetOTPUseCase)
         confirmPasswordFlow.value = confirmPassword
     }
 
-    fun setupApiCall(phone:String) {
+    fun setupApiCall(phone: String, onOTPGet: (Result<OTPResponse>) -> Unit) {
         if (userOTPFlow.value.isNotEmpty() && passwordFlow.value.isNotEmpty() && confirmPasswordFlow.value.isNotEmpty() && passwordFlow.value == confirmPasswordFlow.value) {
             val header = HashMap<String, String>().apply {
                 this[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
@@ -49,14 +46,14 @@ class OtpViewModel @Inject constructor(private val getOTPUseCase: GetOTPUseCase)
                 addProperty(Keys.PASSWORD, passwordFlow.value)
                 addProperty(Keys.OTP, userOTPFlow.value)
             }
-            getOtp(OderPostModel(header, params))
+            getOtp(OderPostModel(header, params),onOTPGet)
         }
     }
 
-    private fun getOtp(postModel: OderPostModel) {
+    private fun getOtp(postModel: OderPostModel, onOTPGet: (Result<OTPResponse>) -> Unit) {
         viewModelScope.launch {
             getOTPUseCase(postModel).collect {
-                _otpFlow.emit(it)
+                onOTPGet(it)
             }
         }
     }

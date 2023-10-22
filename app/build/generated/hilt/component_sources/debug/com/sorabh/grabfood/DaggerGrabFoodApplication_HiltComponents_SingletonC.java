@@ -37,7 +37,6 @@ import com.sorabh.grabfood.ui.activities.MainFragment;
 import com.sorabh.grabfood.ui.activities.OTPFragment;
 import com.sorabh.grabfood.ui.activities.RootActivity;
 import com.sorabh.grabfood.ui.activities.SignUpFragment;
-import com.sorabh.grabfood.ui.activities.SignUpFragment_MembersInjector;
 import com.sorabh.grabfood.ui.activities.SplashFragment;
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter;
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment;
@@ -402,7 +401,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public void injectSignUpFragment(SignUpFragment signUpFragment) {
-      injectSignUpFragment2(signUpFragment);
     }
 
     @Override
@@ -447,11 +445,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     @Override
     public ViewWithFragmentComponentBuilder viewWithFragmentComponentBuilder() {
       return new ViewWithFragmentCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl);
-    }
-
-    private SignUpFragment injectSignUpFragment2(SignUpFragment instance) {
-      SignUpFragment_MembersInjector.injectRepository(instance, singletonCImpl.networkRepository());
-      return instance;
     }
 
     private RestaurantMenuFragment injectRestaurantMenuFragment2(RestaurantMenuFragment instance) {

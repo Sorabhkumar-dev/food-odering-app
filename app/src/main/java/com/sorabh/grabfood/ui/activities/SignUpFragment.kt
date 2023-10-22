@@ -11,7 +11,6 @@ import com.google.gson.JsonObject
 import com.sorabh.grabfood.databinding.SignUpFragmentBinding
 import com.sorabh.grabfood.domain.model.post.OderPostModel
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel
 import com.sorabh.grabfood.util.Constants
@@ -20,16 +19,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment() {
+
     private val viewModel :SignUpViewModel by viewModels()
 
     private lateinit var navController: NavController
     private lateinit var binding:SignUpFragmentBinding
-    @Inject
-    lateinit var repository: NetworkRepository
 
 
     override fun onCreateView(
@@ -73,7 +70,7 @@ class SignUpFragment : BaseFragment() {
                     params.addProperty(Keys.PASSWORD, password)
                     params.addProperty(Keys.Address, address)
                     params.addProperty(Keys.EMAIL, email)
-                    viewModel.getSignUpData(OderPostModel(header, params))
+                    viewModel.getSignUpData(OderPostModel(header, params)){}
             } else {
                 showToast("Please Fill all the fields!")
             }

@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-81:/values-ka/values-ka.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-85:/values-ka/values-ka.xml",
             "map": [
+                {
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/9401a759ba583fcb6c157c68248614df/transformed/jetified-ui-release/res/values-ka/values-ka.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,201,287,386,489,579,659,755,845,932,1003,1072,1161,1252,1324,1403,1473",
+                        "endColumns": "95,85,98,102,89,79,95,89,86,70,68,88,90,71,78,69,120",
+                        "endOffsets": "196,282,381,484,574,654,750,840,927,998,1067,1156,1247,1319,1398,1468,1589"
+                    },
+                    "to": {
+                        "startLines": "48,49,82,83,85,90,91,143,144,145,146,148,149,152,156,157,158",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4600,4696,8403,8502,8678,9082,9162,13329,13419,13506,13577,13726,13815,14070,14435,14514,14584",
+                        "endColumns": "95,85,98,102,89,79,95,89,86,70,68,88,90,71,78,69,120",
+                        "endOffsets": "4691,4777,8497,8600,8763,9157,9253,13414,13501,13572,13641,13810,13901,14137,14509,14579,14700"
+                    }
+                },
                 {
                     "source": "/home/sorabh/.gradle/caches/transforms-3/21383053d6e98cb4ccfe86d030672283/transformed/jetified-material3-1.1.1/res/values-ka/values-ka.xml",
                     "from": {
@@ -74,7 +91,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/49486dccc4e973f9ce1dba638c6c8aa6/transformed/navigation-ui-2.5.3/res/values-ka/values-ka.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/6d074ae4ca36a09359545c2a0c76f83b/transformed/navigation-ui-2.7.4/res/values-ka/values-ka.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -88,23 +105,6 @@
                         "startOffsets": "13102,13211",
                         "endColumns": "108,117",
                         "endOffsets": "13206,13324"
-                    }
-                },
-                {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/19a37d8e59665f240eaa6f81f7682f81/transformed/jetified-ui-release/res/values-ka/values-ka.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,201,287,386,489,579,659,755,845,932,1003,1072,1161,1252,1324,1403,1473",
-                        "endColumns": "95,85,98,102,89,79,95,89,86,70,68,88,90,71,78,69,120",
-                        "endOffsets": "196,282,381,484,574,654,750,840,927,998,1067,1156,1247,1319,1398,1468,1589"
-                    },
-                    "to": {
-                        "startLines": "48,49,82,83,85,90,91,143,144,145,146,148,149,152,156,157,158",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4600,4696,8403,8502,8678,9082,9162,13329,13419,13506,13577,13726,13815,14070,14435,14514,14584",
-                        "endColumns": "95,85,98,102,89,79,95,89,86,70,68,88,90,71,78,69,120",
-                        "endOffsets": "4691,4777,8497,8600,8763,9157,9253,13414,13501,13572,13641,13810,13901,14137,14509,14579,14700"
                     }
                 }
             ]

@@ -35,10 +35,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.ui.activities.LoginFragmentDirections
+import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.viewmodel.LoginViewModel
 
 @Composable
 fun LoginScreen(
+    modifier: Modifier,
     viewModel: LoginViewModel,
     navController: NavController
 ) {
@@ -50,18 +52,19 @@ fun LoginScreen(
                     .actionLoginFragmentToMainFragment()
             )
     }
-    LoginContent(viewModel = viewModel, navController = navController)
+    LoginContent(modifier = modifier,viewModel = viewModel, navController = navController)
 }
 
 @Composable
 private fun LoginContent(
+    modifier: Modifier,
     viewModel: LoginViewModel,
     navController: NavController
 ) {
 
     val passwordVisible = remember { mutableStateOf(false) }
 
-    ConstraintLayout {
+    ConstraintLayout(modifier = modifier) {
         val (imgLogo, inputMobile, spacerMobile, inputPassword, spacerPassword, btnLogin, spacerBtnLogin, btnForgotPassword, btnSignUp) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.ic_grab_food),
@@ -160,12 +163,7 @@ private fun LoginContent(
         })
 
         TextButton(
-            onClick = {
-                navController.navigate(
-                    LoginFragmentDirections
-                        .actionLoginFragmentToForgotPasswordFragment()
-                )
-            },
+            onClick = { navController.navigate(ScreenNavigator.ForgotPasswordScreen.name) },
             modifier = Modifier.constrainAs(btnForgotPassword) {
                 start.linkTo(parent.start, 24.dp)
                 top.linkTo(spacerBtnLogin.bottom, 16.dp)

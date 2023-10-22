@@ -21,16 +21,16 @@ import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.HomeViewModel
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel,onDishClicked: (Dish) -> Unit) {
-    HomeContent(viewModel = viewModel,onDishClicked = onDishClicked)
+fun HomeScreen(modifier: Modifier,viewModel: HomeViewModel,onDishClicked: (Dish) -> Unit) {
+    HomeContent(modifier = modifier,viewModel = viewModel,onDishClicked = onDishClicked)
 }
 
 @Composable
-private fun HomeContent(viewModel: HomeViewModel,onDishClicked:(Dish) -> Unit) {
+private fun HomeContent(modifier: Modifier,viewModel: HomeViewModel,onDishClicked:(Dish) -> Unit) {
     val dishes = viewModel.restaurantFlow.collectAsStateWithLifecycle().value
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentPadding = PaddingValues(MaterialTheme.spacing.space16),
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.space16)
     ) {

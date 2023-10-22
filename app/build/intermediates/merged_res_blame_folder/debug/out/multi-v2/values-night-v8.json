@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-81:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-85:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/home/sorabh/AndroidStudioProjects/food-odering-app/app/src/main/res/values-night/themes.xml",

@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
-import com.sorabh.grabfood.R
-import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
-import com.sorabh.grabfood.ui.screens.HomeScreen
 import com.sorabh.grabfood.ui.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,18 +19,18 @@ class HomeFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View  = ComposeView(requireContext()).apply{
         setContent {
-            HomeScreen(viewModel = viewModel){
-                parentFragmentManager.beginTransaction()
-                    .setCustomAnimations(
-                        R.anim.enter_from_right,
-                        R.anim.exit_to_left,
-                        R.anim.enter_from_left,
-                        R.anim.exit_to_right
-                    )
-                    .addToBackStack("RestaurantMenuFragment")
-                    .replace(R.id.frameLayout, RestaurantMenuFragment(it))
-                    .commit()
-            }
+//            HomeScreen(viewModel = viewModel){
+//                parentFragmentManager.beginTransaction()
+//                    .setCustomAnimations(
+//                        R.anim.enter_from_right,
+//                        R.anim.exit_to_left,
+//                        R.anim.enter_from_left,
+//                        R.anim.exit_to_right
+//                    )
+//                    .addToBackStack("RestaurantMenuFragment")
+//                    .replace(R.id.frameLayout, RestaurantMenuFragment(it))
+//                    .commit()
+//            }
         }
     }
 }

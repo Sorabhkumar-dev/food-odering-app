@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-81:/values-v23/values-v23.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-85:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "/home/sorabh/.gradle/caches/transforms-3/4110a43b0c95a6b01e5e5b5fb53031ad/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",

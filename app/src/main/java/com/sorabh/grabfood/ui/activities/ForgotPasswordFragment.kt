@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
-import com.sorabh.grabfood.ui.screens.ForgotPasswordScreen
 import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +23,7 @@ class ForgotPasswordFragment : BaseFragment() {
     ): View = ComposeView(requireContext()).apply {
         navController = findNavController()
         setContent {
-            ForgotPasswordScreen(viewModel = viewModel, navController = navController)
+//            ForgotPasswordScreen(viewModel = viewModel, navController = navController)
         }
     }
 }

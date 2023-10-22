@@ -3,7 +3,6 @@ package com.sorabh.grabfood.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -19,22 +18,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.ui.activities.SplashFragmentDirections
+import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.SplashViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 
 @Composable
-fun SplashScreen(viewModel: SplashViewModel, navController: NavController) {
+fun SplashScreen(modifier: Modifier, viewModel: SplashViewModel, navController: NavController) {
     LaunchedEffect(Unit) {
         delay(2000)
-        if (viewModel.isLoginFlow.first()) {
-            navController.navigate(SplashFragmentDirections.actionSplashFragmentToMainFragment())
-        } else
-            navController.navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+        if (viewModel.isLoginFlow.first())
+            navController.navigate(ScreenNavigator.HomeScreen.name)
+        else
+            navController.navigate(ScreenNavigator.LoginScreen.name)
     }
-    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.space48))
 
         Text(

@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
-import com.sorabh.grabfood.ui.screens.SplashScreen
 import com.sorabh.grabfood.ui.viewmodel.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +23,7 @@ class SplashFragment : BaseFragment() {
     ): View = ComposeView(requireContext()).apply{
         navController = findNavController()
       setContent {
-          SplashScreen(viewModel = viewModel, navController = navController)
+//          SplashScreen(viewModel = viewModel, navController = navController)
       }
     }
 }

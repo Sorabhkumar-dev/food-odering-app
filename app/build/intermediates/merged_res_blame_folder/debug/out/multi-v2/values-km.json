@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-81:/values-km/values-km.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-85:/values-km/values-km.xml",
             "map": [
+                {
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/6d074ae4ca36a09359545c2a0c76f83b/transformed/navigation-ui-2.7.4/res/values-km/values-km.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,160",
+                        "endColumns": "104,104",
+                        "endOffsets": "155,260"
+                    },
+                    "to": {
+                        "startLines": "141,142",
+                        "startColumns": "4,4",
+                        "startOffsets": "13042,13147",
+                        "endColumns": "104,104",
+                        "endOffsets": "13142,13247"
+                    }
+                },
                 {
                     "source": "/home/sorabh/.gradle/caches/transforms-3/a2a50474e7f7d71704f0d8720948ab0f/transformed/core-1.12.0/res/values-km/values-km.xml",
                     "from": {
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/19a37d8e59665f240eaa6f81f7682f81/transformed/jetified-ui-release/res/values-km/values-km.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/9401a759ba583fcb6c157c68248614df/transformed/jetified-ui-release/res/values-km/values-km.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -88,23 +105,6 @@
                         "endLines": "5,37,45,46,47,86,88,89,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,147",
                         "endColumns": "12,79,99,111,79,64,93,69,61,86,64,58,64,60,56,118,57,60,56,70,129,85,77,137,74,70,96,54,55,65,79,89,85,78,76,69,74,87,69,99,98,73,75,106,53,72,90,95,61,63,62,98,97,91,99,57,59,82",
                         "endOffsets": "314,3525,4346,4458,4538,8773,8945,9015,9244,9331,9396,9455,9520,9581,9638,9757,9815,9876,9933,10004,10134,10220,10298,10436,10511,10582,10679,10734,10790,10856,10936,11026,11112,11191,11268,11338,11413,11501,11571,11671,11770,11844,11920,12027,12081,12154,12245,12341,12403,12467,12530,12629,12727,12819,12919,12977,13037,13632"
-                    }
-                },
-                {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/49486dccc4e973f9ce1dba638c6c8aa6/transformed/navigation-ui-2.5.3/res/values-km/values-km.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,160",
-                        "endColumns": "104,104",
-                        "endOffsets": "155,260"
-                    },
-                    "to": {
-                        "startLines": "141,142",
-                        "startColumns": "4,4",
-                        "startOffsets": "13042,13147",
-                        "endColumns": "104,104",
-                        "endOffsets": "13142,13247"
                     }
                 }
             ]

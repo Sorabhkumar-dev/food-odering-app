@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-81:/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-85:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
                     "source": "/home/sorabh/.gradle/caches/transforms-3/21383053d6e98cb4ccfe86d030672283/transformed/jetified-material3-1.1.1/res/values-en-rIN/values-en-rIN.xml",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/49486dccc4e973f9ce1dba638c6c8aa6/transformed/navigation-ui-2.5.3/res/values-en-rIN/values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,161",
-                        "endColumns": "105,116",
-                        "endOffsets": "156,273"
-                    },
-                    "to": {
-                        "startLines": "81,82",
-                        "startColumns": "4,4",
-                        "startOffsets": "8199,8305",
-                        "endColumns": "105,116",
-                        "endOffsets": "8300,8417"
-                    }
-                },
-                {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/19a37d8e59665f240eaa6f81f7682f81/transformed/jetified-ui-release/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/9401a759ba583fcb6c157c68248614df/transformed/jetified-ui-release/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -69,6 +52,23 @@
                         "startOffsets": "3924,4016,7598,7692,7865,8028,8110,8422,8511,8595,8660,8724,8802,9050,9405,9482,9548",
                         "endColumns": "91,81,93,98,86,81,88,88,83,64,63,77,81,72,76,65,120",
                         "endOffsets": "4011,4093,7687,7786,7947,8105,8194,8506,8590,8655,8719,8797,8879,9118,9477,9543,9664"
+                    }
+                },
+                {
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/6d074ae4ca36a09359545c2a0c76f83b/transformed/navigation-ui-2.7.4/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,161",
+                        "endColumns": "105,116",
+                        "endOffsets": "156,273"
+                    },
+                    "to": {
+                        "startLines": "81,82",
+                        "startColumns": "4,4",
+                        "startOffsets": "8199,8305",
+                        "endColumns": "105,116",
+                        "endOffsets": "8300,8417"
                     }
                 },
                 {
