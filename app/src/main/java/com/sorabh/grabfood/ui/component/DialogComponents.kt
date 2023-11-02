@@ -1,11 +1,14 @@
 package com.sorabh.grabfood.ui.component
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -13,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
 import com.sorabh.grabfood.R
@@ -29,10 +33,13 @@ fun ShowDialog(
     if (isShowDialog)
         Dialog(onDismissRequest = onNegativeBtnClicked) {
             Column(
+                modifier = Modifier
+                    .clip(MaterialTheme.shapes.small)
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(PaddingValues(MaterialTheme.spacing.space24)),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.space16))
                 Text(
                     text = stringResource(id = title),
                     style = MaterialTheme.typography.titleMedium
@@ -60,13 +67,11 @@ fun ShowDialog(
                         modifier = Modifier.weight(4f)
                     ) {
                         Text(
-                            text = stringResource(id = R.string.no),
+                            text = stringResource(id = R.string.discard),
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.space16))
             }
         }
 }

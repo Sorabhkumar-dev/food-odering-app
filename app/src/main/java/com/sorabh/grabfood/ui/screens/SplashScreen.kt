@@ -3,6 +3,7 @@ package com.sorabh.grabfood.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -25,15 +26,15 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 
 @Composable
-fun SplashScreen(modifier: Modifier, viewModel: SplashViewModel, navController: NavController) {
+fun SplashScreen(viewModel: SplashViewModel, navController: NavController) {
     LaunchedEffect(Unit) {
         delay(2000)
         if (viewModel.isLoginFlow.first())
-            navController.navigate(ScreenNavigator.HomeScreen.name)
+            navController.navigate(ScreenNavigator.MainScreen.name)
         else
             navController.navigate(ScreenNavigator.LoginScreen.name)
     }
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.space48))
 
         Text(

@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.compose.ui.platform.ComposeView;
-import com.sorabh.grabfood.R;
-import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment;
 import com.sorabh.grabfood.ui.viewmodel.HomeViewModel;
 import dagger.hilt.android.AndroidEntryPoint;
 

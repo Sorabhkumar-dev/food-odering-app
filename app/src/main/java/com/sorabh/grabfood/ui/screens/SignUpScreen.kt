@@ -3,6 +3,7 @@ package com.sorabh.grabfood.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
@@ -39,20 +40,19 @@ import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel
 
 @Composable
-fun SignUpScreen(modifier: Modifier, viewModel: SignUpViewModel, navController: NavController) {
-    SignContent(modifier = modifier, viewModel = viewModel, navController = navController)
+fun SignUpScreen( viewModel: SignUpViewModel, navController: NavController) {
+    SignContent(viewModel = viewModel, navController = navController)
 }
 
 @Composable
 private fun SignContent(
-    modifier: Modifier,
     viewModel: SignUpViewModel,
     navController: NavController
 ) {
     val context = LocalContext.current
 
     Column(
-        modifier = modifier,
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

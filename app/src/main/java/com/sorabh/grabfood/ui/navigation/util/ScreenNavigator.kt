@@ -6,5 +6,13 @@ enum class ScreenNavigator {
     SignUpScreen,
     ForgotPasswordScreen,
     OTPScreen,
-    HomeScreen
+    MainScreen,
+    HomeScreen,
+    MyProfileScreen,
+    MyCartScreen,
+    FavoriteScreen,
+    OderHistoryScreen,
+    QNAScreen,
+
+    LogoutDialog
 }

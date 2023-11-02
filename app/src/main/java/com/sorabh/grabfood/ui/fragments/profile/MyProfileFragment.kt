@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.sorabh.grabfood.ui.screens.ProfileScreen
 import com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,7 +18,7 @@ class MyProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply{
         setContent {
-            ProfileScreen(viewModel = viewModel)
+//            MyProfileScreen(viewModel = viewModel)
         }
     }
 }

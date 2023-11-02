@@ -2,6 +2,7 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
@@ -40,7 +41,6 @@ import com.sorabh.grabfood.ui.viewmodel.LoginViewModel
 
 @Composable
 fun LoginScreen(
-    modifier: Modifier,
     viewModel: LoginViewModel,
     navController: NavController
 ) {
@@ -52,19 +52,18 @@ fun LoginScreen(
                     .actionLoginFragmentToMainFragment()
             )
     }
-    LoginContent(modifier = modifier,viewModel = viewModel, navController = navController)
+    LoginContent(viewModel = viewModel, navController = navController)
 }
 
 @Composable
 private fun LoginContent(
-    modifier: Modifier,
     viewModel: LoginViewModel,
     navController: NavController
 ) {
 
     val passwordVisible = remember { mutableStateOf(false) }
 
-    ConstraintLayout(modifier = modifier) {
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (imgLogo, inputMobile, spacerMobile, inputPassword, spacerPassword, btnLogin, spacerBtnLogin, btnForgotPassword, btnSignUp) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.ic_grab_food),

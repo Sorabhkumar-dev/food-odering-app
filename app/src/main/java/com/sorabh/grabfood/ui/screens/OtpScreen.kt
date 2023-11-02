@@ -1,6 +1,7 @@
 package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
@@ -35,12 +36,11 @@ import com.sorabh.grabfood.ui.viewmodel.OtpViewModel
 
 @Composable
 fun OTPScreen(
-    modifier: Modifier,
     viewModel: OtpViewModel,
     navController: NavController,
     phone: String
 ) {
-    OTPContent(modifier = modifier,viewModel = viewModel) {
+    OTPContent(viewModel = viewModel) {
         viewModel.setupApiCall(phone) {
             if (it is Result.Success)
                 navController.navigate(ScreenNavigator.LoginScreen.name)
@@ -49,8 +49,8 @@ fun OTPScreen(
 }
 
 @Composable
-private fun OTPContent(modifier: Modifier,viewModel: OtpViewModel, onResetBtnClicked: () -> Unit) {
-    ConstraintLayout(modifier) {
+private fun OTPContent(viewModel: OtpViewModel, onResetBtnClicked: () -> Unit) {
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (topSpacer, textHeading, inputOTP, spacerOTP, inputPassword, inputConfirmPassword, spacerPassword, btnResetPassword) = createRefs()
 
         val passwordVisible = remember { mutableStateOf(false) }

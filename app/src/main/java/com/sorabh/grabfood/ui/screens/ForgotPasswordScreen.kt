@@ -2,6 +2,7 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -33,18 +34,17 @@ import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel
 import com.sorabh.grabfood.util.Constants
 
 @Composable
-fun ForgotPasswordScreen(modifier: Modifier,viewModel: ForgotPasswordViewModel, navController: NavController) {
-    ForgotPasswordContent(modifier = modifier, viewModel = viewModel, navController = navController)
+fun ForgotPasswordScreen(viewModel: ForgotPasswordViewModel, navController: NavController) {
+    ForgotPasswordContent(viewModel = viewModel, navController = navController)
 }
 
 @Composable
 private fun ForgotPasswordContent(
-    modifier: Modifier,
     viewModel: ForgotPasswordViewModel,
     navController: NavController
 ) {
     val context = LocalContext.current
-    ConstraintLayout(modifier) {
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (imgLogo, textForgotPassword, inputMobile, spacerMobile, inputEmail, btnNext) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.ic_grab_food),

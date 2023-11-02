@@ -24,18 +24,18 @@ import com.sorabh.grabfood.R
 import com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel
 
 @Composable
-fun ProfileScreen(viewModel: MyProfileViewModel) {
-    ProfileContent(viewModel = viewModel)
+fun MyProfileScreen(modifier: Modifier, viewModel: MyProfileViewModel) {
+    MyProfileContent(modifier = modifier, viewModel = viewModel)
 }
 
 @Composable
-private fun ProfileContent(viewModel: MyProfileViewModel) {
+private fun MyProfileContent(modifier: Modifier, viewModel: MyProfileViewModel) {
     val userName = viewModel.nameFlow.collectAsStateWithLifecycle(null).value
     val userEmail = viewModel.emailFlow.collectAsStateWithLifecycle(null).value
     val userMobile = viewModel.phoneFlow.collectAsStateWithLifecycle(null).value
     val userAddress = viewModel.addressFow.collectAsStateWithLifecycle(null).value
 
-    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+    ConstraintLayout(modifier = modifier) {
         val (iconLogo, tagBrand, textUserName, textUserEmail, textUserNumber, textUserAddress) = createRefs()
 
         Card(
@@ -100,7 +100,7 @@ private fun ProfileContent(viewModel: MyProfileViewModel) {
             text = userAddress ?: stringResource(id = R.string.na),
             modifier = Modifier.constrainAs(textUserAddress) {
                 start.linkTo(textUserNumber.start)
-                top.linkTo(textUserNumber.bottom,8.dp)
+                top.linkTo(textUserNumber.bottom, 8.dp)
             },
             style = MaterialTheme.typography.bodyLarge
         )
