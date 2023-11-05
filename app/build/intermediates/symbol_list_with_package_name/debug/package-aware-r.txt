@@ -3443,6 +3443,7 @@ string delivery_address
 string dest_title
 string dialog
 string discard
+string drinks
 string dropdown_menu
 string email
 string error_a11y_label
@@ -3451,6 +3452,7 @@ string expanded
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string foods
 string frequently_asked
 string frequently_asked_question
 string hello_blank_fragment

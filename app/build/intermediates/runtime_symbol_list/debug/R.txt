@@ -3442,6 +3442,7 @@ int string delivery_address 0x7f110067
 int string dest_title 0x7f110068
 int string dialog 0x7f110069
 int string discard 0x7f11006a
+int string drinks 0x7f11011d
 int string dropdown_menu 0x7f11006b
 int string email 0x7f11006c
 int string error_a11y_label 0x7f11006d
@@ -3450,6 +3451,7 @@ int string expanded 0x7f11006f
 int string exposed_dropdown_menu_content_description 0x7f110070
 int string fab_transformation_scrim_behavior 0x7f110071
 int string fab_transformation_sheet_behavior 0x7f110072
+int string foods 0x7f11011e
 int string frequently_asked 0x7f110073
 int string frequently_asked_question 0x7f110074
 int string hello_blank_fragment 0x7f110075

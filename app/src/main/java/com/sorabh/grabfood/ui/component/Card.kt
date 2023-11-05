@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.sorabh.grabfood.R
+import com.sorabh.grabfood.domain.local_model.tab.HomeTab
 import com.sorabh.grabfood.domain.model.oder_history_response.Bill
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
@@ -244,7 +245,13 @@ fun DishCard(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MenuCard(modifier: Modifier, menu: Menu, isSavedMenu: Boolean,onClick:() -> Unit, onMenuClicked: (Menu) -> Unit) {
+fun MenuCard(
+    modifier: Modifier,
+    menu: Menu,
+    isSavedMenu: Boolean,
+    onClick: () -> Unit,
+    onMenuClicked: (Menu) -> Unit
+) {
     Card(
         onClick = onClick,
         modifier = modifier,
@@ -283,4 +290,12 @@ fun MenuCard(modifier: Modifier, menu: Menu, isSavedMenu: Boolean,onClick:() -> 
         }
 
     }
+}
+
+
+@Composable
+fun HomeTabContent(tab: HomeTab) {
+    Icon(imageVector = tab.tabImage, contentDescription = tab.description)
+
+    Text(text = stringResource(id = tab.tabTitle), style = MaterialTheme.typography.titleSmall)
 }

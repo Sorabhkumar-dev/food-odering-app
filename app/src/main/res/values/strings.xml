@@ -61,4 +61,8 @@
     <string name="retry">Retry</string>
     <string name="there_is_no_item_in_your_cart">There is no item in your Cart!</string>
     <string name="there_is_no_item">There is no item!</string>
+
+    //home tabs
+    <string name="foods">Foods</string>
+    <string name="drinks">Drinks</string>
 </resources>

@@ -1,7 +1,12 @@
 package com.sorabh.grabfood.ui.viewmodel
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Fastfood
+import androidx.compose.material.icons.outlined.LocalDrink
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sorabh.grabfood.R
+import com.sorabh.grabfood.domain.local_model.tab.HomeTab
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Restaurant
 import com.sorabh.grabfood.domain.network_api.Result
@@ -25,8 +30,28 @@ class HomeViewModel @Inject constructor(
         MutableStateFlow(Result.Loading())
     val restaurantFlow = _restaurantFlow.asStateFlow()
 
+    val homeTabs = mutableListOf(
+        HomeTab(
+            tabImage = Icons.Outlined.Fastfood,
+            tabTitle = R.string.foods,
+            description = "food icon"
+        ),
+        HomeTab(
+            tabImage = Icons.Outlined.LocalDrink,
+            tabTitle = R.string.drinks,
+            description = "drinks icon"
+        )
+    )
+
+    val selectedTab = MutableStateFlow(homeTabs[0])
+
+
     init {
         getRestaurants()
+    }
+
+    fun onTabChanged(tab: HomeTab){
+        selectedTab.value = tab
     }
 
     fun getRestaurants() {
