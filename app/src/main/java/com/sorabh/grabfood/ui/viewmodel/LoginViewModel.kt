@@ -1,6 +1,5 @@
 package com.sorabh.grabfood.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.JsonObject
@@ -59,7 +58,6 @@ class LoginViewModel @Inject constructor(
 
     private fun saveLoginData(loginData: LoginResponse) {
         viewModelScope.launch {
-            Log.d("SORABH","${loginData}")
             writeName(loginData.data.data.name)
             writeAddress(loginData.data.data.address)
             writeEmail(loginData.data.data.email)

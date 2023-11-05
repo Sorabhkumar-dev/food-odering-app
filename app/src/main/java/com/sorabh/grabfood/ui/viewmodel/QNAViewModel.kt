@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class QNAViewModel @Inject constructor(private val localDBRepository: LocalDBRepository) :
+class QNAViewModel @Inject constructor(private val localDBRepository:LocalDBRepository) :
     ViewModel() {
     var qna: MutableList<QNAData> = mutableListOf()
 

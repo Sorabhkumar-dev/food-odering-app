@@ -21,21 +21,12 @@ import javax.inject.Inject
 @HiltViewModel
 class RestaurantMenuViewModel @Inject constructor(
     private val getRestaurantMenuUseCase: GetRestaurantMenuUseCase,
-    private val localDBRepository: LocalDBRepository
+    private val localDBRepository:LocalDBRepository
 ) : ViewModel() {
     private val _restaurantMenuFlow: MutableStateFlow<Result<RestaurantMenu>> =
         MutableStateFlow(Result.Loading())
     val restaurantMenuFlow = _restaurantMenuFlow.asStateFlow()
 
-
-//    private val _menuFlow: MutableStateFlow<List<Menu>> = MutableStateFlow(emptyList())
-//    val menuFlow: StateFlow<List<Menu>> = _menuFlow
-//
-//    init {
-//        viewModelScope.launch {
-//            getMenu()
-//        }
-//    }
 
     fun getRestaurantMenus(restaurantId: String) {
         val header = HashMap<String, String>()
@@ -59,36 +50,7 @@ class RestaurantMenuViewModel @Inject constructor(
         }
     }
 
-    private suspend fun insertMenu(menu: Menu): Boolean {
-//        val result = viewModelScope.async {
-        localDBRepository.insertMenu(menu)
-//            isMenuSaved(menu.id)
-//        }
-//        return result.await()
-        return true
-    }
-
-    private suspend fun deleteMenu(menu: Menu): Boolean {
-//        val result = CoroutineScope(Dispatchers.IO).async {
-        localDBRepository.deleteMenu(menu)
-//            isMenuSaved(menu.id)
-        return true
-    }
-
     fun isMenuSaved(id: String): Flow<Int> = localDBRepository.getMenuItem(id)
 
-//        val result = viewModelScope.async {
 
-//        localDBRepository.getMenuItem(id)
-//        }
-//        return result.await() > 0
-//    }
-
-//   private suspend fun getMenu() {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            localDBRepository.getMenuList().collect {
-//                _menuFlow.emit(it)
-//            }
-//        }
-//    }
 }

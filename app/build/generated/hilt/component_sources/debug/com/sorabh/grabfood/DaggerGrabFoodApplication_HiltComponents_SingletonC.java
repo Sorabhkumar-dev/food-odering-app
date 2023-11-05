@@ -18,9 +18,11 @@ import com.sorabh.grabfood.domain.di.AppModule_ProvideDataStoreFactory;
 import com.sorabh.grabfood.domain.di.AppModule_ProvideNetworkInterfaceFactory;
 import com.sorabh.grabfood.domain.di.AppModule_ProvideNetworkRepositoryFactory;
 import com.sorabh.grabfood.domain.di.AppModule_ProvideRestaurantDbFactory;
+import com.sorabh.grabfood.domain.di.AppModule_ProvidesLocalDbRepositoryFactory;
 import com.sorabh.grabfood.domain.di.AppModule_ProvidesUserOkHttpClientFactory;
 import com.sorabh.grabfood.domain.network_api.NetworkInterface;
 import com.sorabh.grabfood.domain.repository.LocalDBRepository;
+import com.sorabh.grabfood.domain.repository.LocalDBRepositoryImpl;
 import com.sorabh.grabfood.domain.repository.NetworkRepository;
 import com.sorabh.grabfood.domain.repository.NetworkRepositoryImpl;
 import com.sorabh.grabfood.domain.usecase.GetForgotPasswordUseCase;
@@ -490,10 +492,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
       return new GetOderConfirmationUseCase(singletonCImpl.networkRepository());
     }
 
-    private LocalDBRepository localDBRepository() {
-      return new LocalDBRepository(singletonCImpl.localDAO());
-    }
-
     private GetForgotPasswordUseCase getForgotPasswordUseCase() {
       return new GetForgotPasswordUseCase(singletonCImpl.networkRepository());
     }
@@ -567,16 +565,16 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
       public T get() {
         switch (id) {
           case 0: // com.sorabh.grabfood.ui.viewmodel.CartViewModel 
-          return (T) new CartViewModel(viewModelCImpl.getOderConfirmationUseCase(), viewModelCImpl.localDBRepository(), singletonCImpl.provideDataStoreProvider.get());
+          return (T) new CartViewModel(viewModelCImpl.getOderConfirmationUseCase(), singletonCImpl.localDBRepository(), singletonCImpl.provideDataStoreProvider.get());
 
           case 1: // com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel 
-          return (T) new FavoriteRestaurantsViewModel(viewModelCImpl.localDBRepository());
+          return (T) new FavoriteRestaurantsViewModel(singletonCImpl.localDBRepository());
 
           case 2: // com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel 
           return (T) new ForgotPasswordViewModel(viewModelCImpl.getForgotPasswordUseCase());
 
           case 3: // com.sorabh.grabfood.ui.viewmodel.HomeViewModel 
-          return (T) new HomeViewModel(viewModelCImpl.getRestaurantUseCase(), viewModelCImpl.localDBRepository());
+          return (T) new HomeViewModel(viewModelCImpl.getRestaurantUseCase(), singletonCImpl.localDBRepository());
 
           case 4: // com.sorabh.grabfood.ui.viewmodel.LoginViewModel 
           return (T) new LoginViewModel(viewModelCImpl.getLoginResponseUseCase(), singletonCImpl.provideDataStoreProvider.get());
@@ -594,10 +592,10 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
           return (T) new OtpViewModel(viewModelCImpl.getOTPUseCase());
 
           case 9: // com.sorabh.grabfood.ui.viewmodel.QNAViewModel 
-          return (T) new QNAViewModel(viewModelCImpl.localDBRepository());
+          return (T) new QNAViewModel(singletonCImpl.localDBRepository());
 
           case 10: // com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel 
-          return (T) new RestaurantMenuViewModel(viewModelCImpl.getRestaurantMenuUseCase(), viewModelCImpl.localDBRepository());
+          return (T) new RestaurantMenuViewModel(viewModelCImpl.getRestaurantMenuUseCase(), singletonCImpl.localDBRepository());
 
           case 11: // com.sorabh.grabfood.ui.viewmodel.SignUpViewModel 
           return (T) new SignUpViewModel(viewModelCImpl.getSignupUseCase());
@@ -720,6 +718,14 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     private LocalDAO localDAO() {
       return AppModule_ProvideDaoFactory.provideDao(appModule, restaurantDatabase());
+    }
+
+    private LocalDBRepositoryImpl localDBRepositoryImpl() {
+      return new LocalDBRepositoryImpl(localDAO());
+    }
+
+    private LocalDBRepository localDBRepository() {
+      return AppModule_ProvidesLocalDbRepositoryFactory.providesLocalDbRepository(appModule, localDBRepositoryImpl());
     }
 
     private PreferenceDataImpl preferenceDataImpl() {

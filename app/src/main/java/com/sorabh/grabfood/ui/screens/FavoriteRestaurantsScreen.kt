@@ -38,7 +38,7 @@ fun FavoriteRestaurantsScreen(
                     modifier = Modifier.fillMaxWidth(),
                     dish = dish,
                     isFavorite = viewModel.isDishStored(dish.id)
-                        .collectAsStateWithLifecycle(false).value,
+                        .collectAsStateWithLifecycle(0).value > 0,
                     onFavoriteBtnClicked = viewModel::onFavoriteIconBtnClick,
                 ) { restaurant ->
                     navController.navigate(ScreenNavigator.RestaurantMenuScreen.name.plus("/${restaurant.id}/${restaurant.name}"))

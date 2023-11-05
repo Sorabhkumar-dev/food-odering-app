@@ -16,7 +16,6 @@ import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
@@ -26,7 +25,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CartViewModel @Inject constructor(
     private val getOderConfirmationUseCase: GetOderConfirmationUseCase,
-    private val localDBRepository: LocalDBRepository,
+    private val localDBRepository:LocalDBRepository,
     preferenceData: PreferenceData
 ) : ViewModel() {
     private val _oderConfirmationFlow: MutableStateFlow<Result<OderConfirmation>> =
@@ -70,7 +69,7 @@ class CartViewModel @Inject constructor(
         }
     }
 
-    suspend fun placeOder(oderPostModel: OderPostModel, onOderPlaced: suspend () -> Unit) {
+    private suspend fun placeOder(oderPostModel: OderPostModel, onOderPlaced: suspend () -> Unit) {
         getOderConfirmationUseCase(oderPostModel).collect {
             _oderConfirmationFlow.emit(it)
             if (it is Result.Success)
@@ -78,20 +77,9 @@ class CartViewModel @Inject constructor(
         }
     }
 
-    private suspend fun deleteMenu(menu: Menu): Boolean {
-        val result = CoroutineScope(Dispatchers.IO).async {
-            localDBRepository.deleteMenu(menu)
-            isMenuSaved(menu.id)
-        }
-        return !result.await()
-    }
+    private suspend fun deleteMenu(menu: Menu) = localDBRepository.deleteMenu(menu)
 
-    private suspend fun isMenuSaved(id: String): Boolean {
-        val result = CoroutineScope(Dispatchers.IO).async {
-            localDBRepository.getMenuItem(id)
-        }
-        return true
-    }
+
 
     private suspend fun getMenu() {
         CoroutineScope(Dispatchers.IO).launch {

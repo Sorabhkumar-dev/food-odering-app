@@ -60,7 +60,7 @@ private fun HomeContent(modifier: Modifier,viewModel: HomeViewModel,onDishClicke
                             .height(130.dp),
                         dish = dish,
                         isFavorite = viewModel.isDishStored(dish.id)
-                            .collectAsStateWithLifecycle(false).value,
+                            .collectAsStateWithLifecycle(0).value > 0,
                         onFavoriteBtnClicked = viewModel::onFavoriteIconBtnClick,
                         onClick = onDishClicked
                     )

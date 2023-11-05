@@ -1,52 +1,35 @@
 package com.sorabh.grabfood.domain.repository
 
-import com.sorabh.grabfood.domain.database.LocalDAO
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.util.QNAData
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
-class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
+interface LocalDBRepository {
 
     // Restaurant Home
-  suspend  fun insertRestaurant(dish: Dish) {
-        localDAO.insertRestaurant(dish)
-    }
+    suspend fun insertRestaurant(dish: Dish)
 
 
-    suspend fun deleteRestaurant(dish: Dish) {
-        localDAO.deleteRestaurant(dish)
-    }
+    suspend fun deleteRestaurant(dish: Dish)
 
-   fun getRestaurantList() = localDAO.getRestaurantList()
+    fun getRestaurantList(): Flow<List<Dish>>
 
-   suspend fun getRestaurant(id: String): Int {
-        return localDAO.getRestaurant(id)
-    }
-
-    suspend fun insertMenu(menu: Menu) {
-        localDAO.insertMenu(menu)
-    }
+    fun getRestaurant(id: String): Flow<Int>
 
 
-   suspend fun deleteMenu(menu: Menu) {
-        localDAO.deleteMenu(menu)
-    }
+    suspend fun insertMenu(menu: Menu)
 
-   fun getMenuList() = localDAO.getMenuList()
 
-   fun getMenuItem(id: String): Flow<Int> {
-        return localDAO.getMenuItem(id)
-    }
+    suspend fun deleteMenu(menu: Menu)
+
+    fun getMenuList(): Flow<List<Menu>>
+
+    fun getMenuItem(id: String): Flow<Int>
 
     // Restaurant QNA
 
-    fun upsertQNAs(questions:List<QNAData>){
-        localDAO.upsertQNAs(questions)
-    }
+    fun upsertQNAs(questions: List<QNAData>)
 
-    fun getQNAList(): List<QNAData> {
-        return localDAO.getQNAList()
-    }
+    fun getQNAList(): List<QNAData>
 }

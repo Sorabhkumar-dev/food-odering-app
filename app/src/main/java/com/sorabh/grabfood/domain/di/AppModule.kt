@@ -6,6 +6,8 @@ import com.sorabh.grabfood.domain.database.RestaurantDatabase
 import com.sorabh.grabfood.domain.datastore.PreferenceData
 import com.sorabh.grabfood.domain.datastore.PreferenceDataImpl
 import com.sorabh.grabfood.domain.network_api.NetworkInterface
+import com.sorabh.grabfood.domain.repository.LocalDBRepository
+import com.sorabh.grabfood.domain.repository.LocalDBRepositoryImpl
 import com.sorabh.grabfood.domain.repository.NetworkRepository
 import com.sorabh.grabfood.domain.repository.NetworkRepositoryImpl
 import com.sorabh.grabfood.util.Constants
@@ -65,6 +67,9 @@ class AppModule {
 
     @Provides
     fun provideDao(db:RestaurantDatabase):LocalDAO = db.getLocalDAO()
+
+    @Provides
+    fun providesLocalDbRepository(localDBRepositoryImpl: LocalDBRepositoryImpl):LocalDBRepository = localDBRepositoryImpl
 
     @Provides
     @Singleton

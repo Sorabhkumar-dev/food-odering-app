@@ -1,7 +1,6 @@
 package com.sorabh.grabfood.domain.database;
 
 import android.database.Cursor;
-import android.os.CancellationSignal;
 import androidx.room.CoroutinesRoom;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
@@ -391,7 +390,7 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public Object getRestaurant(final String id, final Continuation<? super Integer> $completion) {
+  public Flow<Integer> getRestaurant(final String id) {
     final String _sql = "select Count(id) from Restaurant where id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -400,8 +399,7 @@ public final class LocalDAO_Impl implements LocalDAO {
     } else {
       _statement.bindString(_argIndex, id);
     }
-    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
-    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Integer>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"Restaurant"}, new Callable<Integer>() {
       @Override
       public Integer call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
@@ -421,10 +419,14 @@ public final class LocalDAO_Impl implements LocalDAO {
           return _result;
         } finally {
           _cursor.close();
-          _statement.release();
         }
       }
-    }, $completion);
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
   }
 
   @Override

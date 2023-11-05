@@ -1,6 +1,5 @@
 package com.sorabh.grabfood.ui.viewmodel;
 
-import android.util.Log;
 import androidx.lifecycle.ViewModel;
 import com.google.gson.JsonObject;
 import com.sorabh.grabfood.domain.datastore.PreferenceData;
