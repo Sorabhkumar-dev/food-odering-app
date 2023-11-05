@@ -4,18 +4,19 @@ import com.sorabh.grabfood.domain.database.LocalDAO
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.util.QNAData
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
 
     // Restaurant Home
-  suspend  fun insertRestaurant(restaurant: Dish) {
-        localDAO.insertRestaurant(restaurant)
+  suspend  fun insertRestaurant(dish: Dish) {
+        localDAO.insertRestaurant(dish)
     }
 
 
-    suspend fun deleteRestaurant(restaurant: Dish) {
-        localDAO.deleteRestaurant(restaurant)
+    suspend fun deleteRestaurant(dish: Dish) {
+        localDAO.deleteRestaurant(dish)
     }
 
    fun getRestaurantList() = localDAO.getRestaurantList()
@@ -35,7 +36,7 @@ class LocalDBRepository @Inject constructor(private val localDAO: LocalDAO) {
 
    fun getMenuList() = localDAO.getMenuList()
 
-   suspend fun getMenuItem(id: String): Int {
+   fun getMenuItem(id: String): Flow<Int> {
         return localDAO.getMenuItem(id)
     }
 

@@ -2,6 +2,7 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -27,8 +28,8 @@ import androidx.navigation.NavController
 import com.sorabh.grabfood.GrabFoodApplication.Companion.R
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.domain.network_api.Result
-import com.sorabh.grabfood.ui.activities.ForgotPasswordFragmentDirections
 import com.sorabh.grabfood.ui.component.showToast
+import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel
 import com.sorabh.grabfood.util.Constants
 
@@ -43,7 +44,7 @@ private fun ForgotPasswordContent(
     navController: NavController
 ) {
     val context = LocalContext.current
-    ConstraintLayout {
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (imgLogo, textForgotPassword, inputMobile, spacerMobile, inputEmail, btnNext) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.ic_grab_food),
@@ -127,34 +128,24 @@ private fun ForgotPasswordContent(
             onClick = {
                 viewModel.forgotPassword {
                     when (it) {
-                        is Result.Error -> {
-                            context.showToast(it.message)
-                        }
+                        is Result.Error -> context.showToast(it.message)
 
-                        is Result.Loading -> {}
                         is Result.Success -> {
                             if (it.body?.data?.success == true && it.body.data.first_try) {
-                                context.showToast(
-                                    context.R()
-                                        .getString(R.string.otp_successfully_send_your_mobile)
-                                )
-                                navController.navigate(
-                                    ForgotPasswordFragmentDirections
-                                        .actionForgotPasswordFragmentToOTPFragment(viewModel.userPhoneFlow.value)
-                                )
-                            } else if (it.body?.data?.success == true && !it.body.data.first_try) {
-                                context.showToast(
-                                    context.R().getString(R.string.please_enter_previously_send_otp)
-                                )
-                                navController.navigate(
-                                    ForgotPasswordFragmentDirections
-                                        .actionForgotPasswordFragmentToOTPFragment(viewModel.userPhoneFlow.value)
-                                )
+                                context.showToast(context.R()
+                                        .getString(R.string.otp_successfully_send_your_mobile))
 
-                            } else {
-                                context.showToast(Constants.NETWORK_ERROR)
-                            }
+                                navController.navigate(ScreenNavigator.OTPScreen.name.plus("/${viewModel.userPhoneFlow.value}"))
+
+                            } else if (it.body?.data?.success == true && !it.body.data.first_try) {
+                                context.showToast(context.R().getString(R.string.please_enter_previously_send_otp))
+
+                                navController.navigate(ScreenNavigator.OTPScreen.name.plus("/${viewModel.userPhoneFlow.value}"))
+
+                            } else context.showToast(Constants.NETWORK_ERROR)
+
                         }
+                        else ->{}
                     }
                 }
             },

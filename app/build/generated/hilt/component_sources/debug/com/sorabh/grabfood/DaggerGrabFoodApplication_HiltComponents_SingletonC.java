@@ -31,23 +31,7 @@ import com.sorabh.grabfood.domain.usecase.GetOderHistoryUseCase;
 import com.sorabh.grabfood.domain.usecase.GetRestaurantMenuUseCase;
 import com.sorabh.grabfood.domain.usecase.GetRestaurantUseCase;
 import com.sorabh.grabfood.domain.usecase.GetSignupUseCase;
-import com.sorabh.grabfood.ui.activities.ForgotPasswordFragment;
-import com.sorabh.grabfood.ui.activities.LoginFragment;
-import com.sorabh.grabfood.ui.activities.MainFragment;
-import com.sorabh.grabfood.ui.activities.OTPFragment;
 import com.sorabh.grabfood.ui.activities.RootActivity;
-import com.sorabh.grabfood.ui.activities.SignUpFragment;
-import com.sorabh.grabfood.ui.activities.SignUpFragment_MembersInjector;
-import com.sorabh.grabfood.ui.activities.SplashFragment;
-import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter;
-import com.sorabh.grabfood.ui.fragments.cart.CartFragment;
-import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment;
-import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment;
-import com.sorabh.grabfood.ui.fragments.home.HomeFragment;
-import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment;
-import com.sorabh.grabfood.ui.fragments.qna.QNAFragment;
-import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment;
-import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment_MembersInjector;
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel;
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel;
@@ -385,61 +369,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectForgotPasswordFragment(ForgotPasswordFragment forgotPasswordFragment) {
-    }
-
-    @Override
-    public void injectLoginFragment(LoginFragment loginFragment) {
-    }
-
-    @Override
-    public void injectMainFragment(MainFragment mainFragment) {
-    }
-
-    @Override
-    public void injectOTPFragment(OTPFragment oTPFragment) {
-    }
-
-    @Override
-    public void injectSignUpFragment(SignUpFragment signUpFragment) {
-      injectSignUpFragment2(signUpFragment);
-    }
-
-    @Override
-    public void injectSplashFragment(SplashFragment splashFragment) {
-    }
-
-    @Override
-    public void injectCartFragment(CartFragment cartFragment) {
-    }
-
-    @Override
-    public void injectFavoriteRestaurantsFragment(
-        FavoriteRestaurantsFragment favoriteRestaurantsFragment) {
-    }
-
-    @Override
-    public void injectOderHistoryFragment(OderHistoryFragment oderHistoryFragment) {
-    }
-
-    @Override
-    public void injectHomeFragment(HomeFragment homeFragment) {
-    }
-
-    @Override
-    public void injectMyProfileFragment(MyProfileFragment myProfileFragment) {
-    }
-
-    @Override
-    public void injectQNAFragment(QNAFragment qNAFragment) {
-    }
-
-    @Override
-    public void injectRestaurantMenuFragment(RestaurantMenuFragment restaurantMenuFragment) {
-      injectRestaurantMenuFragment2(restaurantMenuFragment);
-    }
-
-    @Override
     public DefaultViewModelFactories.InternalFactoryFactory getHiltInternalFactoryFactory() {
       return activityCImpl.getHiltInternalFactoryFactory();
     }
@@ -447,16 +376,6 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     @Override
     public ViewWithFragmentComponentBuilder viewWithFragmentComponentBuilder() {
       return new ViewWithFragmentCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl);
-    }
-
-    private SignUpFragment injectSignUpFragment2(SignUpFragment instance) {
-      SignUpFragment_MembersInjector.injectRepository(instance, singletonCImpl.networkRepository());
-      return instance;
-    }
-
-    private RestaurantMenuFragment injectRestaurantMenuFragment2(RestaurantMenuFragment instance) {
-      RestaurantMenuFragment_MembersInjector.injectRestaurantMenuAdapter(instance, new RestaurantMenuAdapter());
-      return instance;
     }
   }
 

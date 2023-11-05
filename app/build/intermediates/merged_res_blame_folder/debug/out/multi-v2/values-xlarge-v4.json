@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-81:/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-85:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
                     "source": "/home/sorabh/.gradle/caches/transforms-3/bbb489c92c6d54e9213d84440a9eff04/transformed/appcompat-1.6.1/res/values-xlarge-v4/values-xlarge-v4.xml",

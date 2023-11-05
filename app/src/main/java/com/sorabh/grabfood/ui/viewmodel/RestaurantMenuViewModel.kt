@@ -8,12 +8,13 @@ import com.sorabh.grabfood.domain.model.restaurant_menu_response.RestaurantMenu
 import com.sorabh.grabfood.domain.network_api.Result
 import com.sorabh.grabfood.domain.repository.LocalDBRepository
 import com.sorabh.grabfood.domain.usecase.GetRestaurantMenuUseCase
+import com.sorabh.grabfood.util.Constants
+import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,10 +23,10 @@ class RestaurantMenuViewModel @Inject constructor(
     private val getRestaurantMenuUseCase: GetRestaurantMenuUseCase,
     private val localDBRepository: LocalDBRepository
 ) : ViewModel() {
-    private val _restaurantMenuFlow: MutableStateFlow<Result<RestaurantMenu>> = MutableStateFlow(
-        Result.Loading()
-    )
-    val restaurantMenuFlow: StateFlow<Result<RestaurantMenu>> = _restaurantMenuFlow
+    private val _restaurantMenuFlow: MutableStateFlow<Result<RestaurantMenu>> =
+        MutableStateFlow(Result.Loading())
+    val restaurantMenuFlow = _restaurantMenuFlow.asStateFlow()
+
 
 //    private val _menuFlow: MutableStateFlow<List<Menu>> = MutableStateFlow(emptyList())
 //    val menuFlow: StateFlow<List<Menu>> = _menuFlow
@@ -36,40 +37,52 @@ class RestaurantMenuViewModel @Inject constructor(
 //        }
 //    }
 
-    fun getRestaurantMenu(restaurantMenuPostModel: RestaurantMenuPostModel) {
+    fun getRestaurantMenus(restaurantId: String) {
+        val header = HashMap<String, String>()
+        header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
+        header[Keys.TOKEN] = Constants.MAIN_TOKEN
+        getRestaurantMenus(RestaurantMenuPostModel(header, restaurantId))
+    }
+
+    private fun getRestaurantMenus(restaurantMenuPostModel: RestaurantMenuPostModel) {
         viewModelScope.launch {
             getRestaurantMenuUseCase(restaurantMenuPostModel).collect {
-                when (it) {
-                    is Result.Error -> _restaurantMenuFlow.emit(it)
-                    is Result.Loading -> _restaurantMenuFlow.emit(it)
-                    is Result.Success -> _restaurantMenuFlow.emit(it)
-                }
+                _restaurantMenuFlow.emit(it)
             }
         }
     }
 
-    suspend fun insertMenu(menu: Menu): Boolean {
-        val result = CoroutineScope(Dispatchers.IO).async {
-            localDBRepository.insertMenu(menu)
-            isMenuSaved(menu.id)
+    fun onMenuClicked(menu: Menu) {
+        viewModelScope.launch {
+                if (isMenuSaved(menu.id).first() > 0) localDBRepository.deleteMenu(menu) else localDBRepository.insertMenu(menu)
+
         }
-        return result.await()
     }
 
-    suspend fun deleteMenu(menu: Menu): Boolean {
-        val result = CoroutineScope(Dispatchers.IO).async {
-            localDBRepository.deleteMenu(menu)
-            isMenuSaved(menu.id)
-        }
-        return !result.await()
+    private suspend fun insertMenu(menu: Menu): Boolean {
+//        val result = viewModelScope.async {
+        localDBRepository.insertMenu(menu)
+//            isMenuSaved(menu.id)
+//        }
+//        return result.await()
+        return true
     }
 
-    suspend fun isMenuSaved(id: String): Boolean {
-        val result = CoroutineScope(Dispatchers.IO).async {
-            localDBRepository.getMenuItem(id)
-        }
-        return result.await() > 0
+    private suspend fun deleteMenu(menu: Menu): Boolean {
+//        val result = CoroutineScope(Dispatchers.IO).async {
+        localDBRepository.deleteMenu(menu)
+//            isMenuSaved(menu.id)
+        return true
     }
+
+    fun isMenuSaved(id: String): Flow<Int> = localDBRepository.getMenuItem(id)
+
+//        val result = viewModelScope.async {
+
+//        localDBRepository.getMenuItem(id)
+//        }
+//        return result.await() > 0
+//    }
 
 //   private suspend fun getMenu() {
 //        CoroutineScope(Dispatchers.IO).launch {

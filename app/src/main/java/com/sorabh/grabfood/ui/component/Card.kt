@@ -1,5 +1,9 @@
 package com.sorabh.grabfood.ui.component
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowColumn
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -16,6 +21,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
@@ -205,7 +211,7 @@ fun DishCard(
                 text = "$${dish.cost_for_one}",
                 modifier = Modifier.constrainAs(textDishPrice) {
                     start.linkTo(textDishName.start)
-                    top.linkTo(textDishName.bottom,8.dp)
+                    top.linkTo(textDishName.bottom, 8.dp)
                 },
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold
@@ -214,7 +220,7 @@ fun DishCard(
             RatingCard(
                 modifier = Modifier.constrainAs(textRating) {
                     start.linkTo(textDishPrice.start)
-                    top.linkTo(textDishPrice.bottom,8.dp)
+                    top.linkTo(textDishPrice.bottom, 8.dp)
                 },
                 rating = dish.rating
             )
@@ -232,5 +238,49 @@ fun DishCard(
                 )
             }
         }
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MenuCard(modifier: Modifier, menu: Menu, isSavedMenu: Boolean,onClick:() -> Unit, onMenuClicked: (Menu) -> Unit) {
+    Card(
+        onClick = onClick,
+        modifier = modifier,
+        shape = MaterialTheme.shapes.small
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(MaterialTheme.spacing.space16)
+        ) {
+            Column(modifier = Modifier.align(Alignment.CenterStart)) {
+                Text(text = menu.name, style = MaterialTheme.typography.titleMedium)
+                Text(
+                    text = "$${menu.cost_for_one}",
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+
+            Button(
+                onClick = { onMenuClicked(menu) },
+                modifier = Modifier.align(Alignment.CenterEnd),
+                colors = ButtonDefaults.buttonColors(
+                    animateColorAsState(
+                        targetValue = if (isSavedMenu) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                        animationSpec = tween(2000),
+                        label = "button color"
+                    ).value
+                )
+            ) {
+                Text(
+                    text = stringResource(id = if (isSavedMenu) R.string.remove else R.string.add_to_cart),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        }
+
     }
 }

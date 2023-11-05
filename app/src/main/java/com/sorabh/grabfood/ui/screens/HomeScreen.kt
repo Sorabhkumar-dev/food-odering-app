@@ -12,25 +12,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.network_api.Result
 import com.sorabh.grabfood.ui.component.DishCard
 import com.sorabh.grabfood.ui.component.EmptySection
 import com.sorabh.grabfood.ui.component.ErrorSection
+import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.HomeViewModel
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel,onDishClicked: (Dish) -> Unit) {
-    HomeContent(viewModel = viewModel,onDishClicked = onDishClicked)
+fun HomeScreen(navController: NavController,modifier: Modifier,viewModel: HomeViewModel) {
+    HomeContent(modifier = modifier,viewModel = viewModel){ restaurant ->
+        navController.navigate(ScreenNavigator.RestaurantMenuScreen.name.plus("/${restaurant.id}/${restaurant.name}"))
+    }
 }
 
 @Composable
-private fun HomeContent(viewModel: HomeViewModel,onDishClicked:(Dish) -> Unit) {
+private fun HomeContent(modifier: Modifier,viewModel: HomeViewModel,onDishClicked:(Dish) -> Unit) {
     val dishes = viewModel.restaurantFlow.collectAsStateWithLifecycle().value
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentPadding = PaddingValues(MaterialTheme.spacing.space16),
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.space16)
     ) {

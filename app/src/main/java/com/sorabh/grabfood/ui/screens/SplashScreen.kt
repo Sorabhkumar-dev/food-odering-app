@@ -19,7 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.ui.activities.SplashFragmentDirections
+import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.SplashViewModel
 import kotlinx.coroutines.delay
@@ -29,10 +29,10 @@ import kotlinx.coroutines.flow.first
 fun SplashScreen(viewModel: SplashViewModel, navController: NavController) {
     LaunchedEffect(Unit) {
         delay(2000)
-        if (viewModel.isLoginFlow.first()) {
-            navController.navigate(SplashFragmentDirections.actionSplashFragmentToMainFragment())
-        } else
-            navController.navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+        if (viewModel.isLoginFlow.first())
+            navController.navigate(ScreenNavigator.MainScreen.name)
+        else
+            navController.navigate(ScreenNavigator.LoginScreen.name)
     }
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.space48))
