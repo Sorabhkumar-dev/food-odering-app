@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class Spacing(
+    val space6: Dp = 6.dp,
     val space8: Dp = 8.dp,
     val space16: Dp = 16.dp,
     val space24: Dp = 24.dp,

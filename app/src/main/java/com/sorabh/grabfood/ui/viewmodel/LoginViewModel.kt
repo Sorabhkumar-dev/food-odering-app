@@ -1,5 +1,6 @@
 package com.sorabh.grabfood.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.JsonObject
@@ -20,11 +21,6 @@ class LoginViewModel @Inject constructor(
     private val getLoginResponseUseCase: GetLoginResponseUseCase,
     private val preferenceDataStore: PreferenceData
 ) : ViewModel() {
-    private val _loginFlow: MutableStateFlow<Result<LoginResponse>> =
-        MutableStateFlow(Result.Loading())
-
-    val isLoginFlow = preferenceDataStore.readIsLoginFlow
-
 
     val userPhoneFlow = MutableStateFlow("")
     val userPasswordFlow = MutableStateFlow("")
@@ -37,7 +33,7 @@ class LoginViewModel @Inject constructor(
         userPasswordFlow.value = password
     }
 
-    fun login() {
+    fun login(onLoginSuccess:() -> Unit) {
         //params to send with request
         val params = JsonObject().apply {
             addProperty(Keys.MOBILE_NUMBER, userPhoneFlow.value)
@@ -47,15 +43,15 @@ class LoginViewModel @Inject constructor(
         val header = HashMap<String, String>()
         header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
         header[Keys.TOKEN] = Constants.MAIN_TOKEN
-        getLoginDetails(LoginPostModel(header, params))
+        getLoginDetails(LoginPostModel(header, params),onLoginSuccess = onLoginSuccess)
     }
 
-    private fun getLoginDetails(loginPostModel: LoginPostModel) {
+    private fun getLoginDetails(loginPostModel: LoginPostModel,onLoginSuccess:() -> Unit) {
         viewModelScope.launch {
             getLoginResponseUseCase(loginPostModel).collect {
-                if (it is Result.Success) {
-                    saveLoginData(it.body!!)
-                    _loginFlow.emit(it)
+                if (it is Result.Success && it.body?.data?.success == true) {
+                    saveLoginData(it.body)
+                    onLoginSuccess()
                 }
             }
         }
@@ -63,6 +59,7 @@ class LoginViewModel @Inject constructor(
 
     private fun saveLoginData(loginData: LoginResponse) {
         viewModelScope.launch {
+            Log.d("SORABH","${loginData}")
             writeName(loginData.data.data.name)
             writeAddress(loginData.data.data.address)
             writeEmail(loginData.data.data.email)
