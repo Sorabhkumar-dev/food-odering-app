@@ -10,10 +10,9 @@ import com.sorabh.grabfood.domain.usecase.GetRestaurantUseCase
 import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -47,13 +46,12 @@ class HomeViewModel @Inject constructor(
 
     fun onFavoriteIconBtnClick(dish: Dish) {
         viewModelScope.launch {
-            if (localDBRepository.getRestaurant(dish.id) > 0)
+            if (localDBRepository.getRestaurant(dish.id).first() > 0)
                 localDBRepository.deleteRestaurant(dish)
             else
                 localDBRepository.insertRestaurant(dish)
         }
     }
-    fun isDishStored(id: String): Flow<Boolean> = flow {
-        emit(localDBRepository.getRestaurant(id) > 0)
-    }
+    fun isDishStored(id: String) = localDBRepository.getRestaurant(id)
+
 }

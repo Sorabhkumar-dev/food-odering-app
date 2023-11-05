@@ -23,7 +23,7 @@ interface LocalDAO {
     fun getRestaurantList(): Flow<List<Dish>>
 
     @Query("select Count(id) from Restaurant where id = :id")
-    suspend fun getRestaurant(id: String): Int
+    fun getRestaurant(id: String): Flow<Int>
 
     @Insert
     suspend fun insertMenu(menu: Menu)
