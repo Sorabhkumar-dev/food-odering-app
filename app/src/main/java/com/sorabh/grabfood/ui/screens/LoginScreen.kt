@@ -35,7 +35,6 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.sorabh.grabfood.R
-import com.sorabh.grabfood.ui.activities.LoginFragmentDirections
 import com.sorabh.grabfood.ui.navigation.util.ScreenNavigator
 import com.sorabh.grabfood.ui.viewmodel.LoginViewModel
 
@@ -46,11 +45,11 @@ fun LoginScreen(
 ) {
     val loginFlow = viewModel.isLoginFlow.collectAsStateWithLifecycle(false).value
     LaunchedEffect(loginFlow) {
-        if (loginFlow)
-            navController.navigate(
-                LoginFragmentDirections
-                    .actionLoginFragmentToMainFragment()
-            )
+//        if (loginFlow)
+//            navController.navigate(
+//                LoginFragmentDirections
+//                    .actionLoginFragmentToMainFragment()
+//            )
     }
     LoginContent(viewModel = viewModel, navController = navController)
 }
@@ -176,10 +175,10 @@ private fun LoginContent(
 
         TextButton(
             onClick = {
-                navController.navigate(
-                    LoginFragmentDirections
-                        .actionLoginFragmentToSignUpFragment()
-                )
+//                navController.navigate(
+//                    LoginFragmentDirections
+//                        .actionLoginFragmentToSignUpFragment()
+//                )
             },
             modifier = Modifier.constrainAs(btnSignUp) {
                 start.linkTo(parent.start, 24.dp)

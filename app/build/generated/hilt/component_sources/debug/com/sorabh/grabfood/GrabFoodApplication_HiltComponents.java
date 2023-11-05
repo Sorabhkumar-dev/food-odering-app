@@ -1,20 +1,7 @@
 package com.sorabh.grabfood;
 
 import com.sorabh.grabfood.domain.di.AppModule;
-import com.sorabh.grabfood.ui.activities.ForgotPasswordFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.activities.LoginFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.activities.MainFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.activities.OTPFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.activities.RootActivity_GeneratedInjector;
-import com.sorabh.grabfood.ui.activities.SignUpFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.activities.SplashFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.cart.CartFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.favorites.FavoriteRestaurantsFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.history.OderHistoryFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.home.HomeFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.profile.MyProfileFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.qna.QNAFragment_GeneratedInjector;
-import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment_GeneratedInjector;
 import com.sorabh.grabfood.ui.viewmodel.CartViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel_HiltModules;
@@ -267,20 +254,7 @@ public final class GrabFoodApplication_HiltComponents {
       modules = ViewWithFragmentCBuilderModule.class
   )
   @FragmentScoped
-  public abstract static class FragmentC implements ForgotPasswordFragment_GeneratedInjector,
-      LoginFragment_GeneratedInjector,
-      MainFragment_GeneratedInjector,
-      OTPFragment_GeneratedInjector,
-      SignUpFragment_GeneratedInjector,
-      SplashFragment_GeneratedInjector,
-      CartFragment_GeneratedInjector,
-      FavoriteRestaurantsFragment_GeneratedInjector,
-      OderHistoryFragment_GeneratedInjector,
-      HomeFragment_GeneratedInjector,
-      MyProfileFragment_GeneratedInjector,
-      QNAFragment_GeneratedInjector,
-      RestaurantMenuFragment_GeneratedInjector,
-      FragmentComponent,
+  public abstract static class FragmentC implements FragmentComponent,
       DefaultViewModelFactories.FragmentEntryPoint,
       ViewComponentManager.ViewWithFragmentComponentBuilderEntryPoint,
       GeneratedComponent {

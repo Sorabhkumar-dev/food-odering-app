@@ -15,7 +15,6 @@ import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -249,7 +248,6 @@ fun MenuCard(modifier: Modifier, menu: Menu, isSavedMenu: Boolean,onClick:() -> 
     Card(
         onClick = onClick,
         modifier = modifier,
-        colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primaryContainer),
         shape = MaterialTheme.shapes.small
     ) {
         Box(

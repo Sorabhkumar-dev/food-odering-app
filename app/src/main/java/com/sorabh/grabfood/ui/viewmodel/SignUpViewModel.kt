@@ -11,7 +11,6 @@ import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,11 +27,6 @@ class SignUpViewModel @Inject constructor(private val getSignupUseCase: GetSignu
 
     val passwordVisible = MutableStateFlow(false)
     val confirmPasswordVisible = MutableStateFlow(false)
-
-
-    private val _signUpFlow: MutableStateFlow<Result<SignUpResponse>> =
-        MutableStateFlow(Result.Loading())
-    val signUpFlow = _signUpFlow.asStateFlow()
 
     fun onUserNameChanged(name: String) {
         viewModelScope.launch {
@@ -98,7 +92,7 @@ class SignUpViewModel @Inject constructor(private val getSignupUseCase: GetSignu
     }
 
 
-    fun getSignUpData(oderPostModel: OderPostModel, onSignUp: (Result<SignUpResponse>) -> Unit) {
+    private fun getSignUpData(oderPostModel: OderPostModel, onSignUp: (Result<SignUpResponse>) -> Unit) {
         viewModelScope.launch {
             getSignupUseCase(oderPostModel).collect {
                 onSignUp(it)
