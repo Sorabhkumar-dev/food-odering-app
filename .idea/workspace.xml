@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore: fixed login and sign-up" />
+    <list default="true" id="a6ed158b-0abf-48db-9674-1b15bc029823" name="Changes" comment="chore: fixed small issue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +70,7 @@
         <option value="Kotlin Enum" />
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -507,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699201092956</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="chore: fixed small issue">
+      <created>1699202168813</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1699202168813</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: Fixed CartFragment.kt small code issues" />
     <MESSAGE value="fix: Fixed OderHistory.kt small code issues" />
     <MESSAGE value="fix: implemented flow and viewModel SignUpFragment.kt" />
     <MESSAGE value="chore:implemented flow and viewModel in ForgotPasswordFragment.kt and updated other files" />
@@ -559,7 +566,8 @@
     <MESSAGE value="chore: setup all screen in jetpack compose navigation" />
     <MESSAGE value="chore: added theme" />
     <MESSAGE value="chore: fixed login and sign-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: fixed login and sign-up" />
+    <MESSAGE value="chore: fixed small issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: fixed small issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

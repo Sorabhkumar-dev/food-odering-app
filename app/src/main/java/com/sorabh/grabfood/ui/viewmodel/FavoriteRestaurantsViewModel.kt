@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FavoriteRestaurantsViewModel @Inject constructor(private val localDBRepository: LocalDBRepository) :
+class FavoriteRestaurantsViewModel @Inject constructor(private val localDBRepository:LocalDBRepository) :
     ViewModel() {
 
     private val _getDishesFlow: MutableStateFlow<List<Dish>> = MutableStateFlow(emptyList())

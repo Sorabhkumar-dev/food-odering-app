@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getRestaurantUseCase: GetRestaurantUseCase,
-    private val localDBRepository: LocalDBRepository
+    private val localDBRepository:LocalDBRepository
 ) : ViewModel() {
     private val _restaurantFlow: MutableStateFlow<Result<Restaurant>> =
         MutableStateFlow(Result.Loading())

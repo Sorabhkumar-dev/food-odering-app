@@ -25,7 +25,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CartViewModel @Inject constructor(
     private val getOderConfirmationUseCase: GetOderConfirmationUseCase,
-    private val localDBRepository: LocalDBRepository,
+    private val localDBRepository:LocalDBRepository,
     preferenceData: PreferenceData
 ) : ViewModel() {
     private val _oderConfirmationFlow: MutableStateFlow<Result<OderConfirmation>> =

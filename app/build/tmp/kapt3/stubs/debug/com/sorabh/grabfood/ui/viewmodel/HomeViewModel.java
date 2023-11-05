@@ -9,7 +9,6 @@ import com.sorabh.grabfood.domain.usecase.GetRestaurantUseCase;
 import com.sorabh.grabfood.util.Constants;
 import com.sorabh.grabfood.util.Keys;
 import dagger.hilt.android.lifecycle.HiltViewModel;
-import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.StateFlow;
 import javax.inject.Inject;
 
