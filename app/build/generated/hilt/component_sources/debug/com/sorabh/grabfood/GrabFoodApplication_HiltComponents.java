@@ -13,6 +13,7 @@ import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.OtpViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.QNAViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel_HiltModules;
+import com.sorabh.grabfood.ui.viewmodel.RootViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel_HiltModules;
 import com.sorabh.grabfood.ui.viewmodel.SplashViewModel_HiltModules;
 import dagger.Binds;
@@ -179,6 +180,7 @@ public final class GrabFoodApplication_HiltComponents {
           OtpViewModel_HiltModules.KeyModule.class,
           QNAViewModel_HiltModules.KeyModule.class,
           RestaurantMenuViewModel_HiltModules.KeyModule.class,
+          RootViewModel_HiltModules.KeyModule.class,
           SignUpViewModel_HiltModules.KeyModule.class,
           SplashViewModel_HiltModules.KeyModule.class
       }
@@ -228,6 +230,7 @@ public final class GrabFoodApplication_HiltComponents {
           OtpViewModel_HiltModules.BindsModule.class,
           QNAViewModel_HiltModules.BindsModule.class,
           RestaurantMenuViewModel_HiltModules.BindsModule.class,
+          RootViewModel_HiltModules.BindsModule.class,
           SignUpViewModel_HiltModules.BindsModule.class,
           SplashViewModel_HiltModules.BindsModule.class
       }

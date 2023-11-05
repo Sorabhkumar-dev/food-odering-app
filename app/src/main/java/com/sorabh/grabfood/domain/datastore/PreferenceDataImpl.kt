@@ -56,6 +56,12 @@ class PreferenceDataImpl @Inject constructor(private val context: Context) : Pre
         }
     }
 
+    override suspend fun writeDarkMode(isOnDarkMode: Boolean) {
+        context.dataStore.edit { preference ->
+            preference[PreferenceKey.LIGHT_MODE] = isOnDarkMode
+        }
+    }
+
     override suspend fun clearDatStore() {
         context.dataStore.edit {
             it.clear()
@@ -97,5 +103,11 @@ class PreferenceDataImpl @Inject constructor(private val context: Context) : Pre
         if (this is Exception) emit(emptyPreferences())
     }.map { preference ->
         preference[PreferenceKey.IS_LOGIN] ?: false
+    }
+
+    override val readLightModeFlow: Flow<Boolean>  = context.dataStore.data.catch {
+        if (this is Exception) emit(emptyPreferences())
+    }.map { preference ->
+        preference[PreferenceKey.LIGHT_MODE] ?: false
     }
 }

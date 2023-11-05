@@ -2,6 +2,7 @@ package com.sorabh.grabfood.ui.activities;
 
 import android.os.Bundle;
 import androidx.activity.ComponentActivity;
+import com.sorabh.grabfood.ui.viewmodel.RootViewModel;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @dagger.hilt.android.AndroidEntryPoint

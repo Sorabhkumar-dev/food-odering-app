@@ -2,6 +2,7 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +16,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.outlined.NightsStay
+import androidx.compose.material.icons.outlined.WbSunny
 import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
@@ -27,7 +30,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +54,6 @@ fun MainScreen(viewModel: MainViewModel) {
     val coroutineScope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val navController = rememberNavController()
-    var selected = remember { drawerNavigationItems.first() }
 
     ModalNavigationDrawer(
         drawerContent = {
@@ -74,13 +75,13 @@ fun MainScreen(viewModel: MainViewModel) {
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             },
-                            selected = selected.screen == item.screen,
+                            selected = viewModel.selectedNavigationItem.collectAsStateWithLifecycle().value.screen === item.screen,
                             onClick = {
                                 coroutineScope.launch {
                                     if (item.screen == ScreenNavigator.LogoutDialog.name)
                                         viewModel.onShowLogoutValueChanged(true)
-                                    else if (selected.screen != item.screen) {
-                                        selected = item
+                                    else if (viewModel.selectedNavigationItem.value.screen != item.screen) {
+                                        viewModel.onSelectedNavigationChanged(item)
                                         navController.navigate(item.screen)
                                     }
                                     drawerState.close()
@@ -103,31 +104,46 @@ fun MainScreen(viewModel: MainViewModel) {
         Scaffold(
             modifier = Modifier.width(LocalConfiguration.current.screenWidthDp.dp),
             topBar = {
-                Row(
+                Box(
                     modifier = Modifier
+                        .fillMaxWidth()
                         .height(MaterialTheme.spacing.space62)
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    IconButton(onClick = {
-                        coroutineScope.launch {
-                            drawerState.open()
+                    Row(modifier = Modifier.align(Alignment.CenterStart), verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(onClick = {
+                            coroutineScope.launch {
+                                drawerState.open()
+                            }
+                        }) {
+                            Icon(
+                                imageVector = Icons.Outlined.Menu,
+                                contentDescription = "menu icon",
+                                modifier = Modifier.size(MaterialTheme.spacing.space32)
+                            )
                         }
-                    }) {
-                        Icon(
-                            imageVector = Icons.Outlined.Menu,
-                            contentDescription = "menu icon",
-                            modifier = Modifier.size(MaterialTheme.spacing.space32)
+
+                        Spacer(modifier = Modifier.width(MaterialTheme.spacing.space24))
+                        Text(
+                            text = navController.currentDestination?.route?.replace("Screen", "")
+                                ?: stringResource(id = R.string.na),
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.SemiBold
                         )
                     }
 
-                    Spacer(modifier = Modifier.width(MaterialTheme.spacing.space24))
-                    Text(
-                        text = navController.currentDestination?.route?.replace("Screen", "")
-                            ?: stringResource(id = R.string.na),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                    IconButton(
+                        onClick = viewModel::writeDarkMode,
+                        modifier = Modifier.align(Alignment.CenterEnd)
+                    ) {
+                        Icon(
+                            imageVector =
+                            if (viewModel.lightMode.collectAsStateWithLifecycle(false).value)
+                                Icons.Outlined.WbSunny
+                            else
+                                Icons.Outlined.NightsStay,
+                            contentDescription = "light mode icon"
+                        )
+                    }
                 }
             }) {
             MainNavigation(
