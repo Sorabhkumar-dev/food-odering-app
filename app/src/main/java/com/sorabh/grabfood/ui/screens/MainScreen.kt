@@ -2,9 +2,7 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +18,7 @@ import androidx.compose.material.icons.outlined.NightsStay
 import androidx.compose.material.icons.outlined.WbSunny
 import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -28,6 +27,7 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -49,6 +49,7 @@ import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(viewModel: MainViewModel) {
     val coroutineScope = rememberCoroutineScope()
@@ -104,12 +105,16 @@ fun MainScreen(viewModel: MainViewModel) {
         Scaffold(
             modifier = Modifier.width(LocalConfiguration.current.screenWidthDp.dp),
             topBar = {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(MaterialTheme.spacing.space62)
-                ) {
-                    Row(modifier = Modifier.align(Alignment.CenterStart), verticalAlignment = Alignment.CenterVertically) {
+                TopAppBar(title = {
+                    Text(
+                        text = navController.currentDestination?.route?.replace("Screen", "")
+                            ?: stringResource(id = R.string.na),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                },
+                    modifier = Modifier.fillMaxWidth(),
+                    navigationIcon = {
                         IconButton(onClick = {
                             coroutineScope.launch {
                                 drawerState.open()
@@ -121,30 +126,19 @@ fun MainScreen(viewModel: MainViewModel) {
                                 modifier = Modifier.size(MaterialTheme.spacing.space32)
                             )
                         }
-
-                        Spacer(modifier = Modifier.width(MaterialTheme.spacing.space24))
-                        Text(
-                            text = navController.currentDestination?.route?.replace("Screen", "")
-                                ?: stringResource(id = R.string.na),
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                    }
-
-                    IconButton(
-                        onClick = viewModel::writeDarkMode,
-                        modifier = Modifier.align(Alignment.CenterEnd)
-                    ) {
-                        Icon(
-                            imageVector =
-                            if (viewModel.lightMode.collectAsStateWithLifecycle(false).value)
-                                Icons.Outlined.WbSunny
-                            else
-                                Icons.Outlined.NightsStay,
-                            contentDescription = "light mode icon"
-                        )
-                    }
-                }
+                    },
+                    actions = {
+                        IconButton(onClick = viewModel::writeDarkMode) {
+                            Icon(
+                                imageVector =
+                                if (viewModel.lightMode.collectAsStateWithLifecycle(false).value)
+                                    Icons.Outlined.WbSunny
+                                else
+                                    Icons.Outlined.NightsStay,
+                                contentDescription = "light mode icon"
+                            )
+                        }
+                    })
             }) {
             MainNavigation(
                 modifier = Modifier
