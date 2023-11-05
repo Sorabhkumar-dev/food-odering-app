@@ -56,6 +56,8 @@ import com.sorabh.grabfood.ui.viewmodel.QNAViewModel;
 import com.sorabh.grabfood.ui.viewmodel.QNAViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel;
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.sorabh.grabfood.ui.viewmodel.RootViewModel;
+import com.sorabh.grabfood.ui.viewmodel.RootViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel;
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.sorabh.grabfood.ui.viewmodel.SplashViewModel;
@@ -426,7 +428,7 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return SetBuilder.<String>newSetBuilder(13).add(CartViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(FavoriteRestaurantsViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(ForgotPasswordViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HomeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MainViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MyProfileViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OderHistoryVieModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OtpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(QNAViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RestaurantMenuViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SignUpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SplashViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
+      return SetBuilder.<String>newSetBuilder(14).add(CartViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(FavoriteRestaurantsViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(ForgotPasswordViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HomeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(LoginViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MainViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(MyProfileViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OderHistoryVieModel_HiltModules_KeyModule_ProvideFactory.provide()).add(OtpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(QNAViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RestaurantMenuViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RootViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SignUpViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(SplashViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
     }
 
     @Override
@@ -473,6 +475,8 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
     private Provider<QNAViewModel> qNAViewModelProvider;
 
     private Provider<RestaurantMenuViewModel> restaurantMenuViewModelProvider;
+
+    private Provider<RootViewModel> rootViewModelProvider;
 
     private Provider<SignUpViewModel> signUpViewModelProvider;
 
@@ -534,13 +538,14 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
       this.otpViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 8);
       this.qNAViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 9);
       this.restaurantMenuViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 10);
-      this.signUpViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 11);
-      this.splashViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 12);
+      this.rootViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 11);
+      this.signUpViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 12);
+      this.splashViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 13);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(13).put("com.sorabh.grabfood.ui.viewmodel.CartViewModel", ((Provider) cartViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel", ((Provider) favoriteRestaurantsViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel", ((Provider) forgotPasswordViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.HomeViewModel", ((Provider) homeViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.LoginViewModel", ((Provider) loginViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MainViewModel", ((Provider) mainViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel", ((Provider) myProfileViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel", ((Provider) oderHistoryVieModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OtpViewModel", ((Provider) otpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.QNAViewModel", ((Provider) qNAViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel", ((Provider) restaurantMenuViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SignUpViewModel", ((Provider) signUpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SplashViewModel", ((Provider) splashViewModelProvider)).build();
+      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(14).put("com.sorabh.grabfood.ui.viewmodel.CartViewModel", ((Provider) cartViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel", ((Provider) favoriteRestaurantsViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel", ((Provider) forgotPasswordViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.HomeViewModel", ((Provider) homeViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.LoginViewModel", ((Provider) loginViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MainViewModel", ((Provider) mainViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel", ((Provider) myProfileViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel", ((Provider) oderHistoryVieModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.OtpViewModel", ((Provider) otpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.QNAViewModel", ((Provider) qNAViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel", ((Provider) restaurantMenuViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.RootViewModel", ((Provider) rootViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SignUpViewModel", ((Provider) signUpViewModelProvider)).put("com.sorabh.grabfood.ui.viewmodel.SplashViewModel", ((Provider) splashViewModelProvider)).build();
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -597,10 +602,13 @@ public final class DaggerGrabFoodApplication_HiltComponents_SingletonC {
           case 10: // com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel 
           return (T) new RestaurantMenuViewModel(viewModelCImpl.getRestaurantMenuUseCase(), singletonCImpl.localDBRepository());
 
-          case 11: // com.sorabh.grabfood.ui.viewmodel.SignUpViewModel 
+          case 11: // com.sorabh.grabfood.ui.viewmodel.RootViewModel 
+          return (T) new RootViewModel(singletonCImpl.provideDataStoreProvider.get());
+
+          case 12: // com.sorabh.grabfood.ui.viewmodel.SignUpViewModel 
           return (T) new SignUpViewModel(viewModelCImpl.getSignupUseCase());
 
-          case 12: // com.sorabh.grabfood.ui.viewmodel.SplashViewModel 
+          case 13: // com.sorabh.grabfood.ui.viewmodel.SplashViewModel 
           return (T) new SplashViewModel(singletonCImpl.provideDataStoreProvider.get());
 
           default: throw new AssertionError(id);

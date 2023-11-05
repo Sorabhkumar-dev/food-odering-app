@@ -10,4 +10,5 @@ object PreferenceKey {
     val NAME = stringPreferencesKey("name")
     val USER_ID = stringPreferencesKey("user_id")
     val IS_LOGIN = booleanPreferencesKey("isLogin")
+    val LIGHT_MODE = booleanPreferencesKey("light_mode")
 }

@@ -15,6 +15,8 @@ interface PreferenceData {
 
     suspend fun writeIsLogin(isLogin:Boolean)
 
+    suspend fun writeDarkMode(isOnDarkMode:Boolean)
+
     suspend fun clearDatStore()
 
     val readAddressFlow:Flow<String>
@@ -28,4 +30,6 @@ interface PreferenceData {
     val readUserIdFlow:Flow<String>
 
     val readIsLoginFlow:Flow<Boolean>
+
+    val readLightModeFlow:Flow<Boolean>
 }

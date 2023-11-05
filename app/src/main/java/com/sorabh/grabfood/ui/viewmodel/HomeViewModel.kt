@@ -11,7 +11,7 @@ import com.sorabh.grabfood.util.Constants
 import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,7 +23,7 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
     private val _restaurantFlow: MutableStateFlow<Result<Restaurant>> =
         MutableStateFlow(Result.Loading())
-    val restaurantFlow: StateFlow<Result<Restaurant>> = _restaurantFlow
+    val restaurantFlow = _restaurantFlow.asStateFlow()
 
     init {
         getRestaurants()
