@@ -4,28 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.sorabh.grabfood.R
 import com.sorabh.grabfood.databinding.FragmentRestaurantMenuBinding
-import com.sorabh.grabfood.domain.model.post.RestaurantMenuPostModel
-import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.domain.network_api.Result
 import com.sorabh.grabfood.ui.adapter.RestaurantMenuAdapter
 import com.sorabh.grabfood.ui.fragments.cart.CartFragment
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
 import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel
-import com.sorabh.grabfood.util.Constants
-import com.sorabh.grabfood.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
+class RestaurantMenuFragment() : BaseFragment() {
 
     private val viewModel: RestaurantMenuViewModel by viewModels()
     private lateinit var binding: FragmentRestaurantMenuBinding
@@ -36,23 +31,23 @@ class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        startupInitializer()
+//        startupInitializer()
         setOnClickListener()
         setupObserver()
-        setupApiCall()
+//        setupApiCall()
         return binding.root
     }
 
-    private fun startupInitializer() {
-        binding = FragmentRestaurantMenuBinding.inflate(layoutInflater)
-        (activity as AppCompatActivity).supportActionBar?.title = dish.name
-
-        restaurantMenuAdapter.deleteMenu = viewModel::deleteMenu
-        restaurantMenuAdapter.insertMenu = viewModel::insertMenu
-        restaurantMenuAdapter.isMenuSaved = viewModel::isMenuSaved
-
-        binding.restaurantMenuRecyclerView.adapter = restaurantMenuAdapter
-    }
+//    private fun startupInitializer() {
+//        binding = FragmentRestaurantMenuBinding.inflate(layoutInflater)
+//        (activity as AppCompatActivity).supportActionBar?.title = dish.name
+//
+//        restaurantMenuAdapter.deleteMenu = viewModel::deleteMenu
+//        restaurantMenuAdapter.insertMenu = viewModel::insertMenu
+//        restaurantMenuAdapter.isMenuSaved = viewModel::isMenuSaved
+//
+//        binding.restaurantMenuRecyclerView.adapter = restaurantMenuAdapter
+//    }
 
     private fun setOnClickListener() {
         binding.btnProceed.setOnClickListener {
@@ -60,7 +55,7 @@ class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
         }
         binding.errorLayout.btnRetry.setOnClickListener {
             binding.errorLayout.root.visibility = View.GONE
-            setupApiCall()
+//            setupApiCall()
         }
     }
 
@@ -77,12 +72,12 @@ class RestaurantMenuFragment(private val dish: Dish) : BaseFragment() {
             .commit()
     }
 
-    private fun setupApiCall() {
-        val header = HashMap<String, String>()
-        header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
-        header[Keys.TOKEN] = Constants.MAIN_TOKEN
-        viewModel.getRestaurantMenu(RestaurantMenuPostModel(header, dish.id))
-    }
+//    private fun setupApiCall() {
+//        val header = HashMap<String, String>()
+//        header[Keys.CONTENT_TYPE] = Constants.CONTENT_TYPE_VALUE
+//        header[Keys.TOKEN] = Constants.MAIN_TOKEN
+//        viewModel.getRestaurantMenu(RestaurantMenuPostModel(header, dish.id))
+//    }
 
     private fun setupObserver() {
         lifecycleScope.launch {

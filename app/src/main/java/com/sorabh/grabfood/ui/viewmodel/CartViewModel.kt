@@ -38,7 +38,7 @@ class CartViewModel @Inject constructor(
     private val _menuFlow: MutableStateFlow<List<Menu>> = MutableStateFlow(emptyList())
     val menuFlow: StateFlow<List<Menu>> = _menuFlow
 
-    val userIdFlow = preferenceData.readUserIdFlow
+    private val userIdFlow = preferenceData.readUserIdFlow
 
     init {
         viewModelScope.launch { getMenu() }
@@ -90,7 +90,7 @@ class CartViewModel @Inject constructor(
         val result = CoroutineScope(Dispatchers.IO).async {
             localDBRepository.getMenuItem(id)
         }
-        return result.await() > 0
+        return true
     }
 
     private suspend fun getMenu() {

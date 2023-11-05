@@ -14,10 +14,10 @@ import kotlinx.coroutines.flow.Flow
 interface LocalDAO {
 
     @Insert
-    suspend fun insertRestaurant(restaurant: Dish)
+    suspend fun insertRestaurant(dish: Dish)
 
     @Delete
-    suspend fun deleteRestaurant(restaurant: Dish)
+    suspend fun deleteRestaurant(dish: Dish)
 
     @Query("Select * from Restaurant")
     fun getRestaurantList(): Flow<List<Dish>>
@@ -29,7 +29,7 @@ interface LocalDAO {
     suspend fun insertMenu(menu: Menu)
 
     @Query("select Count(id) from menu where id = :id")
-    suspend fun getMenuItem(id: String): Int
+    fun getMenuItem(id: String): Flow<Int>
 
     @Delete
     suspend fun deleteMenu(menu: Menu)

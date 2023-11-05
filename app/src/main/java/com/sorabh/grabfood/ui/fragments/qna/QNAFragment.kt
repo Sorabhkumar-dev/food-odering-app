@@ -21,7 +21,7 @@ class QNAFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            QNAScreen(viewModel = viewModel)
+//            QNAScreen(viewModel = viewModel)
         }
     }
 }

@@ -2,7 +2,6 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,14 +13,14 @@ import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.QNAViewModel
 
 @Composable
-fun QNAScreen(viewModel: QNAViewModel) {
-    QNAContent(viewModel = viewModel)
+fun QNAScreen(modifier: Modifier,viewModel: QNAViewModel) {
+    QNAContent(modifier = modifier,viewModel = viewModel)
 }
 
 @Composable
-fun QNAContent(viewModel: QNAViewModel) {
+fun QNAContent(modifier: Modifier,viewModel: QNAViewModel) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentPadding = PaddingValues(MaterialTheme.spacing.space16),
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.space16)
     ) {

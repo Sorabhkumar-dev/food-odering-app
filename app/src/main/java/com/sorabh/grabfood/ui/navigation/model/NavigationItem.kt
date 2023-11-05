@@ -20,7 +20,7 @@ val drawerNavigationItems = mutableStateListOf(
     DrawerNavigationItem(R.string.menu_home, Icons.Outlined.Home,ScreenNavigator.HomeScreen.name),
     DrawerNavigationItem(R.string.menu_profile, Icons.Outlined.Person,ScreenNavigator.MyProfileScreen.name),
     DrawerNavigationItem(R.string.menu_cart, Icons.Outlined.ShoppingCart,ScreenNavigator.MyCartScreen.name),
-    DrawerNavigationItem(R.string.menu_favorite, Icons.Outlined.FavoriteBorder,ScreenNavigator.FavoriteScreen.name),
+    DrawerNavigationItem(R.string.menu_favorite, Icons.Outlined.FavoriteBorder,ScreenNavigator.FavoriteRestaurantScreen.name),
     DrawerNavigationItem(R.string.menu_history, Icons.Outlined.History,ScreenNavigator.OderHistoryScreen.name),
     DrawerNavigationItem(R.string.menu_qna, Icons.Outlined.QuestionAnswer,ScreenNavigator.QNAScreen.name),
     DrawerNavigationItem(R.string.menu_logout, Icons.Outlined.Logout,ScreenNavigator.LogoutDialog.name),

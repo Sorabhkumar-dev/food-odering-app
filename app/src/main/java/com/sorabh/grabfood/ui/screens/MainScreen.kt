@@ -81,7 +81,6 @@ fun MainScreen(viewModel: MainViewModel) {
                                         viewModel.onShowLogoutValueChanged(true)
                                     else if (selected.screen != item.screen) {
                                         selected = item
-                                        drawerState.snapTo(DrawerValue.valueOf(item.screen))
                                         navController.navigate(item.screen)
                                     }
                                     drawerState.close()
@@ -132,7 +131,9 @@ fun MainScreen(viewModel: MainViewModel) {
                 }
             }) {
             MainNavigation(
-                modifier = Modifier.padding(it),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(it),
                 navController = navController
             )
         }

@@ -22,7 +22,7 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            CartScreen(viewModel = viewModel)
+//            CartScreen(viewModel = viewModel)
         }
     }
 }

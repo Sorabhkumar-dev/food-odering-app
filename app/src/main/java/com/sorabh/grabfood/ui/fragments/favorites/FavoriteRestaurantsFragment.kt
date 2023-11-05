@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.viewModels
-import com.sorabh.grabfood.R
 import com.sorabh.grabfood.ui.fragments.home.BaseFragment
-import com.sorabh.grabfood.ui.fragments.restaurant_menu.RestaurantMenuFragment
-import com.sorabh.grabfood.ui.screens.FavoriteRestaurantsScreen
 import com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,18 +19,18 @@ class FavoriteRestaurantsFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            FavoriteRestaurantsScreen(viewModel = viewModel) {
-                parentFragmentManager.beginTransaction()
-                    .setCustomAnimations(
-                        R.anim.enter_from_right,
-                        R.anim.exit_to_left,
-                        R.anim.enter_from_left,
-                        R.anim.exit_to_right
-                    )
-                    .addToBackStack("RestaurantMenuFragment")
-                    .replace(R.id.frameLayout, RestaurantMenuFragment(it))
-                    .commit()
-            }
+//            FavoriteRestaurantsScreen(viewModel = viewModel) {
+//                parentFragmentManager.beginTransaction()
+//                    .setCustomAnimations(
+//                        R.anim.enter_from_right,
+//                        R.anim.exit_to_left,
+//                        R.anim.enter_from_left,
+//                        R.anim.exit_to_right
+//                    )
+//                    .addToBackStack("RestaurantMenuFragment")
+//                    .replace(R.id.frameLayout, RestaurantMenuFragment(it))
+//                    .commit()
+//            }
         }
     }
 }

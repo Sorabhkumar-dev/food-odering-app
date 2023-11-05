@@ -26,13 +26,13 @@ import com.sorabh.grabfood.ui.viewmodel.CartViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun CartScreen(viewModel: CartViewModel) {
-    CartContent(viewModel)
+fun CartScreen(modifier: Modifier, viewModel: CartViewModel) {
+    CartContent(modifier = modifier, viewModel = viewModel)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CartContent(viewModel: CartViewModel) {
+fun CartContent(modifier: Modifier, viewModel: CartViewModel) {
     val menus = viewModel.menuFlow.collectAsStateWithLifecycle().value
     val isOrderPlaced = viewModel.oderConfirmationFlow.collectAsStateWithLifecycle().value
     val sheetState = rememberModalBottomSheetState()
@@ -66,7 +66,7 @@ fun CartContent(viewModel: CartViewModel) {
             )
         }
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentPadding = PaddingValues(MaterialTheme.spacing.space16),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.space16)

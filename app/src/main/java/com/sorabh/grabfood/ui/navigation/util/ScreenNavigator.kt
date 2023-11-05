@@ -10,9 +10,10 @@ enum class ScreenNavigator {
     HomeScreen,
     MyProfileScreen,
     MyCartScreen,
-    FavoriteScreen,
     OderHistoryScreen,
     QNAScreen,
+    RestaurantMenuScreen,
+    FavoriteRestaurantScreen,
 
     LogoutDialog
 }

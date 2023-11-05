@@ -210,14 +210,13 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public Object insertRestaurant(final Dish restaurant,
-      final Continuation<? super Unit> $completion) {
+  public Object insertRestaurant(final Dish dish, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
-          __insertionAdapterOfDish.insert(restaurant);
+          __insertionAdapterOfDish.insert(dish);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {
@@ -245,14 +244,13 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public Object deleteRestaurant(final Dish restaurant,
-      final Continuation<? super Unit> $completion) {
+  public Object deleteRestaurant(final Dish dish, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
-          __deletionAdapterOfDish.handle(restaurant);
+          __deletionAdapterOfDish.handle(dish);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {
@@ -430,7 +428,7 @@ public final class LocalDAO_Impl implements LocalDAO {
   }
 
   @Override
-  public Object getMenuItem(final String id, final Continuation<? super Integer> $completion) {
+  public Flow<Integer> getMenuItem(final String id) {
     final String _sql = "select Count(id) from menu where id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -439,8 +437,7 @@ public final class LocalDAO_Impl implements LocalDAO {
     } else {
       _statement.bindString(_argIndex, id);
     }
-    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
-    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Integer>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[]{"menu"}, new Callable<Integer>() {
       @Override
       public Integer call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
@@ -460,10 +457,14 @@ public final class LocalDAO_Impl implements LocalDAO {
           return _result;
         } finally {
           _cursor.close();
-          _statement.release();
         }
       }
-    }, $completion);
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
   }
 
   @Override

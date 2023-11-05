@@ -21,7 +21,7 @@ class OderHistoryFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            OderHistoryScreen(viewModel = viewModel)
+//            OderHistoryScreen(viewModel = viewModel)
         }
     }
 }

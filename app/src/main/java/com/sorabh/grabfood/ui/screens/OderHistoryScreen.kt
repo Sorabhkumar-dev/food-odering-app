@@ -2,7 +2,6 @@ package com.sorabh.grabfood.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -17,15 +16,15 @@ import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel
 
 @Composable
-fun OderHistoryScreen(viewModel: OderHistoryVieModel) {
-    OderHistoryContent(viewModel = viewModel)
+fun OderHistoryScreen(modifier: Modifier,viewModel: OderHistoryVieModel) {
+    OderHistoryContent(modifier = modifier,viewModel = viewModel)
 }
 
 @Composable
-private fun OderHistoryContent(viewModel: OderHistoryVieModel) {
+private fun OderHistoryContent(modifier: Modifier,viewModel: OderHistoryVieModel) {
     val oderHistory = viewModel.oderHistoryFlow.collectAsStateWithLifecycle().value
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentPadding = PaddingValues(MaterialTheme.spacing.space16),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.space16)
