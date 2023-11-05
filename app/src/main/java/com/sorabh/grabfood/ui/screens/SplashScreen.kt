@@ -29,6 +29,7 @@ import kotlinx.coroutines.flow.first
 fun SplashScreen(viewModel: SplashViewModel, navController: NavController) {
     LaunchedEffect(Unit) {
         delay(2000)
+        navController.popBackStack(ScreenNavigator.SplashScreen.name, true)
         if (viewModel.isLoginFlow.first())
             navController.navigate(ScreenNavigator.MainScreen.name)
         else
@@ -54,6 +55,9 @@ fun SplashScreen(viewModel: SplashViewModel, navController: NavController) {
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.space150))
 
-        CircularProgressIndicator(modifier = Modifier.size(MaterialTheme.spacing.space70))
+        CircularProgressIndicator(
+            modifier = Modifier.size(MaterialTheme.spacing.space70),
+            strokeWidth = MaterialTheme.spacing.space6
+        )
     }
 }

@@ -7,10 +7,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.sorabh.grabfood.ui.screens.ForgotPasswordScreen
 import com.sorabh.grabfood.ui.screens.LoginScreen
+import com.sorabh.grabfood.ui.screens.MainScreen
 import com.sorabh.grabfood.ui.screens.OTPScreen
 import com.sorabh.grabfood.ui.screens.SignUpScreen
 import com.sorabh.grabfood.ui.viewmodel.ForgotPasswordViewModel
 import com.sorabh.grabfood.ui.viewmodel.LoginViewModel
+import com.sorabh.grabfood.ui.viewmodel.MainViewModel
 import com.sorabh.grabfood.ui.viewmodel.OtpViewModel
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel
 
@@ -42,6 +44,11 @@ fun NavGraphBuilder.authNavigation(navController: NavHostController){
                 navController = navController,
                 phone = backstackEntry.arguments?.getString("phone")!!
             )
+        }
+
+        composable(ScreenNavigator.MainScreen.name){
+            val viewModel = hiltViewModel<MainViewModel>()
+            MainScreen(viewModel = viewModel)
         }
 
     }

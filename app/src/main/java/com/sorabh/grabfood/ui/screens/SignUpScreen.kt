@@ -1,12 +1,16 @@
 package com.sorabh.grabfood.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Visibility
@@ -24,7 +28,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -40,7 +46,7 @@ import com.sorabh.grabfood.ui.theme.spacing
 import com.sorabh.grabfood.ui.viewmodel.SignUpViewModel
 
 @Composable
-fun SignUpScreen( viewModel: SignUpViewModel, navController: NavController) {
+fun SignUpScreen(viewModel: SignUpViewModel, navController: NavController) {
     SignContent(viewModel = viewModel, navController = navController)
 }
 
@@ -52,17 +58,26 @@ private fun SignContent(
     val context = LocalContext.current
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Spacer(modifier = Modifier.height(MaterialTheme.spacing.space48))
+        Image(
+            painter = painterResource(id = R.drawable.ic_grab_food),
+            contentDescription = "grab food",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.Crop
+        )
 
         OutlinedTextField(
             value = viewModel.userNameFlow.collectAsStateWithLifecycle().value,
             onValueChange = viewModel::onUserNameChanged,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             textStyle = MaterialTheme.typography.bodyLarge,
             label = { Text(text = stringResource(id = R.string.name)) },
             leadingIcon = {
@@ -81,7 +96,9 @@ private fun SignContent(
         OutlinedTextField(
             value = viewModel.userMobileFlow.collectAsStateWithLifecycle().value,
             onValueChange = viewModel::onMobileChanged,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             textStyle = MaterialTheme.typography.bodyLarge,
             label = {
                 Text(text = stringResource(id = R.string.mobile))
@@ -102,7 +119,9 @@ private fun SignContent(
         OutlinedTextField(
             value = viewModel.userEmailFlow.collectAsStateWithLifecycle().value,
             onValueChange = viewModel::onEmailChanged,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             textStyle = MaterialTheme.typography.bodyLarge,
             label = {
                 Text(text = stringResource(id = R.string.email))
@@ -123,7 +142,9 @@ private fun SignContent(
         OutlinedTextField(
             value = viewModel.deliveryAddressFlow.collectAsStateWithLifecycle().value,
             onValueChange = viewModel::onAddressChanged,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             textStyle = MaterialTheme.typography.bodyLarge,
             label = {
                 Text(text = stringResource(id = R.string.delivery_address))
@@ -144,7 +165,9 @@ private fun SignContent(
         OutlinedTextField(
             value = viewModel.passwordFlow.collectAsStateWithLifecycle().value,
             onValueChange = viewModel::onPasswordChanged,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             textStyle = MaterialTheme.typography.bodyLarge,
             label = {
                 Text(text = stringResource(id = R.string.password))
@@ -175,7 +198,9 @@ private fun SignContent(
         OutlinedTextField(
             value = viewModel.confirmPasswordFlow.collectAsStateWithLifecycle().value,
             onValueChange = viewModel::onConfirmPasswordChanged,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             textStyle = MaterialTheme.typography.bodyLarge,
             label = {
                 Text(text = stringResource(id = R.string.confirm_password))
@@ -223,6 +248,9 @@ private fun SignContent(
                     }
                 }
             },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MaterialTheme.spacing.space16),
             enabled = viewModel.isSignUpDataEvaluated()
         ) {
             Text(

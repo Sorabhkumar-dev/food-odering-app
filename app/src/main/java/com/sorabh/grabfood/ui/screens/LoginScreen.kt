@@ -17,7 +17,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,14 +42,6 @@ fun LoginScreen(
     viewModel: LoginViewModel,
     navController: NavController
 ) {
-    val loginFlow = viewModel.isLoginFlow.collectAsStateWithLifecycle(false).value
-    LaunchedEffect(loginFlow) {
-//        if (loginFlow)
-//            navController.navigate(
-//                LoginFragmentDirections
-//                    .actionLoginFragmentToMainFragment()
-//            )
-    }
     LoginContent(viewModel = viewModel, navController = navController)
 }
 
@@ -145,7 +136,12 @@ private fun LoginContent(
         })
 
         Button(
-            onClick = viewModel::login,
+            onClick = {
+                viewModel.login {
+                    navController.popBackStack(ScreenNavigator.LoginScreen.name, true)
+                    navController.navigate(ScreenNavigator.MainScreen.name)
+                }
+            },
             modifier = Modifier.constrainAs(btnLogin) {
                 start.linkTo(parent.start, 16.dp)
                 top.linkTo(spacerPassword.bottom)
@@ -175,10 +171,7 @@ private fun LoginContent(
 
         TextButton(
             onClick = {
-//                navController.navigate(
-//                    LoginFragmentDirections
-//                        .actionLoginFragmentToSignUpFragment()
-//                )
+                navController.navigate(ScreenNavigator.SignUpScreen.name)
             },
             modifier = Modifier.constrainAs(btnSignUp) {
                 start.linkTo(parent.start, 24.dp)
