@@ -11,13 +11,11 @@
         android:name=".GrabFoodApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GrabFood"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
             android:name=".ui.activities.RootActivity"
-            android:exported="true"
-            android:theme="@style/Theme.GrabFood.FullScreen">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

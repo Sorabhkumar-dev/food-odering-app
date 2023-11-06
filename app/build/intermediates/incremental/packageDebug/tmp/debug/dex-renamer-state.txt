@@ -1,4 +1,4 @@
-#Sun Nov 05 23:19:57 IST 2023
+#Tue Nov 07 00:34:08 IST 2023
 base.0=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.10=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex
@@ -6,7 +6,6 @@ base.11=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermedia
 base.12=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
 base.13=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
 base.14=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
-base.15=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
 base.2=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/10/classes.dex
 base.3=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
 base.4=/home/sorabh/AndroidStudioProjects/food-odering-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
@@ -22,7 +21,6 @@ path.11=7/classes.dex
 path.12=8/classes.dex
 path.13=9/classes.dex
 path.14=classes2.dex
-path.15=classes3.dex
 path.2=10/classes.dex
 path.3=11/classes.dex
 path.4=12/classes.dex
@@ -38,7 +36,6 @@ renamed.11=classes12.dex
 renamed.12=classes13.dex
 renamed.13=classes14.dex
 renamed.14=classes15.dex
-renamed.15=classes16.dex
 renamed.2=classes3.dex
 renamed.3=classes4.dex
 renamed.4=classes5.dex
