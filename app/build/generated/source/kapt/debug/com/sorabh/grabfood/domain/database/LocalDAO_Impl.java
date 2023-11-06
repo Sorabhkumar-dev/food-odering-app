@@ -1,6 +1,8 @@
 package com.sorabh.grabfood.domain.database;
 
 import android.database.Cursor;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.CoroutinesRoom;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
@@ -49,116 +51,127 @@ public final class LocalDAO_Impl implements LocalDAO {
 
   private final EntityUpsertionAdapter<QNAData> __upsertionAdapterOfQNAData;
 
-  public LocalDAO_Impl(RoomDatabase __db) {
+  public LocalDAO_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfDish = new EntityInsertionAdapter<Dish>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "INSERT OR ABORT INTO `Restaurant` (`cost_for_one`,`id`,`image_url`,`name`,`rating`) VALUES (?,?,?,?,?)";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, Dish value) {
-        if (value.getCost_for_one() == null) {
-          stmt.bindNull(1);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final Dish entity) {
+        if (entity.getCost_for_one() == null) {
+          statement.bindNull(1);
         } else {
-          stmt.bindString(1, value.getCost_for_one());
+          statement.bindString(1, entity.getCost_for_one());
         }
-        if (value.getId() == null) {
-          stmt.bindNull(2);
+        if (entity.getId() == null) {
+          statement.bindNull(2);
         } else {
-          stmt.bindString(2, value.getId());
+          statement.bindString(2, entity.getId());
         }
-        if (value.getImage_url() == null) {
-          stmt.bindNull(3);
+        if (entity.getImage_url() == null) {
+          statement.bindNull(3);
         } else {
-          stmt.bindString(3, value.getImage_url());
+          statement.bindString(3, entity.getImage_url());
         }
-        if (value.getName() == null) {
-          stmt.bindNull(4);
+        if (entity.getName() == null) {
+          statement.bindNull(4);
         } else {
-          stmt.bindString(4, value.getName());
+          statement.bindString(4, entity.getName());
         }
-        if (value.getRating() == null) {
-          stmt.bindNull(5);
+        if (entity.getRating() == null) {
+          statement.bindNull(5);
         } else {
-          stmt.bindString(5, value.getRating());
+          statement.bindString(5, entity.getRating());
         }
       }
     };
     this.__insertionAdapterOfMenu = new EntityInsertionAdapter<Menu>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "INSERT OR ABORT INTO `Menu` (`cost_for_one`,`id`,`name`,`restaurant_id`) VALUES (?,?,?,?)";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, Menu value) {
-        if (value.getCost_for_one() == null) {
-          stmt.bindNull(1);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final Menu entity) {
+        if (entity.getCost_for_one() == null) {
+          statement.bindNull(1);
         } else {
-          stmt.bindString(1, value.getCost_for_one());
+          statement.bindString(1, entity.getCost_for_one());
         }
-        if (value.getId() == null) {
-          stmt.bindNull(2);
+        if (entity.getId() == null) {
+          statement.bindNull(2);
         } else {
-          stmt.bindString(2, value.getId());
+          statement.bindString(2, entity.getId());
         }
-        if (value.getName() == null) {
-          stmt.bindNull(3);
+        if (entity.getName() == null) {
+          statement.bindNull(3);
         } else {
-          stmt.bindString(3, value.getName());
+          statement.bindString(3, entity.getName());
         }
-        if (value.getRestaurant_id() == null) {
-          stmt.bindNull(4);
+        if (entity.getRestaurant_id() == null) {
+          statement.bindNull(4);
         } else {
-          stmt.bindString(4, value.getRestaurant_id());
+          statement.bindString(4, entity.getRestaurant_id());
         }
       }
     };
     this.__deletionAdapterOfDish = new EntityDeletionOrUpdateAdapter<Dish>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "DELETE FROM `Restaurant` WHERE `id` = ?";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, Dish value) {
-        if (value.getId() == null) {
-          stmt.bindNull(1);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final Dish entity) {
+        if (entity.getId() == null) {
+          statement.bindNull(1);
         } else {
-          stmt.bindString(1, value.getId());
+          statement.bindString(1, entity.getId());
         }
       }
     };
     this.__deletionAdapterOfMenu = new EntityDeletionOrUpdateAdapter<Menu>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "DELETE FROM `Menu` WHERE `id` = ?";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, Menu value) {
-        if (value.getId() == null) {
-          stmt.bindNull(1);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final Menu entity) {
+        if (entity.getId() == null) {
+          statement.bindNull(1);
         } else {
-          stmt.bindString(1, value.getId());
+          statement.bindString(1, entity.getId());
         }
       }
     };
     this.__deletionAdapterOfQNAData = new EntityDeletionOrUpdateAdapter<QNAData>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "DELETE FROM `QNA_TABLE` WHERE `sno` = ?";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, QNAData value) {
-        stmt.bindLong(1, value.getSno());
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final QNAData entity) {
+        statement.bindLong(1, entity.getSno());
       }
     };
     this.__preparedStmtOfDeleteAllMenu = new SharedSQLiteStatement(__db) {
       @Override
+      @NonNull
       public String createQuery() {
         final String _query = "delete from menu where restaurant_id =?";
         return _query;
@@ -166,44 +179,48 @@ public final class LocalDAO_Impl implements LocalDAO {
     };
     this.__upsertionAdapterOfQNAData = new EntityUpsertionAdapter<QNAData>(new EntityInsertionAdapter<QNAData>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "INSERT INTO `QNA_TABLE` (`sno`,`question`,`answer`) VALUES (?,?,?)";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, QNAData value) {
-        stmt.bindLong(1, value.getSno());
-        if (value.getQuestion() == null) {
-          stmt.bindNull(2);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final QNAData entity) {
+        statement.bindLong(1, entity.getSno());
+        if (entity.getQuestion() == null) {
+          statement.bindNull(2);
         } else {
-          stmt.bindString(2, value.getQuestion());
+          statement.bindString(2, entity.getQuestion());
         }
-        if (value.getAnswer() == null) {
-          stmt.bindNull(3);
+        if (entity.getAnswer() == null) {
+          statement.bindNull(3);
         } else {
-          stmt.bindString(3, value.getAnswer());
+          statement.bindString(3, entity.getAnswer());
         }
       }
     }, new EntityDeletionOrUpdateAdapter<QNAData>(__db) {
       @Override
-      public String createQuery() {
+      @NonNull
+      protected String createQuery() {
         return "UPDATE `QNA_TABLE` SET `sno` = ?,`question` = ?,`answer` = ? WHERE `sno` = ?";
       }
 
       @Override
-      public void bind(SupportSQLiteStatement stmt, QNAData value) {
-        stmt.bindLong(1, value.getSno());
-        if (value.getQuestion() == null) {
-          stmt.bindNull(2);
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @Nullable final QNAData entity) {
+        statement.bindLong(1, entity.getSno());
+        if (entity.getQuestion() == null) {
+          statement.bindNull(2);
         } else {
-          stmt.bindString(2, value.getQuestion());
+          statement.bindString(2, entity.getQuestion());
         }
-        if (value.getAnswer() == null) {
-          stmt.bindNull(3);
+        if (entity.getAnswer() == null) {
+          statement.bindNull(3);
         } else {
-          stmt.bindString(3, value.getAnswer());
+          statement.bindString(3, entity.getAnswer());
         }
-        stmt.bindLong(4, value.getSno());
+        statement.bindLong(4, entity.getSno());
       }
     });
   }
@@ -212,6 +229,7 @@ public final class LocalDAO_Impl implements LocalDAO {
   public Object insertRestaurant(final Dish dish, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
+      @NonNull
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
@@ -229,6 +247,7 @@ public final class LocalDAO_Impl implements LocalDAO {
   public Object insertMenu(final Menu menu, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
+      @NonNull
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
@@ -246,6 +265,7 @@ public final class LocalDAO_Impl implements LocalDAO {
   public Object deleteRestaurant(final Dish dish, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
+      @NonNull
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
@@ -263,6 +283,7 @@ public final class LocalDAO_Impl implements LocalDAO {
   public Object deleteMenu(final Menu menu, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
+      @NonNull
       public Unit call() throws Exception {
         __db.beginTransaction();
         try {
@@ -293,6 +314,7 @@ public final class LocalDAO_Impl implements LocalDAO {
       final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
+      @NonNull
       public Unit call() throws Exception {
         final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllMenu.acquire();
         int _argIndex = 1;
@@ -301,13 +323,16 @@ public final class LocalDAO_Impl implements LocalDAO {
         } else {
           _stmt.bindString(_argIndex, restaurantId);
         }
-        __db.beginTransaction();
         try {
-          _stmt.executeUpdateDelete();
-          __db.setTransactionSuccessful();
-          return Unit.INSTANCE;
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
         } finally {
-          __db.endTransaction();
           __preparedStmtOfDeleteAllMenu.release(_stmt);
         }
       }
@@ -330,8 +355,9 @@ public final class LocalDAO_Impl implements LocalDAO {
   public Flow<List<Dish>> getRestaurantList() {
     final String _sql = "Select * from Restaurant";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    return CoroutinesRoom.createFlow(__db, false, new String[]{"Restaurant"}, new Callable<List<Dish>>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"Restaurant"}, new Callable<List<Dish>>() {
       @Override
+      @NonNull
       public List<Dish> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
@@ -341,7 +367,7 @@ public final class LocalDAO_Impl implements LocalDAO {
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
           final List<Dish> _result = new ArrayList<Dish>(_cursor.getCount());
-          while(_cursor.moveToNext()) {
+          while (_cursor.moveToNext()) {
             final Dish _item;
             final String _tmpCost_for_one;
             if (_cursor.isNull(_cursorIndexOfCostForOne)) {
@@ -399,13 +425,14 @@ public final class LocalDAO_Impl implements LocalDAO {
     } else {
       _statement.bindString(_argIndex, id);
     }
-    return CoroutinesRoom.createFlow(__db, false, new String[]{"Restaurant"}, new Callable<Integer>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"Restaurant"}, new Callable<Integer>() {
       @Override
+      @NonNull
       public Integer call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final Integer _result;
-          if(_cursor.moveToFirst()) {
+          if (_cursor.moveToFirst()) {
             final Integer _tmp;
             if (_cursor.isNull(0)) {
               _tmp = null;
@@ -439,13 +466,14 @@ public final class LocalDAO_Impl implements LocalDAO {
     } else {
       _statement.bindString(_argIndex, id);
     }
-    return CoroutinesRoom.createFlow(__db, false, new String[]{"menu"}, new Callable<Integer>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"menu"}, new Callable<Integer>() {
       @Override
+      @NonNull
       public Integer call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final Integer _result;
-          if(_cursor.moveToFirst()) {
+          if (_cursor.moveToFirst()) {
             final Integer _tmp;
             if (_cursor.isNull(0)) {
               _tmp = null;
@@ -473,8 +501,9 @@ public final class LocalDAO_Impl implements LocalDAO {
   public Flow<List<Menu>> getMenuList() {
     final String _sql = "Select * from menu";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    return CoroutinesRoom.createFlow(__db, false, new String[]{"menu"}, new Callable<List<Menu>>() {
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"menu"}, new Callable<List<Menu>>() {
       @Override
+      @NonNull
       public List<Menu> call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
@@ -483,7 +512,7 @@ public final class LocalDAO_Impl implements LocalDAO {
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfRestaurantId = CursorUtil.getColumnIndexOrThrow(_cursor, "restaurant_id");
           final List<Menu> _result = new ArrayList<Menu>(_cursor.getCount());
-          while(_cursor.moveToNext()) {
+          while (_cursor.moveToNext()) {
             final Menu _item;
             final String _tmpCost_for_one;
             if (_cursor.isNull(_cursorIndexOfCostForOne)) {
@@ -536,7 +565,7 @@ public final class LocalDAO_Impl implements LocalDAO {
       final int _cursorIndexOfQuestion = CursorUtil.getColumnIndexOrThrow(_cursor, "question");
       final int _cursorIndexOfAnswer = CursorUtil.getColumnIndexOrThrow(_cursor, "answer");
       final List<QNAData> _result = new ArrayList<QNAData>(_cursor.getCount());
-      while(_cursor.moveToNext()) {
+      while (_cursor.moveToNext()) {
         final QNAData _item;
         final int _tmpSno;
         _tmpSno = _cursor.getInt(_cursorIndexOfSno);
@@ -562,6 +591,7 @@ public final class LocalDAO_Impl implements LocalDAO {
     }
   }
 
+  @NonNull
   public static List<Class<?>> getRequiredConverters() {
     return Collections.emptyList();
   }

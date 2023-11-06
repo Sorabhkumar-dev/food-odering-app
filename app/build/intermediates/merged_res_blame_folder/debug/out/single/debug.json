@@ -1,290 +1,78 @@
 [
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_food_item_card_view.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/food_item_card_view.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_loader_view_background.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/loader_view_background.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_q_n_a_card_view.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/q_n_a_card_view.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_otp_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/otp_fragment.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_favorite_empty.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_favorite_empty.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/navigation_nav_graph.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/navigation/nav_graph.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_fragment_q_n_a.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/fragment_q_n_a.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/drawable_icon_grab_food.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/drawable/icon_grab_food.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_searchbar_background.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/searchbar_background.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/anim_exit_to_right.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/anim/exit_to_right.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-mdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_grab_food.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_grab_food.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_phone_number.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_phone_number.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_cart_adapter_layout.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/cart_adapter_layout.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_header_layout.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/header_layout.xml"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/drawable_ic_grab_food.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/drawable/ic_grab_food.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-hdpi/ic_launcher_foreground.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_restaurants_home_cardview.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/restaurants_home_cardview.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/anim_enter_from_right.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/anim/enter_from_right.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_favorite_restaurants_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/favorite_restaurants_fragment.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_favorite.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_favorite.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_check_mark.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_check_mark.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_location.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_location.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/menu_drawer_menu.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/menu/drawer_menu.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xhdpi/ic_launcher_foreground.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_oder_histotoy_cardview.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/oder_histotoy_cardview.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_splash_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/splash_fragment.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/anim_exit_to_left.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/anim/exit_to_left.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_text_background.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/text_background.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_favorite_adapter.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_favorite_adapter.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_history.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_history.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_login_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/login_fragment.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_shopping_cart.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_shopping_cart.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_profile_image_background.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/profile_image_background.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_profile.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_profile.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_home.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_home.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_fragment_oder_history.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/fragment_oder_history.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/anim_enter_from_left.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/anim/enter_from_left.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_root_activity.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/root_activity.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_restaurant_menu_cardview.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/restaurant_menu_cardview.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_back.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_back.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_question_answer.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_question_answer.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_email.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_email.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_user.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_user.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_unsuccess.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_unsuccess.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_sign_up_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/sign_up_fragment.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_error.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_error.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_refresh.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_refresh.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-mdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_forgot_password_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/forgot_password_fragment.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_rating.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_rating.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-mdpi/ic_launcher_foreground.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_fragment_home.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/fragment_home.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_fragment_restaurant_menu.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/fragment_restaurant_menu.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xxxhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_sort.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_sort.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_main_fragment.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/main_fragment.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_fragment_my_profile.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/fragment_my_profile.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_loader_layout.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/loader_layout.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-xxhdpi/ic_launcher_foreground.png"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/mipmap-anydpi-v26/ic_launcher.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/layout_error_layout.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/layout/error_layout.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_password.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_password.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_ic_logout.xml.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/ic_logout.xml"
-    },
-    {
-        "merged": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-merged_res-87:/drawable_icon_grab_food.png.flat",
-        "source": "/home/sorabh/.gradle/daemon/8.0/com.sorabh.grabfood.app-main-89:/drawable/icon_grab_food.png"
+        "merged": "com.sorabh.grabfood.app-merged_res-65:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.sorabh.grabfood.app-main-67:/mipmap-anydpi-v26/ic_launcher.xml"
     }
 ]
