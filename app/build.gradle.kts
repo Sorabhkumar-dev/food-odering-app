@@ -50,38 +50,9 @@ kapt {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
-
-
-    val  roomVersion = "2.6.0"
-
-    implementation("androidx.room:room-runtime:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.google.code.gson:gson:2.10")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
-    val hiltVersion = "2.44"
-
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-
-    //okhttp client
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:5.0.0-alpha.2"))
-
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
-
-    val datastoreVersion = "1.0.0"
-    //preference datastore
-    implementation("androidx.datastore:datastore-preferences:$datastoreVersion")
-    implementation("androidx.datastore:datastore-core:$datastoreVersion")
-
-    val  composeBom = platform("androidx.compose:compose-bom:2023.08.00")
+    //compose
+    implementation(libs.core.ktx)
+    val  composeBom = platform(libs.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
     implementation("androidx.compose.material3:material3")
@@ -89,19 +60,43 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.material3:material3-window-size-class")
-
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    //activity
+    implementation(libs.activity.ktx)
+    implementation(libs.activity.compose)
 
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-    implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+    implementation(libs.coil.compose)
+    implementation(libs.constraintlayout.compose)
 
-    implementation("androidx.activity:activity-ktx:1.8.0")
-    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation(libs.navigation.compose)
+    implementation(libs.lifecycle.runtime.compose)
 
-    implementation("androidx.navigation:navigation-compose:2.7.5")
+    //room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
+
+    //retrofit
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
+
+
+    //hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    //okhttp client
+    implementation(platform(libs.okhttp.bom))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+    //preference datastore
+    implementation(libs.datastore.preferences)
+    implementation(libs.datastore.core)
 
 }
 
