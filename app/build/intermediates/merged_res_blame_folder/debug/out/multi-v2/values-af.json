@@ -4,7 +4,7 @@
             "outputFile": "com.sorabh.grabfood.app-mergeDebugResources-63:/values-af/values-af.xml",
             "map": [
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/a21d17ac83f552a9777cc71399aed73f/transformed/jetified-material3-1.1.1/res/values-af/values-af.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/ab56d3c859b6821c7e39f7e6db4d852f/transformed/jetified-material3-1.1.1/res/values-af/values-af.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/4df1afa321f5fbe87008532c5b7bc9e8/transformed/jetified-ui-release/res/values-af/values-af.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/4e28f21bb8ef94ad92253186d6567c6e/transformed/jetified-ui-release/res/values-af/values-af.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/sorabh/.gradle/caches/transforms-3/b39b732a0872f4890008d153f910312c/transformed/core-1.12.0/res/values-af/values-af.xml",
+                    "source": "/home/sorabh/.gradle/caches/transforms-3/f7bf8c54f854b015cc6b3a52049ba4b5/transformed/core-1.12.0/res/values-af/values-af.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
