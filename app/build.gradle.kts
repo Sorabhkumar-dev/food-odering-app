@@ -66,6 +66,7 @@ dependencies {
     //activity
     implementation(libs.activity.ktx)
     implementation(libs.activity.compose)
+    implementation(libs.window)
 
     implementation(libs.coil.compose)
     implementation(libs.constraintlayout.compose)

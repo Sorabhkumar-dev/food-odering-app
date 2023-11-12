@@ -18,6 +18,7 @@ dependencyResolutionManagement {
             library("compose-bom","androidx.compose:compose-bom:2023.08.00")
             library("activity-ktx","androidx.activity:activity-ktx:1.8.0")
             library("activity-compose","androidx.activity:activity-compose:1.8.0")
+            library("window","androidx.window:window:1.1.0")
 
             //room
             library("room-runtime","androidx.room:room-runtime:2.6.0")

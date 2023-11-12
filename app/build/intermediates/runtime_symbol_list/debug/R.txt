@@ -10,54 +10,61 @@ int attr activityAction 0x7f030001
 int attr activityName 0x7f030002
 int attr alpha 0x7f030003
 int attr alwaysExpand 0x7f030004
-int attr argType 0x7f030005
-int attr clearTop 0x7f030006
-int attr data 0x7f030007
-int attr dataPattern 0x7f030008
-int attr destination 0x7f030009
-int attr enterAnim 0x7f03000a
-int attr exitAnim 0x7f03000b
-int attr finishPrimaryWithSecondary 0x7f03000c
-int attr finishSecondaryWithPrimary 0x7f03000d
-int attr font 0x7f03000e
-int attr fontProviderAuthority 0x7f03000f
-int attr fontProviderCerts 0x7f030010
-int attr fontProviderFetchStrategy 0x7f030011
-int attr fontProviderFetchTimeout 0x7f030012
-int attr fontProviderPackage 0x7f030013
-int attr fontProviderQuery 0x7f030014
-int attr fontProviderSystemFontFamily 0x7f030015
-int attr fontStyle 0x7f030016
-int attr fontVariationSettings 0x7f030017
-int attr fontWeight 0x7f030018
-int attr graph 0x7f030019
-int attr lStar 0x7f03001a
-int attr launchSingleTop 0x7f03001b
-int attr mimeType 0x7f03001c
-int attr navGraph 0x7f03001d
-int attr nestedScrollViewStyle 0x7f03001e
-int attr nullable 0x7f03001f
-int attr placeholderActivityName 0x7f030020
-int attr popEnterAnim 0x7f030021
-int attr popExitAnim 0x7f030022
-int attr popUpTo 0x7f030023
-int attr popUpToInclusive 0x7f030024
-int attr popUpToSaveState 0x7f030025
-int attr primaryActivityName 0x7f030026
-int attr queryPatterns 0x7f030027
-int attr restoreState 0x7f030028
-int attr route 0x7f030029
-int attr secondaryActivityAction 0x7f03002a
-int attr secondaryActivityName 0x7f03002b
-int attr shortcutMatchRequired 0x7f03002c
-int attr splitLayoutDirection 0x7f03002d
-int attr splitMinSmallestWidth 0x7f03002e
-int attr splitMinWidth 0x7f03002f
-int attr splitRatio 0x7f030030
-int attr startDestination 0x7f030031
-int attr targetPackage 0x7f030032
-int attr ttcIndex 0x7f030033
-int attr uri 0x7f030034
+int attr animationBackgroundColor 0x7f030005
+int attr argType 0x7f030006
+int attr clearTop 0x7f030007
+int attr data 0x7f030008
+int attr dataPattern 0x7f030009
+int attr destination 0x7f03000a
+int attr enterAnim 0x7f03000b
+int attr exitAnim 0x7f03000c
+int attr finishPrimaryWithPlaceholder 0x7f03000d
+int attr finishPrimaryWithSecondary 0x7f03000e
+int attr finishSecondaryWithPrimary 0x7f03000f
+int attr font 0x7f030010
+int attr fontProviderAuthority 0x7f030011
+int attr fontProviderCerts 0x7f030012
+int attr fontProviderFetchStrategy 0x7f030013
+int attr fontProviderFetchTimeout 0x7f030014
+int attr fontProviderPackage 0x7f030015
+int attr fontProviderQuery 0x7f030016
+int attr fontProviderSystemFontFamily 0x7f030017
+int attr fontStyle 0x7f030018
+int attr fontVariationSettings 0x7f030019
+int attr fontWeight 0x7f03001a
+int attr graph 0x7f03001b
+int attr lStar 0x7f03001c
+int attr launchSingleTop 0x7f03001d
+int attr mimeType 0x7f03001e
+int attr navGraph 0x7f03001f
+int attr nestedScrollViewStyle 0x7f030020
+int attr nullable 0x7f030021
+int attr placeholderActivityName 0x7f030022
+int attr popEnterAnim 0x7f030023
+int attr popExitAnim 0x7f030024
+int attr popUpTo 0x7f030025
+int attr popUpToInclusive 0x7f030026
+int attr popUpToSaveState 0x7f030027
+int attr primaryActivityName 0x7f030028
+int attr queryPatterns 0x7f030029
+int attr restoreState 0x7f03002a
+int attr route 0x7f03002b
+int attr secondaryActivityAction 0x7f03002c
+int attr secondaryActivityName 0x7f03002d
+int attr shortcutMatchRequired 0x7f03002e
+int attr splitLayoutDirection 0x7f03002f
+int attr splitMaxAspectRatioInLandscape 0x7f030030
+int attr splitMaxAspectRatioInPortrait 0x7f030031
+int attr splitMinHeightDp 0x7f030032
+int attr splitMinSmallestWidthDp 0x7f030033
+int attr splitMinWidthDp 0x7f030034
+int attr splitRatio 0x7f030035
+int attr startDestination 0x7f030036
+int attr stickyPlaceholder 0x7f030037
+int attr tag 0x7f030038
+int attr targetPackage 0x7f030039
+int attr ttcIndex 0x7f03003a
+int attr uri 0x7f03003b
 int color androidx_core_ripple_material_light 0x7f040000
 int color androidx_core_secondary_text_default_material_light 0x7f040001
 int color call_notification_answer_color 0x7f040002
@@ -149,64 +156,71 @@ int id action_divider 0x7f070022
 int id action_image 0x7f070023
 int id action_text 0x7f070024
 int id actions 0x7f070025
-int id androidx_compose_ui_view_composition_context 0x7f070026
-int id androidx_window_activity_scope 0x7f070027
-int id async 0x7f070028
-int id blocking 0x7f070029
-int id chronometer 0x7f07002a
-int id coil_request_manager 0x7f07002b
-int id compose_view_saveable_id_tag 0x7f07002c
-int id consume_window_insets_tag 0x7f07002d
-int id dialog_button 0x7f07002e
-int id edit_text_id 0x7f07002f
-int id forever 0x7f070030
-int id fragment_container_view_tag 0x7f070031
-int id hide_ime_id 0x7f070032
-int id hide_in_inspector_tag 0x7f070033
-int id icon 0x7f070034
-int id icon_group 0x7f070035
-int id info 0x7f070036
-int id inspection_slot_table_set 0x7f070037
-int id is_pooling_container_tag 0x7f070038
-int id italic 0x7f070039
-int id line1 0x7f07003a
-int id line3 0x7f07003b
-int id locale 0x7f07003c
-int id ltr 0x7f07003d
-int id nav_controller_view_tag 0x7f07003e
-int id normal 0x7f07003f
-int id notification_background 0x7f070040
-int id notification_main_column 0x7f070041
-int id notification_main_column_container 0x7f070042
-int id pooling_container_listener_holder_tag 0x7f070043
-int id report_drawn 0x7f070044
-int id right_icon 0x7f070045
-int id right_side 0x7f070046
-int id rtl 0x7f070047
-int id special_effects_controller_view_tag 0x7f070048
-int id tag_accessibility_actions 0x7f070049
-int id tag_accessibility_clickable_spans 0x7f07004a
-int id tag_accessibility_heading 0x7f07004b
-int id tag_accessibility_pane_title 0x7f07004c
-int id tag_on_apply_window_listener 0x7f07004d
-int id tag_on_receive_content_listener 0x7f07004e
-int id tag_on_receive_content_mime_types 0x7f07004f
-int id tag_screen_reader_focusable 0x7f070050
-int id tag_state_description 0x7f070051
-int id tag_transition_group 0x7f070052
-int id tag_unhandled_key_event_manager 0x7f070053
-int id tag_unhandled_key_listeners 0x7f070054
-int id tag_window_insets_animation_callback 0x7f070055
-int id text 0x7f070056
-int id text2 0x7f070057
-int id time 0x7f070058
-int id title 0x7f070059
-int id view_tree_lifecycle_owner 0x7f07005a
-int id view_tree_on_back_pressed_dispatcher_owner 0x7f07005b
-int id view_tree_saved_state_registry_owner 0x7f07005c
-int id view_tree_view_model_store_owner 0x7f07005d
-int id visible_removing_fragment_view_tag 0x7f07005e
-int id wrapped_composition_tag 0x7f07005f
+int id adjacent 0x7f070026
+int id always 0x7f070027
+int id alwaysAllow 0x7f070028
+int id alwaysDisallow 0x7f070029
+int id androidx_compose_ui_view_composition_context 0x7f07002a
+int id androidx_window_activity_scope 0x7f07002b
+int id async 0x7f07002c
+int id blocking 0x7f07002d
+int id bottomToTop 0x7f07002e
+int id chronometer 0x7f07002f
+int id coil_request_manager 0x7f070030
+int id compose_view_saveable_id_tag 0x7f070031
+int id consume_window_insets_tag 0x7f070032
+int id dialog_button 0x7f070033
+int id edit_text_id 0x7f070034
+int id forever 0x7f070035
+int id fragment_container_view_tag 0x7f070036
+int id hide_ime_id 0x7f070037
+int id hide_in_inspector_tag 0x7f070038
+int id icon 0x7f070039
+int id icon_group 0x7f07003a
+int id info 0x7f07003b
+int id inspection_slot_table_set 0x7f07003c
+int id is_pooling_container_tag 0x7f07003d
+int id italic 0x7f07003e
+int id line1 0x7f07003f
+int id line3 0x7f070040
+int id locale 0x7f070041
+int id ltr 0x7f070042
+int id nav_controller_view_tag 0x7f070043
+int id never 0x7f070044
+int id normal 0x7f070045
+int id notification_background 0x7f070046
+int id notification_main_column 0x7f070047
+int id notification_main_column_container 0x7f070048
+int id pooling_container_listener_holder_tag 0x7f070049
+int id report_drawn 0x7f07004a
+int id right_icon 0x7f07004b
+int id right_side 0x7f07004c
+int id rtl 0x7f07004d
+int id special_effects_controller_view_tag 0x7f07004e
+int id tag_accessibility_actions 0x7f07004f
+int id tag_accessibility_clickable_spans 0x7f070050
+int id tag_accessibility_heading 0x7f070051
+int id tag_accessibility_pane_title 0x7f070052
+int id tag_on_apply_window_listener 0x7f070053
+int id tag_on_receive_content_listener 0x7f070054
+int id tag_on_receive_content_mime_types 0x7f070055
+int id tag_screen_reader_focusable 0x7f070056
+int id tag_state_description 0x7f070057
+int id tag_transition_group 0x7f070058
+int id tag_unhandled_key_event_manager 0x7f070059
+int id tag_unhandled_key_listeners 0x7f07005a
+int id tag_window_insets_animation_callback 0x7f07005b
+int id text 0x7f07005c
+int id text2 0x7f07005d
+int id time 0x7f07005e
+int id title 0x7f07005f
+int id topToBottom 0x7f070060
+int id view_tree_lifecycle_owner 0x7f070061
+int id view_tree_on_back_pressed_dispatcher_owner 0x7f070062
+int id view_tree_saved_state_registry_owner 0x7f070063
+int id view_tree_view_model_store_owner 0x7f070064
+int id visible_removing_fragment_view_tag 0x7f070065
+int id wrapped_composition_tag 0x7f070066
 int integer status_bar_notification_info_maxnum 0x7f080000
 int layout custom_dialog 0x7f090000
 int layout ime_base_split_test_activity 0x7f090001
@@ -378,14 +392,15 @@ int style Widget_Compat_NotificationActionText 0x7f0c0009
 int[] styleable ActivityFilter { 0x7f030001, 0x7f030002 }
 int styleable ActivityFilter_activityAction 0
 int styleable ActivityFilter_activityName 1
-int[] styleable ActivityNavigator { 0x01010003, 0x7f030000, 0x7f030007, 0x7f030008, 0x7f030032 }
+int[] styleable ActivityNavigator { 0x01010003, 0x7f030000, 0x7f030008, 0x7f030009, 0x7f030039 }
 int styleable ActivityNavigator_android_name 0
 int styleable ActivityNavigator_action 1
 int styleable ActivityNavigator_data 2
 int styleable ActivityNavigator_dataPattern 3
 int styleable ActivityNavigator_targetPackage 4
-int[] styleable ActivityRule { 0x7f030004 }
+int[] styleable ActivityRule { 0x7f030004, 0x7f030038 }
 int styleable ActivityRule_alwaysExpand 0
+int styleable ActivityRule_tag 1
 int[] styleable AnimatedStateListDrawableCompat { 0x0101011c, 0x01010194, 0x01010195, 0x01010196, 0x0101030c, 0x0101030d }
 int styleable AnimatedStateListDrawableCompat_android_dither 0
 int styleable AnimatedStateListDrawableCompat_android_visible 1
@@ -401,16 +416,16 @@ int styleable AnimatedStateListDrawableTransition_android_drawable 0
 int styleable AnimatedStateListDrawableTransition_android_toId 1
 int styleable AnimatedStateListDrawableTransition_android_fromId 2
 int styleable AnimatedStateListDrawableTransition_android_reversible 3
-int[] styleable Capability { 0x7f030027, 0x7f03002c }
+int[] styleable Capability { 0x7f030029, 0x7f03002e }
 int styleable Capability_queryPatterns 0
 int styleable Capability_shortcutMatchRequired 1
-int[] styleable ColorStateListItem { 0x010101a5, 0x0101031f, 0x01010647, 0x7f030003, 0x7f03001a }
+int[] styleable ColorStateListItem { 0x010101a5, 0x0101031f, 0x01010647, 0x7f030003, 0x7f03001c }
 int styleable ColorStateListItem_android_color 0
 int styleable ColorStateListItem_android_alpha 1
 int styleable ColorStateListItem_android_lStar 2
 int styleable ColorStateListItem_alpha 3
 int styleable ColorStateListItem_lStar 4
-int[] styleable FontFamily { 0x7f03000f, 0x7f030010, 0x7f030011, 0x7f030012, 0x7f030013, 0x7f030014, 0x7f030015 }
+int[] styleable FontFamily { 0x7f030011, 0x7f030012, 0x7f030013, 0x7f030014, 0x7f030015, 0x7f030016, 0x7f030017 }
 int styleable FontFamily_fontProviderAuthority 0
 int styleable FontFamily_fontProviderCerts 1
 int styleable FontFamily_fontProviderFetchStrategy 2
@@ -418,7 +433,7 @@ int styleable FontFamily_fontProviderFetchTimeout 3
 int styleable FontFamily_fontProviderPackage 4
 int styleable FontFamily_fontProviderQuery 5
 int styleable FontFamily_fontProviderSystemFontFamily 6
-int[] styleable FontFamilyFont { 0x01010532, 0x01010533, 0x0101053f, 0x0101056f, 0x01010570, 0x7f03000e, 0x7f030016, 0x7f030017, 0x7f030018, 0x7f030033 }
+int[] styleable FontFamilyFont { 0x01010532, 0x01010533, 0x0101053f, 0x0101056f, 0x01010570, 0x7f030010, 0x7f030018, 0x7f030019, 0x7f03001a, 0x7f03003a }
 int styleable FontFamilyFont_android_font 0
 int styleable FontFamilyFont_android_fontWeight 1
 int styleable FontFamilyFont_android_fontStyle 2
@@ -452,7 +467,7 @@ int styleable GradientColor_android_endY 11
 int[] styleable GradientColorItem { 0x010101a5, 0x01010514 }
 int styleable GradientColorItem_android_color 0
 int styleable GradientColorItem_android_offset 1
-int[] styleable NavAction { 0x010100d0, 0x7f030009, 0x7f03000a, 0x7f03000b, 0x7f03001b, 0x7f030021, 0x7f030022, 0x7f030023, 0x7f030024, 0x7f030025, 0x7f030028 }
+int[] styleable NavAction { 0x010100d0, 0x7f03000a, 0x7f03000b, 0x7f03000c, 0x7f03001d, 0x7f030023, 0x7f030024, 0x7f030025, 0x7f030026, 0x7f030027, 0x7f03002a }
 int styleable NavAction_android_id 0
 int styleable NavAction_destination 1
 int styleable NavAction_enterAnim 2
@@ -464,44 +479,56 @@ int styleable NavAction_popUpTo 7
 int styleable NavAction_popUpToInclusive 8
 int styleable NavAction_popUpToSaveState 9
 int styleable NavAction_restoreState 10
-int[] styleable NavArgument { 0x01010003, 0x010101ed, 0x7f030005, 0x7f03001f }
+int[] styleable NavArgument { 0x01010003, 0x010101ed, 0x7f030006, 0x7f030021 }
 int styleable NavArgument_android_name 0
 int styleable NavArgument_android_defaultValue 1
 int styleable NavArgument_argType 2
 int styleable NavArgument_nullable 3
-int[] styleable NavDeepLink { 0x010104ee, 0x7f030000, 0x7f03001c, 0x7f030034 }
+int[] styleable NavDeepLink { 0x010104ee, 0x7f030000, 0x7f03001e, 0x7f03003b }
 int styleable NavDeepLink_android_autoVerify 0
 int styleable NavDeepLink_action 1
 int styleable NavDeepLink_mimeType 2
 int styleable NavDeepLink_uri 3
-int[] styleable NavGraphNavigator { 0x7f030031 }
+int[] styleable NavGraphNavigator { 0x7f030036 }
 int styleable NavGraphNavigator_startDestination 0
-int[] styleable NavHost { 0x7f03001d }
+int[] styleable NavHost { 0x7f03001f }
 int styleable NavHost_navGraph 0
-int[] styleable NavInclude { 0x7f030019 }
+int[] styleable NavInclude { 0x7f03001b }
 int styleable NavInclude_graph 0
-int[] styleable Navigator { 0x01010001, 0x010100d0, 0x7f030029 }
+int[] styleable Navigator { 0x01010001, 0x010100d0, 0x7f03002b }
 int styleable Navigator_android_label 0
 int styleable Navigator_android_id 1
 int styleable Navigator_route 2
-int[] styleable SplitPairFilter { 0x7f030026, 0x7f03002a, 0x7f03002b }
+int[] styleable SplitPairFilter { 0x7f030028, 0x7f03002c, 0x7f03002d }
 int styleable SplitPairFilter_primaryActivityName 0
 int styleable SplitPairFilter_secondaryActivityAction 1
 int styleable SplitPairFilter_secondaryActivityName 2
-int[] styleable SplitPairRule { 0x7f030006, 0x7f03000c, 0x7f03000d, 0x7f03002d, 0x7f03002e, 0x7f03002f, 0x7f030030 }
-int styleable SplitPairRule_clearTop 0
-int styleable SplitPairRule_finishPrimaryWithSecondary 1
-int styleable SplitPairRule_finishSecondaryWithPrimary 2
-int styleable SplitPairRule_splitLayoutDirection 3
-int styleable SplitPairRule_splitMinSmallestWidth 4
-int styleable SplitPairRule_splitMinWidth 5
-int styleable SplitPairRule_splitRatio 6
-int[] styleable SplitPlaceholderRule { 0x7f030020, 0x7f03002d, 0x7f03002e, 0x7f03002f, 0x7f030030 }
-int styleable SplitPlaceholderRule_placeholderActivityName 0
-int styleable SplitPlaceholderRule_splitLayoutDirection 1
-int styleable SplitPlaceholderRule_splitMinSmallestWidth 2
-int styleable SplitPlaceholderRule_splitMinWidth 3
-int styleable SplitPlaceholderRule_splitRatio 4
+int[] styleable SplitPairRule { 0x7f030005, 0x7f030007, 0x7f03000e, 0x7f03000f, 0x7f03002f, 0x7f030030, 0x7f030031, 0x7f030032, 0x7f030033, 0x7f030034, 0x7f030035, 0x7f030038 }
+int styleable SplitPairRule_animationBackgroundColor 0
+int styleable SplitPairRule_clearTop 1
+int styleable SplitPairRule_finishPrimaryWithSecondary 2
+int styleable SplitPairRule_finishSecondaryWithPrimary 3
+int styleable SplitPairRule_splitLayoutDirection 4
+int styleable SplitPairRule_splitMaxAspectRatioInLandscape 5
+int styleable SplitPairRule_splitMaxAspectRatioInPortrait 6
+int styleable SplitPairRule_splitMinHeightDp 7
+int styleable SplitPairRule_splitMinSmallestWidthDp 8
+int styleable SplitPairRule_splitMinWidthDp 9
+int styleable SplitPairRule_splitRatio 10
+int styleable SplitPairRule_tag 11
+int[] styleable SplitPlaceholderRule { 0x7f030005, 0x7f03000d, 0x7f030022, 0x7f03002f, 0x7f030030, 0x7f030031, 0x7f030032, 0x7f030033, 0x7f030034, 0x7f030035, 0x7f030037, 0x7f030038 }
+int styleable SplitPlaceholderRule_animationBackgroundColor 0
+int styleable SplitPlaceholderRule_finishPrimaryWithPlaceholder 1
+int styleable SplitPlaceholderRule_placeholderActivityName 2
+int styleable SplitPlaceholderRule_splitLayoutDirection 3
+int styleable SplitPlaceholderRule_splitMaxAspectRatioInLandscape 4
+int styleable SplitPlaceholderRule_splitMaxAspectRatioInPortrait 5
+int styleable SplitPlaceholderRule_splitMinHeightDp 6
+int styleable SplitPlaceholderRule_splitMinSmallestWidthDp 7
+int styleable SplitPlaceholderRule_splitMinWidthDp 8
+int styleable SplitPlaceholderRule_splitRatio 9
+int styleable SplitPlaceholderRule_stickyPlaceholder 10
+int styleable SplitPlaceholderRule_tag 11
 int[] styleable StateListDrawable { 0x0101011c, 0x01010194, 0x01010195, 0x01010196, 0x0101030c, 0x0101030d }
 int styleable StateListDrawable_android_dither 0
 int styleable StateListDrawable_android_visible 1
