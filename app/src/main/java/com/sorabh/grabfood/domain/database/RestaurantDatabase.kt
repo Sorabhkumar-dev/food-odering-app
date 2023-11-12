@@ -8,7 +8,7 @@ import com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu
 import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish
 import com.sorabh.grabfood.util.QNAData
 
-@Database(entities = [Menu::class, QNAData::class, Dish::class], version = 2)
+@Database(entities = [Menu::class, QNAData::class, Dish::class], version = 2, exportSchema = false)
 abstract class RestaurantDatabase : RoomDatabase() {
    abstract fun getLocalDAO(): LocalDAO
    

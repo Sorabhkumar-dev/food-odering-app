@@ -9,7 +9,7 @@ import com.sorabh.grabfood.domain.model.reataurants_home_response.Dish;
 import com.sorabh.grabfood.util.QNAData;
 
 @kotlin.Metadata(mv = {1, 8, 0}, k = 1, xi = 48, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\'\u0018\u0000 \u00052\u00020\u0001:\u0001\u0005B\u0005\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0004H&\u00a8\u0006\u0006"}, d2 = {"Lcom/sorabh/grabfood/domain/database/RestaurantDatabase;", "Landroidx/room/RoomDatabase;", "()V", "getLocalDAO", "Lcom/sorabh/grabfood/domain/database/LocalDAO;", "Companion", "app_debug"})
-@androidx.room.Database(entities = {com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu.class, com.sorabh.grabfood.util.QNAData.class, com.sorabh.grabfood.domain.model.reataurants_home_response.Dish.class}, version = 2)
+@androidx.room.Database(entities = {com.sorabh.grabfood.domain.model.restaurant_menu_response.Menu.class, com.sorabh.grabfood.util.QNAData.class, com.sorabh.grabfood.domain.model.reataurants_home_response.Dish.class}, version = 2, exportSchema = false)
 public abstract class RestaurantDatabase extends androidx.room.RoomDatabase {
     @org.jetbrains.annotations.Nullable
     private static com.sorabh.grabfood.domain.database.RestaurantDatabase INSTANCE;

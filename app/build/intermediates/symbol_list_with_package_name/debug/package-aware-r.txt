@@ -11,6 +11,7 @@ attr activityAction
 attr activityName
 attr alpha
 attr alwaysExpand
+attr animationBackgroundColor
 attr argType
 attr clearTop
 attr data
@@ -18,6 +19,7 @@ attr dataPattern
 attr destination
 attr enterAnim
 attr exitAnim
+attr finishPrimaryWithPlaceholder
 attr finishPrimaryWithSecondary
 attr finishSecondaryWithPrimary
 attr font
@@ -52,10 +54,15 @@ attr secondaryActivityAction
 attr secondaryActivityName
 attr shortcutMatchRequired
 attr splitLayoutDirection
-attr splitMinSmallestWidth
-attr splitMinWidth
+attr splitMaxAspectRatioInLandscape
+attr splitMaxAspectRatioInPortrait
+attr splitMinHeightDp
+attr splitMinSmallestWidthDp
+attr splitMinWidthDp
 attr splitRatio
 attr startDestination
+attr stickyPlaceholder
+attr tag
 attr targetPackage
 attr ttcIndex
 attr uri
@@ -150,10 +157,15 @@ id action_divider
 id action_image
 id action_text
 id actions
+id adjacent
+id always
+id alwaysAllow
+id alwaysDisallow
 id androidx_compose_ui_view_composition_context
 id androidx_window_activity_scope
 id async
 id blocking
+id bottomToTop
 id chronometer
 id coil_request_manager
 id compose_view_saveable_id_tag
@@ -175,6 +187,7 @@ id line3
 id locale
 id ltr
 id nav_controller_view_tag
+id never
 id normal
 id notification_background
 id notification_main_column
@@ -202,6 +215,7 @@ id text
 id text2
 id time
 id title
+id topToBottom
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
@@ -378,7 +392,7 @@ style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 styleable ActivityFilter activityAction activityName
 styleable ActivityNavigator android_name action data dataPattern targetPackage
-styleable ActivityRule alwaysExpand
+styleable ActivityRule alwaysExpand tag
 styleable AnimatedStateListDrawableCompat android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable AnimatedStateListDrawableItem android_id android_drawable
 styleable AnimatedStateListDrawableTransition android_drawable android_toId android_fromId android_reversible
@@ -398,7 +412,7 @@ styleable NavHost navGraph
 styleable NavInclude graph
 styleable Navigator android_label android_id route
 styleable SplitPairFilter primaryActivityName secondaryActivityAction secondaryActivityName
-styleable SplitPairRule clearTop finishPrimaryWithSecondary finishSecondaryWithPrimary splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
-styleable SplitPlaceholderRule placeholderActivityName splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
+styleable SplitPairRule animationBackgroundColor clearTop finishPrimaryWithSecondary finishSecondaryWithPrimary splitLayoutDirection splitMaxAspectRatioInLandscape splitMaxAspectRatioInPortrait splitMinHeightDp splitMinSmallestWidthDp splitMinWidthDp splitRatio tag
+styleable SplitPlaceholderRule animationBackgroundColor finishPrimaryWithPlaceholder placeholderActivityName splitLayoutDirection splitMaxAspectRatioInLandscape splitMaxAspectRatioInPortrait splitMinHeightDp splitMinSmallestWidthDp splitMinWidthDp splitRatio stickyPlaceholder tag
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable

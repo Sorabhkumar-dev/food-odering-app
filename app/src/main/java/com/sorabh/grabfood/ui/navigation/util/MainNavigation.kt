@@ -15,49 +15,36 @@ import com.sorabh.grabfood.ui.screens.MyProfileScreen
 import com.sorabh.grabfood.ui.screens.OderHistoryScreen
 import com.sorabh.grabfood.ui.screens.QNAScreen
 import com.sorabh.grabfood.ui.screens.RestaurantMenuScreen
-import com.sorabh.grabfood.ui.viewmodel.CartViewModel
-import com.sorabh.grabfood.ui.viewmodel.FavoriteRestaurantsViewModel
-import com.sorabh.grabfood.ui.viewmodel.HomeViewModel
-import com.sorabh.grabfood.ui.viewmodel.MyProfileViewModel
-import com.sorabh.grabfood.ui.viewmodel.OderHistoryVieModel
-import com.sorabh.grabfood.ui.viewmodel.QNAViewModel
-import com.sorabh.grabfood.ui.viewmodel.RestaurantMenuViewModel
 
 @Composable
 fun MainNavigation(modifier: Modifier, navController: NavHostController) {
     NavHost(navController = navController, startDestination = ScreenNavigator.HomeScreen.name) {
         composable(ScreenNavigator.HomeScreen.name) {
-            val viewModel = hiltViewModel<HomeViewModel>()
-            HomeScreen(navController = navController, modifier = modifier, viewModel = viewModel)
+            HomeScreen(navController = navController, modifier = modifier, viewModel = hiltViewModel())
         }
 
         composable(ScreenNavigator.MyProfileScreen.name) {
-            val viewModel = hiltViewModel<MyProfileViewModel>()
-            MyProfileScreen(modifier = modifier, viewModel = viewModel)
+            MyProfileScreen(modifier = modifier, viewModel = hiltViewModel())
         }
 
         composable(ScreenNavigator.MyCartScreen.name) {
-            val viewModel = hiltViewModel<CartViewModel>()
-            CartScreen(modifier = modifier, viewModel = viewModel)
+            CartScreen(modifier = modifier, viewModel = hiltViewModel())
         }
 
         composable(ScreenNavigator.FavoriteRestaurantScreen.name) {
-            val viewModel = hiltViewModel<FavoriteRestaurantsViewModel>()
             FavoriteRestaurantsScreen(
                 modifier = modifier,
                 navController = navController,
-                viewModel = viewModel
+                viewModel = hiltViewModel()
             )
         }
 
         composable(ScreenNavigator.OderHistoryScreen.name) {
-            val viewModel = hiltViewModel<OderHistoryVieModel>()
-            OderHistoryScreen(modifier = modifier, viewModel = viewModel)
+            OderHistoryScreen(modifier = modifier, viewModel = hiltViewModel())
         }
 
         composable(ScreenNavigator.QNAScreen.name) {
-            val viewModel = hiltViewModel<QNAViewModel>()
-            QNAScreen(modifier = modifier, viewModel = viewModel)
+            QNAScreen(modifier = modifier, viewModel = hiltViewModel())
         }
 
         composable(ScreenNavigator.RestaurantMenuScreen.name.plus("/{restaurantId}/{restaurantName}"),
@@ -65,13 +52,12 @@ fun MainNavigation(modifier: Modifier, navController: NavHostController) {
                 navArgument("restaurantId") { type = NavType.StringType },
                 navArgument("restaurantName") { type = NavType.StringType }
             )) { navBackStackEntry ->
-            val viewModel = hiltViewModel<RestaurantMenuViewModel>()
             RestaurantMenuScreen(
                 modifier = modifier,
                 restaurantId = navBackStackEntry.arguments?.getString("restaurantId")!!,
                 restaurantName = navBackStackEntry.arguments?.getString("restaurantName")!!,
                 navController = navController,
-                viewModel = viewModel
+                viewModel = hiltViewModel()
             )
         }
 
