@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
     kotlin("android")
-    kotlin("kapt")
 }
 
 android {
@@ -35,16 +35,12 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.8"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     kotlin {
         jvmToolchain(17)
     }
     namespace = ("com.sorabh.grabfood")
-}
-
-kapt {
-    correctErrorTypes = true
 }
 
 
@@ -76,7 +72,7 @@ dependencies {
 
     //room
     implementation(libs.room.runtime)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
     //retrofit
@@ -87,7 +83,7 @@ dependencies {
 
     //hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
 
     //okhttp client
